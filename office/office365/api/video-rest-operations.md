@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Video REST API reference 
 title: "ビデオ REST API リファレンス" 
-description: "ms.TocTitle:ビデオ REST API リファレンスTitle:ビデオ REST API リファレンスDescription:SharePoint Online の Office 365 ビデオ サービスでのビデオとチャネルに関する探索、操作、情報取得のためのビデオ REST API の使用方法のリファレンス。ms.ContentId:4202e210-44be-4289-808d-3b7358181cc0ms.topic: reference (API) ms.date:2015 年 11 月 17 日"
+description: "SharePoint Online の Office 365 ビデオ サービスでのビデオとチャネルに関する探索、操作、情報取得のためのビデオ REST API の使用方法のリファレンス。"
 ms.ContentId: 4202e210-44be-4289-808d-3b7358181cc0
 ms.date: November 17, 2015
 ---
@@ -24,9 +24,9 @@ REST ビデオ API を使用すると、SharePoint Online で Office 365 ビデ�
 
 パス URL リソース名とクエリ パラメーターは、大文字と小文字が区別されません。ただし、割り当てた値、エンティティ ID、その他の base64 でエンコードされた値では大文字と小文字を区別します。
 
-The Office 365 APIs use Microsoft Azure Active Directory (Azure AD) and OAuth to [authenticate application requests](..\howto\common-app-authentication-tasks.md).
-To access the Video API from your application, you'll need to register it in Azure AD with [permissions at the appropriate scope](..\howto\common-app-authentication-tasks.md#sectionSection0).
-The Office 365 Video REST API supports OData 4.0 standards and lets apps interact with video data on Office 365 by using RESTful interfaces.
+Office 365 API は Microsoft Azure Active Directory (Azure AD) と OAuth を使用して、[アプリケーション要求を認証します](..\howto\common-app-authentication-tasks.md)。
+アプリケーションからビデオ API にアクセスする場合は、[適切な範囲のアクセス許可](..\howto\common-app-authentication-tasks.md#sectionSection0)で Azure AD に登録する必要があります。
+Office 365 ビデオ REST API は、OData 4.0 標準をサポートしており、アプリは RESTful インターフェイスを使用して Office 365 のビデオ データと対話することができます。
 
 アクセス許可の対象は、3 つのカスタム グループに分かれます。
 
@@ -46,7 +46,8 @@ The Office 365 Video REST API supports OData 4.0 standards and lets apps interac
 
 ****
 
-ビデオ ポータルに関する情報の取得
+<a name="GetPortalInformation"> </a>
+**ビデオ ポータルに関する情報の取得**
 
 O365 [探索サービス](..\api\discovery-service-rest-operations.md)を使用してルート SharePoint サイト コレクション URL (RootSite) を取得した後、その URL から VideoService.Discover を呼び出して、SharePoint Online のビデオ ポータルの URL を取得します。それを以降のすべての呼び出しで使用します。ビデオ ポータルがセットアップされていて有効かどうかを判別します。
 
@@ -86,7 +87,8 @@ GET {RootSite}/_api/VideoService.Discover
 <a name="GetChannelsInfo"> </a>
 ### ユーザーが表示またはアップロードできるチャネルに関する情報の取得
 
-ユーザーがビデオをアップロードできるチャネルのリストの取得
+<a name="GetUploadChannels"> </a>
+**ユーザーがビデオをアップロードできるチャネルのリストの取得**
 
 ユーザーがビデオをアップロードできるチャネルのリストを取得します。これらは、ユーザーが所有者またはエディターのアクセス許可を持っているチャネルです。
 
@@ -107,7 +109,8 @@ Channel オブジェクトのリストを返します。
 
 ****
 
-ユーザーが表示できるチャネルのリストの取得
+<a name="GetViewChannels"> </a>
+**ユーザーが表示できるチャネルのリストの取得**
 
 
 ユーザーが表示できる全チャネルのリストを取得します。これらは、ユーザーが所有者、エディター、またはビューアーのアクセス許可を持っているチャネルです。
@@ -129,14 +132,15 @@ Channel オブジェクトのリストを返します。
 <a name="GetChannelInfo"> </a>
 ### 特定のチャネルに関する情報の取得
 
-チャネル ID、チャネルの色、チャネルのタイトルの取得
+<a name="GetInfo"> </a>
+**チャネル ID、チャネルの色、チャネルのタイトルの取得**
 
 ```no-highlight
 GET {VideoPortalURL}/_api/VideoService/Channels('{channelId}')
 ```
 **要求 URL パラメーター**
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |channelId|string|チャネルの ID。|
 
@@ -152,7 +156,8 @@ GET {VideoPortalURL}/_api/VideoService/Channels('{channelId}')
 
 
 
-チャネルの全ビデオのリストの取得
+<a name="GetVideoList"> </a>
+**チャネルの全ビデオのリストの取得**
 
 指定されたチャネルのすべてのビデオのリストを取得します。
 
@@ -162,7 +167,7 @@ GET {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos
 
 **要求 URL パラメーター**
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |channelId|string|チャネルの ID。|
 
@@ -176,7 +181,8 @@ Video オブジェクトのリストを返します。
 
 ****
 
-チャネルで再生可能な最新のビデオのリストの取得
+<a name="GetPlayableVideos"> </a>
+**チャネルで再生可能な最新のビデオのリストの取得**
 
 チャネルにアップロードされた最新のビデオのソートされたリストを取得し、再生する準備がまだできていないビデオをすべて除外します。ただし、自分でアップロードしたものは除外されません。
 
@@ -188,7 +194,7 @@ GET {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/GetAllVideos
 
 **要求 URL パラメーター**
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |channelId|string|チャネルの ID。|
 
@@ -217,7 +223,7 @@ GET {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos('{videoId}
 
 **要求 URL パラメーター**
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |channelId|string|チャネルの ID。|
 |videoId|string|ビデオの ID。|
@@ -242,7 +248,8 @@ GET {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos('{videoId}
 
 ****
 
-ビデオの表示回数の取得
+<a name="GetViewCountInfo"> </a>
+**ビデオの表示回数の取得**
 
 表示回数は検索分析によって集計されるので、表示回数は検索エンドポイントから Video オブジェクトを取得するときにのみ返されます。したがって、ハブまたはチャネルの /Search エンドポイントから取得されたとき以外は、ViewCount プロパティの値は正しくありません。1 つのビデオの表示数を取得するには、ビデオの ID を使用して検索クエリを実行します。
 
@@ -253,7 +260,7 @@ GET {VideoPortalURL}/_api/videoservice/Channels('{channelId}')/search/query('{vi
 
 **要求 URL パラメーター**
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |channelId|string|チャネルの ID。|
 |videoId|string|ビデオの ID。|
@@ -276,7 +283,8 @@ GET {VideoPortalURL}/_api/videoservice/Channels('{channelId}')/search/query('{vi
 <a name="GetPlaybackInfo"> </a>
 ### ビデオの再生に関する情報の取得
 
-ビデオの Azure Media Services マニフェストの URL の取得
+<a name="GetVideoManifest"> </a>
+**ビデオの Azure Media Services マニフェストの URL の取得**
 
 ビデオの Azure Media Services マニフェストの URL を取得します。Azure Media Services アセットの再生をサポートするプレーヤーに、このマニフェストをフィードできます。
 
@@ -286,7 +294,7 @@ GET {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos('{videoId}
 
 **要求 URL パラメーター**
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |channelId|string|チャネルの ID。|
 |videoId|string|ビデオの ID。|
@@ -305,7 +313,8 @@ GET {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos('{videoId}
 
 ****
 
-ビデオの復号化にアクセスするためのベアラー トークンの取得
+<a name="GetDecryptionToken"> </a>
+**ビデオの暗号化の解除にアクセスするためのベアラー トークンの取得**
 
 O365 のビデオはすべて AES で暗号化されます。Smooth Streaming または MPEG-DASH 形式でビデオを再生するには、最初に、コンテンツの復号化にアクセスするためのベアラー トークンを取得する必要があります。この API は、プレーヤーがコンテンツを復号化できる認証トークンを返します。
 
@@ -318,7 +327,7 @@ GET {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos('{videoId}
 
 **要求 URL パラメーター**
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |channelId|string|チャネルの ID。|
 |videoId|string|ビデオの ID。|
@@ -326,7 +335,7 @@ GET {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos('{videoId}
 
  **応答の種類**
 
-プレーヤーがコンテンツを復号化できる認証トークンを返します。
+プレーヤーがコンテンツの暗号化の解除ができる認証トークンを返します。
 
 [!code-REST-i[Get_Bearer_Token](./_data/video_api_get_bearer_token.json)]
 
@@ -339,7 +348,8 @@ GET {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos('{videoId}
 
 それが済むと、小さい 1 つのビデオを 1 つの POST 呼び出しで、またはチャンクになった大きい1 つのビデオを複数の POST 呼び出しで、アップロードできます。
 
-ビデオをアップロードするためのプレースホルダーの作成
+<a name="CreateEmptyVideoObject"> </a>
+**ビデオをアップロードするためのプレースホルダーの作成**
 
 
 ビデオをアップロードする場所のプレースホルダーとして機能する空のビデオ オブジェクトを作成します。
@@ -350,15 +360,15 @@ POST {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos
 
 **要求 URL パラメーター**
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |channelId|string|チャネルの ID。|
 
 
 **要求本文**
 
-{ '__metadata': { 'type': 'SP.Publishing.VideoItem' }, 'Description': ' {         *your description text here*
-    } ', 'Title': ' {         *your title of video here*
+{ '__metadata': { 'type':'SP.Publishing.VideoItem' }, 'Description': ' {         *説明のテキスト*
+    } ', 'Title': ' {         *ビデオのタイトル*
     } ' }
 
 
@@ -372,13 +382,14 @@ POST {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos
 
 **応答の種類**
 
-VideoObject -- ビデオのアップロード先のオブジェクト。返される ID を、アップロードを開始するビデオ ID として使用します。 VideoObject -- ビデオのアップロード先のオブジェクト。返される ID を、アップロードを開始するビデオ ID として使用します。
+VideoObject -- ビデオのアップロード先のオブジェクト。 返される ID を、アップロードを開始するビデオ ID として使用します。
 
 ****
 
-単一の POST での小さいビデオのアップロード
+<a name="UploadSmallVideo"> </a>
+**単一の POST での小さいビデオのアップロード**
 
-1 回の POST で送信できる小ささの単一のビデオをアップロードします。
+1 回の POST 送信に収まる小さな単一のビデオをアップロードします。
 
 
 ```no-highlight
@@ -388,7 +399,7 @@ POST {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos('{videoId
 
 **要求 URL パラメーター**
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |channelId|string|チャネルの ID。|
 |videoId|string|ビデオの ID。|
@@ -399,7 +410,7 @@ POST {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos('{videoId
 
 **応答の種類**
 
-Returns 200. 200 を返します。応答本文はありません。
+200 を返します。 応答本文はありません。
 
 ****
 
@@ -409,7 +420,8 @@ Returns 200. 200 を返します。応答本文はありません。
 1 回の POST 呼び出しには収まらない大きさのビデオをアップロードする場合、またはチャンクでのアップロードをキャンセルするには、次の呼び出しを使用します。
 
 
-前に作成したビデオ オブジェクトへのアップロードの開始
+<a name="StartUploading"> </a>
+**前に作成したビデオ オブジェクトへのアップロードの開始**
 
 チャンクになったビデオのアップロードを開始します。
 
@@ -419,7 +431,7 @@ POST {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos('{videoId
 
 **要求 URL パラメーター**
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |channelId|string|チャネルの ID。|
 |videoId|string|ビデオの ID。|
@@ -428,13 +440,14 @@ POST {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos('{videoId
 
 **応答の種類**
 
-Returns 200. 200 を返します。応答本文はありません。
+200 を返します。 応答本文はありません。
 
 ****
 
-前に作成したビデオ オブジェクトへのファイルの各チャンクのアップロード
+<a name="UploadEachChunk"> </a>
+**前に作成したビデオ オブジェクトへのファイルの各チャンクのアップロード**
 
-ファイルの次のチャンクのアップロードを続けます。必要な回数だけ繰り返します。 ファイルの次のチャンクのアップロードを続けます。必要な回数だけ繰り返します。
+ファイルの次のチャンクのアップロードを続けます。 必要な回数だけ繰り返します。
 
 ```no-highlight
 POST {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos('{videoId}')/GetFile()/ContinueUpload(uploadId=guid'{yourGeneratedGuid}',fileOffset='{offsetSize}')
@@ -442,7 +455,7 @@ POST {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos('{videoId
 
 **要求 URL パラメーター**
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |channelId|string|チャネルの ID。|
 |videoId|string|ビデオの ID。|
@@ -458,12 +471,13 @@ POST {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos('{videoId
 
 **応答の種類**
 
-Returns 200. 200 を返します。応答本文はありません。
+200 を返します。 応答本文はありません。
 
 ****
 
 
-前に作成したビデオ オブジェクトへのファイルの最終チャンクのアップロード終了
+<a name="FinishUploading"> </a>
+**前に作成したビデオ オブジェクトへのファイルの最終チャンクのアップロード終了**
 
 チャンクになったビデオのアップロードを終了します。
 
@@ -473,7 +487,7 @@ POST {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos('{videoId
 
 **要求 URL パラメーター**
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |channelId|string|チャネルの ID。|
 |videoId|string|ビデオの ID。|
@@ -486,11 +500,12 @@ POST {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos('{videoId
 
 **応答の種類**
 
-Returns 200. 200 を返します。応答本文はありません。
+200 を返します。 応答本文はありません。
 
 ****
 
-アップロードのキャンセル
+<a name="CancelChunkedUploading"> </a>
+**アップロードのキャンセル**
 
 チャンクになったビデオのアップロードをキャンセルします。
 
@@ -500,7 +515,7 @@ POST {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos('{videoId
 
 **要求 URL パラメーター**
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |channelId|string|チャネルの ID。|
 |videoId|string|ビデオの ID。|
@@ -508,7 +523,7 @@ POST {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos('{videoId
 
 **応答の種類**
 
-Returns 200. 200 を返します。応答本文はありません。
+200 を返します。 応答本文はありません。
 
 ****
 
@@ -526,7 +541,7 @@ POST {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos('{videoId
 
 **要求 URL パラメーター**
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |channelId|string|チャネルの ID。|
 |videoId|string|ビデオの ID。|
@@ -551,7 +566,7 @@ POST {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos('{videoId
 
  **応答の種類**
 
-Returns 200. 200 を返します。応答本文はありません。
+200 を返します。 応答本文はありません。
 
 ****
 
@@ -560,7 +575,8 @@ Returns 200. 200 を返します。応答本文はありません。
 
 
 
-チャネルからの既存ビデオの削除
+<a name="DeleteVideo"> </a>
+**チャネルからの既存ビデオの削除**
 
 
 ```no-highlight
@@ -569,7 +585,7 @@ Returns 200. 200 を返します。応答本文はありません。
 
 **要求 URL パラメーター**
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |channelId|string|チャネルの ID。|
 |videoId|string|ビデオの ID。|
@@ -583,7 +599,7 @@ Returns 200. 200 を返します。応答本文はありません。
 
  **応答の種類**
 
-Returns 200. 200 を返します。応答本文はありません。
+200 を返します。 応答本文はありません。
 
 ****
 
@@ -592,7 +608,8 @@ Returns 200. 200 を返します。応答本文はありません。
 
 ****
 
-別の Web ページにビデオの項目を埋め込むためのコードを取得し、パラメーターの値を指定する
+<a name="GetEmbedCodeConfigureParameters"> </a>
+**別の Web ページにビデオ アイテムを埋め込むためのコードを取得し、パラメーターの値を指定する**
 
 この呼び出しを使用して、埋め込まれたウィンドウの幅と高さや、ページを開いたときにビデオを自動的に再生させるかどうか、ビデオを一時停止したときに特定の情報をビデオ プレーヤーに表示するかどうかなど、渡すパラメーターの値を指定できます。この情報には、ビデオのタイトル、再生時間、再生回数のカウント、およびチャネルの名前が含まれています。 
 
@@ -604,7 +621,7 @@ GET {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos('{videoId}
 
 **要求 URL パラメーター**
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |channelId|string|チャネルの ID。|
 |videoId|string|ビデオの ID。|
@@ -620,7 +637,8 @@ GET {VideoPortalURL}/_api/VideoService/Channels('{channelId}')/Videos('{videoId}
 
 ****
 
-規定値を使用して、別の Web ページにビデオの項目を埋め込むためのコードを取得する
+<a name="GetEmbedCodeDefaultValues"> </a>
+**既定値を使用して、別の Web ページにビデオ アイテムを埋め込むためのコードを取得する**
 
 この呼び出しを使用して、埋め込みビデオ プレーヤーの既定値を指定する埋め込みコードを取得できます。
 
@@ -634,7 +652,7 @@ $select オプションを使用して、タイトル、既定値の埋め込み
 
 **要求 URL パラメーター**
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |channelId|string|チャネルの ID。|
 |videoId|string|ビデオの ID。|
@@ -646,7 +664,8 @@ $select を使用して、要求する既定のプロパティ (既定の埋め�
 
 ****
 
-プレーヤー ページ URL からビデオ アイテムの情報および既定の埋め込みコードを取得する
+<a name="GetVideoItemFromPlayerPageURL"> </a>
+**プレーヤー ページ URL からビデオ アイテムの情報および既定の埋め込みコードを取得する**
 
 O365 ビデオ ポータル プレーヤー ページの URL がわかっている場合は、この呼び出しを使用して、ビデオ ID、チャンネル ID、およびビデオに関する他の情報を取得できます。
 
@@ -673,7 +692,7 @@ Content-Type=application/json;odata=verbose
 ****
 
 <a name="NextSteps"> </a>
-## 次のステップ
+## 次の手順
 
 アプリケーション開発を開始する準備ができている方にも、単に詳しい情報を必要としている方にも、最適なコンテンツをご用意しています。
 

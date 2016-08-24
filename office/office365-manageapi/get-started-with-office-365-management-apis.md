@@ -23,7 +23,7 @@ Office 365 Management API と同じようにセキュリティで保護された
 次の図は、承認とアクセス トークンの要求のシーケンスを示しています。
 
 
-![Management API が承認フローを開始する](images/32753ddd-45e9-4adc-ba94-c7918577a345.png)
+![管理 API が承認フローを開始する](images/32753ddd-45e9-4adc-ba94-c7918577a345.png)
 
 
 ## Azure AD でのアプリケーション登録
@@ -102,7 +102,7 @@ Azure AD アプリケーションの全般的なアプリケーション構成�
     
     
     
-     **Important**  Azure only displays the client secret at the time you initially generate it. You cannot navigate back to this page and retrieve the client secret later.
+     **重要**: クライアント シークレットは、最初に生成したときにだけ、Azure に表示されます。 後でこのページに戻ってクライアント シークレットを取得することはできません。
 
 ### サービス間の呼び出しを有効にする X.509 証明書を構成します。
 
@@ -125,12 +125,12 @@ Azure AD からアプリ専用アクセス トークンを要求するときは�
   ```
 
 
-     **Note**  When you are generating the X.509 certificate, make sure the key length is at least 2048 . Shorter key lengths are not accepted as valid keys.
+     **注**: X.509 証明書を生成する際、キーの長さが 2048 以上になっていることを確認します。 キーの長さがそれより短い場合は、有効なキーとして受け入れられません。
 2. 証明書 MMC スナップインを開き、自分のユーザー アカウントに接続します。 
     
 3. 個人用フォルダーで新しい証明書を検索し、base64 でエンコードされたファイル (mycompanyname.cer など) に公開キーをエクスポートします。アプリケーションは AAD との通信にこの証明書を使用して、秘密キーへのアクセスを同様に保持することを確認します。
     
-     **Note**  You can use Windows PowerShell to extract the thumbprint and base64-encoded public key. Other platforms provide similar tools to retrieve properties of certificates.
+     **注**: Windows PowerShell を使用して、拇印および Base64 エンコードの公開キーを抽出することができます。 その他のプラットフォームには、証明書のプロパティを取得する同様のツールがあります。
 4. Windows PowerShell プロンプトから、次を入力して実行します。
     
   ```
@@ -145,7 +145,7 @@ $keyid = [System.Guid]::NewGuid().ToString()
 
 5. **$base64Thumbprint**、**$base64Value**、および **$keyid** の値を格納します。次の一連の手順でアプリケーション マニフェストをアップロードするときに、これらの値が必要になります。
     
-    Using the values extracted from the certificate and the generated key ID, you must now update your application manifest in Azure AD.
+    ここで、証明書から抽出された値と、生成されたキー ID を使用して、Azure AD のアプリケーション マニフェストを更新する必要があります。
     
 6. Azure 管理ポータルで、アプリケーションを選択し、上部メニューの [構成] を選択します。
     
@@ -169,7 +169,8 @@ $keyid = [System.Guid]::NewGuid().ToString()
   ```
 
 
-     KeyCredentials プロパティは、ロール オーバー シナリオでは複数の X.509 証明書のアップロードを可能にする、または漏えいシナリオでは証明書を削除することを可能にするコレクションです。
+     
+  **注**: [KeyCredentials](https://msdn.microsoft.com/en-us/library/azure/dn151681.aspx) プロパティは、ロール オーバー シナリオでは複数の X.509 証明書のアップロードを可能にし、漏えいシナリオでは証明書の削除を可能にするコレクションです。
 9. 変更内容を保存します。コマンド バーの **[管理マニフェスト]** をクリックして **[マニフェストをアップロード]** を選択し、更新したマニフェスト ファイルを参照してそのファイルを選択することによって、更新済みのマニフェストをアップロードします。
     
 
@@ -185,10 +186,10 @@ $keyid = [System.Guid]::NewGuid().ToString()
     
 2. Office 365 Management API を選択して (1) **[選択済み]** 列に表示し、(2) 右下のチェック マークをクリックして (3) 選択内容を保存し、アプリケーションのメインの構成ページに戻ります。
     
-    ![[Azure AD アプリ]  ページ](images/2bd3ecb2-59b8-4dcc-867a-bbc69e465baa.png)
+    ![[Azure AD アプリ] ページ](images/2bd3ecb2-59b8-4dcc-867a-bbc69e465baa.png)
     
     
-3. これで、Office Management API がアプリケーションがアクセス許可を必要とするアプリケーションの一覧に表示されます。[アプリケーションのアクセス許可] と [デリゲートされたアクセス許可] の両方で、アプリケーションで必要なアクセス許可を選択します。 これで、Office Management API がアプリケーションがアクセス許可を必要とするアプリケーションの一覧に表示されます。[アプリケーションのアクセス許可] と [デリゲートされたアクセス許可] の両方で、アプリケーションで必要なアクセス許可を選択します。 Refer to the specific API reference for more details about each permission.  **Note:** There are currently 4 unused permissions related to activity reports and threat intelligence that will be removed in the future.  Do not select any of these permissions as they are unnecessary.
+3. これで、お客様のアプリケーションがアクセス許可を必要とするアプリケーションの一覧に、Office Management API が表示されます。 [アプリケーションのアクセス許可] と [デリゲートされたアクセス許可] の両方で、アプリケーションで必要なアクセス許可を選択します。 各アクセス許可の詳細については、それぞれ特定の API リファレンスを参照してください。  **メモ:**活動レポートおよび将来的に削除される脅威インテリジェンスと関連した、使用されていないアクセス許可が現在 4 つあります。  これらのアクセス許可は必要ないため、いずれも選択しないでください。
     
     ![[アプリケーションの追加] ダイアログ](images/250a2c55-bf78-45c6-8f1e-781f5aafb307.png)
     
@@ -207,7 +208,7 @@ https://login.windows.net/common/oauth2/authorize?response_type=code&amp;resourc
 
 リダイレクト URL は、Azure AD でアプリケーション用に構成された応答 URL のいずれかと一致するか、サブ パスである必要があります。
 
-例:
+次に例を示します。
 
 
 
@@ -238,9 +239,11 @@ http://www.mycompany.com/myapp/?code=AAABAAAAvPM1KaPlrEqdFSB...
 Azure AD からアクセス トークンを要求する方法は 2 つです。
 
 
-1. [承認コードの許可フロー](https://msdn.microsoft.com/en-us/library/azure/dn645542.aspx)では、テナント管理者が明示的な同意を与え、それによりアプリケーションに認証コードが返されます。その後、アプリケーションはアクセス トークンの認証コードを交換します。このメソッドは、アプリケーションが API を使用してテナントのデータにアクセスするために必要な初期の同意を取得するために必要です。また、この初期の同意は、テナント ID を取得し、保存するために必要です。
+1. 
+  [承認コードの許可フロー](https://msdn.microsoft.com/en-us/library/azure/dn645542.aspx)では、テナント管理者が明示的な同意を与え、それによりアプリケーションに認証コードが返されます。その後、アプリケーションはアクセス トークンの認証コードを交換します。このメソッドは、アプリケーションが API を使用してテナントのデータにアクセスするために必要な初期の同意を取得するために必要です。また、この初期の同意は、テナント ID を取得し、保存するために必要です。
     
-2. [クライアント資格情報の許可フロー](https://msdn.microsoft.com/en-us/library/azure/dn645543.aspx)では、テナント管理者にログインし同意を明示的に与えることを必要とせず、古いアクセス トークが期限切れになる際に以降のアクセス トークンを要求することをアプリケーションに許可します。このメソッドは、初期テナント管理者の同意が与えられた後、API を呼び出すバックグラウンドで継続的に実行するアプリケーションで使用する必要があります。
+2. 
+  [クライアント資格情報の許可フロー](https://msdn.microsoft.com/en-us/library/azure/dn645543.aspx)では、テナント管理者にログインし同意を明示的に与えることを必要とせず、古いアクセス トークが期限切れになる際に以降のアクセス トークンを要求することをアプリケーションに許可します。このメソッドは、初期テナント管理者の同意が与えられた後、API を呼び出すバックグラウンドで継続的に実行するアプリケーションで使用する必要があります。
     
 
 ### 承認コードを使用してアクセス トークンを要求する

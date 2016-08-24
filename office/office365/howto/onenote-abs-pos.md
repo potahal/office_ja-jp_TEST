@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Create absolute positioned elements
-title: "絶対的な位置要素を作成する" 
-description: "ms.TocTitle:絶対配置要素を作成するTitle:絶対配置要素を作成するDescription:独立して配置できる div、img、および object 要素を含む OneNote ページを作成します。ms.ContentId:34933340-b850-49ac-a25a-8cfa12cd14ffms.topic: 記事 (方法) ms.date:2015 年 11 月 30 日"
+title: "絶対配置要素を作成する" 
+description: "独立して配置できる div、img、object 要素を含む OneNote ページを作成します。"
 ms.ContentId: 34933340-b850-49ac-a25a-8cfa12cd14ff
 ms.date: November 30, 2015
 ---
@@ -9,32 +9,33 @@ ms.date: November 30, 2015
 [!INCLUDE [Add the O365API repo styles](../includes/controls/addo365apistyles.xml)]
 [!INCLUDE [Add the ONAPI repo styles](../includes/controls/addonapistyles.xml)]
 
-# 絶対的な位置要素を作成する
+# 絶対配置要素を作成する
 
-*__Applies to:__ Consumer notebooks on OneDrive | Enterprise notebooks on Office 365*
+*__適用対象:__OneDrive のコンシューマー ノートブック | Office 365 のエンタープライズ ノートブック*
 
-OneNote ページの本文には、直接の div、img、および object 子要素を複数含めることができます。これらの要素はページ上に独立して配置できます。
+OneNote ページの本文には、直接の子要素 `div`、`img`、`object` を複数含めることができます。これらの要素はページ上に独立して配置できます。
 
 <a name="attributes"></a>
 ## 属性と配置動作
 
-次に示すように、data-absolute-enabled 属性および  style  属性を使用して、ページ上に絶対配置要素を作成します。
+次に示すように、`data-absolute-enabled` 属性および [`style`](#style-attributes) 属性を使用して、ページ上に絶対配置要素を作成します。
 
-- The body element must specify `data-absolute-enabled="true"`. body 要素は data-absolute-enabled="true"`false` を指定する必要があります。省略したり false`_default` に設定したりすると、API が作成した絶対位置で配置された _default の内側にすべての本文のコンテンツが表示され、すべての位置設定が無視されます。
+- body 要素は、`data-absolute-enabled="true"` を指定する必要があります。 省略したり `false` に設定したりすると、API によって作成される `_default` 絶対配置 div の内側にすべての本文のコンテンツが表示され、すべての位置設定が無視されます。
 
-- div、img、および object 要素のみが絶対配置要素になります。 
+- `div`、`img`、および `object` 要素のみが絶対配置要素になります。 
 
-- 絶対配置要素は style="position:absolute"`style="position:absolute"` を指定する必要があります。
+- 絶対配置要素は、`style="position:absolute"` を指定する必要があります。
 
-- Absolute positioned elements must be direct children of the `body` element. 絶対配置要素は必ず body 要素の直接の子要素になります。本文の直接の子要素が絶対配置でない div、img、または object 要素 の場合は、絶対配置の _default div の内側に静的コンテンツとして表示されます。
+- 絶対配置要素は、`body` 要素の直接の子にする必要があります。 body の直接の子要素が絶対配置でない `div`、`img`、または `object` 要素の場合は、絶対配置の `_default` div の内側に静的コンテンツとして表示されます。
 
 - 絶対配置要素は、指定された上と左の座標 (開始位置 0:0 を基準とした、タイトル領域の上部でページの左隅) に配置されます。
 
-- If an absolute positioned element omits the top or left coordinate, the missing coordinate is set to its default value: `top:120px` or `left:48px`. These default coordinates specify a position just below the title area. Be aware that omitting coordinates can result in elements that are stacked on top of each other.
+- 絶対配置要素が top または left の座標を省略していると、不足している座標には既定値の `top:120px` または `left:48px` が設定されます。 これらの既定の座標は、title エリアの直下の位置を指定します。 座標を省略すると、複数の要素の上部が積み重なることがある点に注意してください。
 
 - 絶対配置要素は、入れ子状態にしたり、定位置要素を含めたりすることはできません。API は、絶対配置の div 内の入れ子型の要素で指定された位置設定をすべて無視し、絶対配置の親 div 内の入れ子型のコンテンツを表示するとともに、応答の **api.diagnostics** プロパティで警告を返します。
 
-<br />例:次の例には、直接の子 p、絶対配置 div、および非絶対配置 div が含まれています。
+<br />
+**例:**次の例には、直接の子 `p`、絶対配置 div、および非絶対配置 div が含まれています。
 
    **入力 HTML** 
 
@@ -50,7 +51,7 @@ OneNote ページの本文には、直接の div、img、および object 子要
    </body>
    ```
 
-The API renders the non-absolute positioned div in the default div. API は既定の div に非絶対配置 div を表示します。入れ子になった <c><div></c> タグは意味情報 (<c>data-id</c> など) を定義しないため、破棄されます。
+API は既定の div に非絶対配置 div を表示します。 入れ子になった `<div>` タグは意味情報 (`data-id` など) を定義しないため、破棄されます。
 
 **出力 HTML**
 
@@ -68,7 +69,8 @@ The API renders the non-absolute positioned div in the default div. API は既�
 
 **例:** 次の例では、絶対配置の div と絶対配置のイメージを 1 つずつ含むページを作成します。
 
-<br />入力 HTML 
+<br />
+**入力 HTML** 
 
 ```html 
 <html>
@@ -90,9 +92,9 @@ The API renders the non-absolute positioned div in the default div. API は既�
  
 OneNote API は入力 HTML を評価し、OneNote によりサポートされるすべての意味内容と任意の意味情報を保持します。結果のページは、次に示すイメージのように表示されます (div とイメージの境界線は表示されません)。 
 
-![Resulting page with absolute positioned div and image](images\onenote\abs-pos.png)
+![絶対配置の div とイメージのある結果のページ](images\onenote\abs-pos.png)
 
-Notice the changes to the non-contributing, nested div from the input HTML. 入力 HTML から変更された、作用していない入れ子になった div に注意してください。API は div のコンテンツを保持しますが、<c><div></c> タグは破棄します。これは、div が意味情報 (<c>data-id</c> など) を定義しないためです。
+入力 HTML から変更された、作用していない入れ子になった div に注意してください。 API は div のコンテンツを保持しますが、`<div>` タグは破棄します。これは、div は意味情報 (`data-id` など) を定義しないためです。
 
 OneNote API が入力 HTML と出力 HTML を処理する方法の詳細については、「[OneNote ページの入力 HTML と出力 HTML](../howto/onenote-input-output-html.md)」を参照してください。
 
@@ -107,12 +109,12 @@ OneNote API が入力 HTML と出力 HTML を処理する方法の詳細につ�
 
 | 属性 | サポートされる要素 | 説明 |  
 |:------|:------|:------|  
-| top | div、img、object | 要素の上部境界線の Y 軸座標 (ピクセル単位のみ)。既定では 120 ピクセル。例: top:140px Default is 120 pixels.<p>例`top:140px`</p> |  
-| left |  div、img、object  | 要素の上部境界線の X 軸座標 (ピクセル単位のみ)。既定では 48 ピクセル。例: left:95px Default is 48 pixels.<p>例`left:95px`</p> |  
-| width |  div、img  | 要素の幅 (ピクセル単位のみ)。例: width:480px<p>例`width:480px`</p> |  
-| height | img | The height of the element, in pixels only. 要素の高さ (ピクセル単位のみ)。div の場合、高さは実行時に計算され、指定した高さの値はすべて無視されます。例: height:665px<p>例`height:665px`</p> |  
+| top | div、img、object | 要素の上部境界線の Y 軸座標 (ピクセル単位のみ)。 既定は 120 ピクセル。<p>例: `top:140px`</p> |  
+| left |  div、img、object  | 要素の左境界線の X 軸座標 (ピクセル単位のみ)。 既定は 48 ピクセル。<p>例: `left:95px`</p> |  
+| width |  div、img  | 要素の幅 (ピクセル単位のみ)。<p>例: `width:480px`</p> |  
+| height | img | 要素の高さ (ピクセル単位のみ) div の場合、高さは実行時に計算されるため、指定された高さの値は無視されます。<p>例: `height:665px`</p> |  
  
-z-index`z-index` など、その他の位置属性は無視されます。 その他の位置属性、たとえば z-index`data-render-src` などは無視されます。絶対配置のイメージは、data-render-src`src` または src のいずれかを使用できます。
+その他の位置属性 (`z-index` など) は無視されます。 絶対配置のイメージは、`data-render-src` または `src` のいずれかを使用できます。
 
 
 <a name="request-response-info"></a>
@@ -122,8 +124,8 @@ OneNote API は、次の情報を応答で返します。
 | 応答データ | 説明 |  
 |:------|:------|  
 | 成功コード | 成功した POST 要求に対しては 201 HTTP ステータス コード、成功した PATCH 要求に対しては 204 HTTP ステータス コードが戻ります。 |  
-| エラー | <p>次のいずれかの条件により、応答の **api.diagnostics** プロパティに警告が表示されます。</p><ul><li>要素で style="position:absolute" 属性が指定されていますが、この body 要素には位置指定をサポートするために必要な data-absolute-enabled="true" が指定されていません。すべての位置設定は無視されます。 All position settings are ignored.</li><li>The `style="position:absolute"` attribute is specified on an element that is not a direct child of the body element. If the element is a `div`, `img`, or `object`, make it a direct child of the body; otherwise the position settings will be ignored.</li><li>The `style="position:absolute"` attribute is specified on an element is not a `div`, `img`, and ``object` element.</li></ul> |  
-| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行うときに、この値を Date ヘッダーの値とともに使用できます。 |  
+| エラーまたは警告 | <p>次に示すいずれかの条件が成立する場合は、応答の **api.diagnostics** プロパティで警告を受け取ることになります。</p><ul><li>要素に `style="position:absolute"` 属性が指定されているが、`body` 要素では `data-absolute-enabled="true"` を指定していない。 すべての位置設定が無視されます。</li><li>body 要素の直接の子でない要素に `style="position:absolute"` 属性が指定されている。 要素が `div`、`img`、または `object` の場合は、その要素を body の直接の子にします。それ以外の場合、位置設定は無視されます。</li><li>`style="position:absolute"` 要素が、`div`、`img`、および ``object` 要素ではない要素に指定されている。</li></ul> |  
+| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行う際に、この値を Date ヘッダーの値とともに使用できます。 |  
 
 
 <a name="permissions"></a>
@@ -143,11 +145,11 @@ OneNote ページを作成または更新するには、適切なアクセス許
 
 
 <a name="see-also"></a>
-## その他の技術情報
+## その他のリソース
 
 - [OneNote ページの作成](../howto/onenote-create-page.md)
 - [OneNote ページ コンテンツを更新する](../howto/onenote-update-page.md)
-- [OneNote 開発](../howto/onenote-landing.md)
+- [OneNote の開発](../howto/onenote-landing.md)
 - [OneNote デベロッパー センター](http://dev.onenote.com/)
 - [OneNote の開発者ブログ](http://go.microsoft.com/fwlink/?LinkID=390183)
 - [スタック オーバーフローに関する OneNote の開発の質問](http://go.microsoft.com/fwlink/?LinkID=390182)

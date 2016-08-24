@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Discovery Service REST API reference
 title: "探索サービス REST API リファレンス"
-description: "ms.TocTitle:探索サービス REST API リファレンスTitle:探索サービス REST API リファレンスDescription:Office 365 探索サービス API を使用して、Office 365 アプリが接続できるサービスにアクセスするためのエンドポイントを動的に探索する方法について参照してください。ms.ContentId:799c9512-7020-4033-b7b8-1e9a2174555dms.topic: リファレンス (API) ms.date:2015 年 6 月 9 日"
+description: "Office 365 探索サービス API を使用して、Office 365 アプリが接続できるサービスにアクセスするためのエンドポイントを動的に探索する方法についてのリファレンスです。"
 ms.ContentId: 799c9512-7020-4033-b7b8-1e9a2174555d
 ms.date: June 9, 2015
 
@@ -15,20 +15,20 @@ ms.date: June 9, 2015
 <!--You use Discovery Service to find endpoints for services that you access in an Office 365 APIs application. In this article, you'll find reference information for the Discovery Service APIs.-->
 
 
- _**適用対象:** Office 365_
+ _**適用対象:**Office 365_
 
 <a name="DiscSvc_RESTinterface"> </a>
 ## Office 365 探索サービスを使用する
 
 [!INCLUDE [Use Microsoft Graph](../includes/use-msgraph-note.txt)]
 
-To interact with the Discovery Service API you send HTTP and OData requests. 探索サービス API と対話するには、HTTP および OData 要求を送信します。探索サービスでは、**予定表**、**連絡先**、**メール**、**MyFiles** (OneDrive および OneDrive for Business のサービス エンドポイントの場合)、**ノート** (OneNote の場合)、および **RootSite** (SharePoint の場合) の探索をサポートしています。
+探索サービス API と対話するには、HTTP および OData 要求を送信します。 探索サービスでは、**予定表**、**連絡先**、**メール**、**MyFiles** (OneDrive および OneDrive for Business のサービス エンドポイントの場合)、**ノート** (OneNote の場合)、および **RootSite** (SharePoint の場合) の探索をサポートしています。
 
-探索サービスのリソース ID は、ResourceId = https://api.office.com/discovery/`ResourceId = https://api.office.com/discovery/` です。
+探索サービスのリソース ID は、`ResourceId = https://api.office.com/discovery/` です。
 
-Office 365 API を使用してアクセスするサービスのエンドポイントを探すための検出サービス API の使用方法に関するコード サンプルは、Office 365 API: 検出サービスの使用方法およびOffice 365 検出サービスのサンプルを参照してください。
+探索サービス API を使用して、Office 365 API によってアクセスするサービスのエンドポイントを見つける方法については、「[Office 365 API:探索サービスの使用方法](https://code.msdn.microsoft.com/Office-365-APIs-How-to-use-609102ea#content)」および「[Office 365 探索サービスのサンプル](https://github.com/OfficeDev/Office365-Discovery-Service-Sample)」のサンプル コードを参照してください。
 
-**注** 検出サービスは、Office 365 オンライン環境向けのみに機能を提供しており、オンプレミスのデプロイには利用できません。
+**注** 探索サービスは、Office 365 オンライン環境向けの機能のみを提供しています。オンプレミスの展開には利用できません。
 
 ### バージョン管理
 
@@ -36,8 +36,8 @@ Office 365 API を使用してアクセスするサービスのエンドポイ�
 
 |**探索サービス API エンドポイント**|**説明**|
 |:-----|:-----|
-|https://api.office.com/discovery/v1.0/me| Office 365 API のリリース済みバージョンのサービスごとに 1 つの API エンドポイントをサポートします。既定では、OData v4 (http://www.odata.org/documentation/odata-version-4-0/) を返します。 <br>Returns OData v4 (http://www.odata.org/documentation/odata-version-4-0/) by default.</br>|
-|https://api.office.com/discovery/v2.0/me| Office 365 API のリリース済みバージョンのサービスごとに複数の API エンドポイントをサポートします。既定では、OData v4 (http://www.odata.org/documentation/odata-version-4-0/) を返します。  <br>Returns OData v4 (http://www.odata.org/documentation/odata-version-4-0/) by default.</br>|
+|https://api.office.com/discovery/v1.0/me| Office 365 API のリリース済みバージョンのサービスごとに 1 つの API エンドポイントをサポートします。 <br>既定では、OData v4 (http://www.odata.org/documentation/odata-version-4-0/) を返します。</br>|
+|https://api.office.com/discovery/v2.0/me| Office 365 API のリリース済みバージョンのサービスごとに複数の API エンドポイントをサポートします。  <br>既定では、OData v4 (http://www.odata.org/documentation/odata-version-4-0/) を返します。</br>|
 
 
 
@@ -56,31 +56,31 @@ Office 365 API を使用してアクセスするサービスのエンドポイ�
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-| `scope`|string|A space-delimited list of <i>capability.operation</i> tokens. This scope is in Office 365 terms. <br>Example: MyFiles.Write or Mail.Read</br>|
-|`redirect_uri`|string|承認が完了した後のリダイレクト先 URI。 <br>Example: https://contoso.com/continue </br>|
-|`lcid`|string| 省略可能。 オプション。電子メール HRD UI をローカライズするための 10 進 LCID。例: 1031 <br>Example: 1031 </br><br>この API は、意図的にユーザーの電子メールを受け入れません。ユーザーのメールが現在のドメイン外に送信されて、ユーザーのプライバシーが侵害される恐れがあるためです。</br>|
+| `scope`|string|スペースで区切られた <i>capability.operation</i> トークンの一覧。 このスコープは、Office 365 の表記方法で表されます。 <br>例: MyFiles.Write or Mail.Read</br>|
+|`redirect_uri`|string|承認が完了した後のリダイレクト先 URI。 <br>例: https://contoso.com/continue </br>|
+|`lcid`|string| オプション。 電子メールの HRD UI をローカライズするための 10 進数の LCID です。 <br>例: 1031 </br><br>**注意**  この API は、意図的にユーザーの電子メールを受け入れないようにしています。ユーザーの電子メールを現在のドメインから送信すると、ユーザーのプライバシーが侵害される可能性があるためです。</br>|
 
 
 |**応答**|**説明**|
 |:-----|:-----|
-|`302`Found |応答本文には、アプリとユーザーに関する値が含まれています。|
+|`302` Found |応答本文には、アプリとユーザーに関する値が含まれています。|
 
 
 |**応答本文の項目**|**説明**|
 |:-----|:-----|
 |Location: redirect_URI| 承認が完了した後のリダイレクト先 URI。|
 |?user_email=... | ユーザーが入力した電子メール アドレス。|
-|&amp;account_type=... | 1 – Microsoft アカウント (Live) <br>1 - Microsoft アカウント (Live) 2 - 組織のアカウント (Office 365)</br>|
+|&amp;account_type=... | 1 - Microsoft アカウント (Live) <br>2 - 組織のアカウント (Office 365)</br>|
 |&amp;authorization_service=... | ククライアントが承認コードを取得できるエンドポイント URL。|
 |&amp;token_service=... |クライアントがアクセス トークンとリフレッシュ トークンの承認コードを交換可能なエンドポイント URL。|
 |&amp;scope=... | ターゲット領域に変換された元のスコープ。クライアントに必要な情報は、Office 365 のスコープの表記方法のみです。ターゲット領域が Live の場合、元の Office 365 のスコープは Live の表記方法に変換されます。|
 |&amp;unsupported_scope=... |変換できないスコープ項目がある場合、それらの項目は変更されずに unsupported_scope にコンパイルされます。これは、各承認サービスが自身の表記方法でスコープを理解するために必要です。Office 365 承認サービスではスコープ パラメーターを受け入れないため、scope と unsupported_scope はどちらも空の状態で返されます。|
 |&amp;discovery_service=... |クライアントがターゲット サービスを探索できるエンドポイント URL。|
-|&amp;discovery_resource=... |Resource identification of Discovery Service. 探索サービスのリソース ID。探索サービスのトークン要求の一部としてトークン サービスに渡される必要があります。|
+|&amp;discovery_resource=... |探索サービスのリソース ID。 探索サービスに対するトークン要求の一部として、トークン サービスに渡される必要があります。|
 
 **Note** この情報すべては、このユーザー アカウントに対して静的です。そのためクライアントはその情報をキャッシュに入れて再使用し、ユーザーが不要な UI で混乱しないようにする必要があります。
 
-**例:**
+**例: **
 ```
 var firstSignInUri = new Uri(string.Format("https://api.office.com/discovery/v1.0/me/FirstSignIn?redirect_uri={0}&scope={1}", TerminalUriText, Scope));
 var terminalUri = new Uri(TerminalUriText);
@@ -111,21 +111,21 @@ MyCacheUserInfo(...);
 
 ****
 
-|**Headers**|**説明**|
+|**ヘッダー**|**説明**|
 |:-----|:-----|
-|`Authorization`| 承認フェーズの間に取得されるアクセス トークン。例: BEARER 2YotnFZFEjr1zCsicMWpAA...  <br>Example: Authorization: BEARER 2YotnFZFEjr1zCsicMWpAA... </br>|
-|`Accept`| 省略可能。 オプション。このヘッダーは、応答ペイロードの形式を制御します。 <br>Atom の場合: application/atom+xml</br><br>JSON の場合: application/json;odata=verbose </br><br>このヘッダーを省略すると、デフォルトは Atom になります。例: Accept: application/json;odata=verbose </br><br>Example: Accept: application/json;odata=verbose </br>|
+|`Authorization`| 承認フェーズで取得されたアクセス トークン。 <br>例: Authorization: BEARER 2YotnFZFEjr1zCsicMWpAA... </br>|
+|`Accept`| 省略可能。 このヘッダーは、応答ペイロードの形式を制御します。 <br>Atom の場合: application/atom+xml</br><br>JSON の場合: application/json;odata=verbose </br><br>このヘッダーを省略した場合の既定値は、Atom です。 </br><br>例: Accept: application/json;odata=verbose </br>|
 
-|**パラメーター**|**型**|**説明**|
+|**パラメーター **|**型**|**説明**|
 |:-----|:-----|:-----|
-|`$select`|string| 省略可能。 A comma-separated list of object properties. Causes the service to project only the selected properties. オブジェクト プロパティのコンマ区切りリスト。サービスでは、選択したプロパティのみがプロジェクトの対象となります。アプリで使用しないプロパティをダウンロードしないことにより、帯域幅を節約するために使用します。http://www.odata.org/docs/ を参照してください。例: Capability,ServiceUri See http://www.odata.org/docs/. <br>Example: Capability,ServiceUri</br>|
-|`$filter`|文字列 | オプション。元の結果セットをフィルター処理するための OData 述部。アプリで使用しないオブジェクト インスタンスをダウンロードしないようにして、帯域幅を節約するために使用します。使用可能な述部関数については、http://www.odata.org の [Documentation] タブを参照してください。 |
+|`$select`|string| オプション。 コンマで区切られたオブジェクト プロパティの一覧。 サービスは、選択されたプロパティだけを投影します。 このパラメーターは、アプリで使用されないプロパティをダウンロードしないようにすることで、帯域幅を節約するために使用されます。 http://www.odata.org/docs/ をご覧ください。 <br>例: Capability、ServiceUri</br>|
+|`$filter`|string| オプション。元の結果セットをフィルター処理するための OData 述部。アプリで使用しないオブジェクト インスタンスをダウンロードしないようにして、帯域幅を節約するために使用します。使用可能な述部関数については、http://www.odata.org の [Documentation] タブを参照してください。 |
 
 |**応答**|**意味**|**説明**|
 |:-----|:-----|:-----|
 |`200`| OK |応答本文には、OData 要求に従って投影、フィルター処理、およびエンコードされた [ServiceInfo スキーマ](#DiscSvc_SvcInfoSchema) エントリのリストが含まれます。[ServiceInfo スキーマ](#DiscSvc_SvcInfoSchema)の定義を参照してください。|
 
-**例:**
+**例: **
 ```
 var url = string.Format("https://api.office.com/discovery/v1.0/me/services", discoveryService);
 
@@ -145,20 +145,20 @@ var response = await request.GetResponseAsync().ConfigureAwait(continueOnCapture
 ****
 
 
-|**Headers**|**説明**|
+|**ヘッダー**|**説明**|
 |:-----|:-----|
-|`Accept`| オプション。 オプション。このヘッダーは、応答ペイロードの形式を制御します。 <br>Atom の場合: application/atom+xml</br><br>JSON の場合: application/json;odata=verbose </br><br>このヘッダーを省略すると、デフォルトは Atom になります。例: Accept: application/json;odata=verbose </br><br>Example: Accept: application/json;odata=verbose</br>|
+|`Accept`| 省略可能。 このヘッダーは、応答ペイロードの形式を制御します。 <br>Atom の場合: application/atom+xml</br><br>JSON の場合: application/json;odata=verbose </br><br>このヘッダーを省略した場合の既定値は、Atom です。 </br><br>例: Accept: application/json;odata=verbose</br>|
 
-|**パラメーター**|**型**|**説明**|
+|**パラメーター **|**型**|**説明**|
 |:-----|:-----|:-----|
 |`$select`|string | オプション。オブジェクト プロパティのコンマ区切りリスト。サービスでは、選択したプロパティのみがプロジェクトの対象になります。アプリで使用しないプロパティをダウンロードしないようにして、帯域幅を節約するために使用します。http://www.odata.org/docs/ を参照してください。例: Capability,ServiceUri|
-|`$filter`|文字列  | オプション。元の結果セットをフィルター処理するための OData 述部。アプリで使用しないオブジェクト インスタンスをダウンロードしないようにして、帯域幅を節約するために使用します。使用可能な述部関数については、http://www.odata.org の [Documentation] タブを参照してください。 |
+|`$filter`|string | オプション。元の結果セットをフィルター処理するための OData 述部。アプリで使用しないオブジェクト インスタンスをダウンロードしないようにして、帯域幅を節約するために使用します。使用可能な述部関数については、http://www.odata.org の [Documentation] タブを参照してください。 |
 
 |**応答**|**意味**|**説明**|
 |:-----|:-----|:-----|
 |`200`| OK |応答本文には、OData 要求に従って投影、フィルター処理、およびエンコードされた [ServiceInfo スキーマ](#DiscSvc_SvcInfoSchema) エントリのリストが含まれます。[ServiceInfo スキーマ](#DiscSvc_SvcInfoSchema)の定義を参照してください。|
 
-**例:**
+**例: **
 ```
 var request = HttpWebRequest.CreateHttp("https://api.office.com/discovery/v1.0/me/services");
 request.Method = "GET";
@@ -174,7 +174,7 @@ var response = await request.GetResponseAsync().ConfigureAwait(continueOnCapture
 
 ****
 
-|**プロパティ**|**型**|**例**|
+|**プロパティ**|**種類**|**例**|
 |:-----|:-----|:-----|
 |capability|文字列|MyFiles|
 |serviceId|文字列||
@@ -182,7 +182,7 @@ var response = await request.GetResponseAsync().ConfigureAwait(continueOnCapture
 |serviceEndpointUri|文字列|https://contoso-my.sharepoint.com/personal/alexd_contoso_com |
 |serviceResourceId|文字列|https://contoso-my.sharepoint.com|
 
-## その他の技術情報
+## その他のリソース
 <a name="bk_addresources"> </a>
 
 
@@ -190,4 +190,4 @@ var response = await request.GetResponseAsync().ConfigureAwait(continueOnCapture
 
 -  [探索サービス API を使用して Office 365 アプリのエンドポイントを検索する](..\howto\discover-service-endpoints.md)
 
--  [Office 365 API: 検出サービスの使用方法](http://code.msdn.microsoft.com/Office-365-APIs-How-to-use-609102ea)
+-  [Office 365 API:探索サービスの使用方法](http://code.msdn.microsoft.com/Office-365-APIs-How-to-use-609102ea)

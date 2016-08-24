@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Open the OneNote clients
 title: "OneNote クライアントを開く" 
-description: "Use the **links** property to open OneNote pages and notebooks in OneNote Online or the native client."
+description: "**links** プロパティを使用して、OneNote Online またはネイティブ クライアントの OneNote ページとノートブックを開きます。"
 ms.ContentId: 445543de-14db-4a53-bf2c-356d233e71fd
 ms.date: November 18, 2015
 
@@ -11,7 +11,7 @@ ms.date: November 18, 2015
 
 # OneNote クライアントを開く
 
-*__Applies to:__ Consumer notebooks on OneDrive | Enterprise notebooks on Office 365*
+*__適用対象:__OneDrive のコンシューマー ノートブック | Office 365 のエンタープライズ ノートブック*
 
 ページまたはノートブックの **links** プロパティを使用して、OneNote の特定のページまたはノートブックを開きます。 
 
@@ -30,25 +30,25 @@ ms.date: November 18, 2015
 }
 ```
 
-URL は、ネイティブの OneNote クライアント アプリケーションまたは OneNote Online のページまたはノートブックを開きます。
+これらの URL は、ネイティブの OneNote クライアント アプリケーションまたは OneNote Online のページまたはノートブックを開きます。
 
 <p id="outdent">**oneNoteClientUrl**</p>
-<p id="indent">デバイス上に既にネイティブ クライアントがインストールされているを場合、これを開くには、 oneNoteClientUrl を使用します。この URL には onenote プレフィックスが含まれています。 This URL includes the *onenote* prefix.<br />Opens the language-specific version if one is installed on the device. Otherwise, uses the platform language setting.</p> 
+<p id="indent">ネイティブのクライアントがデバイスにインストールされている場合は、そのクライアントを開きます。 この URL には、*onenote* プレフィックスが含まれています。<br />言語固有のバージョンがデバイスにインストールされている場合は、そのバージョンを開きます。 それ以外の場合は、プラットフォームの言語の設定を使用します。</p> 
 
 <p id="outdent">**oneNoteWebUrl**</p>
-<p id="indent">デバイスの既定のブラウザーが OneNote Online をサポートしている場合は OneNote Online を開きます。ブラウザーの言語設定を使用します。<br />Uses the browser language setting.</p>
+<p id="indent">デバイスの既定のブラウザーが OneNote Online をサポートしている場合は、OneNote Online を開きます。<br />ブラウザーの言語設定を使用します。</p>
 
 <br />
 OneNote API は、次の操作の HTTP 応答で **links** プロパティを返します。
 
--  POST pages  要求を送信することによりページを作成する
-- POST notebooks`POST notebooks` 要求を送信することによりノートブックを作成する
-- Get page metadata by sending a [`GET pages`](../howto/onenote-get-content.md#get-pages) or [`GET pages/{id}`](../howto/onenote-get-content.md#get-page) request
--  GET notebooks  または  GET notebooks/{id}  要求を送信することによりノートブックのメタデータを取得する
+- [`POST pages`](../howto/onenote-create-page.md) 要求を送信してページを作成する
+- `POST notebooks` 要求を送信してノートブックを作成する
+- [`GET pages`](../howto/onenote-get-content.md#get-pages) または [`GET pages/{id}`](../howto/onenote-get-content.md#get-page) 要求を送信してページ メタデータを取得する
+- [`GET notebooks`](../howto/onenote-get-content.md#get-notebooks) または [`GET notebooks/{id}`](../howto/onenote-get-content.md#get-notebook) 要求を送信してノートブック メタデータを取得する
 
 次の例は、応答の状態コードを確認し、JSON を解析して URL を抽出し、クライアントを開く方法を示しています。
 
-## iOS example
+## iOS の例
 
 次の例は、JSON 応答から OneNote クライアント URL を取得します。AFNetworking ライブラリ (http://afnetworking.com/) を使用して 2 つの URL を抽出します。この例では、**created** は応答値の格納に使用される ONSCPSStandardResponse オブジェクトへのポインターであり、**responseObject** は解析済みの JSON を保持します。
 
@@ -97,7 +97,7 @@ NSURL *url = [NSURL URLWithString:standardResponse.oneNoteWebUrl];
 [[UIApplication sharedApplication] openURL:url];
 ```
 
-## Android example
+## Android の例
 
 まず成功状態コードを確認し、次に JSON を解析します。この例では POST 要求が送信されていることを前提としているので、状態コード 201 が確認されます。GET 要求を行った場合は、代わりに状態コード 200 が確認されます。
 
@@ -166,7 +166,7 @@ if (response.getResponseCode() == 201) {
 }
 ```
  
-Or your app can open the native OneNote client on an Android device. または、Android デバイスのネイティブ OneNote クライアントを開くことができます。**oneNoteClientUrl** プロパティを使用するときには、Intent を開始する前に、一対の { }`{ }` で GUID 文字列を囲む必要があります。次の例に方法を示します。 次の例は、以下の操作を行う方法を示しています。
+または、Android デバイスのネイティブ OneNote クライアントを開くことができます。 **oneNoteClientUrl** プロパティを使用するときには、Intent を開始する前に、中かっこ `{ }` で GUID 文字列を囲む必要があります。 次の例に方法を示します。
 
 ```java 
 if (response.getResponseCode() == 201) {
@@ -186,11 +186,11 @@ if (response.getResponseCode() == 201) {
 ```
 
 <a name="see-also"></a>
-## その他の技術情報
+## その他のリソース
 
 - [OneNote コンテンツと構造を取得する](../howto/onenote-get-content.md)
 - [OneNote ページの作成](../howto/onenote-create-page.md)
-- [OneNote 開発](../howto/onenote-landing.md)
+- [OneNote の開発](../howto/onenote-landing.md)
 - [OneNote デベロッパー センター](http://dev.onenote.com/)
 - [OneNote の開発者ブログ](http://go.microsoft.com/fwlink/?LinkID=390183)
 - [スタック オーバーフローに関する OneNote の開発の質問](http://go.microsoft.com/fwlink/?LinkID=390182) 

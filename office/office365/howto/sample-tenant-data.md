@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Office 365 sample tenant data
 title: "Office 365 のサンプル テナント データ"
-description: "ms.TocTitle: Office 365 のサンプル テナント データTitle: Office 365 のサンプル テナント データDescription: 対話型の REST API リファレンスと Office 365 API の API サンドボックスに関連付けられたサンプル ユーザーのメール、連絡先、カレンダー、およびドキュメントのデータを検索します。ms.ContentId: f14745a4-1763-43a4-bcc4-ffd9b2df92f6 ms.topic: 記事 (方法)"
+description: "対話型の REST API リファレンスと Office 365 API の API サンドボックスに関連付けられたサンプル ユーザーのメール、連絡先、カレンダー、およびドキュメントのデータを検索します。"
 ms.ContentId: f14745a4-1763-43a4-bcc4-ffd9b2df92f6
 ms.date: April 29, 2015
 
@@ -12,21 +12,21 @@ ms.date: April 29, 2015
 
 # Office 365 のサンプル テナント データ
 
-_**適用対象:** Office 365_
+_**適用対象:**Office 365_
 
-メール、カレンダー、連絡先、またはファイルの API リファレンス内で REST 操作の対話型の [Try] ボタンを使用した場合、Office 365 ではサンプル データで作成されたライブ テナントに要求を送信します。
+一部の REST 操作に表示される対話型の [Try] ボタンを使用した場合、Office 365 ではサンプル データで作成されたライブ テナントに要求を送信します。
 
 
-![<img src="images/SampleTenantDataTryButton.png" alt="REST API リファレンス内の対話型の [Try] ボタン。"></img>](images/SampleTenantDataTryButton.png)
+![REST API リファレンス内の対話型の [Try] ボタン。](images/SampleTenantDataTryButton.png)
 
 [Office 365 API の API サンド ボックス](https://apisandbox.msdn.microsoft.com/)も同じテナントに接続します。サンプル テナント内のサンプル ユーザーに関連付けられているデータの一覧を次に示します。
 
 ##メール
 
-|**Folder**|**電子メールの件名**|
+|**フォルダー**|**電子メールの件名**|
 |:-----|:-----|
-|送信済みメール|Meeting Notes <br/> Contract Signing <br/> Rob:Alex 1:1 <br/> 日次チーム会議|
-|受信トレイ|会議ノート (添付ファイル付き、Alex D が以前に送信した電子メールへの返信)明日のイベント - アトリウム閉鎖 <br/> Event tomorrow - atrium closed|
+|送信済みメール|会議ノート <br/> 契約の署名 <br/> Rob:Alex 1:1 <br/> 日次チーム会議|
+|受信トレイ|会議ノート (添付ファイル付き、Alex D が以前に送信した電子メールへの返信) <br/> 明日のイベント - アトリウム閉鎖|
 
 ##連絡先
 
@@ -39,7 +39,7 @@ _**適用対象:** Office 365_
 |Rob Young|roby|
 
 ##カレンダー
-- タイム ゾーン: 太平洋標準時
+- タイム ゾーン:太平洋標準時
 
 |**会議のタイトル**|**定期的なイベントまたは日付/時刻**|
 |:-----|:-----|
@@ -54,7 +54,7 @@ _**適用対象:** Office 365_
 
 ##ドキュメント
 
-|**Folder**|**ファイル**|
+|**フォルダー**|**ファイル**|
 |:-----|:-----|
 |ルート フォルダー|Ad Goals Presentation.pptx <br/> Ad Goals.docx <br/> Annual Party Planning.docx <br/> Ideas for XT1000 Series.docx <br/> Marketing.pptx <br/> Meeting Notes.docx <br/> Proposal for Ad Campaign.docx <br/> Quick notes.txt <br/> Shopping List.xlsx <br/> Slogan Suggestions.docx <br/> Timesheet_Alexd.xlsx <br/> XT1000 Series.pptx |
 |全員と共有|Denver Data.xlsx|
@@ -65,7 +65,7 @@ _**適用対象:** Office 365_
 
 Office 365 テナントのサンプルには、50 人のユーザーが定義されています。各ユーザーは、サンプル データ内に定義された 4 つのグループのうち 2 つのグループに属しています。 従業員またはマネージャー、およびマーケティングまたは営業。Josephine McNeil (demo1) を除く、すべての従業員にマネージャーがいます。
 
-| **givenName** | **surname** | **UPN** | **Gender** | **telephoneNumber** | **Manager** | **Group**  | **Group** | **Group** |
+| **givenName** | **surname** | **UPN** | **性別** | **telephoneNumber** | **マネージャー** | **グループ**  | **グループ** | **グループ** |
 |:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
 | Josephine | McNeil | demo1 | 女 | 4255550100 |  | マネージャー |  |  |
 | Kelli | Leach | demo2 | 女 | 4255550100 | Autumn Webster | 従業員 | マーケティング |  |
@@ -122,7 +122,7 @@ Office 365 テナントのサンプルには、50 人のユーザーが定義さ
 
 ### マネージャー別の従業員
 
-| **Manager** | **ManagerUPN** | **名前** | **UPN** |
+| **マネージャー** | **ManagerUPN** | **名前** | **UPN** |
 |:-----|:-----|:-----|:-----|
 |  |  | Josephine McNeil | demo01 |
 | Josephine McNeil | demo1 | Laura Brennan | demo30 |
@@ -178,7 +178,7 @@ Office 365 テナントのサンプルには、50 人のユーザーが定義さ
 
 ### グループ別の従業員
 
-| **Group**  | **説明** | **givenName** | **surname** | **UPN** |
+| **グループ**  | **説明** | **givenName** | **surname** | **UPN** |
 |:-----|:-----|:-----|:-----|:-----|
 | 従業員 | 管理者ではないすべてのユーザー | Kelli | Leach | demo2 |
 |  |  | Tamika | Carroll | demo3 |

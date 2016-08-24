@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Authenticate using v2.0
-title: "詳細については、「v2.0 アプリ モード プレビューを使用して Office 365 および Outlook.com API を認証する」を参照してください。"
-description: "ms.TocTitle:v2.0 を使用した認証 Title:v2.0 アプリ モデルを使用した Office 365 API と Outlook.com API の認証 Description:v2.0 認証エンドポイント プレビューを使用して、Azure AD と Microsoft アカウントの両方のユーザーをアプリと Office 365 API のエンドポイントにサインインします。ms.ContentId:30286232-50d7-4155-8112-121ce412a705ms.topic: 記事 (方法) ms.date:2015 年 12 月 1 日"
+title: "v2.0 アプリ モデルを使用した Office 365 API と Outlook.com API の認証"
+description: "v2.0 認証エンドポイント プレビューを使用して、Azure AD と Microsoft アカウントの両方のユーザーをアプリと Office 365 API のエンドポイントにサインインします。"
 ms.ContentId: 30286232-50d7-4155-8112-121ce412a705
 ms.date: December 1, 2015
 
@@ -12,7 +12,7 @@ ms.date: December 1, 2015
 
 # v2.0 認証エンドポイント プレビューを使用した Office 365 API と Outlook.com API の認証
 
-_**Applies to:** Office 365 | Outlook.com_
+_**適用対象:**Office 365 | Outlook.com_
 
 
 
@@ -90,11 +90,11 @@ v2.0 認証エンドポイント プレビューを使用すると、職場お�
 
 [v2.0 認証エンドポイントを使用するようにアプリを登録する](https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-app-registration/)
 
-##詳細を見る
+##詳細情報
 
 [v2.0 エンドポイント プレビューの制限事項と制約事項](https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-limitations/)
 
 [v2.0 エンドポイント プレビューの新機能](https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-compare)
 
-More [v2.0 authentication endpoint preview documentation](https://azure.microsoft.com/en-us/documentation/articles/?service=active-directory&term=app+model+v2.0) on [azure.microsoft.com](https://azure.microsoft.com/)
+その他の [v2.0 認証エンドポイントのドキュメント](https://azure.microsoft.com/en-us/documentation/articles/?service=active-directory&term=app+model+v2.0) ([azure.microsoft.com](https://azure.microsoft.com/))
 

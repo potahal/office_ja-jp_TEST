@@ -1,13 +1,13 @@
 ---
 ms.Toctitle: CRC Model Page
-title: "CRC Model Page"
-description: "This page illustrates the markdown for on-page filtering by platform."
+title: "CRC モデル ページ"
+description: "このページでは、プラットフォーム別のオンページ フィルター処理のマークダウンについて説明します。"
 ms.ContentId: 72d424bc-ad83-4f91-90ba-66f2cb775f33
 
 ---
 [!INCLUDE [Add the O365API repo styles](../includes/controls/addo365apistyles.xml)]
 
-You are currently viewing the sandbox branch of the O365 API repo.
+現在、O365 API リポジトリのサンドボックス ブランチが表示されています。
 
 [!INCLUDE [Add the platforms filter bar](../includes/controls/addplatformsfilter.xml)]
 
@@ -60,8 +60,8 @@ Sed convallis tristique sem.Proin ut ligula vel nunc egestas porttitor.Morbi lec
 オンページ フィルター処理は、次に示す 3 種類の Markdown 形式のコンテンツ インクルードを追加することで有効にします。
 
 -  単一の**フィルター バー インクルード**。H1 行 (つまり、ボタンが表示される位置) の上。プラットフォームのフィルター処理バーを表示するには、プラットフォームのフィルター バーのインクルードを使用します。
--  プラットフォームの **セクション境界のインクルード ペア**のペア。プラットフォーム固有のコンテンツをセクションごとに囲みます。
--  単一の**フィルター機能のイネーブラー** インクルード。ファイルの最後。
+-  プラットフォームの**セクション境界のインクルード ペア**のペア。プラットフォーム固有のコンテンツをセクションごとに囲みます。
+-  単一の**フィルター機能のイネーブラー**はファイルの最後に組み込みます。
 
 <p style="font-size:85%;margin:0 0 2em 2em;border:1px solid deeppink;border-left-width:8px;background-color:mistyrose;padding:.5em 1em;"><b>重要:</b>すべてのコンテンツ インクルード マークダウン行は、直前または直後に少なくとも 1 行の空行が必要です。ただし、直後が EOF になるフィルター機能のイネーブラーは除きます。</p>
 
@@ -82,7 +82,7 @@ Sed convallis tristique sem.Proin ut ligula vel nunc egestas porttitor.Morbi lec
 * [cross-dir ..\api\mail-rest-operations.md](..\api\mail-rest-operations.md)
 * [cross-dir-with-bk ../API/files-rest-operations#DeleteFilesClient](../API/files-rest-operations.md#FileoperationsDeleteafile)
 * [external-target http://msdn.microsoft.com/ja-jp/library/azure/dn499820.aspx](http://msdn.microsoft.com/en-us/library/azure/dn499820.aspx)
-* [external-target-with-bk http://msdn.microsoft.com/ja-jp/library/azure/dn499820.aspx#BKMK_Web (http://msdn.microsoft.com/ja-jp/library/azure/dn499820.aspx#BKMK_Web)
+* [external-target-with-bk http://msdn.microsoft.com/ja-jp/library/azure/dn499820.aspx(http://msdn.microsoft.com/ja-jp/library/azure/dn499820.aspx)
 * [out-n-back ..\howto\Starter-projects-and-code-samples.md](..\howto\Starter-projects-and-code-samples.md)
 * [out-n-back-with-bk ..\howto\setup-development-environment.md](..\howto\setup-development-environment.md)
 * [relative starter-projects-and-code-samples.md](starter-projects-and-code-samples.md)
@@ -90,7 +90,7 @@ Sed convallis tristique sem.Proin ut ligula vel nunc egestas porttitor.Morbi lec
 
 ### Filter-selecting のリンク
 
-* <a href="setup-development-environment.md">JavaScript のフィルターが適用されたビューを表示するセットアップ トピックを開く</a>
+* <a href="setup-development-environment.md">セットアップのトピックを開く</a>
 
 ### Filter+bookmark-selecting のリンク
 

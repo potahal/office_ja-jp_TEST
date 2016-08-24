@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Input and output HTML
 title: "OneNote ページの入出力 HTML"  
-description: "onnvshort ページの作成に使用する入力 HTML と、ページのコンテンツを取得する際に返される出力 HTML について説明します。"
+description: "OneNote ページの作成に使用できる入力 HTML、およびページのコンテンツを取得する際に返される出力 HTML について説明します。"
 ms.ContentId: 3f916342-af4a-4386-8fb0-16630f3f944e
 ms.date: July 5, 2016
 
@@ -9,68 +9,68 @@ ms.date: July 5, 2016
 [!INCLUDE [Add the O365API repo styles](../includes/controls/addo365apistyles.xml)]
 [!INCLUDE [Add the ONAPI repo styles](../includes/controls/addonapistyles.xml)]
 
-<style>##simpletable {余白:-5px 0px 0px 0px; 境界線: なし;} #simplecell {境界線: なし;パディング:15px 20px; バック グラウンド-カラー: ホワイト;}</style>
+<style>#simpletable {margin:-5px 0px 0px 0px; border:none;} #simplecell {border:none; padding:15px 20px; background-color:white;}</style>
 
 # OneNote ページの入出力 HTML
 
-*__Applies to:__ Consumer notebooks on OneDrive | Enterprise notebooks on Office 365*
+*__適用対象:__OneDrive のコンシューマー ノートブック | Office 365 のエンタープライズ ノートブック*
 
-ページを作成または更新する際に、ページ コンテンツと構造を定義する HTML を *入力 HTML * と呼びます。 
+ページを[作成](../howto/onenote-create-page.md)または[更新](../howto/onenote-update-page.md)する際に、ページ コンテンツと構造を定義する HTML を*入力 HTML* と呼びます。 
 
-ページ コンテンツを取得すると返される HTML を *出力 HTML* と呼びます。出力 HTML は入力 HTML と同じにはなりません。 Output HTML won't be the same as input HTML.
+[ページ コンテンツを取得](../howto/onenote-get-content.md#get-page-content)すると返される HTML を*出力 HTML* と呼びます。 出力 HTML は入力 HTML と同じにはなりません。
 
 OneNote API は、入力 HTML の意味的コンテンツと基本的構造を保持しますが、その HTML を、[サポート済みの HTML 要素および CSS プロパティ](../howto/onenote-create-page.md#supported-html)のセットに変換します。API はさらに、OneNote 機能をサポートするカスタム属性も追加します。
  
 この資料では、入力 HTML と出力 HTML の主な要素と属性について説明します。ページ コンテンツを作成または更新する場合には入力 HTMLについて、返されるページ コンテンツを解析する場合には出力 HTML について理解することは役立ちます。 
 
 <a name="body"></a>
-## 本文
+## Body
 ページ本文の HTML コンテンツは、画像やファイルのリソースなどを含むページのコンテンツと構造を表します。入力および出力 HTML では、**body** 要素に次の属性を含めることができます。
 
- 要素の入力属性
+**入力属性 (*body* 要素)**
 
 | 入力属性 | 説明 |   
 |------|------|  
 | data-absolute-enabled | [絶対位置で配置](../howto/onenote-abs-pos.md)された要素を入力本文でサポートするかどうかを示します。 |  
-| style | <p>要素の CSS [スタイル](#styles)のプロパティ。 本文の CSS のスタイルのプロパティ。出力 HTML では、適切な子要素で入力設定がインラインで返されることがあります。現在、body 要素では背景色はサポートされていません。</p><p>Background color is not currently supported for the **body** element.</p> |
+| style | <p>本文の CSS の [style](#styles) プロパティ。 出力 HTML では、入力設定がインラインで、適切な子要素で返される場合があります。</p><p>現在、**body** 要素では背景色はサポートされていません。</p> |
  
 
- body 要素の出力属性
+**出力属性 (*body* 要素)**
 
 | 出力属性 | 説明 |   
 |------|------|  
-| data-absolute-enabled | [絶対位置で配置](../howto/onenote-abs-pos.md)された要素を入力本文でサポートするかどうかを示します。 Always **true** in output HTML. |  
+| data-absolute-enabled | [絶対位置で配置](../howto/onenote-abs-pos.md)された要素を本文でサポートするかどうかを示します。 出力 HTML では常に **true** です。 |  
 | style | 本文の **font-family** および **font-size** プロパティ。 |
 
 
 <a name="divs"></a>
 ## div
-Divs contain text, images, and other content. div にはテキスト、画像、およびその他のコンテンツが含まれます。入力および出力 HTML では、**div** 要素に次の属性を含めることができます。
+div にはテキスト、画像、およびその他のコンテンツが含まれます。 入力 HTML と出力 HTML では、**div** 要素に次の属性を含めることができます。
 
- div 要素の入力属性
+**入力属性 (*div* 要素)**
 
 | 入力属性 | 説明 |   
 |------|------|  
-| data-id | 要素の参照。 要素の参照。[ページ コンテンツを更新する](../howto/onenote-update-page.md)ために使用します。 |  
+| data-id | 要素の参照。 [ページ コンテンツの更新](../howto/onenote-update-page.md)に使用します。 |  
 | data-render-fallback | [抽出](../howto/onenote-extract-data.md)が失敗した場合のフォールバック操作。**render** (既定) または **none**。 |  
-| data-render-method | [抽出](../howto/onenote-extract-data.md)を実行する方法、たとえば: extract.businesscard`extract.businesscard` または extract.recipe`extract.recipe`。 |  
+| data-render-method | [抽出](../howto/onenote-extract-data.md)を実行するメソッド。たとえば: `extract.businesscard` または `extract.recipe`。 |  
 | data-render-src | [抽出](../howto/onenote-extract-data.md)のコンテンツのソース。 |  
-| style | <p>div の位置、サイズ、フォント、および色のプロパティ。</p><p> - **position** (**absolute** only), **left**, **top**, and **width**. (Height is auto-configured for divs.)<br />Used to create an [absolute positioned](../howto/onenote-abs-pos.md) div, only if the div is a direct child of the body when the body sets `data-absolute-enabled="true"`.<br />例`<div style="position:absolute;width:360px;top:350px;left:300px" ... />`</p><p> 要素の CSS [スタイル](#styles)のプロパティ。 要素の CSS のスタイルのプロパティ。出力 HTML では、これらの値は適切な子要素でインラインで返されます。</p> |
+| style | <p>div の位置、サイズ、フォント、および色のプロパティ:</p><p> - **position** (**absolute** のみ)、**left**、**top**、および **width**。 (div では height が自動構成されます。)<br />本文が `data-absolute-enabled="true"` に設定されていて、div が本文の直接の子の場合にのみ、[絶対位置](../howto/onenote-abs-pos.md)の div の作成に使用されます。<br />例: `<div style="position:absolute;width:360px;top:350px;left:300px" ... />`</p><p> - 要素の CSS の [style](#styles) プロパティ。 出力 HTML では、これらの値が適切な子要素で、インラインで返されます。</p> |
  
 
-OneNote API は、すべての本文のコンテンツを 1 つ以上の div でラップします。次の場合に、API は既定の div (data-id="_default" の属性に設定) を作成して本文のコンテンツを含めます。 OneNote API は、すべての本文のコンテンツを 1 つ以上の div でラップします。次の場合に、API は既定の div (data-id="_default"`data-id="_default"` の属性に設定) を作成して本文のコンテンツを含めます。
+OneNote API は、すべての本文のコンテンツを 1 つ以上の div でラップします。 次の場合に、API は既定の div (`data-id="_default"` の属性に設定) を作成して、本文のコンテンツを含めます。
 
 - 入力要素 body の **data-absolute-enabled** 属性が省略されたか、**false** に設定されている。この場合、すべての本文のコンテンツは既定の div に含められます。
 
-- The input body element's **`data-absolute-enabled** attribute is **true**, but the input HTML contains direct children that aren't [absolute positioned](../howto/onenote-abs-pos.md)&nbsp;**div**, **img**, or **object** elements. In this case, direct children that aren't [absolute positioned](../howto/onenote-abs-pos.md)&nbsp;**div**, **img**, or **object** elements are put in the default div.
+- 入力要素 body の **`data-absolute-enabled** 属性は** true** ですが、入力 HTML は、[絶対位置に配置された](../howto/onenote-abs-pos.md)&nbsp;** div**、**img**、または **object** 要素ではない直接の子を含んでいます。 この例では、[絶対位置に配置された](../howto/onenote-abs-pos.md)&nbsp;** div**、**img**、または **object** 要素ではない直接の子が、既定位置の div に配置されています。
 
 
- div 要素の出力属性
+**出力属性 (*div* 要素)**
 
 | 出力属性 | 説明 |   
 |------|------|  
-| data-id | 要素の参照。 要素の参照。[ページ コンテンツを更新する](../howto/onenote-update-page.md)ために使用します。 | 
-| id | 要求の一意の ID。 要素の一意の生成された ID。*includeIDs=true* クエリ オプションを使用した場合に、ページの content`includeIDs=true` エンドポイントに対する GET 要求から返されます。ページの更新のために使用します。 要素の参照。[ページ コンテンツを更新する](../howto/onenote-update-page.md)ために使用します。 | 
+| data-id | 要素の参照。 [ページ コンテンツの更新](../howto/onenote-update-page.md)に使用します。 | 
+| id | 要素の一意の生成された ID。 `includeIDs=true` クエリ オプションを使用した場合に、[ページの *content* エンドポイントに対する GET 要求](../howto/onenote-get-content.md#get-page-content)から返されます。 [ページ コンテンツの更新](../howto/onenote-update-page.md)に使用します。 | 
 | style | div の位置とサイズのプロパティ。 |
  
 ### 作用していない div
@@ -94,7 +94,7 @@ OneNote API は、すべての本文のコンテンツを 1 つ以上の div で
 </html>
 ```
 
-**出力 HTML** 出力 HTML。div のコンテンツが親の div に移動し、入れ子状態の <div>`<div>` タグが削除されていることに注目してください。ただし、data-id などのセマンティック情報が div に定義されていたなら、div は保持されていました。 However, the div would have been preserved if it defined any semantic information, such as a **data-id** (example: `<div data-id="keep-me">`).
+**出力 HTML** div のコンテンツが親の div に移動し、入れ子状態の `<div>` タグが削除されている点に注意してください。 ただし、**data-id** などの意味情報が div に定義されていた場合は、div が保持されていました (例: `<div data-id="keep-me">`)。
 
 ```
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
@@ -112,38 +112,40 @@ OneNote API は、すべての本文のコンテンツを 1 つ以上の div で
 
 
 <a name="images"></a>
-## Images
-Images on OneNote pages are represented by **img** elements. OneNote ページの画像は **img** 要素で表されます。入力 HTML および出力 HTML では、img 要素に次の属性を含めることができます。
+## 画像
+OneNote ページの画像は **img** 要素で表されます。 入力 HTML および出力 HTML では、**img** 要素に次の属性を含めることができます。
 
- img 要素の入力属性
+<a name="image-input"></a>
+**入力属性 (*img* 要素)**
 
 | 入力属性 | 説明 |   
 |------|------|  
 | alt | 画像に指定された代替テキスト。 | 
-| data-id | 要素の参照。 要素の参照。[ページ コンテンツを更新する](../howto/onenote-update-page.md)ために使用します。 | 
-| data-render-src | <p>**data-render-src** または **src** が必要です。</p><p>onnvshort ページ上のビットマップ画像として表示する Web ページ。<br />パブリック URL の場合には data-render-src="http://..." - `data-render-src="http://..."`。<br /> - `data-render-src="name:BlockName"` for an image part in the "Presentation" block of a [multipart request](../howto/onenote-create-page.md#example).</p><p>マルチパート要求の Presentation ブロックにある画像部分の data-render-src="name:BlockName"。このメソッドは、onnvshort ページで忠実に表示できるものよりも複雑な Web ページの場合、またはページにログイン資格情報が必要な場合に役立ちます。</p> |  
-| data-tag | 要素上の[ノート シール](../howto/onenote-note-tags.md)。 | 
-| style | <p>The position and size properties for the image: **position** (**absolute** only), **left**, **top**, **width**, and **height**.</p><p>Size can be set on any image. Position properties are used to create an [absolute positioned](../howto/onenote-abs-pos.md) image, only if the image is a direct child of the body when the body sets `data-absolute-enabled="true"`.<br />例`<img style="position:absolute;width:360px;top:350px;left:300px" ... />`</p><p>出力 HTML では、**width** 属性および **height** 属性で画像のサイズが個別に返されます。</p> |  
-| src | <p>**src** または **data-render-src** が必要です。</p><p>onnvshort ページに表示する画像。<br />インターネットで一般に使用可能な画像の URL の場合には src="http://..." - `src="http://..."`。<br />画像を表すマルチパート要求の名前付き部分の src="name:BlockName" - `src="name:BlockName"`。</p> |
-| width、height | 画像の幅または高さ。ピクセル単位ですが px は付けません。例: width="400" 例`width="400"` |
+| data-id | 要素の参照。 [ページ コンテンツの更新](../howto/onenote-update-page.md)に使用します。 | 
+| data-render-src | <p>**data-render-src** か **src** のいずれかが必要です。</p><p>OneNote ページ上のビットマップ画像として表示する Web ページ。<br />パブリック URL の場合は  - `data-render-src="http://..."`。<br />[マルチパート要求](../howto/onenote-create-page.md#example)の "Presentation" ブロックにある画像部分の場合は  - `data-render-src="name:BlockName"`。</p><p>このメソッドは、OneNote ページで忠実に表示できるものよりも複雑な Web ページの場合や、ページにログイン資格情報が必要な場合に役立ちます。</p> |  
+| data-tag | 要素の[ノート シール](../howto/onenote-note-tags.md)。 | 
+| style | <p>画像の位置とサイズのプロパティ: **position** (**absolute** のみ)、**left**、**top**、**width**、および **height**。</p><p>任意の画像のサイズを設定できます。 位置プロパティは、本文が `data-absolute-enabled="true"` に設定されていて、画像が本文の直接の子である場合にのみ、[絶対位置](../howto/onenote-abs-pos.md)の画像の作成に使用されます。<br />例: `<img style="position:absolute;width:360px;top:350px;left:300px" ... />`</p><p>出力 HTML では、画像サイズは **width** 属性と **height** 属性で別々に返されます。</p> |  
+| src | <p>**src** か **data-render-src** のいずれかが必要です。</p><p>OneNote ページに表示する画像。<br />インターネットで一般に使用可能な画像の URL の場合は  - `src="http://..."`。<br />画像を表すマルチパート要求の名前付き部分の場合は  - `src="name:BlockName"`。</p> |
+| width、height | 画像の幅または高さ。ピクセル単位ですが px は付けません。 例: `width="400"` |
  
->> OneNote API は入力画像の種類を自動的に検出し、それを **data-fullres-src-type** として出力 HTML で返します。またこの API は、data-src-type で最適化された画像の画像種類を返します。 The API also returns the image type of the optimized image in **data-src-type**.
+>OneNote API は入力画像の種類を自動的に検出し、それを **data-fullres-src-type** として出力 HTML に返します。 API は、**data-src-type** で最適化された画像の種類も返します。
  
 
- img 要素の出力属性
+<a name="image-output"></a>
+**出力属性 (*img* 要素)**
 
 | 出力属性 | 説明 |   
 |------|------|  
 | alt | 画像に指定された代替テキスト。 | 
-| data-id | 要素の参照。 要素の参照。[ページ コンテンツを更新する](../howto/onenote-update-page.md)ために使用します。 | 
-| data-index | 画像の位置のプロパティ。 画像の位置。[分割された画像](#split-images)のサポート向け。 | 
+| data-id | 要素の参照。 [ページ コンテンツの更新](../howto/onenote-update-page.md)に使用します。 | 
+| data-index | 画像の位置。 [分割された画像](#split-images)をサポートします。 | 
 | data-fullres-src | 最初にページに埋め込まれていた画像リソースのバージョンのエンドポイント。 | 
-| data-fullres-src-type | **data-fullres-src** リソースの メディア型。たとえば、image/png`image/png` またはimage/jpeg`image/jpeg`。 | 
-| data-options | ソースの種類。PDF ファイルの場合は **printout**、その他すべての場合は **splitimage**。data-render-src 属性で作成された ] 分割された画像 にのみ適用されます。 Applies only to []split images](#split-images) created with the **data-render-src** attribute. | 
+| data-fullres-src-type | **data-fullres-src** リソースのメディアの種類。たとえば、`image/png` または`image/jpeg`。 | 
+| data-options | ソースの種類。PDF ファイルの場合は **printout**、その他のファイルはいずれも **splitimage**。 **data-render-src** 属性で作成された、[]分割された画像](#split-images) にのみ適用されます。 | 
 | data-render-original-src | ソース画像が公開されたインターネットの画像で、**data-render-src** 属性を付けて作成された場合の、画像の最初のソース URL。 | 
-| data-src-type | **src** リソースの メディア型。たとえば、image/png`image/png` またはimage/jpeg`image/jpeg`。 | 
-| data-tag | 要素上の[ノート シール](../howto/onenote-note-tags.md)。 | 
-| id | 要求の一意の ID。 要素の一意の生成された ID。*includeIDs=true* クエリ オプションを使用した場合に、ページの content`includeIDs=true` エンドポイントに対する GET 要求から返されます。ページの更新のために使用します。 要素の参照。[ページ コンテンツを更新する](../howto/onenote-update-page.md)ために使用します。 | 
+| data-src-type | **src** リソースのメディアの種類。たとえば、`image/png` または`image/jpeg`。 | 
+| data-tag | 要素の[ノート シール](../howto/onenote-note-tags.md)。 | 
+| id | 要素の一意の生成された ID。 `includeIDs=true` クエリ オプションを使用した場合に、[ページの *content* エンドポイントに対する GET 要求](../howto/onenote-get-content.md#get-page-content)から返されます。 [ページ コンテンツの更新](../howto/onenote-update-page.md)に使用します。 | 
 | src | Web ブラウザー、モバイル、およびタブレットのフォーム ファクター向けに最適化された画像リソースのバージョンのエンドポイント。 | 
 | style | 画像の位置のプロパティ。 | 
 | width、height | 画像の幅または高さ (ピクセル単位)。 | 
@@ -161,9 +163,9 @@ Images on OneNote pages are represented by **img** elements. OneNote ページ�
     data-fullres-src-type="image/png" ... />
 ```
 
-残りのページのコンテンツと同様、画像はプライベートなもので、取得するには認証を必要とするため、ブラウザーでは画像は直接表示されません。 To get public URLs to the image resources on a page, include **preAuthenticated=true** in the query string when you retrieve the page content (example: `GET ../pages/{page-id}/content?preAuthenticated=true`). The public URLs that are returned are valid for one hour. 
+既定では、画像は、ページ コンテンツの残りの部分と同様、それらを取得するために承認を必要とするため、ブラウザーで直接表示されることはありません。 ページにある画像リソースへの公開 URL を取得するには、ページ コンテンツを取得する際に、クエリ文字列に **preAuthenticated=true** を含めます (例: `GET ../pages/{page-id}/content?preAuthenticated=true`)。 返されるパブリック URL は 1 時間有効です。 
 
-**要求に _preAuthenticated=true_ が含まれる場合の、公開 URL を使用する画像**
+**要求に _preAuthenticated=true_ が含まれる場合の、パブリック URL を使用する画像**
 
 ```
 <img 
@@ -191,7 +193,7 @@ Images on OneNote pages are represented by **img** elements. OneNote ページ�
     [style="..."] />
 ```
 
- data-render-src 属性を使用して作成された画像
+***data-render-src* 属性を使用して作成された画像**
 
 ```
 <img
@@ -208,7 +210,8 @@ Images on OneNote pages are represented by **img** elements. OneNote ページ�
     [style="..."] />
 ```
 
-分割された画像
+<a name="split-images"></a>
+**分割された画像**
 
 **data-render-src** 属性 (Web ページの URL または名前が付いた部分のもの) を使用して作成された画像は、パフォーマンスと表示上の理由から複数のコンポーネントの画像に分割されることがあります。コンポーネント画像には、すべて同じ **data-id** 値が割り当てられます。各コンポーネントの画像には、元の垂直レイアウトを定義するゼロベースの data-index 属性があります。
 
@@ -248,28 +251,28 @@ Images on OneNote pages are represented by **img** elements. OneNote ページ�
 
 <a name="videos"></a>
 ## ビデオ
-OneNote pages can contain embedded videos represented by **iframe** elements. 
+OneNote ページには、**iframe** 要素で表される埋め込みビデオを含めることができます。 
 
->You can also [attach a video file using an **object** element](../howto/onenote-images-files.md#files).
+>[**object** 要素を使用してビデオ ファイルを添付](../howto/onenote-images-files.md#files)することもできます。
 
-**object 要素の入力属性**
+**iframe 要素の入力属性**
 
 | 入力属性 | 説明 |   
 |------|------|  
-| data-original-src | 必須。 ソース ページの URL。 See the [list of supported video sources](../howto/onenote-images-files.md#videos). 例`data-original-src="https://www.youtube.com/watch?v=3Ztr44aKmQ8"` |  
-| width、height | 画像の幅または高さ (ピクセル単位)。 例`width=300` | 
+| data-original-src | 必須。 ビデオ ソースの URL。 [サポートされるビデオ ソースの一覧](../howto/onenote-images-files.md#videos)を参照してください。 例: `data-original-src="https://www.youtube.com/watch?v=3Ztr44aKmQ8"` |  
+| width、height | iframe の幅と高さ (ピクセル単位)。 例: `width=300` | 
 
-**object 要素の出力属性**
+**iframe 要素の出力属性**
 
 | 出力属性 | 説明 |   
 |------|------|  
-| data-original-src | ソース ページの URL。 |  
-| src | A link to the video that is embedded in the OneNote page. |  
-| width、height | 画像の幅または高さ (ピクセル単位)。 例`width=300` |  
+| data-original-src | ビデオ ソースの URL。 |  
+| src | OneNote ページに埋め込まれたビデオへのリンク。 |  
+| width、height | iframe の幅と高さ (ピクセル単位)。 例: `width=300` |  
  
-オブジェクトの出力 HTML の例
+ビデオの**出力 HTML** の例
 
-Output **iframe** elements contain endpoints that link to the source page and video, as shown below. 
+次に示すように、出力 **iframe** 要素には、ソース ページとビデオに関連付けられたエンドポイントが含まれています。 
 
 ```
 <iframe 
@@ -283,17 +286,17 @@ Output **iframe** elements contain endpoints that link to the source page and vi
 ## オブジェクト
 OneNote ページには、**object** 要素で表される添付ファイルを含めることができます。**object** 要素は、入力 HTML および出力 HTML に次の属性を含めることができます。
 
->ファイルが画像として送信され、かつ data-render-src 属性を使用する場合、onnvshort API はファイルのコンテンツを画像としてページに表示することができます。例: <img data-render-src="name:BlockName" ... /> 例`<img data-render-src="name:part-name" ... />`
+>ファイルが画像として送信され、**data-render-src** 属性を使用する場合、OneNote API はファイルのコンテンツを画像としてページに表示できます。 例: `<img data-render-src="name:part-name" ... />`
  
 
 **object 要素の入力属性**
 
 | 入力属性 | 説明 |   
 |------|------|  
-| data | 必須。 必須。[マルチパート要求](../howto/onenote-create-page.md#example)のファイルを表す部分の名前。 | 
+| data | 必須。 [マルチパート要求](../howto/onenote-create-page.md#example)のファイルを表す部分の名前。 | 
 | data-attachment | 必須。ファイル名。 | 
-| data-id | 要素の参照。 要素の参照。[ページ コンテンツを更新する](../howto/onenote-update-page.md)ために使用します。 | 
-| style | <p>The position and size properties for the object: **position** (**absolute** only), **left**, **top**, and **width**.</p><p>position (absolute のみ), left、top、および width プロパティ。本文で data-absolute-enabled="true" が設定されているときにオブジェクトが本文の直接の子である場合にのみ、絶対位置で配置されたオブジェクトの作成に使用します。 絶対位置で配置された要素の詳細について確認してください。 例: <object style="position:absolute;top:350px;left:300px" ... /><br />例`<object style="position:absolute;top:350px;left:300px" ... />`</p> | 
+| data-id | 要素の参照。 [ページ コンテンツの更新](../howto/onenote-update-page.md)に使用します。 | 
+| style | <p>オブジェクトの位置とサイズのプロパティ: **position** (**absolute** のみ)、**left**、**top**、および **width**。</p><p>本文が `data-absolute-enabled="true"` に設定されていて、オブジェクトが本文の直接の子の場合にのみ、[絶対位置](../howto/onenote-abs-pos.md)のオブジェクトの作成に使用されます。<br />例: `<object style="position:absolute;top:350px;left:300px" ... />`</p> | 
 | type | 必須。標準のメディア ファイルの型。既知のファイルの型では、OneNote ページにファイルの種類と関連付けられたアイコンが表示されます。未知のファイルの型では、汎用のファイル アイコンが表示されます。 | 
 <!--todo: add link to known file types--> 
 
@@ -303,8 +306,8 @@ OneNote ページには、**object** 要素で表される添付ファイルを�
 |------|------|  
 | data | ファイルのリソースのエンドポイント。 |  
 | data-attachment | ファイル名。 |  
-| data-id | 要素の参照。 要素の参照。[ページ コンテンツを更新する](../howto/onenote-update-page.md)ために使用します。 |  
-| id | 要求の一意の ID。 要素の一意の生成された ID。*includeIDs=true* クエリ オプションを使用した場合に、ページの content`includeIDs=true` エンドポイントに対する GET 要求から返されます。ページの更新のために使用します。 要素の参照。[ページ コンテンツを更新する](../howto/onenote-update-page.md)ために使用します。 |  
+| data-id | 要素の参照。 [ページ コンテンツの更新](../howto/onenote-update-page.md)に使用します。 |  
+| id | 要素の一意の生成された ID。 `includeIDs=true` クエリ オプションを使用した場合に、[ページの *content* エンドポイントに対する GET 要求](../howto/onenote-get-content.md#get-page-content)から返されます。 [ページ コンテンツの更新](../howto/onenote-update-page.md)に使用します。 |  
 | style | オブジェクトの位置のプロパティ。 |  
 | type | 標準のメディア ファイルの種類。 |  
  
@@ -331,18 +334,18 @@ OneNote ページには、**object** 要素で表される添付ファイルを�
 
 | 入力属性 | 説明 |   
 |------|------|  
-| data-id | 要素の参照。 要素の参照。[ページ コンテンツを更新する](../howto/onenote-update-page.md)ために使用します。 |  
-| data-tag | A [note tag](../howto/onenote-note-tags.md) on a **p** or **h1** - **h6** element. |  
-| style | 要素の CSS  [スタイル](#styles) のプロパティ。 |  
+| data-id | 要素の参照。 [ページ コンテンツの更新](../howto/onenote-update-page.md)に使用します。 |  
+| data-tag | **p** 要素または **h1** - **h6** 要素上の[ノート シール](../howto/onenote-note-tags.md)。 |  
+| style | 要素の CSS [スタイル](#styles)のプロパティ。 |  
  
 
 **テキストのコンテナーの出力属性**
 
 | 出力属性 | 説明 |   
 |------|------|  
-| data-id | 要素の参照。 要素の参照。[ページ コンテンツを更新する](../howto/onenote-update-page.md)ために使用します。 |  
-| data-tag | A [note tag](../howto/onenote-note-tags.md) on a **p** or **h1** - **h6** element. |  
-| id | 要求の一意の ID。 要素の一意の生成された ID。*includeIDs=true* クエリ オプションを使用した場合に、ページの content`includeIDs=true` エンドポイントに対する GET 要求から返されます。ページの更新のために使用します。 要素の参照。[ページ コンテンツを更新する](../howto/onenote-update-page.md)ために使用します。 |  
+| data-id | 要素の参照。 [ページ コンテンツの更新](../howto/onenote-update-page.md)に使用します。 |  
+| data-tag | **p** 要素または **h1** - **h6** 要素上の[ノート シール](../howto/onenote-note-tags.md)。 |  
+| id | 要素の一意の生成された ID。 `includeIDs=true` クエリ オプションを使用した場合に、[ページの *content* エンドポイントに対する GET 要求](../howto/onenote-get-content.md#get-page-content)から返されます。 [ページ コンテンツの更新](../howto/onenote-update-page.md)に使用します。 |  
 | style | 要素の CSS [スタイル](#styles)のプロパティ。出力 HTML では、これらの値は、適切な子要素または **span** 要素でインラインで返すことができます。 |  
  
 
@@ -356,7 +359,7 @@ OneNote ページには、**object** 要素で表される添付ファイルを�
 <p>Some <span  style="font-size:16px;color:#ff0000;font-family:Segoe UI Black">more</span> text</p>
 ``` 
 
-**span`<i>` 要素でインライン CSS スタイルとして返される開始タグ <i>`<p>` 内の文字スタイルとフォント設定 <p>** を伴う**出力 HTML**。
+**span** 要素でインライン CSS スタイルとして返される `<p>` 開始タグ内の `<i>` 文字スタイルとフォント設定を伴う**出力 HTML**。
 
 ```
 <h1 style="font-size:16pt;color:#1e4e79;margin-top:11pt;margin-bottom:11pt">Heading <span style="font-style:italic">One</span> text</h1>
@@ -375,7 +378,7 @@ OneNote ページには、**object** 要素で表される添付ファイルを�
 
 | 入力属性 | 説明 |   
 |------|------|  
-| data-id | 要素の参照。 要素の参照。[ページ コンテンツを更新する](../howto/onenote-update-page.md)ために使用します。 |  
+| data-id | 要素の参照。 [ページ コンテンツの更新](../howto/onenote-update-page.md)に使用します。 |  
 | data-tag | **ul**、**ol**、または **li** の各要素上の[ノート シール](../howto/onenote-note-tags.md)。 |  
 | style | リストまたはリスト項目の **list-style-type** および CSS [スタイル](#styles) のプロパティ。 |  
  
@@ -384,9 +387,9 @@ OneNote ページには、**object** 要素で表される添付ファイルを�
 
 | 出力属性 | 説明 |   
 |------|------|  
-| data-id | 要素の参照。 要素の参照。[ページ コンテンツを更新する](../howto/onenote-update-page.md)ために使用します。 |  
+| data-id | 要素の参照。 [ページ コンテンツの更新](../howto/onenote-update-page.md)に使用します。 |  
 | data-tag |  **li** 要素内の span 上の[ノート シール](../howto/onenote-note-tags.md)。 |  
-| id | 要求の一意の ID。 要素の一意の生成された ID。*includeIDs=true* クエリ オプションを使用した場合に、ページの content`includeIDs=true` エンドポイントに対する GET 要求から返されます。ページの更新のために使用します。 要素の参照。[ページ コンテンツを更新する](../howto/onenote-update-page.md)ために使用します。 |  
+| id | 要素の一意の生成された ID。 `includeIDs=true` クエリ オプションを使用した場合に、[ページの *content* エンドポイントに対する GET 要求](../howto/onenote-get-content.md#get-page-content)から返されます。 [ページ コンテンツの更新](../howto/onenote-update-page.md)に使用します。 |  
 | style | 要素の **list-style-type** および CSS [スタイル](#styles)のプロパティ。出力 HTML では、リストレベル設定はリスト項目で返されます。既定のプロパティは返されません。 |  
  
 
@@ -395,10 +398,13 @@ OneNote API は次のリストのスタイルをサポートしています。
 | 番号付きリスト | 記号付きリスト |  
 |------|------|  
 | なし | なし |  
-| decimal (default) | disc (default) |  
+| 
+decimal (default) | 
+disc (default) |  
 | lower-alpha | Circle |
 | lower-roman | square |  
-| upper-alpha | &nbsp; |  
+| 
+upper-alpha | &nbsp; |  
 | upper-roman | &nbsp; |
  
 入力 HTML の **ol** 要素または **ul** 要素のリストにはグローバル スタイルを適用できますが、スタイルは **li** 要素で返されます。
@@ -415,7 +421,7 @@ OneNote API は次のリストのスタイルをサポートしています。
 </ol>
 ``` 
 
-This is the output HTML. これは出力 HTML です。スタイルが個々の **li** 要素または **span** 要素でインラインで返されることに注目してください。
+これは出力 HTML です。 スタイルが個々の **li** 要素または **span** 要素で、インラインで返されることに注意してください。
 
 ```
 <ol>
@@ -437,7 +443,7 @@ This is the output HTML. これは出力 HTML です。スタイルが個々の 
 </ul>
 ``` 
 
-This is the output HTML. これは出力 HTML です。スタイルが個々の **li** 要素または **span** 要素でインラインで返されることに注目してください。
+これは出力 HTML です。 スタイルが個々の **li** 要素または **span** 要素で、インラインで返されることに注意してください。
 
 ```
 <ul>
@@ -450,24 +456,24 @@ This is the output HTML. これは出力 HTML です。スタイルが個々の 
 
 <a name="tables"></a>
 ## テーブル
-テーブルは、**tr** 要素および **td** 要素を含めることができる **table** 要素として表されます。入れ子型のテーブルがサポートされています。 Nested tables are supported.
+テーブルは、**tr** 要素と **td** 要素を含めることができる **table** 要素として表されます。 入れ子のテーブルがサポートされています。
 
-入力 HTML および出力 HTML には、リストとリスト項目に次の属性を含めることができます。 テーブルには、入力 HTML と出力 HTML に次の属性を含めることができます。OneNote API では、**rowspan** 属性または **colspan** 属性はサポートされていません。
+入力 HTML と出力 HTML では、テーブルに次の属性を含めることができます。 OneNote API では、**rowspan** 属性または **colspan** 属性はサポートしていません。
 
 **テーブルの入力属性**
 
 | 入力属性 | 説明 |   
 |------|------|  
-| data-id | 要素の参照。 要素の参照。[ページ コンテンツを更新する](../howto/onenote-update-page.md)ために使用します。 |  
-| style | 要素の CSS [スタイル](#styles)のプロパティ。さらに、<br />Border border。0px または 1px のいずれか。<br />width **width**。**table** および td がピクセル単位またはページ幅の割合 (パーセント) でサポートされています。例: width="100px" または width="60%"<br />Example: `width="100px"` or `width="60%"` |  
+| data-id | 要素の参照。 [ページ コンテンツの更新](../howto/onenote-update-page.md)に使用します。 |  
+| style | 要素の CSS の [style](#styles)のプロパティ、および:<br /> - **border**。 0px または 1px のいずれかにすることができます。<br /> - **width**。 **table** および **td** でサポートされます。ピクセル数またはページ幅のパーセンテージを使用します。<br />例: `width="100px"` または `width="60%"` |  
  
 
 **テーブルの出力属性**
 
 | 出力属性 | 説明 |   
 |------|------|  
-| data-id | 要素の参照。 要素の参照。[ページ コンテンツを更新する](../howto/onenote-update-page.md)ために使用します。 |  
-| id | 要求の一意の ID。 要素の一意の生成された ID。*includeIDs=true* クエリ オプションを使用した場合に、ページの content`includeIDs=true` エンドポイントに対する GET 要求から返されます。ページの更新のために使用します。 要素の参照。[ページ コンテンツを更新する](../howto/onenote-update-page.md)ために使用します。 |  
+| data-id | 要素の参照。 [ページ コンテンツの更新](../howto/onenote-update-page.md)に使用します。 |  
+| id | 要素の一意の生成された ID。 `includeIDs=true` クエリ オプションを使用した場合に、[ページの *content* エンドポイントに対する GET 要求](../howto/onenote-get-content.md#get-page-content)から返されます。 [ページ コンテンツの更新](../howto/onenote-update-page.md)に使用します。 |  
 | style | 要素の CSS [スタイル](#styles)のプロパティ。 |  
  
 
@@ -510,41 +516,41 @@ This is the output HTML. これは出力 HTML です。スタイルが個々の 
 
 <a name="styles"></a>
 ## スタイル
-OneNote の API は、ページ本文の要素として次のインライン CSS **style** プロパティを サポートしています。たとえば、**body**、**div**、**p**、**li**、および **span** です。
+OneNote の API は、ページ本文の要素 (**body**、**div**、**p**、**li**、**span** など) として、次に示すインライン CSS の **style** プロパティをサポートしています。
 
 | プロパティ | 例 |  
 |------|------|  
-| background-color | style="background-color:#66cc66"`style="background-color:#66cc66"` (既定は白)<br />16 進数形式と色の名前の両方をサポートしています。 |  
-| color | style="color:#ffffff"`style="color:#ffffff"` (既定は black です) |  
-| font-family | style="font-family:Courier"`style="font-family:Courier"` (既定は Calibri です) |  
-| font-size | style="font-size:10pt"`style="font-size:10pt"` (既定は 11pt)<br />onnvshort API では pt または px のフォント サイズを使用できますが、px を pt に変換します。10 進数値は最も近い n.0pt または n.5pt に丸められます。 onnvshort API では pt または px のフォント サイズを使用できますが、px を pt に変換します。10 進数値は最も近い n.0pt または n.5pt に丸められます。 |  
-| font-style | style="font-style:italic"`style="font-style:italic"` (標準または斜体のみ) |  
-| font-weight | style="font-weight:bold"`style="font-weight:bold"` (標準または太字のみ) |  
+| background-color | `style="background-color:#66cc66"` (既定は white)<br />16 進数形式と名前付きの色の両方がサポートされています。 |  
+| color | `style="color:#ffffff"` (既定は black) |  
+| font-family | `style="font-family:Courier"` (既定は Calibri) |  
+| font-size | `style="font-size:10pt"` (既定は 11pt)<br />OneNote API は *pt* または *px* のフォント サイズを受け入れますが、*px* は *pt* に変換します。 10 進数の値は、最も近い n.0pt または n.5pt に四捨五入されます。 |  
+| font-style | `style="font-style:italic"` (標準または斜体のみ) |  
+| font-weight | `style="font-weight:bold"` (標準または太字のみ) |  
 | strike-through | `style="text-decoration:line-through"` |  
-| text-align | style="text-align:center"`style="text-align:center"` (ブロック要素の場合のみ) |  
-| text-decoration | style="text-decoration:underline"`style="text-decoration:underline"` (なし、または下線のみ) |  
+| text-align | `style="text-align:center"` (ブロック要素の場合のみ) |  
+| text-decoration | `style="text-decoration:underline"` (なし、または下線のみ) |  
  
 
 次のインライン文字スタイルもサポートされています。
 
 <table id="simpletable">
 <tr>
-<td id="simplecell">b. </td>
-<td id="simplecell">&lt;<i>&gt;</td>
-<td id="simplecell">&lt;<u>&gt;</td>
+<td id="simplecell">&lt;b&gt;</td>
+<td id="simplecell">&lt;i&gt;</td>
+<td id="simplecell">&lt;u&gt;</td>
 </tr>
 <tr>
-<td id="simplecell">&lt;<em>&gt;</td>
-<td id="simplecell">&lt;<strong>&gt;</td>
-<td id="simplecell">&lt;<strike>&gt;</td>
+<td id="simplecell">&lt;em&gt;</td>
+<td id="simplecell">&lt;strong&gt;</td>
+<td id="simplecell">&lt;strike&gt;</td>
 </tr>
 <tr>
-<td id="simplecell">&lt;<sup>&gt;</td>
-<td id="simplecell">&lt;<sub>&gt;</td>
-<td id="simplecell">&lt;<del>&gt;</td>
+<td id="simplecell">&lt;sup&gt;</td>
+<td id="simplecell">&lt;sub&gt;</td>
+<td id="simplecell">&lt;del&gt;</td>
 </tr>
 <tr>
-<td id="simplecell">&lt;<cite>&gt;</td>
+<td id="simplecell">&lt;cite&gt;</td>
 <td id="simplecell">&nbsp;</td>
 <td id="simplecell">&nbsp;</td>
 </tr>
@@ -552,7 +558,7 @@ OneNote の API は、ページ本文の要素として次のインライン CSS
 
  
 <a name="example-input-output"></a>
-##次の画像は、OneNote API で作成された簡単なページを示しています。
+## 入力 HTML と出力 HTML の例 次の画像は、OneNote API で作成された簡単なページを示しています。
 
 **入力 HTML から作成されたサンプル ページ**
 
@@ -591,9 +597,9 @@ OneNote の API は、ページ本文の要素として次のインライン CSS
 </html>
 ``` 
 
-これは、[ページ コンテンツを取得](#../howto/onenote-get-content.md#get-page-content)する際に OneNote API が返す出力 HTML です。
+これは、[ページ コンテンツを取得](#../howto/onenote-get-content.md#get-page-content)するときに OneNote API が返す出力 HTML です。
 
->> [ページを作成する](../howto/onenote-create-page.md)際、または[ページのメタデータを取得する](../howto/onenote-get-content.md#get-page)際、API は、**contentUrl** プロパティのページの*コンテンツ* エンドポイント URL を返します。
+>[ページを作成する](../howto/onenote-create-page.md)ときや、[ページのメタデータを取得する](../howto/onenote-get-content.md#get-page)ときに、API は **contentUrl** プロパティのページの*コンテンツ* エンドポイント URL を返します。
 
 ```
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
@@ -634,13 +640,13 @@ OneNote の API は、ページ本文の要素として次のインライン CSS
 
 
 <a name="see-also"></a>
-## その他の技術情報
+## その他のリソース
 
 - [OneNote コンテンツと構造を取得する](../howto/onenote-get-content.md#get-page-content)
 - [OneNote ページの作成](../howto/onenote-create-page.md)
 - [OneNote ページ コンテンツを更新する](../howto/onenote-update-page.md)
 - [画像とファイルを追加する](../howto/onenote-images-files.md)
-- [OneNote 開発](../howto/onenote-landing.md)
+- [OneNote の開発](../howto/onenote-landing.md)
 - [OneNote デベロッパー センター](http://dev.onenote.com/)
 - [OneNote の開発者ブログ](http://go.microsoft.com/fwlink/?LinkID=390183)
 - [スタック オーバーフローに関する OneNote の開発の質問](http://go.microsoft.com/fwlink/?LinkID=390182) 

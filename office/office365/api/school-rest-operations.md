@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Schools REST API reference
 title: "教育機関 REST API リファレンス"
-description: "ms.TocTitle:教育機関 REST API リファレンス Title:教育機関 REST API リファレンス Description:Office 365 Education テナントの教育機関へのアクセスを提供する 教育機関 REST API と対話する方法に関するリファレンスです。ms.ContentId:35003e02-c4b1-4702-9d86-b6a7718e9fa8 ms.topic: リファレンス (API)"
+description: "Office 365 Education テナントの教育機関へのアクセスを提供する教育機関 REST API と対話する方法に関するリファレンスです。"
 ms.ContentId: 35003e02-c4b1-4702-9d86-b6a7718e9fa8
 
 ---
@@ -12,11 +12,11 @@ ms.ContentId: 35003e02-c4b1-4702-9d86-b6a7718e9fa8
 
 # 教育機関 REST API リファレンス
     
- __**適用対象:**Office 365 Education__
-<p class="previewnote">This documentation covers features that are currently in preview.</p>
+ _**適用対象:**Office 365 Education_
+<p class="previewnote">このドキュメントで取り上げる機能は、現時点ではプレビュー段階にあります。</p>
 
 
-<a name="Overview"> </a>Office 365 Education API は、Microsoft School Data Sync でクラウドに同期されている Office 365 テナントから、データを抽出する際に役立ちます。その結果により、教育機関、セクション、教職員、学生および名簿に関する情報が得られます。 These results provide information about schools, sections, teachers, students and rosters. The Schools REST API provides access to school entities in Office 365 for Education tenants.
+<a name="Overview"> </a> Office 365 Education API は、Microsoft School Data Sync でクラウドに同期されている Office 365 テナントから、データを抽出する際に役立ちます。 その結果により、教育機関、セクション、教師、学生および名簿に関する情報が得られます。 教育機関 REST API は、Education テナント用の Office 365 に含まれる教育機関エンティティへのアクセスを提供します。
 
 API は Microsoft Azure Active Directory と OAuth を使用して、[アプリケーション要求を認証します](..\howto\common-app-authentication-tasks.md)。
  
@@ -24,12 +24,13 @@ API は Microsoft Azure Active Directory と OAuth を使用して、[アプリ�
 
 <!-- Add Extension Properties and Data-Model-->
 
-## すべての教育機関 REST API 操作
+## すべての教育機関 REST API の操作
 
-<a name="SchoolOperations"> </a> Schools are represented as [Administrative Units](https://msdn.microsoft.com/en-us/library/azure/dn832057.aspx) in Azure Active Directory. Azure Active Directory では、教育機関が管理単位として表されます。テナントで使用可能な教育機関を取得できます。また、教育機関エンティティに含まれるセクション、学生、および教職員も取得できます。
+
+  <a name="SchoolOperations"> </a> Azure Active Directory では、教育機関が[管理単位](https://msdn.microsoft.com/en-us/library/azure/dn832057.aspx)として表されます。 テナントで使用可能な教育機関を取得できます。また、教育機関エンティティに含まれるセクション、学生、および教師も取得できます。
 
 
-教育機関を取得する  教育機関内のセクションを取得する  教育機関内の学生を取得する  教育機関内の教職員を取得する 
+[教育機関を取得する](#GetSchools) | [教育機関内のセクションを取得する](#GetSchoolSections) | [教育機関内の学生を取得する](#GetSchoolStudents) | [教育機関内の教師を取得する](#GetSchoolTeachers) 
 
 
 ## 教育機関 REST API の使用
@@ -40,29 +41,29 @@ API は Microsoft Azure Active Directory と OAuth を使用して、[アプリ�
 
 `https://graph.windows.net/{tenant_id}/administrativeUnits`
 
-{tenant_id}`{tenant_id}` は、Azure Active Directory テナントの一意の ID または ドメインです。tenant_id は、次のいずれかの方法で指定できます。 {tenant_id} は、Azure Active Directory テナントの一意の ID または ドメインです。tenant_id は、次のいずれかの方法で指定できます。
-- テナントのオブジェクト ID (GUID)。例: https://graph.windows.net/95b43ae0-0554-4cc5-8c22-fe219dc31156/`https://graph.windows.net/95b43ae0-0554-4cc5-8c22-fe219dc31156/`。
-- テナントの検証済みドメイン名。例: https://graph.windows.net/contoso.onmicrosoft.com/`https://graph.windows.net/contoso.onmicrosoft.com/`。
-- The `myOrganization` alias. myOrganization`https://graph.windows.net/myorganization/` のエイリアス。このエイリアスは、サインインしているユーザーのテナントに解決されます (要求で送信されるベアラー トークンに基づきます)。例: https://graph.windows.net/myorganization/。 
+`{tenant_id}` は、Azure Active Directory テナントの一意の ID またはドメインです。 tenant_id は、次のいずれかの方法で指定できます。
+- テナントのオブジェクト ID (GUID)。例: `https://graph.windows.net/95b43ae0-0554-4cc5-8c22-fe219dc31156/`。
+- テナントの検証済みドメイン名。例: `https://graph.windows.net/contoso.onmicrosoft.com/`。
+- `myOrganization` のエイリアス。 このエイリアスは、サインインしているユーザーのテナントに解決されます (要求で送信されるベアラー トークンに基づきます)。例: `https://graph.windows.net/myorganization/`。 
 
-後述する各例では、tenant_id = 95b43ae0-0554-4cc5-8c22-fe219dc31156`tenant_id = 95b43ae0-0554-4cc5-8c22-fe219dc31156` を使用します。   
+後述する各例では、`tenant_id = 95b43ae0-0554-4cc5-8c22-fe219dc31156` を使用します。   
 
-Schools are represented in Azure Active Directory as administrative units. Extension attributes on the administrative units add education-specific information.  
-For example, the `extension_fe2174665583431c953114ff7268b7b3_Education_HighestGrade` attribute contains the highest grade level within the school.
+Azure Active Directory では、教育機関が管理単位として表されます。 管理単位の拡張属性により、教育機関固有の情報が追加されます。  
+たとえば、`extension_fe2174665583431c953114ff7268b7b3_Education_HighestGrade` 属性には、その教育機関内での最高学年が格納されています。
 
-**注** すべての要求について、URL クエリ文字列では api-version`api-version` を指定する必要があります。教育機関 REST API には、バージョン beta が必要です。例: https://graph.windows.net/{tenant_id}/administrativeUnits?api-version=beta。 The Schools REST API requires version `beta`. 例: `https://graph.windows.net/{tenant_id}/administrativeUnits?api-version=beta`   
+**注**: すべての要求について、URL クエリ文字列では `api-version` を指定する必要があります。 教育機関 REST API には、バージョン `beta` が必要です。 例: `https://graph.windows.net/{tenant_id}/administrativeUnits?api-version=beta`。   
 
 
 ## 教育機関の属性
 
-教育機関に関する情報を特定する際に役立つ属性の説明については、「[教育機関の属性](education-rest-attributes.md#SchoolAttributes)」を参照してください。
+教育機関に関する情報を特定する際に役立つ属性の説明については、[教育機関の属性](education-rest-attributes.md#SchoolAttributes)
 
 ****
 
 <a name="GetSchools"> </a>
 ##教育機関の取得
 
-すべての教育機関を取得することも、object_id`object_id` ごとに 1 つの教育機関を取得することも、クエリのフィルター セットに一致する教育機関のコレクションを取得することもできます。
+すべての教育機関を取得することも、`object_id` ごとに 1 つの教育機関を取得することも、クエリのフィルター セットに一致する教育機関のコレクションを取得することもできます。
 
 <a name="GetAllSchools"> </a>
 ###すべての教育機関の取得
@@ -75,7 +76,7 @@ GET https://graph.windows.net/{tenant_id}/administrativeUnits?api-version=beta&$
 
 |**必須パラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |tenant_id|文字列|Azure Active Directory のテナント ID、またはドメイン名。|
 
 [!code-REST-i[schools_api_get_schools.json](./_data/schools_api_get_schools.json)]
@@ -92,7 +93,7 @@ GET https://graph.windows.net/{tenant_id}/administrativeUnits?api-version=beta&$
 <a name="GetSchool"> </a>
 ###1 つの教育機関の取得
 
-object_id`object_id` を使用して、1 つの教育機関を取得します。
+`object_id` を使用して、1 つの教育機関を取得します。
 
 ```no-highlight
 GET https://graph.windows.net/{tenant_id}/administrativeUnits/{object_id}?api-version=beta
@@ -101,7 +102,7 @@ GET https://graph.windows.net/{tenant_id}/administrativeUnits/{object_id}?api-ve
 
 |**必須パラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |tenant_id|文字列|Azure Active Directory のテナント ID、またはドメイン名。|
 |object_id|文字列|Azure Active Directory の教育機関管理単位のオブジェクト ID。|   
 
@@ -118,9 +119,9 @@ GET https://graph.windows.net/{tenant_id}/administrativeUnits/{object_id}?api-ve
 <a name="GetSchoolSections"> </a>
 ##教育機関内のセクションの取得
 
-Sections are represented in Azure Active Directory as [Unified Groups](https://msdn.microsoft.com/en-us/office/office365/howto/groups-rest-operations). Extension attributes on the unified groups add section specific information. For example, the `extension_fe2174665583431c953114ff7268b7b3_Education_CourseName` attribute contains the course name for the section.
+Azure Active Directory では、セクションが[統合グループ](https://msdn.microsoft.com/en-us/office/office365/howto/groups-rest-operations)として表されます。 統合グループについての拡張属性により、セクション固有の情報が追加されます。 たとえば、`extension_fe2174665583431c953114ff7268b7b3_Education_CourseName` 属性には、セクションの講座名が格納されます。
 
-特定の教育機関のセクションは、スクール ID に基づいたグループにクエリを実行することで取得できます。このとき、クエリでは extension_fe2174665583431c953114ff7268b7b3_Education_ObjectType`extension_fe2174665583431c953114ff7268b7b3_Education_ObjectType` 属性と extension_fe2174665583431c953114ff7268b7b3_Education_SyncSource_SchoolId`extension_fe2174665583431c953114ff7268b7b3_Education_SyncSource_SchoolId` 属性を同時に使用します。
+特定の教育機関のセクションは、教育機関 ID に基づいたグループにクエリを実行することで取得できます。このとき、クエリでは `extension_fe2174665583431c953114ff7268b7b3_Education_ObjectType` 属性と `extension_fe2174665583431c953114ff7268b7b3_Education_SyncSource_SchoolId` 属性を同時に使用します。
 
 
 ```no-highlight
@@ -132,7 +133,7 @@ GET https://graph.windows.net/{tenant_id}/groups?api-version=1.5
 
 |**必須パラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |tenant_id|文字列|Azure Active Directory のテナント ID、またはドメイン名。|
 |school_id|文字列|School Information System (SIS) での教育機関の ID。|   
 
@@ -149,7 +150,7 @@ GET https://graph.windows.net/{tenant_id}/groups?api-version=1.5
 <a name="GetSchoolStudents"> </a>
 ##教育機関内の学生の取得
 
-Students are represented in Azure Active Directory as users. Extension attributes on the users add student specific information. For example, the `extension_fe2174665583431c953114ff7268b7b3_Education_Grade` attribute contains the student's grade level.  
+Azure Active Directory では、学生がユーザーとして表されます。 ユーザーについての拡張属性により、学生固有の情報が追加されます。 たとえば、`extension_fe2174665583431c953114ff7268b7b3_Education_Grade` 属性には学生の学年が格納されます。  
 
 特定の教育機関の学生は、教育機関管理単位のメンバーになり、アプリケーションで結果のコレクションから学生以外のユーザーをフィルターで除外することで取得できます。
 
@@ -161,7 +162,7 @@ GET https://graph.windows.net/{tenant_id}/administrativeUnits/{object_id}/member
 
 |**必須パラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |tenant_id|文字列|Azure Active Directory のテナント ID、またはドメイン名。|
 |object_id|文字列|Azure Active Directory の教育機関管理単位のオブジェクト ID。|   
 
@@ -175,7 +176,7 @@ GET https://graph.windows.net/{tenant_id}/administrativeUnits/{object_id}/member
 
 ###学生の検索
 
-ユーザーのコレクションには、学生、教職員、および教育に関わらない (管理スタッフなどの) ユーザーが含まれていることがあります。アプリケーションでは、学生を抽出するフィルターをコレクションに適用しできます。Student と等しくなる Education_ObjectType 拡張属性を検索します。 You can filter the collection down to students within your application. Look for the `Education_ObjectType` extension attribute to equal `Student`.
+ユーザーのコレクションには、学生、教職員、および教育に関わらない (管理スタッフなどの) ユーザーが含まれていることがあります。 アプリケーションでは、学生を抽出するフィルターをコレクションに適用しできます。 `Student` と等しくなる `Education_ObjectType` 拡張属性を検索します。
 
 ```no-highlight
 extension_fe2174665583431c953114ff7268b7b3_Education_ObjectType == 'Student'
@@ -184,9 +185,9 @@ extension_fe2174665583431c953114ff7268b7b3_Education_ObjectType == 'Student'
 **** 
 
 <a name="GetSchoolTeachers"> </a>
-##教育機関内の教職員の取得
+##教育機関内の教師の取得
 
-Teachers are represented in Azure Active Directory as users. Extension attributes on the users add teacher specific information. For example, the `extension_fe2174665583431c953114ff7268b7b3_Education_TeacherNumber` attribute contains the teacher's teacher number. 
+Azure Active Directory では、教職員はユーザーとして表されます。 ユーザーについての拡張属性により、教職員固有の属性が追加されます。 たとえば、`extension_fe2174665583431c953114ff7268b7b3_Education_TeacherNumber` 属性には教師の教師番号が格納されます。 
 
 特定の教育機関の教職員は、教育機関管理単位のメンバーになり、アプリケーションで結果のコレクションから教職員以外のユーザーをフィルターで除外することで取得できます。
 
@@ -198,7 +199,7 @@ GET https://graph.windows.net/{tenant_id}/administrativeUnits/{object_id}/member
 
 |**必須パラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |tenant_id|文字列|Azure Active Directory のテナント ID、またはドメイン名。|
 |object_id|文字列|Azure Active Directory の教育機関管理単位のオブジェクト ID。|   
 
@@ -212,7 +213,7 @@ GET https://graph.windows.net/{tenant_id}/administrativeUnits/{object_id}/member
 
 ###教職員の検索
 
-ユーザーのコレクションには、学生、教職員、および教育に関わらない (管理スタッフなどの) ユーザーが含まれていることがあります。アプリケーションでは、教職員のみを抽出するフィルターをコレクションに適用できます。Teacher と等しくなる Education_ObjectType 拡張属性についてのクエリを実行します。 You can filter the collection down to teachers within your application. Look for the `Education_ObjectType` extension attribute to equal `Teacher`.
+ユーザーのコレクションには、学生、教職員、および教育に関わらない (管理スタッフなどの) ユーザーが含まれていることがあります。 アプリケーションでは、教職員を抽出するフィルターをコレクションに適用できます。 `Teacher` と等しくなる `Education_ObjectType` 拡張属性を検索します。
 
 ```no-highlight
 extension_fe2174665583431c953114ff7268b7b3_Education_ObjectType == 'Teacher'
@@ -221,7 +222,7 @@ extension_fe2174665583431c953114ff7268b7b3_Education_ObjectType == 'Teacher'
 
 **** 
 <a name="NextSteps"> </a>
-## 次のステップ
+## 次の手順
 
 次に、興味の対象になると考えられる、その他の Education に関連するリソースを示します。
 
@@ -229,9 +230,9 @@ extension_fe2174665583431c953114ff7268b7b3_Education_ObjectType == 'Teacher'
 
 - [学生 Rest 操作](..\api\student-rest-operations.md)を使用した、学生情報へのアクセス
 
-- [教職員 Rest 操作](..\api\teacher-rest-operations.md)を使用した、教職員情報へのアクセス 
+- [教師 Rest 操作](..\api\teacher-rest-operations.md)を使用した、教師情報へのアクセス 
 
-- [教育属性](..\api\education-rest-attributes.md)で使用可能な属性の説明
+- 属性の説明については、「[Education の属性](..\api\education-rest-attributes.md)」にあります
 
 
 アプリケーション開発を開始する準備ができている方にも、単に詳しい情報を必要としている方にも、最適なコンテンツをご用意しています。
@@ -248,13 +249,13 @@ Office 365 プラットフォームの使い方の詳細については、次の
 
 - [Office 365 プラットフォーム上での開発の概要](..\howto\platform-development-overview.md)
     
-- [Office 365 アプリケーションの認証およびリソース承認](..\howto\common-app-authentication-tasks.md)
+- [Office 365 のアプリ認証とリソース承認](..\howto\common-app-authentication-tasks.md)
     
 - [Office 365 API にアクセスできるようにアプリを手動で Azure AD に登録する](..\howto\add-common-consent-manually.md)
   
-- [メール API リファレンス](..\api\mail-rest-operations.md)
+- [Mail API リファレンス](..\api\mail-rest-operations.md)
   
-- [予定表 API リファレンス](..\api\calendar-rest-operations.md)
+- [Calendar API リファレンス](..\api\calendar-rest-operations.md)
 
 - [Files API リファレンス](..\api\files-rest-operations.md)
 

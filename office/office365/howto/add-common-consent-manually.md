@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Manually register your app
 title: "Office 365 API にアクセスできるようにアプリを手動で Azure AD に登録する"
-description: "ms.TocTitle: アプリを手動で登録するTitle: Office 365 API にアクセスできるようにアプリを手動で Azure AD に登録するDescription: OneDrive for Business のファイルや他のセキュリティで保護されたリソースにアクセスできるように、Azure Active Directory の共通コンテンツを手動で ASP.NET アプリケーションに追加します。ms.ContentId: 95479f73-15d7-426e-abdf-ae2c72b5cd33 ms.topic: 記事 (方法)"
+description: "OneDrive for Business のファイルや他のセキュリティで保護されたリソースにアクセスできるように、Azure Active Directory の共通コンテンツを手動で ASP.NET アプリケーションに追加します。"
 ms.ContentId: 95479f73-15d7-426e-abdf-ae2c72b5cd33
 ms.date: September 9, 2015
 ---
@@ -11,7 +11,7 @@ ms.date: September 9, 2015
 
 # Office 365 API にアクセスできるようにアプリを手動で Azure AD に登録する   
 
-_**適用対象:** Office 365_
+_**適用対象:**Office 365_
  
 
 <a name="bk_intro"> </a>
@@ -26,16 +26,16 @@ Office 365 API サービスは、ユーザーの Office 365 データに対し�
 
 - Office 365 ビジネス アカウント
 
-    If you don't have an existing Office 365 business account, there are several ways to create one. For more information, see [Get an Office 365 account](..\howto\setup-development-environment.md#bk_Office365Account).
+    既存の Office 365 ビジネス アカウントをお持ちでない場合、アカウントを作成するにはいくつかの方法があります。 詳細については、「[Office 365 API にアクセスするために Office 365 アカウントを取得する](..\howto\setup-development-environment.md#bk_Office365Account)」を参照してください。
 
 - Office 365 ビジネス アカウントに関連付けられた Azure AD サブスクリプション
 
-    This is where you'll actually register your app. You can use an existing Azure AD tenancy, or create a new one.
-    When you sign up for an Office 365 business account, a Microsoft Azure subscription is automatically created and associated with that Office 365 account.
+    ここに、実際にアプリを登録します。 既存の Azure AD テナントを使用することも、新しいテナントを作成することもできます。
+    Office 365 ビジネス アカウントにサインアップすると、自動的に Microsoft Azure サブスクリプションが作成されて、その Office 365 アカウントに関連付けられます。
     
-    既存の Microsoft Azure サブスクリプションをお持ちの場合は、ビジネス向けの Office 365 サブスクリプションとそのサブスクリプションを関連付けることができます。 If not, you'll need to create an association to the Azure subscription that was created when you signed up for your Office 365 business account.
+    既存の Microsoft Azure サブスクリプションがある場合は、そのサブスクリプションを Office 365 ビジネス アカウントに関連付けることができます。 既存の Microsoft Azure サブスクリプションがない場合は、Office 365 ビジネス アカウントにサインアップしたときに作成された Azure サブスクリプションを関連付ける必要があります。
     
-    For more information, see [Associate your Office 365 account with Azure AD to create and manage apps](..\howto\setup-development-environment.md#bk_CreateAzureSubscription).
+    詳細については、「[Office 365 アカウントを Azure AD と関連付けてアプリを作成および管理する](..\howto\setup-development-environment.md#bk_CreateAzureSubscription)」を参照してください。
     
 
 
@@ -59,19 +59,19 @@ Office 365 API サービスは、ユーザーの Office 365 データに対し�
 
 次の手順は、iOS および Android のアプリを含むネイティブ アプリ向けのものです。 
 
-1. Office 365 ビジネス アカウント資格情報を使用して、 [Azure 管理ポータル](https://manage.windowsazure.com/)にサインインします。
+1. Office 365 ビジネス アカウント資格情報を使用して、[Azure 管理ポータル](https://manage.windowsazure.com/)にサインインします。
 
 2. 左側の列にある **[Active Directory]** ノードをクリックして、Office 365 サブスクリプションにリンクされているディレクトリを選択します。
 
-    ![A screenshot of the Azure Management Portal website. The item 'Active Directory' is selected in the left navigation pane. In the main pane, the Directory tab is selected. The name of the current directory is highlighted.](images\O365APIs_RegisterApp_1.png)
+    ![Azure 管理ポータル Ｗeb サイトのスクリーン ショット。 左側のナビゲーション パネルでは、[Active Directory] の項目が選択されています。 メイン ウィンドウでは、[ディレクトリ] タブが選択されています。 現在のディレクトリの名前が強調表示されています。](images\O365APIs_RegisterApp_1.png)
 
 3. **[アプリケーション]** タブを選択してから、ページの下部にある **[追加]** を選択します。
     
-    ![A screenshot of the directory information page. In the menu bar at the bottom of the page, the New icon is highlighted.](images\O365APIs_RegisterApp_2.png)
+    ![ディレクトリ情報のページのスクリーン ショット。 ページの下部にあるメニュー バーでは、[新規] アイコンが強調表示されています。](images\O365APIs_RegisterApp_2.png)
 
-4. ポップアップ ウィンドウで、**[所属組織が開発しているアプリケーションの追加]** を選択します。 Then click the arrow to continue.
+4. ポップアップ ウィンドウで、**[所属組織が開発しているアプリケーションの追加]** を選択します。 矢印をクリックして続行します。
 
-5. アプリの名前を選択し、[種類] として **[ネイティブ クライアント アプリケーション]** を 選択します。矢印をクリックして続行します。 Then click the arrow to continue.
+5. アプリの名前を選択し、[種類] として **[ネイティブ クライアント アプリケーション]** を選択します。 矢印をクリックして続行します。
     
 6. 次に、リダイレクト URI を指定します。Azure AD は OAuth 2.0 要求に対する応答として、この URI にユーザー エージェントをリダイレクトします。値は、物理的なエンドポイントである必要はありませんが、有効な URI でなければなりません。リダイレクト URL は、アプリの一意の識別子として考えることができます。
     
@@ -87,19 +87,19 @@ Office 365 API サービスは、ユーザーの Office 365 データに対し�
 
 次の手順は、ブラウザー ベースの Web アプリケーション向けのものです。これらの種類のアプリは、サーバーからソース コードをロードした後、ブラウザーで完全に実行できるようになります。
 
-1. Office 365 ビジネス アカウント資格情報を使用して、 [Azure 管理ポータル](https://manage.windowsazure.com/)にサインインします。
+1. Office 365 ビジネス アカウント資格情報を使用して、[Azure 管理ポータル](https://manage.windowsazure.com/)にサインインします。
 
 2. 左側の列にある **[Active Directory]** ノードをクリックして、Office 365 サブスクリプションにリンクされているディレクトリを選択します。
 
-    ![A screenshot of the Azure Management Portal website. The item 'Active Directory' is selected in the left navigation pane. In the main pane, the Directory tab is selected. The name of the current directory is highlighted.](images\O365APIs_RegisterApp_1.png)
+    ![Azure 管理ポータル Ｗeb サイトのスクリーン ショット。 左側のナビゲーション パネルでは、[Active Directory] の項目が選択されています。 メイン ウィンドウでは、[ディレクトリ] タブが選択されています。 現在のディレクトリの名前が強調表示されています。](images\O365APIs_RegisterApp_1.png)
 
 3. **[アプリケーション]** タブを選択してから、ページの下部にある **[追加]** を選択します。
     
-    ![A screenshot of the directory information page. In the menu bar at the bottom of the page, the New icon is highlighted.](images\O365APIs_RegisterApp_2.png)
+    ![ディレクトリ情報のページのスクリーン ショット。 ページの下部にあるメニュー バーでは、[新規] アイコンが強調表示されています。](images\O365APIs_RegisterApp_2.png)
 
-4. ポップアップ ウィンドウで、**[所属組織が開発しているアプリケーションの追加]** を選択します。 Then click the arrow to continue.
+4. ポップアップ ウィンドウで、**[所属組織が開発しているアプリケーションの追加]** を選択します。 矢印をクリックして続行します。
 
-5. アプリの名前を選択して、[種類] として [**Web アプリケーションまたは Web API**] を選択します。矢印をクリックして続行します。 Then click the arrow to continue.
+5. アプリの名前を選択して、[種類] として **[Web アプリケーションまたは Web API]** を選択します。 矢印をクリックして続行します。
 
 6. **サインオン URL** は、ユーザーがサインインしてアプリを使用できる Web ページのアドレスです。このプロパティに設定される値は、**応答 URL** の値としても設定されます。
     
@@ -117,15 +117,15 @@ Office 365 API サービスは、ユーザーの Office 365 データに対し�
 
 2. ドロワーの **[マニフェストの管理]** ボタンを使用して、アプリケーションのマニフェスト ファイルをダウンロードし、コンピューターに保存します。
 
-3. Open the manifest file with a text editor. Search for the *oauth2AllowImplicitFlow* property. By default it is set to *false*; change it to *true* and save the file.
+3. テキスト エディターでマニフェスト ファイルを開きます。 *oauth2AllowImplicitFlow* プロパティを検索します。 既定では *false* に設定されています。*true* に変更してファイルを保存します。
 
-4. **[マニフェストの管理]** ボタンを使用して、更新されたマニフェスト ファイルをアップロードします。
+4. **[マニフェストの管理]** ボタンを使用して、更新したマニフェスト ファイルをアップロードします。
 
 #### Web アプリを単一テナント アプリまたはマルチテナント アプリのどちらにするかを指定する
 
 ブラウザー ベースのアプリケーションの場合、アプリの Azure テナント範囲を構成することもできます。つまり、Azure にテナントを登録して、そのテナントだけにアプリを利用可能にするか、あるいは複数の Axure テナントに利用可能にするかを指定します。 
 
-The default is **No**. 既定値は [いいえ] です。テナント範囲は、必要に応じて後から変更できます。
+既定値は **[いいえ]** です。 テナント範囲は、必要に応じて後から変更できます。
 
 1. Azure 管理ポータルで、アプリケーションを選択し、上部メニューの **[構成]** を選択します。**[マルチ テナント型アプリケーションにする]** までスクロールダウンして、**[はい]** または **[いいえ]** を選択します。
 
@@ -139,19 +139,19 @@ The default is **No**. 既定値は [いいえ] です。テナント範囲は�
 
 次の手順は、Node.js アプリなど、Web サーバー アプリ向けのものです。
 
-1. Office 365 ビジネス アカウント資格情報を使用して、 [Azure 管理ポータル](https://manage.windowsazure.com/)にサインインします。
+1. Office 365 ビジネス アカウント資格情報を使用して、[Azure 管理ポータル](https://manage.windowsazure.com/)にサインインします。
 
 2. 左側の列にある **[Active Directory]** ノードをクリックして、Office 365 サブスクリプションにリンクされているディレクトリを選択します。
 
-    ![A screenshot of the Azure Management Portal website. The item 'Active Directory' is selected in the left navigation pane. In the main pane, the Directory tab is selected. The name of the current directory is highlighted.](images\O365APIs_RegisterApp_1.png)
+    ![Azure 管理ポータル Ｗeb サイトのスクリーン ショット。 左側のナビゲーション パネルでは、[Active Directory] の項目が選択されています。 メイン ウィンドウでは、[ディレクトリ] タブが選択されています。 現在のディレクトリの名前が強調表示されています。](images\O365APIs_RegisterApp_1.png)
 
 3. **[アプリケーション]** タブを選択してから、ページの下部にある **[追加]** を選択します。
     
-    ![A screenshot of the directory information page. In the menu bar at the bottom of the page, the New icon is highlighted.](images\O365APIs_RegisterApp_2.png)
+    ![ディレクトリ情報のページのスクリーン ショット。 ページの下部にあるメニュー バーでは、[新規] アイコンが強調表示されています。](images\O365APIs_RegisterApp_2.png)
 
-4. ポップアップ ウィンドウで、**[所属組織が開発しているアプリケーションの追加]** を選択します。 Then click the arrow to continue.
+4. ポップアップ ウィンドウで、**[所属組織が開発しているアプリケーションの追加]** を選択します。 矢印をクリックして続行します。
 
-5. アプリの名前を選択して、[種類] として [**Web アプリケーションまたは Web API**] を選択します。矢印をクリックして続行します。 Then click the arrow to continue.
+5. アプリの名前を選択して、[種類] として **[Web アプリケーションまたは Web API]** を選択します。 矢印をクリックして続行します。
 
 6. **サインオン URL** は、ユーザーがサインインしてアプリを使用できる Web ページのアドレスです。このプロパティに設定される値は、**応答 URL** の値としても設定されます。
     
@@ -164,19 +164,19 @@ Web サーバー アプリが Azure AD に登録されました。ただし、�
 <a name="bk_ConfigureApp_Secret"> </a>
 #### Web アプリケーションの新しいアプリ シークレットを生成する
 
-1. Azure 管理ポータルで、アプリケーションを選択し、上部メニューの [構成] を選択します。 Scroll down to **keys**.
+1. Azure 管理ポータルで、アプリケーションを選択し、上部メニューの **[構成]** を選択します。 **[キー]** までスクロールダウンします。
 
-2. クライアント シークレットの有効期間を選択し、[保存] アイコンをクリックします。
+2. クライアント シークレットの有効期間を選択して、[保存] アイコンをクリックします。
 
-    ![A screenshot of the app configuration page for your app, on the Azure Management Portal website. Under the page section titled 'keys', a drop-down list is shown for selecting the duration of the new key. In the menu bar at the bottom of the page, the SAVE icon is highlighted.](images\O365APIs_RegisterApp_7.png)
+    ![Azure 管理ポータル Web サイト上のアプリケーションのアプリケーション構成ページのスクリーン ショット。 [キー] というタイトルのページ セクションに、新しいキーの期間を選択するためのドロップ ダウン リストが表示されています。 ページの下部にあるメニュー バーでは、[保存] アイコンが強調表示されています。](images\O365APIs_RegisterApp_7.png)
     
-    Azure displays the app secret.
+    Azure に、アプリ シークレットが表示されます。
 
 3. クリップボード アイコンをクリックし、クライアント シークレットをクリップボードにコピーします。
 
-    ![A screenshot of the app configuration page for your app, on the Azure Management Portal website. Under the page section titled 'keys', the new client secret is now displayed. Next to the client secret, the Clipboard icon is highlighted.](images\O365APIs_RegisterApp_8.png)
+    ![Azure 管理ポータル Web サイト上のアプリケーションのアプリケーション構成ページのスクリーン ショット。 [キー] というタイトルのページ セクションに、新しいクライアント シークレットが表示されています。 クライアント シークレットの横にあるクリップボード アイコンが強調表示されています。](images\O365APIs_RegisterApp_8.png)
 
-    **Important** Azure only displays the client secret at the time you initially generate it. You cannot navigate back to this page and retrieve the client secret later. 
+    **重要** クライアント シークレットは、最初に生成したときにだけ、Azure に表示されます。 後でこのページに戻ってクライアント シークレットを取得することはできません。 
 
 
 
@@ -187,7 +187,7 @@ Web サーバー アプリが Azure AD に登録されました。ただし、�
 
 1. Azure 管理ポータルで、アプリケーションの構成ページの一番下までスクロールダウンし、**[他のアプリケーションへのアクセス許可]** で **[アプリケーションの追加]** を選択します。
  
-    ![A screenshot of the app configuration page for your app, on the Azure Management Portal website. Under the page section titled 'permission to other applications', the 'Add application' button is highlighted.](images\O365APIs_RegisterApp_4.png)
+    ![Azure 管理ポータル Web サイト上のアプリケーションのアプリケーション構成ページのスクリーン ショット。 [他のアプリケーションへのアクセス許可] というタイトルのページ セクションでは、[アプリケーションの追加] ボタンが強調表示されています。](images\O365APIs_RegisterApp_4.png)
 
 2. アプリがアクセス許可を必要とする Office 365 のサービスを選択します。
     
@@ -195,19 +195,19 @@ Web サーバー アプリが Azure AD に登録されました。ただし、�
     1. サービス名を選択し、プラス記号をクリックしてサービスを追加します。 
     2. 追加したサービスが **[選択済み]** 列にリストされます。 
     3. チェック マーク アイコンをクリックして、選択を保存してください。
-    ![A screenshot of the 'permissions to other applications' page. The available services are listed in a table. Next to the name of the selected service is a plus icon. At the far right is a column that will list the applications you add to your app. The check mark icon that you click to save your choices is highlighted at the top of the page.](images\O365APIs_RegisterApp_5.png)
+    ![[他のアプリケーションへのアクセス許可] ページのスクリーン ショット。 利用可能なサービスが、表に一覧表示されています。 選択されたサービスの名前の横に、プラス記号のアイコンがあります。 右端の列には、アプリに追加するアプリケーションが一覧表示されています。 ページ上部にある、選択内容を保存する場合にクリックするチェック マーク アイコンが強調表示されています。](images\O365APIs_RegisterApp_5.png)
 
-    You are returned to your app's configuration page.
+    アプリの構成ページが再表示されます。
 
 4. **[他のアプリケーションへのアクセス許可]** で、追加した各サービスの **[デリゲートされたアクセス許可]** 列をクリックし、アプリに必要なアクセス許可を指定します。
 
-    ![A screenshot of the app configuration page for your app, on the Azure Management Portal website. Under the page section titled 'permissions to other applications', the services that you just added are listed in a table. Next to the name of each application is a column titled 'Delegated Permissions'. This column displays a drop-down menu of the permissions you can request for your app from each application you added.](images\O365APIs_RegisterApp_6.png)
+    ![Azure 管理ポータル Web サイト上のアプリケーションのアプリケーション構成ページのスクリーン ショット。 [他のアプリケーションへのアクセス許可] というタイトルのページ セクションの表に、追加したサービスが一覧表示されています。 各アプリケーションの名前の横に、[デリゲートされたアクセス許可] というタイトルの列があります。 この列には、アクセス許可のドロップ ダウン メニューが表示されています。これを使用して、追加したアプリケーションに、アプリに必要なアクセス許可を要求できます。](images\O365APIs_RegisterApp_6.png)
 
-    These are the permissions that will be displayed to your app user when  Azure prompts them to consent to your app's permission request. In general, request only the services your app actually requires, and specify the least level of permissions in each service that still enable your app to perform its functions.
+    指定したアクセス許可は、アプリのユーザーに対し、Azure がアプリのアクセス許可要求に同意するように求める場合に表示されます。 一般に、アプリが実際に必要とするサービスのみを要求し、アプリがその機能を実行できる各サービスの最低レベルのアクセス許可を指定します。
 
-    Also, be aware that permission levels are additive. There is no need to request multiple permission levels for a given API, as the more expansive permission level already includes the more restricted permission. For example, for the Mail API, the **Send email as a user** permission already includes the **Read and write access to users' email** permission.
+    また、アクセス許可レベルには、その下のレベルのアクセス許可が含まれることに注意してください。 つまり、より広範なアクセス許可レベルには、それよりも下のレベルのより制限されたアクセス許可がすでに含まれるため、特定の API に対して複数のアクセス許可を要求する必要はありません。 たとえば、メール API の場合、**[ユーザーとしてメールを送信する]** アクセス許可には、**[ユーザーのメールの読み取りと書き込み]** アクセス許可がすでに含まれています。
     
-    For more information on specific permissions, see [Office 365 application manifest and permission details](..\howto\application-manifest.md).
+    具体的なアクセス許可の詳細については、「[Office 365 アプリケーション マニフェストとアクセス許可の詳細](..\howto\application-manifest.md)」を参照してください。
 
 
 <a name="bk_NextSteps"> </a>
@@ -218,9 +218,9 @@ Web サーバー アプリが Azure AD に登録されました。ただし、�
 次のセクションにリストされているスタート プロジェクト、サンプル コード、手順のトピック、参照資料を利用して、アプリを使用可能な状態にするために必要な設定を行ってください。
 
 <a name="bk_AdditionalResources"> </a>
-## その他の技術情報
+## その他のリソース
 
-- [Office 365 API スタート プロジェクト、サンプル コード、およびビデオ](..\howto\starter-projects-and-code-samples.md)
+- [Office 365 API スタート プロジェクト、サンプル コード、ビデオ](..\howto\starter-projects-and-code-samples.md)
 
 - [Office 365 API リファレンス](..\api\api-catalog.md)
 

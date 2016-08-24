@@ -1,30 +1,30 @@
 ---
 ms.Toctitle: Code samples
 title: "Office 365 API のコード サンプルとビデオ"
-description: "Office 365 APIs enable web and native applications to consume Office 365 data. Learn more about them from code samples and training videos."
+description: "Office 365 API を使用すると、Web およびネイティブ アプリケーションは Office 365 のデータを使用できます。 詳細については、コード サンプルとトレーニング ビデオを参照してください。"
 ms.ContentId: d8aac815-6e36-4034-86c5-424690a06a6e
 ms.date: June 10, 2016
 
 ---
 [!INCLUDE [Add the O365API repo styles](../includes/controls/addo365apistyles.xml)]
 
-# O365API リポジトリ スタイルの追加
+# Office 365 API のコード サンプルとビデオ
     
-_**適用対象:** Office 365_
+_**適用対象:**Office 365_
 
 ## このコンテンツは移動しました。
 
-This article is no longer being maintained. For an up-to-date list of code samples, see [code samples on dev.office.com](http://dev.office.com/code-samples#?filters=office%20365%20app).
+この記事は保守されなくなりました。 コード サンプルの最新の一覧については、[dev.office.com のコード サンプル](http://dev.office.com/code-samples#?filters=office%20365%20app) を参照してください。
 
 
-Great code samples are the key to getting up and running quickly, so take a look at our [code samples](http://dev.office.com/code-samples#?filters=office%20365%20app) available on GitHub. 
+優れたコード サンプルがあれば作業の時間を短縮できます。GitHub で提供されている[コード サンプル](http://dev.office.com/code-samples#?filters=office%20365%20app)を参照してください。 
 
-You can filter samples based on language, platform, and more.
+サンプルは言語、プラットフォームなどでフィルター処理できます。
 
-For a more comprehensive learning experience, try the deep-dive [training videos on the Office Dev Center](http://dev.office.com/training) delivered by respective experts.
+さらに幅広く学習したい場合は、各方面のエキスパートが提供する[Office デベロッパー センターのトレーニング ビデオ](http://dev.office.com/training)をご覧ください。
 
 
-## 予定表、連絡先
+## その他のリソース
 <a name="bk_addresources"> </a>
 
 
@@ -53,7 +53,7 @@ For a more comprehensive learning experience, try the deep-dive [training videos
 
 -  [Outlook 連絡先 API リファレンス](..\api\contacts-rest-operations.md)
 
--  [ファイル API リファレンス](..\api\files-rest-operations.md)
+-  [Files API リファレンス](..\api\files-rest-operations.md)
 
 -  [Office 365 統合 API の概要 (プレビュー)](..\howto\office-365-unified-api-overview.md)
 
@@ -70,7 +70,7 @@ For a more comprehensive learning experience, try the deep-dive [training videos
     
 -  [Office 365 API と Python 第 2 部: 連絡先 API](http://blogs.msdn.com/b/exchangedev/archive/2015/01/09/office-365-apis-and-python-part-2-contacts-api.aspx)
     
--  [Office 365 API と Python 第 3 部: メールおよび予定表 API](http://blogs.msdn.com/b/exchangedev/archive/2015/01/15/office-365-apis-and-python-part-3-mail-and-calendar-api.aspx)
+-  [Office 365 API と Python 第 3 部:メールおよび予定表 API](http://blogs.msdn.com/b/exchangedev/archive/2015/01/15/office-365-apis-and-python-part-3-mail-and-calendar-api.aspx)
 
 <!--**Terms of use** &nbsp;  _The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the_ [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/).-->
 

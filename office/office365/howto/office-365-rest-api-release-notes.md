@@ -1,20 +1,20 @@
 ---
 ms.Toctitle: Release notes
-title: "2015年 4 月の Office 365 REST API のリリース ノート"
-description: "ms.TocTitle: リリース ノートTitle: 2015年 4 月の Office 365 REST API のリリース ノートDescription: 2015 年 4 月の Office 365 API のリリースで利用可能になった開発者向けの新機能およびプレビュー機能を参照し、既知の問題を確認してください。ms.ContentId: 14c3c05f-313f-4bd0-802b-749adc074b8c ms.topic: 記事 (方法)"
+title: "2015 年 4 月の Office 365 REST API のリリース ノート"
+description: "2015 年 4 月の Office 365 API のリリースで利用可能になった開発者向けの新機能およびプレビュー機能を紹介します。また、既知の問題についてもご確認ください。"
 ms.ContentId: 14c3c05f-313f-4bd0-802b-749adc074b8c
 ms.date: June 2, 2015
 
 ---
 [!INCLUDE [Add the O365API repo styles](../includes/controls/addo365apistyles.xml)]
 
-# 2015年 4 月の Office 365 REST API のリリース ノート
+# 2015 年 4 月の Office 365 REST API のリリース ノート
 
 <p class="previewnote">[適用対象:](.\platform-development-preview-features-overview.md)Office 365 Education</p>
 
-_**適用対象:** Office 365_
+_**適用対象:**Office 365_
 
-この記事では、2015年 4 月の Office 365 API のリリースで使用可能になった開発者向けの新機能、および知っておくべき既知の問題について説明します。Office 365 の開発の詳細については、「Office 365 APIs platform overview (Office 365 API プラットフォームの概要)」を参照してください。 For more information about developing for Office 365, see [Office 365 APIs platform overview](.\platform-development-overview.md).
+この記事では、2015 年 4 月の Office 365 API のリリースで使用可能になった開発者向けの新機能、および知っておくべき既知の問題について説明します。 Office 365 の開発の詳細については、「[Office 365 API プラットフォームの概要](.\platform-development-overview.md)」を参照してください。
 
 ## Office 365 API の新しい GA 機能
 
@@ -27,12 +27,12 @@ _**適用対象:** Office 365_
 * Exchange での AppOnly のサポート
 * SharePoint での AppOnly のサポート
 * SharePoint での承認スコープのサポート (分類、検索、UPA)
-* Outlook API に対する次の更新
+* Outlook API の更新内容は、次のとおりです。
     * [予定表のビューの同期](..\howto\sync-calendar-view.md)
-    * 指定の基準を満たすメッセージの検索
-    * 複合型のフィルター
-    * Calendar API での開始時刻と終了時刻に対する Windows TimeZone のサポートEvent エンティティの StartTimeZone および EndTimeZone プロパティに関する説明を参照してください。 Calendar API での開始時刻と終了時刻に対する Windows TimeZone のサポートEvent エンティティの StartTimeZone および EndTimeZone プロパティに関する説明を参照してください。
-    * Outlook Web App でメッセージまたはイベントを開くMessage および Event エンティティの WebLink プロパテに関する説明を参照してください。 Outlook Web App でメッセージまたはイベントを開くMessage および Event エンティティの WebLink プロパテに関する説明を参照してください。
+    * 指定の基準を満たすメッセージの[検索](..\api\complex-types-for-mail-contacts-calendar.md#Search)
+    * 複合型の[フィルター](..\api\complex-types-for-mail-contacts-calendar.md#Filter)
+    * 予定表 API での開始時刻と終了時刻に対する Windows **TimeZone** のサポート [Event](..\api\complex-types-for-mail-contacts-calendar.md#EventResource) エンティティの **StartTimeZone** および **EndTimeZone** プロパティに関する説明を参照してください。
+    * Outlook Web App でメッセージまたはイベントを開く [Message](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource) および **Event** エンティティの **WebLink** プロパテに関する説明を参照してください。
     
 ## Office 365 API の新しいプレビュー機能
 
@@ -49,7 +49,7 @@ _**適用対象:** Office 365_
     * メールの拡張のプロパティ
 
 
-新しいプレビュー機能の詳細については、「Preview developer features on the Office 365 platform (Office 365 プラットフォームの開発者向けプレビュー機能)」を参照してください。
+新しいプレビュー機能の詳細については、「[Office 365 プラットフォームの開発者向けプレビュー機能](.\platform-development-preview-features-overview.md)」を参照してください。
 
 ## Office 365 統合 API (プレビュー) に関する既知の問題
 
@@ -59,7 +59,7 @@ Office 365 統合 API (プレビュー) に関する既知の問題は次のと�
 
 プレビュー リリースでは、統合 API を介して統合グループのイベントおよび会話に全世界でアクセスできるようになるまで、多少時間がかかる可能性があります。 
 
-### ユーザー エンティティの制限
+### ユーザー エンティティの制限事項
 
 *作成後にすぐにアクセスできない*
 
@@ -69,7 +69,7 @@ Office 365 統合 API (プレビュー) に関する既知の問題は次のと�
 
 現在、AboutMe や Skills などの拡張ユーザー プロファイル プロパティの設定はサポートされていません。 
 
-### グループ エンティティの制限
+### グループ エンティティの制限事項
 
 *作成後にコンテンツにすぐにアクセスできない*
 
@@ -90,7 +90,7 @@ Office 365 統合 API では、統合グループに対して次の 2 つのア�
 * Group.Read.All  
 * Group.ReadWrite.All 
 
-These scopes provide access to group management functions (enumerating groups, enumerating group members) as well as access to content in the group (conversations and events). However, in order to access files in a unified group, you must also request the Sites.Read.All or Site.ReadWrite.All permission scope.  For more information about these permission scopes, see [Get started with Office 365 unified API (preview)](https://msdn.microsoft.com/office/office365/HowTo/get-started-with-office-365-unified-api#msg_register_app).  
+これらのスコープは、グループ管理機能 (グループの列挙、グループ メンバーの列挙) へのアクセスのほか、グループのコンテンツ (会話とイベント) へのアクセスを提供します。 ただし、統合グループのファイルにアクセスするには、Sites.Read.All または Site.ReadWrite.All アクセス許可スコープも要求する必要があります。  これらのアクセス許可スコープの詳細については、「[Office 365 統合 API (プレビュー) の概要](https://msdn.microsoft.com/office/office365/HowTo/get-started-with-office-365-unified-api#msg_register_app)」を参照してください。  
 
 ### 連絡先
 
@@ -134,7 +134,7 @@ These scopes provide access to group management functions (enumerating groups, e
 
 現時点では、イベントの作成または更新中に、クライアント ライブラリから、または REST 経由で直接、リマインダーを設定することはできません。イベント リマインダー フィールドは更新されませんが、エラーは返されません。
 
-## その他の技術情報
+## その他のリソース
 
 - [Office 365 API プラットフォームの概要](https://msdn.microsoft.com/en-us/office/office365/howto/platform-development-overview)
 - [Office 365 プラットフォームの開発者向けプレビュー機能](.\platform-development-preview-features-overview.md)

@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Outlook Notifications REST API reference
 title: "Outlook 通知 REST API リファレンス"
-description: "ms.TocTitle:Outlook 通知 REST API リファレンスTitle:Outlook 通知 REST API リファレンスDescription:Office 365 と Outlook.com の通知 REST API を使用し、イベントの場合にサービスによって送信されるプッシュ通知をサブスクライブしてリッスンする方法に関するリファレンスです。ms.ContentId: c324d0f3-b093-44d3-8ef7-6ff810f9c99ams.topic: リファレンス (API) ms.date:2016 年 5 月 16 日"
+description: "Office 365 および Outlook.com の通知 REST API を使用して、イベント発生時にサービスによって送信されるプッシュ通知をサブスクライブおよびリッスンする方法のリファレンスです。"
 ms.ContentId: c324d0f3-b093-44d3-8ef7-6ff810f9c99a
 ms.date: August 9, 2016
 
@@ -19,17 +19,17 @@ ms.date: August 9, 2016
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-<p class="previewnote"><p class="previewnote">このバージョンのドキュメントは、プレビュー版の通知 API について説明します。 Preview features are subject to change prior to finalization, and may break code that uses them. プレビュー機能は、最終処理までに変更される場合があります。それらを使用するコードを破棄する場合もあります。このため、一般に、実稼働コードでは実稼働バージョンの API のみを使用してください。可能な場合には、現在バージョン 2.0 が優先バージョンです。</p> If available, v2.0 is currently the preferred version.</p>
+<p class="previewnote">このバージョンのドキュメントは、プレビュー版の通知 API について説明します。 プレビュー機能は、最終版までに変更される場合があり、それらの機能を使用するコードが動作しなくなる場合もあります。 このため、一般に、運用コードでは運用バージョンの API のみを使用してください。 入手可能な場合、現時点ではバージョン 2.0 が優先バージョンです。</p>
 
 
-_**Applies to:** Exchange Online | Office 365 | Hotmail.com | Live.com | MSN.com | Outlook.com | Passport.com_
+_**適用対象:**Exchange Online | Office 365 | Hotmail.com | Live.com | MSN.com | Outlook.com | Passport.com_
 
 
 Outlook 通知 REST API では、Office 365 の Azure Active Directory により保護されるユーザーのメール、予定表、連絡先、またはタスクのデータ、および Microsoft アカウントの類似したデータに関する変更を、アプリが学習できるようにします。具体的には、次のドメインです。Hotmail.com、Live.com、MSN.com、Outlook.com、および Passport.com。 
 
-**メモ** リファレンスをわかりやすくするため、この記事の残りの部分では **"Outlook.com" をこれらの Microsoft アカウントのドメインを含めた語として**使用しています。
+**注** リファレンスをわかりやすくするため、この記事の残りの部分では **"Outlook.com" をこれらの Microsoft アカウントのドメインを含めた語として**使用しています。
 
-**Not interested in the beta version of the API?** API v2.0 が不要な場合右上隅のコントロールを使用して、必要なバージョンを選択します。
+**ベータ版の API が不要な場合** 右上隅のコントロールを使用して、必要なバージョンを選択します。
 
 [!INCLUDE [END Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
@@ -42,14 +42,14 @@ Outlook 通知 REST API では、Office 365 の Azure Active Directory により
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
 
-_**Applies to:** Exchange Online | Office 365 | Hotmail.com | Live.com | MSN.com | Outlook.com | Passport.com_
+_**適用対象:**Exchange Online | Office 365 | Hotmail.com | Live.com | MSN.com | Outlook.com | Passport.com_
 
 
 Outlook 通知 REST API では、Office 365 の Azure Active Directory により保護されるユーザーのメール、予定表、または連絡先データ、および Microsoft アカウントの類似したデータに関する変更を、アプリが学習できるようにします。具体的なドメインは、次のとおりです。Hotmail.com、Live.com、MSN.com、Outlook.com、および Passport.com。 
 
-**メモ** リファレンスをわかりやすくするため、この記事の残りの部分では **"Outlook.com" をこれらの Microsoft アカウントのドメインを含めた語として**使用しています。
+**注** リファレンスをわかりやすくするため、この記事の残りの部分では **"Outlook.com" をこれらの Microsoft アカウントのドメインを含めた語として**使用しています。
 
-**Not interested in v2.0 of the API?** API v1.0 に関心がない場合: 右上のコントロールを使用して、必要なバージョンを選択します。
+**API v2.0 が不要な場合** 右上のコントロールを使用して、必要なバージョンを選択します。
 
 [!INCLUDE [END Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
@@ -67,11 +67,11 @@ Outlook 通知 REST API では、Office 365 の Azure Active Directory により
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-The Outlook notifications service and API use webhooks to deliver notifications to client apps. Webhooks are HTTP callbacks configured by usually a trusted, third-party backend web service. The service can configure webhooks to cause triggering events on one site to invoke behavior on another. When an app subscribes to notifications of a specific resource (such as messages in the user's Inbox), it specifies a webhook callback URL in the subscription request.  When a triggering event occurs (such as a new message in the Inbox), Office 365 pushes a notification via a webhook to the callback URL. The app, in turn, takes actions according to its business logic, such as getting the new message and updating the unread count.
+Outlook 通知サービスと API は、Webhook を使用して、クライアント アプリケーションに通知を配信します。 Webhook は、通常、サード パーティの信頼されたバックエンド Web サービスで構成されている HTTP コールバックです。 サービスは、1 つのサイトでトリガー イベントを発生させて別のサイトで動作を呼び出すように Webhook を構成できます。 アプリが特定のリソース (ユーザーの受信トレイ内のメッセージなど) の通知をサブスクライブする場合は、サブスクリプション要求に Webhook コールバック URL を指定します。  トリガー イベント (受信トレイの新しいメッセージなど) が発生すると、Office 365 は、コールバック URL に Webhook を使用して通知をプッシュします。 次に、アプリが、新しいメッセージを取得する、未読のカウントを更新するなど、ビジネス ロジックに従って、アクションを実施します。
 
-Webhook の利用は、要求されたリソースについて、クライアント アプリケーションに変更を通知し続けるための効果的な方法です。これにより、変更をポーリングする必要がなくなり、クライアントが更新をほぼ即座に利用できるようになります。メール、予定表、CRM アプリは通常、通知を使用して、ローカル キャッシュ、対応するクライアントのビュー、またはバックエンドシステムで変更を更新します。 Mail, calendaring and CRM apps typically use notifications to update their local cache, corresponding client views, or backend system upon changes. 
+Webhook の利用は、要求されたリソースについて、クライアント アプリケーションに変更を通知し続けるための効果的な方法です。これにより、変更をポーリングする必要がなくなり、クライアントが更新をほぼ即座に利用できるようになります。 メール、予定表、CRM アプリは通常、通知を使用して、ローカル キャッシュ、対応するクライアントのビュー、またはバックエンドシステムで変更を更新します。 
 
-アプリは、期限が切れる前にサブスクリプションを更新する必要があります。また、サブスクリプションを中止して、通知の受信をいつでも停止することができます。 アプリは、期限が切れる前にサブスクリプションを更新する必要があります。また、サブスクリプションを中止して、通知の受信をいつでも停止することができます。
+アプリは、期限が切れる前にサブスクリプションを更新する必要があります。 また、サブスクリプションを中止して、通知の受信をいつでも停止することができます。
 
 <!-- Remove this image as confirmed by Michael that it's not correct. 
 The following figure describes this notification method.
@@ -95,11 +95,11 @@ The following figure describes this notification method.
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
 
-The Outlook notifications service and API use webhooks to deliver notifications to client apps. Webhooks are HTTP callbacks configured by usually a trusted, third-party backend web service. The service can configure webhooks to cause triggering events on one site to invoke behavior on another. When an app subscribes to notifications of a specific resource (such as messages in the user's Inbox), it specifies a webhook callback URL in the subscription request.  When a triggering event occurs (such as a new message in the Inbox), Office 365 pushes a notification via a webhook to the callback URL. The app, in turn, takes actions according to its business logic, such as getting the new message and updating the unread count.
+Outlook 通知サービスと API は、Webhook を使用して、クライアント アプリケーションに通知を配信します。 Webhook は、通常、サード パーティの信頼されたバックエンド Web サービスで構成されている HTTP コールバックです。 サービスは、1 つのサイトでトリガー イベントを発生させて別のサイトで動作を呼び出すように Webhook を構成できます。 アプリが特定のリソース (ユーザーの受信トレイ内のメッセージなど) の通知をサブスクライブする場合は、サブスクリプション要求に Webhook コールバック URL を指定します。  トリガー イベント (受信トレイの新しいメッセージなど) が発生すると、Office 365 は、コールバック URL に Webhook を使用して通知をプッシュします。 次に、アプリが、新しいメッセージを取得する、未読のカウントを更新するなど、ビジネス ロジックに従って、アクションを実施します。
 
-Webhook の利用は、要求されたリソースについて、クライアント アプリケーションに変更を通知し続けるための効果的な方法です。これにより、変更をポーリングする必要がなくなり、クライアントが更新をほぼ即座に利用できるようになります。メール、予定表、CRM アプリは通常、通知を使用して、ローカル キャッシュ、対応するクライアントのビュー、またはバックエンドシステムで変更を更新します。 Mail, calendaring and CRM apps typically use notifications to update their local cache, corresponding client views, or backend system upon changes. 
+Webhook の利用は、要求されたリソースについて、クライアント アプリケーションに変更を通知し続けるための効果的な方法です。これにより、変更をポーリングする必要がなくなり、クライアントが更新をほぼ即座に利用できるようになります。 メール、予定表、CRM アプリは通常、通知を使用して、ローカル キャッシュ、対応するクライアントのビュー、またはバックエンドシステムで変更を更新します。 
 
-アプリは、期限が切れる前にサブスクリプションを更新する必要があります。また、サブスクリプションを中止して、通知の受信をいつでも停止することができます。 アプリは、期限が切れる前にサブスクリプションを更新する必要があります。また、サブスクリプションを中止して、通知の受信をいつでも停止することができます。
+アプリは、期限が切れる前にサブスクリプションを更新する必要があります。 また、サブスクリプションを中止して、通知の受信をいつでも停止することができます。
 
 <!-- Remove this image as confirmed by Michael that it's not correct. 
 The following figure describes this notification method.
@@ -125,8 +125,8 @@ The following figure describes this notification method.
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-Like other [Outlook REST API](..\api\use-outlook-rest-api.md#DefineOutlookRESTAPI), for every request to the Outlook Notifications API, you should include a valid access token. アクセス トークンを取得するには、アプリを登録して識別し、適切な承認を取得する必要があります。効率化された登録と承認のオプションに関する詳細情報を参照してください。要求のバッチ処理についての理解を深める際には、この点に留意してください。 You can [find out more](..\api\use-outlook-rest-api.md#ShortRegAuthWorkflow) about some streamlined registration and authorization options for you.
-Keep this in mind as you proceed with the specific operations in the Notifications API.
+他の [Outlook REST API](..\api\use-outlook-rest-api.md#DefineOutlookRESTAPI) と同様に、Outlook 通知 API へのすべての要求に、有効なアクセス トークンを含める必要があります。 アクセス トークンを取得するには、アプリを登録して識別し、適切な承認を取得する必要があります。 効率化された登録と承認のオプションに関する[詳細情報](..\api\use-outlook-rest-api.md#ShortRegAuthWorkflow)を参照してください。
+通知 API で特定の操作を続行する際には、この点に留意してください。
 
 
 [!INCLUDE [END Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
@@ -140,8 +140,8 @@ Keep this in mind as you proceed with the specific operations in the Notificatio
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
 
-Like other [Outlook REST API](..\api\use-outlook-rest-api.md#DefineOutlookRESTAPI), for every request to the Outlook Notifications API, you should include a valid access token. アクセス トークンを取得するには、アプリを登録して識別し、適切な承認を取得する必要があります。効率化された登録と承認のオプションに関する詳細情報を参照してください。要求のバッチ処理についての理解を深める際には、この点に留意してください。 You can [find out more](..\api\use-outlook-rest-api.md#ShortRegAuthWorkflow) about some streamlined registration and authorization options for you.
-Keep this in mind as you proceed with the specific operations in the Notifications API.
+他の [Outlook REST API](..\api\use-outlook-rest-api.md#DefineOutlookRESTAPI) と同様に、Outlook 通知 API へのすべての要求に、有効なアクセス トークンを含める必要があります。 アクセス トークンを取得するには、アプリを登録して識別し、適切な承認を取得する必要があります。 効率化された登録と承認のオプションに関する[詳細情報](..\api\use-outlook-rest-api.md#ShortRegAuthWorkflow)を参照してください。
+通知 API で特定の操作を続行する際には、この点に留意してください。
 
 
 [!INCLUDE [END Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
@@ -184,7 +184,7 @@ Keep this in mind as you proceed with the specific operations in the Notificatio
 
 通知 API 要求は、常に現在のユーザーのために実行されます。 
 
-Outlook REST API のすべてのサブセットに共通な情報について詳しくは、「[Outlook REST API の使用](..\api\use-outlook-rest-api.md)」を参照してください。
+Outlook REST API のすべてのサブセットに共通な情報の詳細については、「[Outlook REST API の使用](..\api\use-outlook-rest-api.md)」を参照してください。
 
 ****
 
@@ -200,7 +200,7 @@ Outlook REST API のすべてのサブセットに共通な情報について詳
 
 通知 API 要求は、常に現在のユーザーのために実行されます。 
 
-Outlook REST API のすべてのサブセットに共通な情報について詳しくは、「[Outlook REST API の使用](..\api\use-outlook-rest-api.md)」を参照してください。
+Outlook REST API のすべてのサブセットに共通な情報の詳細については、「[Outlook REST API の使用](..\api\use-outlook-rest-api.md)」を参照してください。
 
 ****
 
@@ -210,11 +210,11 @@ Outlook REST API のすべてのサブセットに共通な情報について詳
 
 
 <a name="NotificationOperations"> </a>
-##通知の操作<!-- ==================================== Start beta content ==================================================== -->
+## 通知の操作   <!-- ==================================== Start beta content ==================================================== -->
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-[Subscribe to notifications](#SubscribeOperation) | [Renew subscription](#RenewSub) | [Delete subscription](#DeleteSub)
+[通知をサブスクライブする](#SubscribeOperation) | [サブスクリプションを更新する](#RenewSub) | [サブスクリプションを削除する](#DeleteSub)
 
 [!INCLUDE [END Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
@@ -226,7 +226,7 @@ Outlook REST API のすべてのサブセットに共通な情報について詳
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-[Subscribe to notifications](#SubscribeOperation) | [Renew subscription](#RenewSub) | [Delete subscription](#DeleteSub)
+[通知をサブスクライブする](#SubscribeOperation) | [サブスクリプションを更新する](#RenewSub) | [サブスクリプションを削除する](#DeleteSub)
 
 [!INCLUDE [END Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
@@ -241,7 +241,7 @@ Outlook REST API のすべてのサブセットに共通な情報について詳
 
 
 <a name="SubscribeOperation"> </a>
-###自分のメール、予定表、連絡先、およびタスクの変更のサブスクライブ<!-- ==================================== Start beta content ==================================================== -->
+### 自分のメール、予定表、連絡先、またはタスクの変更のサブスクライブ   <!-- ==================================== Start beta content ==================================================== -->
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
@@ -253,7 +253,7 @@ Outlook REST API のすべてのサブセットに共通な情報について詳
 POST https://outlook.office.com/api/beta/me/subscriptions
 ```
 
-__**最低限必要な範囲**: 次のいずれかのうち、対象となるリソースに対応する読み取り範囲:__
+_**最小限必要なスコープ**: 次の対象リソースに対応する読み取りスコープのうちのいずれかです。_
 - _https://outlook.office.com/mail.read_
 - _https://outlook.office.com/calendars.read_
 - _https://outlook.office.com/contacts.read_
@@ -267,13 +267,13 @@ __**最低限必要な範囲**: 次のいずれかのうち、対象となるリ
 サブスクライブは、クライアントがリソース (エンティティまたはエンティティのコレクション) の通知の取得を開始する最初のステップです。 
 
 リソースには、以下が含まれています。
-- メッセージ、イベント、連絡先、またはタスクの通常のフォルダーまたは検索フォルダー。例: As examples: 
+- メッセージ、イベント、連絡先、またはタスクの通常のフォルダーまたは検索フォルダー。 例: 
   
   `https://outlook.office.com/api/beta/me/mailfolders('inbox')/messages`
   
   `https://outlook.office.com/api/beta/me/taskfolders('{folder_id}')/tasks`
    
-- または、メッセージ、イベント、連絡先、またはタスクのトップ レベルのエンティティのコレクション。
+- または、メッセージ、イベント、連絡先、またはタスクのトップレベルのエンティティのコレクション。
   
   `https://outlook.office.com/api/beta/me/messages`
   
@@ -284,43 +284,43 @@ __**最低限必要な範囲**: 次のいずれかのうち、対象となるリ
   `https://outlook.office.com/api/beta/me/tasks`
 
 
-**Subscription process** 
+**サブスクリプション プロセス** 
 
 サブスクリプション プロセスは、次のようになります。 
 
-1. クライアント アプリが、特定のリソースのサブスクリプション要求 (POST) を行います。 It includes a notification URL, among other properties.
+1. クライアント アプリが、特定のリソースのサブスクリプション要求 (POST) を行います。 それには通知 URL などのプロパティが含まれます。
 
-2. The Outlook notifications service tries to validate the notification URL with the listener service. It includes a validation token in the validation request.
+2. Outlook の通知サービスは、リスナー サービスによって通知 URL を検証しようとします。 これには、検証要求の検証トークンが含まれます。
 
-3. If the listener service successfully validates the URL, it returns a success response within 5 seconds as follows:
+3. リスナー サービスが正常に URL の検証を行った場合、次のように成功の応答を 5 秒以内に返します。
 
-   - 応答ヘッダーのコンテンツ タイプを text\plain に設定します。 
-   - 応答の本文の検証トークンのみが含まれます。 
-   - Returns an HTTP 200 response code. The listener can discard the validation token subsequently. 
+   - 応答ヘッダーのコンテンツ タイプを  text\plain に設定します。 
+   - 応答の本文に同じ検証トークンを含めます。 
+   - HTTP 200 の応答コードを返します。 リスナーは、その後の検証トークンを破棄できます。 
 
-4. Depending on the URL validation result, the Outlook notifications service sends a response to the client app:
+4. URL の検証結果に応じて、Outlook の通知サービスはクライアント アプリに応答を送信します。
 
-   - URL の検証が成功した場合は、一意なサブスクリプション ID を使用してサブスクリプションを作成し、クライアントへの応答を送信します。 
-   - URL の検証が正常に終了しない場合は、エラー コードとその他の詳細を含むエラー応答を送信します。
+   - URL の検証が成功した場合、サービスは一意なサブスクリプション ID を持つサブスクリプションを作成し、クライアントへの応答を送信します。 
+   - URL の検証が正常に終了しない場合、サービスはエラー コードとその他の詳細を含むエラー応答を送信します。
 
-5. 正常な応答を受信するには、クライアント アプリケーションが、このサブスクリプションでの今後の通知に関連付けるためのサブスクリプション ID を格納する必要があります。 
+5. クライアント アプリは、正常な応答を受信すると、将来の通知をこのサブスクリプションと関連付けるため、サブスクリプション ID を格納します。 
 
 
 **サブスクリプション要求** 
 
-サブスクリプション要求に必要なプロパティを次に示します。詳細については、「通知エンティティ」を参照してください。 For more information, see [Notification Entities](#NotificationEntities). 
+サブスクリプション要求に必要なプロパティを次に示します。 詳細については、「 [通知エンティティ](#NotificationEntities)」をご覧ください。 
 
-- odata.type - Include `"@odata.type":"#Microsoft.OutlookServices.PushSubscription"`. The **PushSubscription** entity defines **NotificationURL**.
-- **Resource** - Specifies the resource to monitor and receive notifications on. 
-- **NotificationURL** - Specifies where notifications should be sent to. 
-- **ChangeType** - Specifies the types of events to monitor for that resource. 以下のいずれかの値を使用できます。 
+- odata.type - `"@odata.type":"#Microsoft.OutlookServices.PushSubscription"` を含めます。 **PushSubscription** エンティティは **NotificationURL** を定義します。
+- **Resource** - 通知を監視および受信するリソースを指定します。 
+- **NotificationURL** - 通知の送信先を指定します。 
+- **ChangeType** - そのリソースが監視するイベントの種類を指定します。 指定できる値は、 `Created`、 `Updated`、 `Deleted` です。 
 
-In addition, the optional **ClientState** property indicates that each notification should be sent with a header by the same name **ClientState** value. This lets the listener check the legitimacy of each notification. 
+また、オプションの  **ClientState**  プロパティは、同じ名前の  **ClientState** の値のヘッダーで各通知が送信されなければならないことを示します。 これにより、リスナーは各通知の正当性を確認できます。 
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
-The following example shows how to subscribe to new events. 
+次の例は、新しいイベントをサブスクライブする方法を示しています。 
 
 ```
 POST https://outlook.office.com/api/beta/me/subscriptions HTTP/1.1
@@ -336,11 +336,11 @@ Content-Type: application/json
 ```
 
 
-**Refining notification conditions**
+**通知条件の絞り込み**
 
-You can further refine the conditions for a notification by using the `$filter` query parameter. 
+`$filter` クエリ パラメーターを使用すれば、通知の条件をさらに詳細に設定することができます。 
 
-The following example requests a notification for a message being created in the Drafts folder, containing one or more attachments, and importance being `High`: 
+次の例では、下書きフォルダーで作成中で、1 つまたは複数の添付ファイルを含み、重要度が  `High` のメッセージに関して通知を要求します。 
 
 ```
 POST https://outlook.office.com/api/beta/me/subscriptions HTTP/1.1 
@@ -356,7 +356,7 @@ Content-Type: application/json
 ```
 
 
-The following example requests a notification for an all-day event being created: 
+次の例では、作成中の終日イベントに関して通知を要求します。 
 
 ```
 POST https://outlook.office.com/api/beta/me/subscriptions HTTP/1.1 
@@ -372,7 +372,7 @@ Content-Type: application/json
 ```
 
 
-The following example requests a notification for a contact being created with the company being Contoso: 
+次の例では、会社が Contoso である作成中の連絡先に関して通知を要求します。 
 
 ```
 POST https://outlook.office.com/api/beta/me/subscriptions HTTP/1.1 
@@ -387,14 +387,14 @@ Content-Type: application/json
 } 
 ```
 
-One common application of `$filter` is to get notification on a change in a specific property of the specified resource.
-For example, you can use `$filter` to subscribe to unread messages in a folder (the **IsRead** property is false), and include all the change types:
+`$filter` の一般的な使用方法として、指定されたリソースの特定のプロパティが変化したら通知を受けるというものがあります。
+たとえば、`$filter` を使用して、フォルダー内の未読メッセージ (**IsRead** プロパティが false) を受信し、すべての変更の種類を含めることができます。
 
-- A message added to or marked unread in the folder would trigger a `Created` notification. 
-- Reading a message or marking it as read in the folder would trigger a `Deleted` notification.
-- A change to any property, other than **IsRead**, of a message in the folder would trigger an `Updated` notification.
+- フォルダー内の追加されたメッセージ、または未読のマークが付けられているメッセージにより、`Created` 通知がトリガーされます。 
+- フォルダー内のメッセージを閲覧すること、またはメッセージに開封済みのマークを付けることにより、`Deleted` 通知がトリガーされます。
+- フォルダー内のメッセージで **IsRead** 以外のプロパティを変更すると、`Updated` 通知がトリガーされます。
 
-You can create such a subscription as follows:
+そのようなサブスクリプションを次のように作成することができます。
 
 ```
 POST https://outlook.office.com/api/beta/me/subscriptions HTTP/1.1
@@ -410,11 +410,11 @@ Content-Type: application/json
 ```
 
 
-If you don’t use a `$filter` when creating the subscription (as below):
+サブスクリプションを作成するときに `$filter` を使用しない場合 (以下に例を挙げます)、次のようになります。
 
-- Adding a message to the folder would result in a `Created` notification.
-- Reading a message in the folder, marking the message as read,or changing any other message property of a message in that folder would result in an `Updated` notification. 
-- Deleting the message would result in a `Delete` notification.
+- フォルダーにメッセージを追加すると、結果として `Created` 通知が行われます。
+- フォルダー内のメッセージの閲覧、メッセージに開封済みのマークを付けること、またはフォルダー内のメッセージのその他のメッセージ プロパティを変更することにより、結果として `Updated` 通知が行われます。 
+- メッセージを削除すると、結果として `Delete` 通知が行われます。
 
 ```
 POST https://outlook.office.com/api/beta/me/subscriptions HTTP/1.1
@@ -429,21 +429,21 @@ Content-Type: application/json
 }
 ```
 
-**評価の要求**
+**検証要求**
 
-検証要求は、サブスクリプション要求でクライアント アプリケーションが指定する NotificationURL を検証しようとします。
+検証要求は、サブスクリプション要求でクライアント アプリが指定する NotificationURL を検証しようとします。
 ```no-highlight
 POST https://{notificationUrl}?validationToken={token}
 ```
-The Outlook service specifies the NotificationURL in the subscription request in {notificationUrl}, and defines a string {token} as the validation token. Outlook のサービスでは、サブスクリプション要求の NotificationURL を{notificationURL} で指定し、文字列を {token} として定義します。クライアント アプリがサブスクリプション要求に **ClientState** ヘッダーを含める場合、Outlook サービスもそのヘッダーを含めます。
+Outlook のサービスでは、サブスクリプション要求の NotificationURL を{notificationUrl} で指定し、文字列 {token} を検証トークンとして定義します。 クライアント アプリがサブスクリプション要求に **ClientState** ヘッダーを含める場合、Outlook サービスもそのヘッダーを含めます。
 
 
 **サブスクリプション応答**
 
 サブスクリプション応答には、要求のプロパティ、および次の追加のプロパティが含まれています。
-- **Id**  – 今後の通知と一致するようにクライアント アプリが保存する必要がある一意なサブスクリプション ID。
-- **ChangeType** -要求で指定された値とは別に、追加の通知タイプである  
-- **SubscriptionExpirationDateTime** - サブスクリプションの有効期限が切れる日付と時刻。 SubscriptionExpirationDateTime - サブスクリプションの有効期限が切れる日付と時刻。要求に有効期限の時刻を指定しない場合、または要求が 3 日間よりも長い有効期限を指定している場合、応答は要求が送信された時刻から 3 日の最大値を設定します。
+- **Id** – 今後の通知と一致するようにクライアント アプリが保存する必要がある一意なサブスクリプション ID。
+- **ChangeType** - 要求で指定された値とは別に、追加の通知タイプである **Missed** が応答に含まれます。 
+- **SubscriptionExpirationDateTime** - サブスクリプションの有効期限が切れる日付と時刻。 要求に有効期限の時刻を指定しない場合、または要求が 3 日間よりも長い有効期限を指定している場合、応答は要求が送信された時刻から 3 日の最大値を設定します。
 - 他の OData 関連のプロパティ。
 
 
@@ -466,12 +466,12 @@ The Outlook service specifies the NotificationURL in the subscription request in
 ```
 
 
-サインインしているユーザーの既存のサブスクリプションのいずれかに関する詳細情報を検索するには、そのサブスクリプション ID を指定します。たとえば、最後の例で作成したサブスクリプションのクエリを実行するには、次のようにします。 As an example, to query the subscription created in the last example:
+**サブスクリプションのクエリを実行する**: サインインしているユーザーの既存のサブスクリプションのいずれかに関する詳細情報を検索するには、そのサブスクリプション ID を指定します。 たとえば、最後の例で作成したサブスクリプションのクエリを実行するには、次のようにします。
 ```
 GET https://outlook.office.com/api/beta/Users('ddfcd489-628b-7d04-b48b-20075df800e5@1717622f-1d94-c0d4-9d74-f907ad6677b4')/Subscriptions('Mjk3QNERDQQ==')
 ```
-成功すると、クライアント アプリケーションが潜在的なセキュリティ リスクを回避するために指定した ClientState を除外するという点を除き、応答はサンプルの最後の応答データと同じです。  
-the client app has specified to avoid potential security risks. 
+成功すると、クライアント アプリケーションが潜在的なセキュリティ リスクを回避するために指定した ClientState を除外するという点を除き、  
+応答はサンプルの最後の応答データと同じです。 
 
 
 **通知**
@@ -482,8 +482,8 @@ the client app has specified to avoid potential security risks.
 - **SubscriptionExpirationDateTime** - サブスクリプションの有効期限が切れる日付と時刻。 
 - **SequenceNumber** - 通知が欠落していないかどうかをクライアント アプリが識別できるようにする、通知の連続した番号。
 - **ChangeType** - クライアント アプリケーションに通知しようとしているイベントの種類 (たとえば、メールを受信したときの **Created** イベント、メッセージを読むときの **Update** イベント)。 
-- **リソース** – 監視されている特定のリソース アイテムの URL (変更されたメッセージまたはイベントへの URL など)。 
-- **ResourceData** - リソースの変更に関連する通知 (メッセージを受信する、読む、削除するなど) が、変更されたアイテムのリソース ID を含むこの追加のプロパティを持っています。クライアントはこのリソース ID を使用して、ビジネス ロジック (このアイテムをフェッチする、フォルダーを同期するなど) に従ってこのアイテムを処理できます   ResourceData - リソースの変更に関連する通知 (メッセージを受信する、読む、削除するなど) が、変更されたアイテムのリソース ID を含むこの追加のプロパティを持っています。クライアントはこのリソース ID を使用して、ビジネス ロジック (このアイテムをフェッチする、フォルダーを同期するなど) に従ってこのアイテムを処理できます 
+- **Resource** – 監視されている特定のリソース アイテムの URL (変更されたメッセージまたはイベントへの URL など)。 
+- **ResourceData** - リソースの変更に関連する通知 (メッセージを受信する、読む、削除するなど) が、変更されたアイテムのリソース ID を含むこの追加のプロパティを持っています。  クライアントはこのリソース ID を使用して、ビジネス ロジック (このアイテムをフェッチする、フォルダーを同期するなど) に従ってこのアイテムを処理できます 
 
 注:[Notification](#NotificationResource) エンティティでは、Id プロパティは使用されません。
 
@@ -491,7 +491,7 @@ the client app has specified to avoid potential security risks.
 
 ** 変更通知のペイロード **
 
-In the following example, as the user receives a new event, the notifications service sends a notification with ChangeType set to "Created". The header of the notification would include the ClientState as specified in the initial subscription request. The receive event notification has a payload similar to this:
+次の例では、ユーザーが新しいイベントを受け取ると、通知サービスは ChangeType を "Created" に設定した通知を送信します。 通知のヘッダーには、初期サブスクリプション要求で指定されている ClientState が含まれます。 受信イベントの通知には、次のようなペイロードがあります。
 
 ```no-highlight
 {
@@ -535,7 +535,7 @@ In the following example, as the user receives a new event, the notifications se
 POST https://outlook.office.com/api/v2.0/me/subscriptions
 ```
 
-__**最低限必要な範囲**: 次のいずれかのうち、対象となるリソースに対応する読み取り範囲:__
+_**最小限必要なスコープ**: 次の対象リソースに対応する読み取りスコープのうちのいずれかです。_
 - _https://outlook.office.com/mail.read_
 - _https://outlook.office.com/calendars.read_
 - _https://outlook.office.com/contacts.read_
@@ -548,7 +548,7 @@ __**最低限必要な範囲**: 次のいずれかのうち、対象となるリ
 サブスクライブは、クライアントがリソース (エンティティまたはエンティティのコレクション) の通知の取得を開始する最初のステップです。 
 
 リソースには、以下が含まれています。
-- メッセージ、イベント、または連絡先の通常のフォルダーまたは検索フォルダー。例: As examples: 
+- メッセージ、イベント、または連絡先の通常のフォルダーまたは検索フォルダー。 例: 
   
   `https://outlook.office.com/api/v2.0/me/mailfolders('inbox')/messages`
   
@@ -556,50 +556,50 @@ __**最低限必要な範囲**: 次のいずれかのうち、対象となるリ
   
   `https://outlook.office.com/api/v2.0/me/contacts`
   
-- あるいは、メッセージ、イベント、または連絡先のトップ レベルのエンティティのコレクション。
+- あるいは、メッセージ、イベント、または連絡先のトップレベルのエンティティのコレクション。
   
   `https://outlook.office.com/api/v2.0/me/messages`
   
   `https://outlook.office.com/api/v2.0/me/events`
 
 
-**Subscription process** 
+**サブスクリプション プロセス** 
 
 サブスクリプション プロセスは、次のようになります。 
 
-1. クライアント アプリが、特定のリソースのサブスクリプション要求 (POST) を行います。 It includes a notification URL, among other properties.
+1. クライアント アプリが、特定のリソースのサブスクリプション要求 (POST) を行います。 それには通知 URL などのプロパティが含まれます。
 
-2. The Outlook notifications service tries to validate the notification URL with the listener service. It includes a validation token in the validation request.
+2. Outlook の通知サービスは、リスナー サービスによって通知 URL を検証しようとします。 これには、検証要求の検証トークンが含まれます。
 
-3. If the listener service successfully validates the URL, it returns a success response within 5 seconds as follows:
+3. リスナー サービスが正常に URL の検証を行った場合、次のように成功の応答を 5 秒以内に返します。
 
-   - 応答ヘッダーのコンテンツ タイプを text\plain に設定します。 
-   - 応答の本文の検証トークンのみが含まれます。 
-   - Returns an HTTP 200 response code. The listener can discard the validation token subsequently. 
+   - 応答ヘッダーのコンテンツ タイプを  text\plain に設定します。 
+   - 応答の本文に同じ検証トークンを含めます。 
+   - HTTP 200 の応答コードを返します。 リスナーは、その後の検証トークンを破棄できます。 
 
-4. Depending on the URL validation result, the Outlook notifications service sends a response to the client app:
+4. URL の検証結果に応じて、Outlook の通知サービスはクライアント アプリに応答を送信します。
 
-   - URL の検証が成功した場合は、一意なサブスクリプション ID を使用してサブスクリプションを作成し、クライアントへの応答を送信します。 
-   - URL の検証が正常に終了しない場合は、エラー コードとその他の詳細を含むエラー応答を送信します。
+   - URL の検証が成功した場合、サービスは一意なサブスクリプション ID を持つサブスクリプションを作成し、クライアントへの応答を送信します。 
+   - URL の検証が正常に終了しない場合、サービスはエラー コードとその他の詳細を含むエラー応答を送信します。
 
-5. 正常な応答を受信するには、クライアント アプリケーションが、このサブスクリプションでの今後の通知に関連付けるためのサブスクリプション ID を格納する必要があります。 
+5. クライアント アプリは、正常な応答を受信すると、将来の通知をこのサブスクリプションと関連付けるため、サブスクリプション ID を格納します。 
 
 
 **サブスクリプション要求** 
 
-サブスクリプション要求に必要なプロパティを次に示します。詳細については、「通知エンティティ」を参照してください。 For more information, see [Notification Entities](#NotificationEntities). 
+サブスクリプション要求に必要なプロパティを次に示します。 詳細については、「 [通知エンティティ](#NotificationEntities)」をご覧ください。 
 
-- odata.type - Include `"@odata.type":"#Microsoft.OutlookServices.PushSubscription"`. The **PushSubscription** entity defines **NotificationURL**. 
-- **Resource** - Specifies the resource to monitor and receive notifications on. 
-- **NotificationURL** - Specifies where notifications should be sent to. 
-- **ChangeType** - Specifies the types of events to monitor for that resource. 以下のいずれかの値を使用できます。 
+- odata.type - `"@odata.type":"#Microsoft.OutlookServices.PushSubscription"` を含めます。 **PushSubscription** エンティティは **NotificationURL** を定義します。 
+- **Resource** - 通知を監視および受信するリソースを指定します。 
+- **NotificationURL** - 通知の送信先を指定します。 
+- **ChangeType** - そのリソースが監視するイベントの種類を指定します。 指定できる値は、 `Created`、 `Updated`、 `Deleted` です。 
 
-In addition, the optional **ClientState** property indicates that each notification should be sent with a header by the same name **ClientState** value. This lets the listener check the legitimacy of each notification. 
+また、オプションの  **ClientState**  プロパティは、同じ名前の  **ClientState** の値のヘッダーで各通知が送信されなければならないことを示します。 これにより、リスナーは各通知の正当性を確認できます。 
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
-The following example shows how to subscribe to new events. 
+次の例は、新しいイベントをサブスクライブする方法を示しています。 
 
 ```
 POST https://outlook.office.com/api/v2.0/me/subscriptions HTTP/1.1
@@ -616,11 +616,11 @@ Content-Type: application/json
 ```
 
 
-**Refining notification conditions** 
+**通知条件の絞り込み** 
 
-You can further refine the conditions for a notification by using the `$filter` query parameter. 
+`$filter` クエリ パラメーターを使用すれば、通知の条件をさらに詳細に設定することができます。 
 
-The following example requests a notification for a message being created in the Drafts folder, containing one or more attachments, and importance being `High`: 
+次の例では、下書きフォルダーで作成中で、1 つまたは複数の添付ファイルを含み、重要度が  `High` のメッセージに関して通知を要求します。 
 
 ```
 POST https://outlook.office.com/api/v2.0/me/subscriptions HTTP/1.1 
@@ -636,7 +636,7 @@ Content-Type: application/json
 ```
 
 
-The following example requests a notification for an all-day event being created: 
+次の例では、作成中の終日イベントに関して通知を要求します。 
 
 ```
 POST https://outlook.office.com/api/v2.0/me/subscriptions HTTP/1.1 
@@ -652,7 +652,7 @@ Content-Type: application/json
 ```
 
 
-The following example requests a notification for a contact being created with the company being Contoso: 
+次の例では、会社が Contoso である作成中の連絡先に関して通知を要求します。 
 
 ```
 POST https://outlook.office.com/api/v2.0/me/subscriptions HTTP/1.1 
@@ -667,14 +667,14 @@ Content-Type: application/json
 } 
 ```
 
-One common application of `$filter` is to get notification on a change in a specific property of the specified resource.
-For example, you can use `$filter` to subscribe to unread messages in a folder (the **IsRead** property is false), and include all the change types:
+`$filter` の一般的な使用方法として、指定されたリソースの特定のプロパティが変化したら通知を受けるというものがあります。
+たとえば、`$filter` を使用して、フォルダー内の未読メッセージ (**IsRead** プロパティが false) を受信し、すべての変更の種類を含めることができます。
 
-- A message added to or marked unread in the folder would trigger a `Created` notification. 
-- Reading a message or marking it as read in the folder would trigger a `Deleted` notification.
-- A change to any property, other than **IsRead**, of a message in the folder would trigger an `Updated` notification.
+- フォルダー内の追加されたメッセージ、または未読のマークが付けられているメッセージにより、`Created` 通知がトリガーされます。 
+- フォルダー内のメッセージを閲覧すること、またはメッセージに開封済みのマークを付けることにより、`Deleted` 通知がトリガーされます。
+- フォルダー内のメッセージで **IsRead** 以外のプロパティを変更すると、`Updated` 通知がトリガーされます。
 
-You can create such a subscription as follows:
+そのようなサブスクリプションを次のように作成することができます。
 
 ```
 POST https://outlook.office.com/api/v2.0/me/subscriptions HTTP/1.1
@@ -690,11 +690,11 @@ Content-Type: application/json
 ```
 
 
-If you don’t use a `$filter` when creating the subscription (as below):
+サブスクリプションを作成するときに `$filter` を使用しない場合 (以下に例を挙げます)、次のようになります。
 
-- Adding a message to the folder would result in a `Created` notification.
-- Reading a message in the folder, marking the message as read, or changing any other property of a message in that folder would result in an `Updated` notification. 
-- Deleting the message would result in a `Delete` notification.
+- フォルダーにメッセージを追加すると、結果として `Created` 通知が行われます。
+- フォルダー内のメッセージの閲覧、メッセージに開封済みのマークを付けること、またはフォルダー内のメッセージのその他のプロパティを変更することにより、結果として `Updated` 通知が行われます。 
+- メッセージを削除すると、結果として `Delete` 通知が行われます。
 
 ```
 POST https://outlook.office.com/api/v2.0/me/subscriptions HTTP/1.1
@@ -710,21 +710,21 @@ Content-Type: application/json
 ```
 
 
-**評価の要求**
+**検証要求**
 
-検証要求は、サブスクリプション要求でクライアント アプリケーションが指定する NotificationURL を検証しようとします。
+検証要求は、サブスクリプション要求でクライアント アプリが指定する NotificationURL を検証しようとします。
 ```no-highlight
 POST https://{notificationUrl}?validationToken={token}
 ```
-The Outlook service specifies the NotificationURL in the subscription request in {notificationUrl}, and defines a string {token} as the validation token. Outlook のサービスでは、サブスクリプション要求の NotificationURL を{notificationURL} で指定し、文字列を {token} として定義します。クライアント アプリがサブスクリプション要求に **ClientState** ヘッダーを含める場合、Outlook サービスもそのヘッダーを含めます。
+Outlook のサービスでは、サブスクリプション要求の NotificationURL を{notificationUrl} で指定し、文字列 {token} を検証トークンとして定義します。 クライアント アプリがサブスクリプション要求に **ClientState** ヘッダーを含める場合、Outlook サービスもそのヘッダーを含めます。
 
 
 **サブスクリプション応答**
 
 サブスクリプション応答には、要求のプロパティ、および次の追加のプロパティが含まれています。
-- **Id**  – 今後の通知と一致するようにクライアント アプリが保存する必要がある一意なサブスクリプション ID。
-- **ChangeType** -要求で指定された値とは別に、追加の通知タイプである  
-- **SubscriptionExpirationDateTime** - サブスクリプションの有効期限が切れる日付と時刻。 SubscriptionExpirationDateTime - サブスクリプションの有効期限が切れる日付と時刻。要求に有効期限の時刻を指定しない場合、または要求が 3 日間よりも長い有効期限を指定している場合、応答は要求が送信された時刻から 3 日の最大値を設定します。
+- **Id** – 今後の通知と一致するようにクライアント アプリが保存する必要がある一意なサブスクリプション ID。
+- **ChangeType** - 要求で指定された値とは別に、追加の通知タイプである **Missed** が応答に含まれます。 
+- **SubscriptionExpirationDateTime** - サブスクリプションの有効期限が切れる日付と時刻。 要求に有効期限の時刻を指定しない場合、または要求が 3 日間よりも長い有効期限を指定している場合、応答は要求が送信された時刻から 3 日の最大値を設定します。
 - 他の OData 関連のプロパティ。
 
 
@@ -747,12 +747,12 @@ The Outlook service specifies the NotificationURL in the subscription request in
 ```
 
 
-サインインしているユーザーの既存のサブスクリプションのいずれかに関する詳細情報を検索するには、そのサブスクリプション ID を指定します。たとえば、最後の例で作成したサブスクリプションのクエリを実行するには、次のようにします。 As an example, to query the subscription created in the last example:
+**サブスクリプションのクエリを実行する**: サインインしているユーザーの既存のサブスクリプションのいずれかに関する詳細情報を検索するには、そのサブスクリプション ID を指定します。 たとえば、最後の例で作成したサブスクリプションのクエリを実行するには、次のようにします。
 ```
 GET https://outlook.office.com/api/v2.0/Users('ddfcd489-628b-7d04-b48b-20075df800e5@1717622f-1d94-c0d4-9d74-f907ad6677b4')/Subscriptions('Mjk3QNERDQQ==')
 ```
-成功すると、クライアント アプリケーションが潜在的なセキュリティ リスクを回避するために指定した ClientState を除外するという点を除き、応答はサンプルの最後の応答データと同じです。  
-the client app has specified to avoid potential security risks. 
+成功すると、クライアント アプリケーションが潜在的なセキュリティ リスクを回避するために指定した ClientState を除外するという点を除き、  
+応答はサンプルの最後の応答データと同じです。 
 
 
 **通知**
@@ -763,8 +763,8 @@ the client app has specified to avoid potential security risks.
 - **SubscriptionExpirationDateTime** - サブスクリプションの有効期限が切れる日付と時刻。 
 - **SequenceNumber** - 通知が欠落していないかどうかをクライアント アプリが識別できるようにする、通知の連続した番号。
 - **ChangeType** - クライアント アプリケーションに通知しようとしているイベントの種類 (たとえば、メールを受信したときの **Created** イベント、メッセージを読むときの **Update** イベント)。 
-- **リソース** – 監視されている特定のリソース アイテムの URL (変更されたメッセージまたはイベントへの URL など)。 
-- **ResourceData** - リソースの変更に関連する通知 (メッセージを受信する、読む、削除するなど) が、変更されたアイテムのリソース ID を含むこの追加のプロパティを持っています。クライアントはこのリソース ID を使用して、ビジネス ロジック (このアイテムをフェッチする、フォルダーを同期するなど) に従ってこのアイテムを処理できます   ResourceData - リソースの変更に関連する通知 (メッセージを受信する、読む、削除するなど) が、変更されたアイテムのリソース ID を含むこの追加のプロパティを持っています。クライアントはこのリソース ID を使用して、ビジネス ロジック (このアイテムをフェッチする、フォルダーを同期するなど) に従ってこのアイテムを処理できます 
+- **Resource** – 監視されている特定のリソース アイテムの URL (変更されたメッセージまたはイベントへの URL など)。 
+- **ResourceData** - リソースの変更に関連する通知 (メッセージを受信する、読む、削除するなど) が、変更されたアイテムのリソース ID を含むこの追加のプロパティを持っています。  クライアントはこのリソース ID を使用して、ビジネス ロジック (このアイテムをフェッチする、フォルダーを同期するなど) に従ってこのアイテムを処理できます 
 
 注:[Notification](#NotificationResource) エンティティでは、Id プロパティは使用されません。
 
@@ -772,7 +772,7 @@ the client app has specified to avoid potential security risks.
 
 ** 変更通知のペイロード **
 
-In the following example, as the user receives a new event, the notifications service sends a notification with ChangeType set to "Created". The header of the notification would include the ClientState as specified in the initial subscription request. The receive event notification has a payload similar to this:
+次の例では、ユーザーが新しいイベントを受け取ると、通知サービスは ChangeType を "Created" に設定した通知を送信します。 通知のヘッダーには、初期サブスクリプション要求で指定されている ClientState が含まれます。 受信イベントの通知には、次のようなペイロードがあります。
 
 ```no-highlight
 {
@@ -824,7 +824,7 @@ In the following example, as the user receives a new event, the notifications se
 PATCH https://outlook.office.com/api/beta/me/subscriptions/{subscriptionId}
 ```
 
-__**最低限必要な範囲**: 次のいずれかのうち、対象となるリソースに対応する読み取り範囲:__
+_**最小限必要なスコープ**: 次の対象リソースに対応する読み取りスコープのうちのいずれかです。_
 - _https://outlook.office.com/mail.read_
 - _https://outlook.office.com/calendars.read_
 - _https://outlook.office.com/contacts.read_
@@ -870,7 +870,7 @@ PATCH https://outlook.office.com/api/beta/me/subscriptions/Mjk3QNERDQQ==
 PATCH https://outlook.office.com/api/v2.0/me/subscriptions/{subscriptionId}
 ```
 
-__**最低限必要な範囲**: 次のいずれかのうち、対象となるリソースに対応する読み取り範囲:__
+_**最小限必要なスコープ**: 次の対象リソースに対応する読み取りスコープのうちのいずれかです。_
 - _https://outlook.office.com/mail.read_
 - _https://outlook.office.com/calendars.read_
 - _https://outlook.office.com/contacts.read_
@@ -925,7 +925,7 @@ PATCH https://outlook.office.com/api/v2.0/me/subscriptions/Mjk3QNERDQQ==
 DELETE https://outlook.office.com/api/beta/me/subscriptions('{subscriptionId}')
 ```
 
-__**最低限必要な範囲**: 次のいずれかのうち、対象となるリソースに対応する読み取り範囲:__
+_**最小限必要なスコープ**: 次の対象リソースに対応する読み取りスコープのうちのいずれかです。_
 - _https://outlook.office.com/mail.read_
 - _https://outlook.office.com/calendars.read_
 - _https://outlook.office.com/contacts.read_
@@ -936,13 +936,13 @@ __**最低限必要な範囲**: 次のいずれかのうち、対象となるリ
 - _wl.basic_
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 Delete https://outlook.office.com/api/beta/me/subscriptions('Mjk3QNERDQQ==')
 ```
 
-成功した応答は、HTTP 200 応答コードで示されます。  
+成功した応答は、`HTTP 204 No Content` 応答コードで示されます。  
 
 
 [!INCLUDE [END Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
@@ -962,7 +962,7 @@ Delete https://outlook.office.com/api/beta/me/subscriptions('Mjk3QNERDQQ==')
 DELETE https://outlook.office.com/api/v2.0/me/subscriptions('{subscriptionId}')
 ```
 
-__**最低限必要な範囲**: 次のいずれかのうち、対象となるリソースに対応する読み取り範囲:__
+_**最小限必要なスコープ**: 次の対象リソースに対応する読み取りスコープのうちのいずれかです。_
 - _https://outlook.office.com/mail.read_
 - _https://outlook.office.com/calendars.read_
 - _https://outlook.office.com/contacts.read_
@@ -972,13 +972,13 @@ __**最低限必要な範囲**: 次のいずれかのうち、対象となるリ
 - _wl.basic_
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 Delete https://outlook.office.com/api/v2.0/me/subscriptions('Mjk3QNERDQQ==')
 ```
 
-成功した応答は、HTTP 200 応答コードで示されます。  
+成功した応答は、`HTTP 204 No Content` 応答コードで示されます。  
 
 
 [!INCLUDE [END Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
@@ -994,21 +994,21 @@ Delete https://outlook.office.com/api/v2.0/me/subscriptions('Mjk3QNERDQQ==')
 
 
 <a name="NotificationEntities"> </a>
-## Notification entities  <a name="SubscriptionResource"> </a>
+##Notification エンティティ  <a name="SubscriptionResource"> </a>
 ### Subscription  <!-- ==================================== Start beta content ==================================================== -->
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
 
-サブスクリプションを表します。 基本のサブスクリプションを表します。これは抽象基底クラスです。
+基本のサブスクリプションを表します。 これは抽象基本クラスです。
 
-基本型: **Entity**
+基本型:**Entity**
 
 |**プロパティ**|**型**|**説明**|**書き込み可能**|**フィルター処理可能**|
 |:-----|:-----|:-----|:-----|:-----|
-| リソース | 文字列 | 変更の監視対象となるリソースを指定します。 | はい | N/A |
+| Resource | 文字列 | 変更の監視対象となるリソースを指定します。 | はい | N/A |
 | ChangeType | ChangeType | 通知を発生させるイベントの種類を示します。列挙値は次のとおりです。作成 =1、更新=2、削除=4、失敗=16。サービスで通知が失われた場合は、通知の失敗が発生します。 | はい  | N/A |
-| ClientState | 文字列 | 通知ごとにサービスによって送信される ClientState ヘッダーの値を指定します。最大の長さは 255 文字です。クライアントはサービスから通知が送られたことを確認できます。これは、ClientState プロパティに設定されている値と、各通知と共に受信された ClientState ヘッダーの値を比較することによって行います。 | はい | いいえ |
+| ClientState | string | 通知ごとにサービスによって送信される ClientState ヘッダーの値を指定します。最大の長さは 255 文字です。クライアントはサービスから通知が送られたことを確認できます。これは、ClientState プロパティに設定されている値と、各通知と共に受信された ClientState ヘッダーの値を比較することによって行います。 | はい | いいえ |
 
 [!INCLUDE [END Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
@@ -1021,15 +1021,15 @@ Delete https://outlook.office.com/api/v2.0/me/subscriptions('Mjk3QNERDQQ==')
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
 
-サブスクリプションを表します。 基本のサブスクリプションを表します。これは抽象基底クラスです。
+基本のサブスクリプションを表します。 これは抽象基本クラスです。
 
-基本型: **Entity**
+基本型:**Entity**
 
 |**プロパティ**|**型**|**説明**|**書き込み可能**|**フィルター処理可能**|
 |:-----|:-----|:-----|:-----|:-----|
-| リソース | 文字列 | 変更の監視対象となるリソースを指定します。 | はい | N/A |
+| Resource | 文字列 | 変更の監視対象となるリソースを指定します。 | はい | N/A |
 | ChangeType | ChangeType | 通知を発生させるイベントの種類を示します。列挙値は次のとおりです。作成 =1、更新=2、削除=4、失敗=16。サービスで通知が失われた場合は、通知の失敗が発生します。 | はい  | N/A |
-| ClientState | 文字列 | 通知ごとにサービスによって送信される ClientState ヘッダーの値を指定します。最大の長さは 255 文字です。クライアントはサービスから通知が送られたことを確認できます。これは、ClientState プロパティに設定されている値と、各通知と共に受信された ClientState ヘッダーの値を比較することによって行います。 | はい | いいえ |
+| ClientState | string | 通知ごとにサービスによって送信される ClientState ヘッダーの値を指定します。最大の長さは 255 文字です。クライアントはサービスから通知が送られたことを確認できます。これは、ClientState プロパティに設定されている値と、各通知と共に受信された ClientState ヘッダーの値を比較することによって行います。 | はい | いいえ |
 
 
 [!INCLUDE [END Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
@@ -1043,13 +1043,13 @@ Delete https://outlook.office.com/api/v2.0/me/subscriptions('Mjk3QNERDQQ==')
 
 
 <a name="NotificationResource"> </a>
-###通知<!-- ==================================== Start beta content ==================================================== -->
+### Notification   <!-- ==================================== Start beta content ==================================================== -->
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
 リスナー サービスに送られる通知を表します。
 
-基本型: **Entity**
+基本型:**Entity**
 
 |**プロパティ**|**型**|**説明**|**書き込み可能**|**フィルター処理可能**|
 |:-----|:-----|:-----|:-----|:-----|
@@ -1058,7 +1058,7 @@ Delete https://outlook.office.com/api/v2.0/me/subscriptions('Mjk3QNERDQQ==')
 | SequenceNumber | int32 | 変更通知のシーケンス値を示します。 | いいえ  | N/A |
 | ChangeType | ChangeType | 通知を発生させたイベントの種類を示します。列挙値は次のとおりです。作成 =1、更新=2、削除=4、失敗=16。通知の失敗は、通知サービスが要求された通知を送信できない場合に発生します。 | いいえ | 該当なし |
 | リソース | 文字列 | 変更の監視対象となっているリソース アイテムを指定します。 | はい | N/A |
-| ResourceData | エンティティ | 変更されたエンティティを識別します。これはナビゲーションのプロパティです。 | いいえ | N/A |
+| ResourceData | Entity | 変更されたエンティティを識別します。これはナビゲーションのプロパティです。 | いいえ | 該当なし |
 
 
 
@@ -1075,7 +1075,7 @@ Delete https://outlook.office.com/api/v2.0/me/subscriptions('Mjk3QNERDQQ==')
 
 リスナー サービスに送られる通知を表します。
 
-基本型: **Entity**
+基本型:**Entity**
 
 |**プロパティ**|**型**|**説明**|**書き込み可能**|**フィルター処理可能**|
 |:-----|:-----|:-----|:-----|:-----|
@@ -1084,7 +1084,7 @@ Delete https://outlook.office.com/api/v2.0/me/subscriptions('Mjk3QNERDQQ==')
 | SequenceNumber | int32 | 変更通知のシーケンス値を示します。 | いいえ  | N/A |
 | ChangeType | ChangeType | 通知を発生させたイベントの種類を示します。列挙値は次のとおりです。作成 =1、更新=2、削除=4、失敗=16。通知の失敗は、通知サービスが要求された通知を送信できない場合に発生します。 | いいえ | 該当なし |
 | リソース | 文字列 | 変更の監視対象となっているリソース アイテムを指定します。 | はい | N/A |
-| ResourceData | エンティティ | 変更されたエンティティを識別します。これはナビゲーションのプロパティです。 | いいえ | N/A |
+| ResourceData | Entity | 変更されたエンティティを識別します。これはナビゲーションのプロパティです。 | いいえ | 該当なし |
 
 
 
@@ -1107,12 +1107,12 @@ Delete https://outlook.office.com/api/v2.0/me/subscriptions('Mjk3QNERDQQ==')
 
 サブスクリプションを表します。
 
-基本型:[サブスクリプション](#SubscriptionResource)
+基本型:[Subscription](#SubscriptionResource)
 
 |**プロパティ**|**型**|**説明**|**書き込み可能**|**フィルター処理可能**|
 |:-----|:-----|:-----|:-----|:-----|
 | NotificationURL | 文字列 | プッシュ通知を受け取るアプリケーションの URL です。  | はい | N/A |
-| SubscriptionExpirationDateTime | Edm.DateTimeOffset | 通知サブスクリプションの有効期限が切れる日時を指定します。時刻は UTC です。 | はい | N/A |
+| SubscriptionExpirationDateTime | Edm.DateTimeOffset | 通知サブスクリプションの有効期限が切れる日時を指定します。時刻は UTC です。 | はい | 該当なし |
 
 
 
@@ -1129,12 +1129,12 @@ Delete https://outlook.office.com/api/v2.0/me/subscriptions('Mjk3QNERDQQ==')
 
 サブスクリプションを表します。
 
-基本型:[サブスクリプション](#SubscriptionResource)
+基本型:[Subscription](#SubscriptionResource)
 
 |**プロパティ**|**型**|**説明**|**書き込み可能**|**フィルター処理可能**|
 |:-----|:-----|:-----|:-----|:-----|
 | NotificationURL | 文字列 | プッシュ通知を受け取るアプリケーションの URL です。  | はい | N/A |
-| SubscriptionExpirationDateTime | Edm.DateTimeOffset | 通知サブスクリプションの有効期限が切れる日時を指定します。時刻は UTC です。 | はい | N/A |
+| SubscriptionExpirationDateTime | Edm.DateTimeOffset | 通知サブスクリプションの有効期限が切れる日時を指定します。時刻は UTC です。 | はい | 該当なし |
 
 
 
@@ -1150,13 +1150,13 @@ Delete https://outlook.office.com/api/v2.0/me/subscriptions('Mjk3QNERDQQ==')
 
 
 <a name="NextSteps"> </a>
-##次のステップ<!-- ==================================== Start beta content ==================================================== -->
+## 次の手順  <!-- ==================================== Start beta content ==================================================== -->
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
 アプリケーション開発を開始する準備ができている方にも、単に詳しい情報を必要としている方にも、最適なコンテンツをご用意しています。
 
-- [メール、予定表、および連絡先 REST API 入門](http://dev.outlook.com/RestGettingStarted)。
+- [メール、予定表、および連絡先 REST API の使用を開始します](http://dev.outlook.com/RestGettingStarted)。
 
 - Office 365 の API を実際に試してみるには、対話形式の [API サンドボックス](https://apisandbox.msdn.microsoft.com/)をお使いください。
 
@@ -1169,7 +1169,7 @@ Office 365 プラットフォームの使い方の詳細については、次の
 
 - [Office 365 プラットフォーム上での開発の概要](..\howto\platform-development-overview.md)
 
-- [Office 365 アプリケーションの認証およびリソース承認](..\howto\common-app-authentication-tasks.md)
+- [Office 365 のアプリ認証とリソース承認](..\howto\common-app-authentication-tasks.md)
 
 - [Office 365 API にアクセスできるようにアプリを手動で Azure AD に登録する](..\howto\add-common-consent-manually.md)
 
@@ -1197,7 +1197,7 @@ Office 365 プラットフォームの使い方の詳細については、次の
 
 アプリケーション開発を開始する準備ができている方にも、単に詳しい情報を必要としている方にも、最適なコンテンツをご用意しています。
 
-- [メール、予定表、および連絡先 REST API 入門](http://dev.outlook.com/RestGettingStarted)。
+- [メール、予定表、および連絡先 REST API の使用を開始します](http://dev.outlook.com/RestGettingStarted)。
 
 - Office 365 の API を実際に試してみるには、対話形式の [API サンドボックス](https://apisandbox.msdn.microsoft.com/)をお使いください。
 
@@ -1210,7 +1210,7 @@ Office 365 プラットフォームの使い方の詳細については、次の
 
 - [Office 365 プラットフォーム上での開発の概要](..\howto\platform-development-overview.md)
 
-- [Office 365 アプリケーションの認証およびリソース承認](..\howto\common-app-authentication-tasks.md)
+- [Office 365 のアプリ認証とリソース承認](..\howto\common-app-authentication-tasks.md)
 
 - [Office 365 API にアクセスできるようにアプリを手動で Azure AD に登録する](..\howto\add-common-consent-manually.md)
 

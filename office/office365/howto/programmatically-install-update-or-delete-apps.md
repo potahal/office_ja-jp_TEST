@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Configure and update file handlers
 title: "Office 365 でのファイル ハンドラーの構成と更新"
-description: "Configure a new file handler or update an existing file handler configuration."
+description: "新しいファイル ハンドラーの構成や、既存のファイル ハンドラー構成の更新を実行します。"
 ms.ContentId: ae338417-ced2-49f1-93e5-8afa05c03a5e
 ms.date: December 10, 2015
 
@@ -15,7 +15,7 @@ ms.date: December 10, 2015
 <!-- Learn how to register new file handlers, and update configuration for existing file handlers. -->
 
 
-_**適用対象:** Office 365_
+_**適用対象:**Office 365_
 
 
 
@@ -62,24 +62,24 @@ Azure Active Directory (AD) の [アプリケーション エンティティ](ht
 
 **注** プロパティのキーは、大文字と小文字が区別されます。
 
-スキーマについては、次に示す表で説明します。
+スキーマについては、次の表で説明します。
 
-|**メンバー**|**説明**|**データ型**|**親**|**子メンバー**|
+|**メンバー	**|**説明**|**データ型**|**親**|**子メンバー**|
 |:-----|:-----|:-----|:-----|:-----|
-| **addIns**|ルート要素。アプリケーションのファイル ハンドラーを定義するオブジェクトの配列が含まれます。|配列|なし|**型**<br/> **プロパティ**|
+| **addIns**|ルート要素。アプリケーションのファイル ハンドラーを定義するオブジェクトの配列が含まれます。|配列|なし|**type**<br/> **properties**|
 | **id**|アドイン コレクション内で個別のアドインを識別します。この値は、GUID 生成ツールを使用して生成できます。|GUID|**addIns**|なし|
-| **型**|The add-in type. アドインの型。ファイル ハンドラーの場合、値は "FileHandler" になります。|string| **addIns**|なし|
-| **プロパティ**|ファイル ハンドラーのプロパティを定義します。|オブジェクト| **addIns**|**extension**<br/> **fileIcon**<br/> **newFileUrl**<br/> **previewUrl**<br/> **openUrl**|
-| **extension**|先頭の "." 文字を含まないファイル ハンドラーの拡張子 (例: "psd")。セミコロンで区切ることで、複数の拡張子を指定できます。 Multiple file extensions, separated by semicolon, can be specified.|string| **プロパティ**|なし|
-| **fileIcon**|ファイルの種類を表すアイコンの URL (例: "https://fabrikam.com/SampleFileHandler/psdicon.png")。プロトコルは https でなければならず、HTML ページで表示される任意のイメージ形式を使用できます。イメージは自動的にサイズ変更されます。このイメージに推奨される寸法は、32x32 ピクセルです。|文字列| **プロパティ**|なし|
-| **newFileUrl** |新しいファイル機能の URL (例: "https://fabrikam.com/SampleFileHandler/newFile")。プロトコルは https でなければなりません。 Protocol must be https.|string| **プロパティ**|なし|
-| **previewUrl**|プレビュー機能の URL (例: "https://fabrikam.com/SampleFileHandler/preview")。プロトコルは https でなければなりません。 Protocol must be https.|string| **プロパティ**|なし|
-| **openUrl**|編集用にファイルを開く機能の URL (例: "https://fabrikam.com/SampleFileHandler/open")。プロトコルは https でなければなりません。 Protocol must be https.|string| **プロパティ**|なし|
+| **type**|アドインの型。 ファイル ハンドラーの場合、値は "FileHandler" になります。|string| **addIns**|なし|
+| **properties**|ファイル ハンドラーのプロパティを定義します。|object| **addIns**|**extension**<br/> **fileIcon**<br/> **newFileUrl**<br/> **previewUrl**<br/> **openUrl**|
+| **extension**|先頭の "." 文字を含まないファイル ハンドラーの拡張子 (例: "psd")。 セミコロンで区切ることで、複数の拡張子を指定できます。|string| **properties**|なし|
+| **fileIcon**|ファイルの種類を表すアイコンの URL (例: "https://fabrikam.com/SampleFileHandler/psdicon.png")。プロトコルは https でなければならず、HTML ページで表示される任意のイメージ形式を使用できます。イメージは自動的にサイズ変更されます。このイメージに推奨される寸法は、32x32 ピクセルです。|string| **properties**|なし|
+| **newFileUrl** |新規ファイル機能の URL (例: "https://fabrikam.com/SampleFileHandler/newFile")。 プロトコルは https でなければなりません。|string| **properties**|なし|
+| **previewUrl**|プレビュー機能の URL (例: "https://fabrikam.com/SampleFileHandler/preview")。 プロトコルは https でなければなりません。|string| **properties**|なし|
+| **openUrl**|編集用にファイルを開く機能の URL (例: "https://fabrikam.com/SampleFileHandler/open")。 プロトコルは https でなければなりません。|string| **properties**|なし|
 
 ファイル ハンドラーを構成する場合は、**addIns** プロパティを使用して、Azure AD のアプリ マニフェストにファイル ハンドラーの詳細を追加する必要があります。現時点では、これを実行するための UI が Azure の管理ポータルに存在しません。そのため、[Azure AD Graph API](https://azure.microsoft.com/en-us/documentation/articles/active-directory-graph-api-quickstart/) のクエリを使用する必要があります。 
 
-最初のクエリでは、アプリケーションの **objectId** を取得する必要があります。これには、クエリのフィルター パラメーターとして appId を指定した GET 要求を使用する必要があります。 最初のクエリでは、アプリケーションの **objectId** を取得する必要があります。これには、クエリのフィルター パラメーターとして **appId** を指定した GET 要求を使用する必要があります。
-**注****objectId** と **appId** は、どちらもアプリケーションを識別する GUID ですが、それぞれの値は異なります。
+最初のクエリでは、アプリケーションの **objectId** を取得する必要があります。 これには、クエリのフィルター パラメーターとして **appId** を指定した **GET** 要求を使用する必要があります。
+**注** **objectId** と **appId** は、どちらもアプリケーションを識別する GUID ですが、それぞれの値は異なります。
 
 **appId** (クライアント ID とも呼ばれる) は、Azure 管理ポータルのアプリの構成ページにある **[クライアント ID]** プロパティでわかります。また、アプリケーションの web.config に含まれる **appSettings** の **ClientID** キーでもわかります。
 
@@ -121,7 +121,7 @@ contoso.com は自分のテナント ドメインに置き換えてください�
 5. **[Register Add-In]** をクリックします。
 6. **[Register Add-In]** ダイアログで、**[File Handler]** を選択します。
 7. **[File Handler Add-In]** のドロップダウンをクリックします。
-8. ファイル ハンドラーの詳細を入力します。注 プロトコルは HTTPS にする必要があります。 ファイル ハンドラーの詳細を入力します。**注** プロトコルは HTTPS にする必要があります。
+8. ファイル ハンドラーの詳細を入力します。 **注** プロトコルは HTTPS にする必要があります。
 9. **[Update Add-In]** をクリックします。 
 
 

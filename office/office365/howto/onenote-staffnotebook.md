@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Work with staff notebooks
-title: "クラス ノートブックの操作:"
-description: "Learn how to create and manage staff notebooks."
+title: "スタッフ ノートブックの操作"
+description: "スタッフ ノートブックの作成方法と管理方法について説明します。"
 ms.ContentId: 5ba2d15c-3d3f-46f9-8e5b-7eeae8a4b2d7
 ms.date: July 26, 2016
 ---
@@ -10,15 +10,15 @@ ms.date: July 26, 2016
 [!INCLUDE [Add the ONAPI repo styles](../includes/controls/addonapistyles.xml)]
 
 
-# クラス ノートブックの操作:
+# スタッフ ノートブックの操作
 
-*__適用対象:__Office 365 のEnterprise ノートブック*
+*__適用対象:__Office 365 のエンタープライズ ノートブック*
 
-世界中の学校や大学で[クラス ノートブック](https://www.onenote.com/staffnotebookedu)を使用して、生産性の向上、関心度の向上、共同作業の促進に役立てています。すべてのクラス、プロジェクト、学期、課題でもクラス ノートブックを活用できます。
+世界中の学校や大学で[スタッフ ノートブック](https://www.onenote.com/staffnotebookedu)を使用して、生産性の向上、関心度の向上、共同作業の促進に役立てています。
 
-*classNotebooks* エンドポイントを使用して、クラスノートブックの作成や、生徒の追加および削除などのクラス ノートブックの一般的なタスクを実行できます。
+*staffNotebooks* エンドポイントを使用して、スタッフ ノートブックの作成や、リーダーやメンバーの追加および削除などのスタッフ ノートブックの一般的なタスクを実行できます。
 
->OneNote API には、クラス ノートブックに固有の操作のための *classNotebooks* エンドポイントが含まれています。
+>OneNote API には、スタッフ ノートブックに固有の操作のための *staffNotebooks* エンドポイントが含まれています。
 
 
 <a name="request-uri"></a>
@@ -28,26 +28,26 @@ ms.date: July 26, 2016
 
 [!INCLUDE [service root url enterprise only](../includes/onenote/service-root-url-ent.xml)]
 
-次に *classNotebooks* エンドポイントを追加し、必要に応じてリソース パスを続けて追加します。
+次に *staffNotebooks* エンドポイントを追加し、必要に応じてリソース パスを続けて追加します。
 
-<p id="outdent1"><b>[Create staff notebooks](#create)</b></p>
+<p id="outdent1"><b>[スタッフ ノートブックの作成](#create)</b></p>
 <p id="indent1">`../staffNotebooks[?omkt,sendemail]`</p>
 
-<p id="outdent1"><b>[クラス ノートブックの更新](#update)</b></p>
+<p id="outdent1"><b>[スタッフ ノートブックの更新](#update)</b></p>
 <p id="indent1">`../staffNotebooks/{notebook-id}`</p>
 
-<p id="outdent1"><b>[1 つまたは複数のクラス ノートブックの取得](#get)</b></p>
+<p id="outdent1"><b>[1 つまたは複数のスタッフ ノートブックの取得](#get)</b></p>
 <p id="indent1">`../staffNotebooks`</p>
 <p id="indent1">`../staffNotebooks/{notebook-id}`</p>
 
-<p id="outdent1"><b>[クラス ノートブックの削除](#delete)</b></p>
+<p id="outdent1"><b>[スタッフ ノートブックの削除](#delete)</b></p>
 <p id="indent1">`../staffNotebooks/{notebook-id}`</p>
 
-<p id="outdent1"><b>[Add members or leaders](#add-people)</b></p>
+<p id="outdent1"><b>[メンバーまたはリーダーの追加](#add-people)</b></p>
 <p id="indent1">`../staffNotebooks/{notebook-id}/members`</p>
 <p id="indent1">`../staffNotebooks/{notebook-id}/leaders`</p>
 
-<p id="outdent1"><b>[Remove members or leaders](#remove-people)</b></p>
+<p id="outdent1"><b>[メンバーまたはリーダーの削除](#remove-people)</b></p>
 <p id="indent1">`../staffNotebooks/{notebook-id}/members/{member-id}`</p>
 <p id="indent1">`../staffNotebooks/{notebook-id}/leaders/{leader-id}`</p>
 
@@ -66,13 +66,13 @@ ms.date: July 26, 2016
 
 
 <a name="create"></a>
-## Create staff notebooks
+## スタッフ ノートブックの作成
 
-クラス ノートブックを作成するには、POST 要求を *classNotebooks* エンドポイントに送信します。 
+スタッフ ノートブックを作成するには、POST 要求を *staffNotebooks* エンドポイントに送信します。 
 
 <p id="indent">`POST ../staffNotebooks[?omkt,sendemail]`</p>
 
-メッセージ本文で、クラス ノートブック作成パラメーターが含まれる JSON オブジェクトを送信します。 
+メッセージ本文で、スタッフ ノートブック作成パラメーターが含まれる JSON オブジェクトを送信します。 
 
 ```json
 {
@@ -107,16 +107,16 @@ ms.date: July 26, 2016
 
 | パラメーター | 説明 |  
 |:------|:------|  
-| 名前 | ノートブックの名前。 |  
-| memberSections | 1 つまたは複数のセクション名を含む配列。これらのセクションは、各生徒のセクション グループに作成されます。 These sections are created in each member's section group. |  
+| name | ノートブックの名前。 |  
+| memberSections | 1 つまたは複数のセクション名を含む配列。 これらのセクションは、各メンバーのセクション グループに作成されます。 |  
 | leaders | 1 つまたは複数のプリンシパル オブジェクトを含む配列。 |
-| メンバー | 1 つまたは複数のプリンシパル オブジェクトを含む配列。 A section group is created for each member. |    
-| hasLeaderOnlySectionGroup | 教師のみに表示される*教師のみ* セクション グループを作成する場合は `true`。 | 
-| omkt | クラス ノートブックの[言語](#supported-langs)を指定する URL クエリ パラメーター。既定値は  です。 Default is `en-us`. 例`?omkt=es-es` | 
-| sendemail | ノートブックに割り当てられている教師および生徒にノートブックが作成されるときに、電子メール通知を送信するかどうかを指定する URL クエリ パラメーター。既定値は  です。 Default is `false`. |
+| members | 1 つまたは複数のプリンシパル オブジェクトを含む配列。 セクション グループは、メンバーごとに作成されます。 |    
+| hasLeaderOnlySectionGroup | リーダーのみに表示される *リーダー限定*セクション グループを作成する場合は `true`。 | 
+| omkt | ノートブックの[言語](#supported-langs)を指定する URL クエリ パラメーター。 既定値は `en-us` です。 例: `?omkt=es-es` | 
+| sendemail | ノートブックに割り当てられているリーダーおよびメンバーにノートブックが作成されるときに、電子メール通知を送信するかどうかを指定する URL クエリ パラメーター。 既定値は `false` です。 |
 
 <br />
-教師と生徒は、以下のプロパティが含まれるプリンシパル オブジェクトで表されます。
+リーダーとメンバーは、以下のプロパティが含まれるプリンシパル オブジェクトで表されます。
 
 | パラメーター | 説明 |  
 |:------|:------|  
@@ -127,11 +127,11 @@ ms.date: July 26, 2016
 <a name="supported-langs"></a>
 ### サポートされている言語
 
-`omkt={language-code}` URL クエリ パラメーターを使用して、クラス ノートブックを特定の言語で作成できます。例: 次に例を示します。
+`omkt={language-code}` URL クエリ パラメーターを使用して、スタッフ ノートブックを特定の言語で作成できます。 次に例を示します。
 
 <p id="indent">`POST ../staffNotebooks?omkt=de-de`</p>
 
-以下の言語コードがサポートされています。既定値は  です。 既定値は、長さ 0 の文字列 ("") です。
+以下の言語コードがサポートされています。 既定値は `en-us` です。
 
 | コード | 言語 | 
 |:------|:------| 
@@ -177,7 +177,7 @@ ms.date: July 26, 2016
 
 ### 例
 
-The following request creates a staff notebook named *Staff Meetings*.
+次の要求は、*Staff Meetings* という名前のスタッフ ノートブックを作成します。
 
 ```
 POST ../v1.0/users/{leader-id}/notes/staffNotebooks?sendemail=true
@@ -219,7 +219,7 @@ Accept: application/json
 }
 ```
 
-This creates a staff notebook with four member section groups, each containing a Handouts, Staff Notes, and Meeting Summaries section. The section group created for each member is only accessible by the member and the leader. It also creates a *Leader Only* section group that's only visible to the leader. The `sendemail=true` query parameter specifies to send an email notification to the leader and members when the notebook is created.
+これによって、それぞれに配布資料、スタッフ ノート、会議の要約を含む 4 つのメンバー セクション グループのあるスタッフ ノートブックが作成されます。 メンバーごとに作成されたセクション グループには、そのメンバーとリーダーのみがアクセス可能です。 またこれは、リーダーのみに表示される *リーダー限定*セクション グループも作成します。 `sendemail=true` クエリ パラメーターは、ノートブックが作成されるとリーダーとメンバーに電子メール通知を送信するように指定します。
 
 
 ### 要求および応答に関する情報
@@ -231,23 +231,23 @@ This creates a staff notebook with four member section groups, each containing a
 | プロトコル | すべての要求は SSL/TLS HTTPS プロトコルを使用します。 |  
 | 承認ヘッダー | <p>`Bearer {token}`。ここで *{token}* は、登録済みのアプリの有効な OAuth 2.0 アクセス トークンです。</p><p>欠落している、または無効な場合は、401 ステータス コードで要求は失敗します。[Azure AD を使用した認証 (エンタープライズ アプリ)](..\howto\onenote-auth.md#aad-auth)を参照してください。</p> |  
 | Content-Type ヘッダー | `application/json` |  
-| 承諾ヘッダー | `application/json` |  
+| Accept ヘッダー | `application/json` |  
 | [アクセス許可の適用範囲](../howto/onenote-auth.md#onenote-perms-aad) | Notes.ReadWrite.CreatedByApp、Notes.ReadWrite、Notes.ReadWrite.All | 
 
 | 応答データ | 説明 |  
 |------|------|  
 | 成功コード | 201 HTTP ステータス コード。 |  
-| 応答本文 | JSON 形式の新しいノートブックの OData 表記。<br /><br />[通常のノートブックのプロパティ](http://dev.onenote.com/docs#/reference/get-notebooks)に加え、クラス ノートブックには、次のプロパティが含まれます:<ul><li>**memberSections**. studentSections。ノートブックの生徒セクション。</li><li>**leaders**. student。ノートブックにアクセスできる生徒。</li><li>メンバー student。ノートブックにアクセスできる生徒。</li><li>**hasLeaderOnlySectionGroup**. hasTeacherOnlySectionGroup。ノートブックに*教師のみ* セクション グループが含まれる場合は `true`、それ以外の場合は `false`。</li></ul> |  
+| 応答本文 | JSON 形式の新しいノートブックの OData 表記。<br /><br />[通常のノートブック プロパティ](http://dev.onenote.com/docs#/reference/get-notebooks)に加え、スタッフ ノートブックには次のプロパティが含まれます:<ul><li>**memberSections**. ノートブック内のメンバー セクション。</li><li>**leaders**。 ノートブックにアクセスできるリーダー。</li><li>**member**。 ノートブックにアクセスできるメンバー。</li><li>**hasLeaderOnlySectionGroup**. ノートブックに *リーダー限定*セクション グループが含まれている場合は `true`、含まれていない場合は `false`。</li></ul> |  
 | エラー | 要求が失敗すると、API は応答本文の [@api.diagnostics](../howto/onenote-error-codes.md) オブジェクトに**エラー**を返します。 |    
-| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行うときに、この値を Date ヘッダーの値とともに使用できます。 |  
+| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行う際に、この値を Date ヘッダーの値とともに使用できます。 |  
 
 
 <a name="update"></a>
-## Update staff notebooks
+## スタッフ ノートブックの更新
 
-クラス ノートブックを更新するには、PATCH 要求を *classNotebooks/{notebook-id}* エンドポイントに送信します。 
+スタッフ ノートブックを更新するには、PATCH 要求を *staffNotebooks/{notebook-id}* エンドポイントに送信します。 
 
->現時点では、**hasTeacherOnlySectionGroup** プロパティのみ PATCH 要求で更新することができます。 
+>現時点では、**hasLeaderOnlySectionGroup** プロパティのみ PATCH 要求で更新することができます。 
 
 <p id="indent">`PATCH ../staffNotebooks/{notebook-id}`</p>
 
@@ -261,13 +261,13 @@ This creates a staff notebook with four member section groups, each containing a
 
 | パラメーター | 説明 |  
 |:------|:------|  
-| hasLeaderOnlySectionGroup | 教師のみに表示される*教師のみ*セクション グループを追加する場合は `true`。 はサポートされていません。 `false` is not supported. | 
+| hasLeaderOnlySectionGroup | リーダーにのみ表示される *リーダー限定*セクション グループを追加する場合は `true`。 `false` はサポートされていません。 | 
 
-クラス ノートブックを変更する他の方法について、次の方法を参照してください。[生徒または教師の追加](#add-people)、[生徒または教師の削除](#remove-people)、[セクションの挿入](#insert-sections)。
+スタッフ ノートブックを変更する他の方法について、次の方法を参照してください。「[メンバーまたはリーダーの追加](#add-people)」、「[メンバーまたはリーダーの削除](#remove-people)」、「[セクションの挿入](#insert-sections)」
 
 ### 例
 
-次の要求は、スペイン語の*教師のみ*セクション グループを、指定したクラス ノートブックに追加します。(サポートされている言語を参照してください) 
+次の要求によって、*リーダー限定*セクション グループを指定のスタッフ ノートブックに追加します。 
 
 ```
 PATCH ../v1.0/users/{leader-id}/notes/staffNotebooks/{notebook-id}
@@ -280,7 +280,7 @@ Accept: application/json
 }
 ```
 
-新しい*教師のみ*セクション グループは、教師のみに表示されます。
+新しい *リーダー限定*セクション グループがリーダーにのみ表示されます。
 
 
 ### 要求および応答に関する情報
@@ -292,36 +292,36 @@ Accept: application/json
 | プロトコル | すべての要求は SSL/TLS HTTPS プロトコルを使用します。 |  
 | 承認ヘッダー | <p>`Bearer {token}`。ここで *{token}* は、登録済みのアプリの有効な OAuth 2.0 アクセス トークンです。</p><p>欠落している、または無効な場合は、401 ステータス コードで要求は失敗します。[Azure AD を使用した認証 (エンタープライズ アプリ)](..\howto\onenote-auth.md#aad-auth)を参照してください。</p> |  
 | Content-Type ヘッダー | `application/json` |  
-| 承諾ヘッダー | `application/json` |  
+| Accept ヘッダー | `application/json` |  
 | [アクセス許可の適用範囲](../howto/onenote-auth.md#onenote-perms-aad) | Notes.ReadWrite.CreatedByApp、Notes.ReadWrite、Notes.ReadWrite.All | 
 
 | 応答データ | 説明 |  
 |------|------|  
 | 成功コード | 204 HTTP ステータス コード。 |  
 | エラー | 要求が失敗すると、API は応答本文に[エラー](../howto/onenote-error-codes.md)を返します。 |  
-| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行うときに、この値を Date ヘッダーの値とともに使用できます。 |  
+| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行う際に、この値を Date ヘッダーの値とともに使用できます。 |  
 
 
 <a name="get"></a>
-## Get staff notebooks
+## スタッフ ノートブックの取得
 
-1 つまたは複数のクラス ノートブックを取得するには、GET 要求を *classNotebooks* エンドポイントに送信します。
+1 つまたは複数のスタッフ ノートブックを取得するには、GET 要求を *staffNotebooks* エンドポイントに送信します。
 
-<p id="outdent"><b>1 つまたは複数のクラス ノートブックの取得</b></p>
+<p id="outdent"><b>1 つまたは複数のスタッフ ノートブックの取得</b></p>
 <p id="indent">`GET ../staffNotebooks[?filter,orderby,select,top,skip,expand,count]`</p>
 
-<p id="outdent"><b>特定のノートブックを取得します。</b></p>
+<p id="outdent"><b>特定のスタッフ ノートブックの取得</b></p>
 <p id="indent">`GET ../staffNotebooks/{notebook-id}[?select,expand]`</p>
 
 <br />
-ノートブックは、セクション`leaders`および sectionGroups`members` プロパティを展開できます。 既定の並べ替え順序は、関連性ランクの順です。
+ノートブックは、`leaders` プロパティと `members` プロパティを展開できます。 既定の並べ替え順序は ￼`name asc` です。
 
-クラス ノートブックは `GET /notebooks` 要求に対しても戻されますが、結果にはクラス ノートブックに固有のプロパティは含まれません。
+スタッフ ノートブックは `GET /notebooks` 要求に対しても戻されますが、結果にはスタッフ ノートブックに固有のプロパティは含まれません。
 
 
 ### 例
 
-次の要求では、2016 年 1 月 1 日以降に作成されたクラス ノートブックを取得します。
+次の要求では、2016 年 1 月 1 日以降に作成されたスタッフ ノートブックを取得します。
 
 ```
 GET ../v1.0/users/{leader-id}/notes/staffNotebooks?filter=createdTime%20ge%202016-01-01 
@@ -329,7 +329,7 @@ Authorization: Bearer {token}
 Accept: application/json
 ``` 
 
-サポートされているクエリ文字列オプションや例などを含むノートブックの取得について詳しくは、[OneNote コンテンツと構造を取得する](../howto/onenote-get-content.md)を参照してください。
+サポートされているクエリ文字列オプションや例などを含むノートブックの取得について詳しくは、「[OneNote コンテンツと構造を取得する](../howto/onenote-get-content.md)」を参照してください。
 
 ### 要求および応答に関する情報
 
@@ -339,27 +339,27 @@ Accept: application/json
 |------|------|  
 | プロトコル | すべての要求は SSL/TLS HTTPS プロトコルを使用します。 |  
 | 承認ヘッダー | <p>`Bearer {token}`。ここで *{token}* は、登録済みのアプリの有効な OAuth 2.0 アクセス トークンです。</p><p>欠落している、または無効な場合は、401 ステータス コードで要求は失敗します。[Azure AD を使用した認証 (エンタープライズ アプリ)](..\howto\onenote-auth.md#aad-auth)を参照してください。</p> |  
-| 承諾ヘッダー | `application/json` | 
+| Accept ヘッダー | `application/json` | 
 | [アクセス許可の適用範囲](../howto/onenote-auth.md#onenote-perms-aad) | Notes.Read、Notes.ReadWrite.CreatedByApp、Notes.ReadWrite、または Notes.ReadWrite.All | 
 
 | 応答データ | 説明 |  
 |------|------|  
 | 成功コード | 200 HTTP ステータス コード。 |  
-| 応答本文 | JSON 形式のクラス ノートブックの OData 表記。<br /><br />[通常のノートブック プロパティ](http://dev.onenote.com/docs#/reference/get-notebooks)に加え、クラス ノートブックには次のプロパティが含まれます:<ul><li>**memberSections**. studentSections。ノートブックの生徒セクション。</li><li>**leaders**. student。ノートブックにアクセスできる生徒。</li><li>メンバー student。ノートブックにアクセスできる生徒。</li><li>**hasLeaderOnlySectionGroup**. hasTeacherOnlySectionGroup。ノートブックに*教師のみ* セクション グループが含まれる場合は `true`、それ以外の場合は `false`。</li></ul> |  
+| 応答本文 | JSON 形式のスタッフ ノートブックの OData 表記。<br /><br />[通常のノートブック プロパティ](http://dev.onenote.com/docs#/reference/get-notebooks)に加え、スタッフ ノートブックには次のプロパティが含まれます:<ul><li>**memberSections**. ノートブック内のメンバー セクション。</li><li>**leaders**。 ノートブックにアクセスできるリーダー。</li><li>**member**。 ノートブックにアクセスできるメンバー。</li><li>**hasLeaderOnlySectionGroup**. ノートブックに *リーダー限定*セクション グループが含まれている場合は `true`、含まれていない場合は `false`。</li></ul> |  
 | エラー | 要求が失敗すると、API は応答本文の [@api.diagnostics](../howto/onenote-error-codes.md) オブジェクトに**エラー**を返します。 |   
-| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行うときに、この値を Date ヘッダーの値とともに使用できます。 |   
+| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行う際に、この値を Date ヘッダーの値とともに使用できます。 |   
 
 
 <a name="delete"></a>
-## Delete staff notebooks
+## スタッフ ノートブックの削除
 
-クラスのノートブックを削除するには、DELETE 要求を *classNotebooks/{notebook-id}* エンドポイントに送信します。
+スタッフ ノートブックを削除するには、DELETE 要求を *staffNotebooks/{notebook-id}* エンドポイントに送信します。
 
 <p id="indent">`DELETE ../staffNotebooks/{notebook-id}`</p>
 
 ### 例
 
-次のような要求は、指定したクラスのノートブックを削除します。
+次のような要求は、指定したスタッフのノートブックを削除します。
 
 ```
 DELETE ../v1.0/users/{leader-id}/notes/staffNotebooks/{notebook-id} 
@@ -375,31 +375,31 @@ Accept: application/json
 |------|------|  
 | プロトコル | すべての要求は SSL/TLS HTTPS プロトコルを使用します。 |  
 | 承認ヘッダー | <p>`Bearer {token}`。ここで *{token}* は、登録済みのアプリの有効な OAuth 2.0 アクセス トークンです。</p><p>欠落している、または無効な場合は、401 ステータス コードで要求は失敗します。[Azure AD を使用した認証 (エンタープライズ アプリ)](..\howto\onenote-auth.md#aad-auth)を参照してください。</p> |   
-| 承諾ヘッダー | `application/json` |  
+| Accept ヘッダー | `application/json` |  
 | [アクセス許可の適用範囲](../howto/onenote-auth.md#onenote-perms-aad) | Notes.ReadWrite.CreatedByApp、Notes.ReadWrite、Notes.ReadWrite.All | 
 
 | 応答データ | 説明 |  
 |------|------|  
 | 成功コード | 204 HTTP ステータス コード。 |  
 | エラー | 要求が失敗すると、API は応答本文に[エラー](../howto/onenote-error-codes.md)を返します。 |  
-| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行うときに、この値を Date ヘッダーの値とともに使用できます。 |   
+| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行う際に、この値を Date ヘッダーの値とともに使用できます。 |   
 
 
 <a name="add-people"></a>
-## Add members and leaders
+## メンバーおよびリーダーの追加
 
-Adding leaders and members gives them access to the staff notebook. Adding a member also creates a member section group. This section group is only accessible by the member and the leader, and contains the member sections that are defined for the notebook.
+リーダーおよびメンバーを追加すると、そのスタッフ ノートブックへのアクセスが可能になります。 メンバーを追加すると、メンバー セクション グループも作成されます。 このセクション グループは、そのメンバーとリーダーのみがアクセス可能で、ノートブックに対して定義されているメンバー セクションが含まれています。
 
-クラス ノートブックに生徒または教師を追加するには、適切なエンドポイントに POST 要求を送信します。
+スタッフ ノートブックにメンバーまたはリーダーを追加するには、適切なエンドポイントに POST 要求を送信します。
 
-<p id="outdent"><b>Add a member</b></p>
+<p id="outdent"><b>メンバーを追加する</b></p>
 <p id="indent">`POST ../staffNotebooks/{notebook-id}/members`</p>
 
-<p id="outdent"><b>Add a leader</b></p>
+<p id="outdent"><b>リーダーを追加する</b></p>
 <p id="indent">`POST ../staffNotebooks/{notebook-id}/leaders`</p>
 
 <br />
-JSON のプリンシパル オブジェクトを、メッセージの本文に送信します。1 つの要求で追加できるのは生徒 1 人または教師 1 人です。 You can add one member or one leader per request. 
+JSON のプリンシパル オブジェクトを、メッセージの本文に送信します。 要求ごとに 1 名のメンバー、または 1 名のリーダーを追加できます。 
 
 ```json
 {
@@ -408,7 +408,7 @@ JSON のプリンシパル オブジェクトを、メッセージの本文に�
 }
 ```
 
-教師と生徒は、以下のプロパティが含まれるプリンシパル オブジェクトで表されます。
+リーダーとメンバーは、以下のプロパティが含まれるプリンシパル オブジェクトで表されます。
 
 | パラメーター | 説明 |  
 |:------|:------|  
@@ -418,7 +418,7 @@ JSON のプリンシパル オブジェクトを、メッセージの本文に�
 
 ### 例
 
-次の要求は、指定したクラスのノートブックに教師を追加します。
+次の要求によって、リーダーを指定のスタッフ ノートブックに追加します。
 
 ```
 POST ../v1.0/users/{leader-id}/notes/staffNotebooks/{notebook-id}/leaders 
@@ -441,37 +441,37 @@ Accept: application/json
 | プロトコル | すべての要求は SSL/TLS HTTPS プロトコルを使用します。 |  
 | 承認ヘッダー | <p>`Bearer {token}`。ここで *{token}* は、登録済みのアプリの有効な OAuth 2.0 アクセス トークンです。</p><p>欠落している、または無効な場合は、401 ステータス コードで要求は失敗します。[Azure AD を使用した認証 (エンタープライズ アプリ)](..\howto\onenote-auth.md#aad-auth)を参照してください。</p> |  
 | Content-Type ヘッダー | `application/json` |    
-| 承諾ヘッダー | `application/json` |  
+| Accept ヘッダー | `application/json` |  
 | [アクセス許可の適用範囲](../howto/onenote-auth.md#onenote-perms-aad) | Notes.ReadWrite.CreatedByApp、Notes.ReadWrite、Notes.ReadWrite.All |  
 
 | 応答データ | 説明 |  
 |------|------|  
 | 成功コード | 201 HTTP ステータス コード。 |  
-| 応答本文 | The member or leader that was added. |
+| 応答本文 | メンバーまたはリーダーが追加されました。 |
 | エラー | 要求が失敗すると、API は応答本文の [@api.diagnostics](../howto/onenote-error-codes.md) オブジェクトに**エラー**を返します。 |  
-| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行うときに、この値を Date ヘッダーの値とともに使用できます。 |
+| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行う際に、この値を Date ヘッダーの値とともに使用できます。 |
 
 
 <a name="remove-people"></a>
-## Remove members and leaders
+## メンバーおよびリーダーの削除
 
-生徒と教師をクラス ノートブックから削除すると、ノートブックへのアクセスが取り消されますが、コンテンツは削除されません。
+メンバーとリーダーをスタッフ ノートブックから削除すると、ノートブックへのアクセスが取り消されますが、コンテンツは削除されません。
 
-生徒または教師をクラス ノートブックから削除するには、適切なエンドポイントに DELETE 要求を送信します。
+スタッフ ノートブックからメンバーまたはリーダーを削除するには、適切なエンドポイントに DELETE 要求を送信します。
 
-<p id="outdent"><b>Remove a member</b></p>
+<p id="outdent"><b>メンバーを削除する</b></p>
 <p id="indent">`DELETE ../staffNotebooks/{notebook-id}/members/{member-id}`</p>
 
-<p id="outdent"><b>Remove a leader</b></p>
+<p id="outdent"><b>リーダーを削除する</b></p>
 <p id="indent">`DELETE ../staffNotebooks/{notebook-id}/leaders/{leader-id}`</p>
 
 <br />
-1 つの要求で削除できるのは生徒 1 人または教師 1 人です。
+要求ごとに 1 名のメンバー、または 1 名のリーダーを削除できます。
 
 
 ### 例
 
-次の要求は、指定したクラス ノートブックから指定した生徒を削除します。
+次の要求は、指定したスタッフ ノートブックから指定したメンバーを削除します。
 
 ```
 DELETE ../v1.0/users/{leader-id}/notes/staffNotebooks/{notebook-id}/members/{member-id} 
@@ -487,22 +487,22 @@ Accept: application/json
 |------|------|  
 | プロトコル | すべての要求は SSL/TLS HTTPS プロトコルを使用します。 |  
 | 承認ヘッダー | <p>`Bearer {token}`。ここで *{token}* は、登録済みのアプリの有効な OAuth 2.0 アクセス トークンです。</p><p>欠落している、または無効な場合は、401 ステータス コードで要求は失敗します。[Azure AD を使用した認証 (エンタープライズ アプリ)](..\howto\onenote-auth.md#aad-auth)を参照してください。</p> |   
-| 承諾ヘッダー | `application/json` |  
+| Accept ヘッダー | `application/json` |  
 | [アクセス許可の適用範囲](../howto/onenote-auth.md#onenote-perms-aad) | Notes.ReadWrite.CreatedByApp、Notes.ReadWrite、Notes.ReadWrite.All |    
 
 | 応答データ | 説明 |  
 |------|------|  
 | 成功コード | 204 HTTP ステータス コード。 |   
 | エラー | 要求が失敗すると、API は応答本文の [@api.diagnostics](../howto/onenote-error-codes.md) オブジェクトに**エラー**を返します。 |   
-| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行うときに、この値を Date ヘッダーの値とともに使用できます。 |  
+| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行う際に、この値を Date ヘッダーの値とともに使用できます。 |  
 
 
 <a name="insert-sections"></a>
 ## セクションの挿入
 
-Office 365 のノートブックからの特定のセクションをコピーし、それらをクラス ノートブックのコンテンツ ライブラリに挿入するには、*copySectionsToContentLibrary* を使用します。コンテンツ ライブラリとは、教師が読み取り/書き込みアクセス許可を持ち、生徒が読み取りアクセス許可を持つ、クラス ノートブック内のセクション グループです。 A Content Library is a section group inside the staff notebook that has Read/Write permissions for leaders and Read permission for members.
+Office 365 のノートブックからの特定のセクションをコピーし、それらをスタッフ ノートブックのコンテンツ ライブラリに挿入するには、*copySectionsToContentLibrary* を使用します。 コンテンツ ライブラリとは、リーダーが読み取り/書き込みアクセス許可を持ち、メンバーが読み取りアクセス許可を持つ、スタッフ ノートブック内のセクション グループです。
 
-クラス ノートブックにセクションを挿入するには、POST 要求を対象のクラス ノートブックの *copySectionsToContentLibrary* エンドポイントに送信します。例: 次に例を示します。
+スタッフ ノートブックにセクションを挿入するには、POST 要求を対象のスタッフ ノートブックの *copySectionsToContentLibrary* エンドポイントに送信します。 次に例を示します。
 
 <p id="indent">`POST ../staffNotebooks/{notebook-id}/copySectionsToContentLibrary`</p>
 
@@ -520,13 +520,13 @@ Office 365 のノートブックからの特定のセクションをコピーし
 
 | パラメーター | 説明 |  
 |:------|:------|  
-| sectionIds | クラス ノートブックに挿入するセクションの ID を含む配列です。 |    
+| sectionIds | スタッフ ノートブックに挿入するセクションの ID を含む配列です。 |    
 
-ターゲット セクションとノートブック (所有または共有) へのアクセス権限が必要です。すべてのターゲットは、同じテナント内にある必要があります。 All targets must be in the same tenant.
+ターゲット セクションとノートブック (所有または共有) へのアクセス権限が必要です。 すべてのターゲットは、同じテナント内にある必要があります。
 
 ### 例
 
-次の要求は、指定したクラス ノートブックのコンテンツ ライブラリに 2 つのセクションを挿入します。
+次の要求は、指定したスタッフ ノートブックのコンテンツ ライブラリに 2 つのセクションを挿入します。
 
 ```
 POST ../v1.0/me/notes/staffNotebooks/{notebook-id}/copySectionsToContentLibrary
@@ -551,14 +551,14 @@ Accept: application/json
 | プロトコル | すべての要求は SSL/TLS HTTPS プロトコルを使用します。 |  
 | 承認ヘッダー | <p>`Bearer {token}`。ここで *{token}* は、登録済みのアプリの有効な OAuth 2.0 アクセス トークンです。</p><p>欠落している、または無効な場合は、401 ステータス コードで要求は失敗します。[Azure AD を使用した認証 (エンタープライズ アプリ)](..\howto\onenote-auth.md#aad-auth)を参照してください。</p> |  
 | Content-Type ヘッダー | `application/json` |  
-| 承諾ヘッダー | `application/json` |  
+| Accept ヘッダー | `application/json` |  
 | [アクセス許可の適用範囲](../howto/onenote-auth.md#onenote-perms-aad) | Notes.ReadWrite.CreatedByApp、Notes.ReadWrite、Notes.ReadWrite.All | 
 
 | 応答データ | 説明 |  
 |------|------|  
 | 成功コード | 201 HTTP ステータス コード。 |  
 | エラー | 作成要求が失敗すると、API は応答本文に[エラー](../howto/onenote-error-codes.md)を返します。 |  
-| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行うときに、この値を Date ヘッダーの値とともに使用できます。 |  
+| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行う際に、この値を Date ヘッダーの値とともに使用できます。 |  
 
 
 <a name="root-url"></a>
@@ -568,11 +568,11 @@ Accept: application/json
 
 
 <a name="see-also"></a>
-## その他の技術情報
+## その他のリソース
 
-- [OneNote staff notebooks](https://www.onenote.com/staffnotebookedu) (overview and features)
-- [クラス ノートブックの操作:](../howto/onenote-classnotebook.md)
-- [OneNote 開発](../howto/onenote-landing.md)
+- [OneNote スタッフ ノートブック](https://www.onenote.com/staffnotebookedu) (概要および機能)
+- [クラス ノートブックの操作](../howto/onenote-classnotebook.md)
+- [OneNote の開発](../howto/onenote-landing.md)
 - [OneNote コンテンツと構造を取得する](../howto/onenote-get-content.md)
 - [OneNote デベロッパー センター](http://dev.onenote.com/)
 - [OneNote の開発者ブログ](http://go.microsoft.com/fwlink/?LinkID=390183)

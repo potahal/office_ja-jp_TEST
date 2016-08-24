@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Update page content
 title: "OneNote ページ コンテンツを更新する"
-description: "Update the HTML content of OneNote pages."
+description: "OneNote のページの HTML コンテンツを更新します。"
 ms.ContentId: f597bd73-866e-48a3-95c1-91b9bfabffa2
 ms.date: November 18, 2015
 
@@ -12,14 +12,14 @@ ms.date: November 18, 2015
 
 # OneNote ページ コンテンツを更新する
 
-*__Applies to:__ Consumer notebooks on OneDrive | Enterprise notebooks on Office 365*
+*__適用対象:__OneDrive のコンシューマー ノートブック | Office 365 のエンタープライズ ノートブック*
 
 
 OneNote ページの HTML コンテンツを更新する場合は、ページの *content* エンドポイントに PATCH 要求を送信します。
 
 <p id="indent">`PATCH ../notes/pages/{id}/content`</p>
 
-Send a JSON change object in the message body. メッセージの本文で JSON 変更オブジェクトを送信します。要求が成功すると、OneNote API は 204 HTTP 状態コードを返します。
+メッセージの本文で JSON 変更オブジェクトを送信します。 要求が成功すると、OneNote API は 204 HTTP 状態コードを返します。
 
 <a name="request-uri"></a>
 ## 要求 URI の構築
@@ -30,10 +30,10 @@ Send a JSON change object in the message body. メッセージの本文で JSON 
 
 次に、ページの *content* エンドポイントを追加します。
 
-<p id="outdent1"> ページ HTML と、すべての定義済み data-id の値を取得する </p>
+<p id="outdent1">**ページ HTML と、すべての定義済み *data-id* の値を取得する**</p>
 <p id="indent">`../pages/{id}/content`</p>
 
-<p id="outdent1"> ページ HTML、すべての定義済み data-id の値、およびすべての生成された id の値を取得する </p>
+<p id="outdent1">**ページ HTML、すべての定義済み *data-id* の値、およびすべての生成された *id* の値を取得する**</p>
 <p id="indent">`../pages/{page-id}/content?includeIDs=true`</p>
 
 **data-id** と **id** の値は、更新する要素の **target** 識別子として使用されます。
@@ -80,45 +80,45 @@ OneNote ページの HTML には、**div** 要素、**img** 要素、**ol** 要�
 
 PATCH 要求の JSON オブジェクトの定義には、**target** 属性、**action** 属性、**position** 属性、および **content** 属性を使用します。
 
-**target**  
+**ターゲット**  
 更新する要素。値として次の ID のいずれかを指定する必要があります。
 
 | 識別子 | 説明 |  
 |------|------|  
-| ##{data-id} | <p>This ID is optionally defined on elements in the input HTML when [creating a page](..\howto\onenote-create-page.md) or [updating a page](..\howto\onenote-update-page.md). Prefix the value with a #.</p><p> Example: `'target':'#intro'` targets the element `<div data-id="intro" ...>`</p> |  
-| id | <p>This is the [generated ID](#generated-ids) from the OneNote API, and is required for most replace operations. ページ タイトルをターゲットにするキーワード。プレフィックス # を追加してはいけません。</p><p> Example: `'target':'div:{33f8a2...}{37}'` targets the element `<div id="div:{33f8a2...}{37}" ...>`</p><p>Don't confuse these with any **id** values defined in the [input HTML](..\howto\onenote-input-output-html.md). All **id** values sent in the input HTML are discarded.</p> |  
+| #{data-id} | <p>この ID は、[ページを作成](..\howto\onenote-create-page.md)するときや[更新](..\howto\onenote-update-page.md)するときに、入力 HTML の要素で任意で定義されます。 値の先頭に # を付けます。</p><p> 例: `'target':'#intro'` は要素 `<div data-id="intro" ...>` をターゲットとします</p> |  
+| id | <p>これは、OneNote API から得られる[生成済み ID](#generated-ids) であり、ほとんどの置換操作で必要になります。 プレフィックス # を追加してはいけません。</p><p> 例: `'target':'div:{33f8a2...}{37}'` は要素 `<div id="div:{33f8a2...}{37}" ...>` をターゲットとします</p><p>[入力 HTML](..\howto\onenote-input-output-html.md) に定義されている **id** 値とこれらを混同しないでください。 入力 HTML で送信される **id** 値は、すべて破棄されます。</p> |  
 | body | ページ上で最初の div をターゲットにするキーワード。プレフィックス # を追加してはいけません。 |  
-| title | ページ タイトルをターゲットにするキーワード。プレフィックス # を追加してはいけません。 ページ タイトルをターゲットにするキーワード。プレフィックス # を追加してはいけません。 |  
+| title | ページ タイトルをターゲットにするキーワード。 プレフィックス # を追加してはいけません。 |  
  
 **action**  
-ターゲット要素に対して実行するアクション。「サポートされる要素とアクション」を参照してください。 See [supported actions for elements](#support-matrix).
+ターゲット要素で実行するアクション。 「[サポートされる要素とアクション](#support-matrix)」を参照してください。
 
 | アクション | 説明 |  
 |------|------|  
-| append | <p>指定されたコンテンツを最初または最後の子としてターゲットに追加します。追加される位置 (最初または最後) は、**position** 属性によって決まります。body 要素、div 要素、ol 要素、および ul 要素にのみ適用されます。</p><p>Applies only to **body**, **div**, **ol**, and **ul** elements.</p> |  
+| append | <p>指定されたコンテンツを最初または最後の子としてターゲットに追加します。追加される位置 (最初または最後) は、**position** 属性によって決まります。</p><p>**body**、**div**、**ol**、**ul** 要素にのみ適用されます。</p> |  
 | insert | 指定されたコンテンツを兄弟としてターゲットの前または後に追加します。追加される位置 (前または後) は、**position** 属性によって決まります。 |  
-| prepend | <p>指定されたコンテンツを最初の子としてターゲットに追加します。append + before のショートカットです。body 要素、div 要素、ol 要素、および ul 要素にのみ適用されます。 Shortcut for **append** + **before**.</p><p>Applies only to **body**, **div**, **ol**, and **ul** elements.</p> |  
-| replace | <p>Replaces the target with the supplied content.</p><p>指定されたコンテンツでターゲットを置換します。ほとんどの **replace** アクションは、ターゲットの[生成された ID](#generated-ids) を使用する必要があります (ただし、div 内の **img** 要素と **object** 要素を除きます。これらは、**data-id** の使用もサポートしています)。</p> |  
+| prepend | <p>指定されたコンテンツを最初の子としてターゲットに追加します。 **append** + **before** のショートカット。</p><p>**body**、**div**、**ol**、**ul** 要素にのみ適用されます。</p> |  
+| replace | <p>指定したコンテンツでターゲットを置換します。</p><p>ほとんどの **replace** アクションは、ターゲットの[生成された ID](#generated-ids) を使用する必要があります (ただし、div 内の **img** 要素と **object** 要素を除きます。これらは、**data-id** の使用もサポートしています)。</p> |  
  
 **position**  
-指定されたコンテンツを追加する位置。この位置は、ターゲット要素を基準としています。省略すると、既定値として after が使用されます。 省略すると、既定の **render** になります。
+指定されたコンテンツを追加する位置。この位置は、ターゲット要素を基準としています。 省略すると、既定値として **after** が使用されます。
 
 | 位置 | 説明 |  
 |------|------|  
-| after (既定値) | <p>- **append** で使用する場合: ターゲット要素の最後の子。- insert で使用する場合: ターゲット要素の後続の兄弟。</p><p>- **append** で使用する場合: ターゲット要素の最後の子。- insert で使用する場合: ターゲット要素の後続の兄弟。</p> |
-| before | <p>- **append** で使用する場合: ターゲット要素の最初の子。- insert で使用する場合: ターゲット要素の前の兄弟。</p><p>**before**- append で使用する場合: ターゲット要素の最初の子。insert で使用する場合: ターゲット要素の前の兄弟。</p> |
+| after (既定値) | <p>- **append** と共に:ターゲット要素の最後の子。</p><p>- **insert** と共に:ターゲット要素の後続の兄弟。</p> |
+| before | <p>- **append** と共に:ターゲット要素の最初の子。</p><p>- **insert** と共に:ターゲット要素の先行の兄弟。</p> |
 
 **コンテンツ**  
-ページおよび画像またはファイル バイナリ データに追加する整形式 HTML の文字列。コンテンツにバイナリ データが含まれている場合、要求を送信するときに "Commands" 部分で multipart/form-data コンテンツ タイプを使用する必要があります。 (「例」を参照)。 ページおよび画像またはファイル バイナリ データに追加する整形式 HTML の文字列。コンテンツにバイナリ データが含まれている場合、要求を送信するときに "Commands" 部分で multipart/form-data`multipart/form-data` コンテンツ タイプを使用する必要があります。 (「[例](#multipart)」を参照)。 
+ページに追加する整形式 HTML の文字列と画像またはファイル バイナリ データ。 コンテンツにバイナリ データが含まれている場合、コンテンツ タイプとして `multipart/form-data` を利用し、"Commands" パートを含む要求を送信する必要があります ([例](#multipart)参照)。 
  
 
 <a name="generated-ids"></a>
 ### 生成された ID
-OneNote API は、更新可能なページ上の要素に **id** の値を生成します。生成された ID を取得するには、GET 要求で includeIDs=true クエリ文字列式を使用します。 onnvshort API は、更新可能なページ要素の id`includeIDs=true` 値を生成します。生成された ID を取得するには、GET 要求で includeIDs=true クエリ文字列式を使用します。
+OneNote API は、更新可能なページで要素に対して **id** 値を生成します。 生成された ID を取得するには、GET 要求で `includeIDs=true` クエリ文字列を使用します。
 
 <p id="indent">`GET ../notes/pages/{page-id}/content?includeIDs=true`</p>
 
->>API は、ページ作成要求およびページ更新要求の[入力 HTML](..\howto\onenote-input-output-html.md) で定義された **id** の値をすべて破棄します。
+>API は、ページ作成要求およびページ更新要求の[入力 HTML](..\howto\onenote-input-output-html.md) で定義された **id** の値をすべて破棄します。
 
 次の例は、ページの[出力 HTML](..\howto\onenote-input-output-html.md) の段落と画像に対して生成された ID を示します。
 
@@ -133,10 +133,10 @@ OneNote API は、更新可能なページ上の要素に **id** の値を生成
 
 - **append** アクションと **insert** アクションでは、いずれの ID もターゲット値として使用できます。
 - **replace** アクションでは、すべての要素について、生成された IDを使用する必要があります。ただし、ページ タイトル、および div 内の画像とオブジェクトを除きます。 
-    - タイトルを置換する場合は、 **title** キーワードを使用します。 
+    - タイトルを置換する場合は、**title** キーワードを使用します。 
     - div 内の画像とオブジェクトを置換する場合は、**data-id** または **id** のどちらかを使用します。
 
-次の例では、ターゲットの **id** 値が使用されています。生成された ID にプレフィックス # を使用しないでください。 次の例では、ターゲットに id 値が使用されています。生成された ID に # プレフィックスを使用しないでください。
+次の例では、ターゲットに **id** 値を使用します。 生成された ID と共に # プレフィックスを使用しないでください。
 
 ```
 [
@@ -155,14 +155,14 @@ OneNote API は、更新可能なページ上の要素に **id** の値を生成
 
 | 要素 | 置換 | 子の追加 | 兄弟の挿入 |  
 |------|------|------|------|  
-| body<br /> body(ページの最初の div をターゲットとする) | いいえ | **はい** | いいえ |  
-| </div><br /> object ([絶対配置](../howto/onenote-abs-pos.md)) | いいえ | **はい** | いいえ |  
-| </div><br /> div (div 内) | **はい** (id のみ) | **はい** | **はい** |   
-| div、img、object<br /> div (div 内) | **はい** | いいえ | **はい** |   
+| body<br /> (ページの最初の div をターゲットとする) | いいえ | **はい** | いいえ |  
+| div<br /> ([絶対配置](../howto/onenote-abs-pos.md)) | いいえ | **はい** | いいえ |  
+| div<br /> (div 内) | **はい** (id のみ) | **はい** | **はい** |   
+| img、object<br /> (div 内) | **はい** | いいえ | **はい** |   
 | ol、ul | **はい** (id のみ) | **はい** | **はい** |   
-| テーブル | **はい** (id のみ) | いいえ | **はい** |   
+| table | **はい** (id のみ) | いいえ | **はい** |   
 | p、li、h1-h6 | **はい** (id のみ) | いいえ | **はい** |   
-| title | **はい** | いいえ | いいえ |  
+| title | **はい** | no | いいえ |  
  
 
 次の要素では更新アクションはサポートされていません。
@@ -183,12 +183,12 @@ OneNote API は、更新可能なページ上の要素に **id** の値を生成
 
 次の例に、PATCH 要求で使用される JSON オブジェクトと完全な PATCH 要求を示します。
 
-[Append child elements](#append-examples)&nbsp;&nbsp;|&nbsp;&nbsp;[Insert sibling elements](#insert-examples)&nbsp;&nbsp;|&nbsp;&nbsp;[Replace elements](#replace-examples)&nbsp;&nbsp;|&nbsp;&nbsp;[Complete PATCH requests](#complete-requests)
+[子要素の追加](#append-examples)&nbsp;&nbsp;|&nbsp;&nbsp;[兄弟要素の追加](#insert-examples)&nbsp;&nbsp;|&nbsp;&nbsp;[要素の置換](#replace-examples)&nbsp;&nbsp;|&nbsp;&nbsp;[完全な PATCH 要求](#complete-requests)
 
 
 <a name="append-examples"></a>
 ### 子要素の追加
-**append** アクションは、子を **body**、**div** (div 内)、**ol**、または ul 要素に追加します。position 属性は、子をターゲットの前と後のどちらに追加するかを指定します。既定の位置は **after** です。 The **position** attribute determines whether to append the child before or after the target. The default position is **after**.
+**append** アクションでは、**body**、**div** (div 内)、**ol**、**ul** 要素に子が追加されます。 **position** 属性により、ターゲットの前または後に子を追加することが決定されます。 既定の位置は**後**です。
 
 **div への追加**
 
@@ -211,11 +211,11 @@ OneNote API は、更新可能なページ上の要素に **id** の値を生成
 ```
  
 
- body 要素への追加
+**body* 要素への追加***
 
 **body** は、任意のページ上の最初の div 内に子要素を追加するためのショートカットとして使用できます。
 
-次の例では、ページ上の最初の div に 2 つの段落が最初の子および最後の子として追加されます。 body ターゲット内では # を使用しないでください。次の例では prepend が append + before のショートカットとして使用されています。 Don't use a # with the **body** target. This example uses the **prepend** action as a shortcut for **append** + **before**.
+次の例では、ページの最初の div に 2 つの段落を最初の子と最後の子として追加しています。 **body** ターゲットと共に # を使用しないでください。 この例では、**prepend** アクションを **append** + **before** として使用しています。
 
 ```
 [
@@ -250,7 +250,7 @@ OneNote API は、更新可能なページ上の要素に **id** の値を生成
 
 <a name="insert-examples"></a>
 ### 兄弟要素の挿入
-The **insert** action adds a sibling to the target element. The **position** attribute determines whether to insert the sibling before or after the target. The default position is **after**. See [elements that support **insert**](#support-matrix).
+**insert** アクションでは、兄弟がターゲット要素に追加されます。 **position** 属性により、ターゲットの前または後に兄弟を挿入することが決定されます。 既定の位置は**後**です。 「[**insert** をサポートする要素」](#support-matrix)を参照してください。
 
 **兄弟の挿入**
 
@@ -275,7 +275,7 @@ The **insert** action adds a sibling to the target element. The **position** att
 
 <a name="replace-examples"></a>
 ### 要素の置換
-**data-id または生成された **id** をターゲット値として使用して、div 内の **img** 要素と **object** 要素を置換できます。ページ タイトルを置換するには、title キーワードを使用します。replaceをサポートする**その他のすべての要素には、生成された ID を使用する必要があります。 タイトルを置換する場合は、 **title** キーワードを使用します。 For all other [elements that support **replace**](#support-matrix), you must use the generated ID.
+**data-id** と生成された **id** のいずれかをターゲット値として使用し、div 内にある **img** 要素および **object** 要素を置換できます。 ページ タイトルを置換する場合は、**title** キーワードを使用します。 [**replace** をサポートするその他すべての要素](#support-matrix)については、生成された ID を使用する必要があります。
 
 **画像の置換**
 
@@ -340,7 +340,8 @@ The **insert** action adds a sibling to the target element. The **position** att
 ]
 ```
 
-data-tag 属性の使用法の詳細については、「ノート シールを使用する」を参照してください。
+
+  **data-tag** 属性の使用法の詳細については、「[ノート シールを使用する](https://msdn.microsoft.com/library/office/mt159148.aspx)」を参照してください。
 
 
 <a name="complete-requests"></a>
@@ -348,7 +349,7 @@ data-tag 属性の使用法の詳細については、「ノート シールを�
 次の例に、完全な PATCH 要求を示します。
 
 **テキスト コンテンツのみの要求**  
-次の例は、**application/json** コンテンツ タイプを使用する PATCH 要求を示します。コンテンツにバイナリ データが含まれていない場合にこの形式を使用できます。 次の例は、application/json コンテンツ タイプを使用する PATCH 要求を示しています。コンテンツにバイナリ データが含まれていない場合にこの形式を使用できます。
+次の例では、PATCH 要求でコンテンツ タイプとして **application/json** が使用されています。 コンテンツにバイナリ データが含まれていないとき、この形式を使用できます。
 
 ```none
 PATCH https://www.onenote.com/api/v1.0/me/notes/pages/{page-id}/content
@@ -371,7 +372,8 @@ Authorization: Bearer {token}
 ]
 ```
  
-バイナリ コンテンツを含むマルチパート要求  
+<a name="multipart"></a>
+**バイナリ コンテンツを含むマルチパート要求**  
 次の例は、バイナリ データを含んでいるマルチパート PATCH 要求を示しています。マルチパート要求には、**application/json** コンテンツ タイプを指定し、JSON 変更オブジェクトの配列を含める "Commands" 部分が必要になります。その他のデータ部分に、バイナリ データを含めることができます。部分の名前は、通常、ミリ秒単位での現在の時刻、またはランダムな GUID が付加された文字列になります。
 
 ```none
@@ -412,17 +414,15 @@ Content-Type: image/png
 | 要求データ | 説明 |  
 |------|------|  
 | プロトコル | すべての要求は SSL/TLS HTTPS プロトコルを使用します。 |  
-| 承認ヘッダー | <p>`Bearer {token}`。ここで *{token}* は、登録済みのアプリの有効な OAuth 2.0 アクセス トークンです。</p><p>欠落している、または無効な場合は、401 ステータス コードで要求は失敗します。Azure AD を使用した認証 (エンタープライズ アプリ)を参照してください。 認証とアクセス許可</p> |  
-| Content-Type ヘッダー | <p>
-           JSON 変更オブジェクトの配列の application/json`application/json`。直接メッセージ本文で送信するか、[マルチパート要求](#multipart)の必須の "Commands" 部分で送信するかです。マルチパート要求は、バイナリ データを送信するときに必要になり、multipart/form-data; boundary=part-boundary コンテンツ タイプを使用します。この {part-boundary} は、各データ部分の開始と終了を知らせる文字列です。</p><p>
-           JSON 変更オブジェクトの配列の application/json`multipart/form-data; boundary=part-boundary`。直接メッセージ本文で送信するか、マルチパート要求の必須の "Commands" 部分で送信するかです。マルチパート要求は、バイナリ データを送信するときに必要になり、multipart/form-data; boundary=part-boundary コンテンツ タイプを使用します。この *{part-boundary}* は、各データ部分の開始と終了を知らせる文字列です。</p> |  
+| 承認ヘッダー | <p>`Bearer {token}`。*{token}* は、登録済みアプリの有効な OAuth 2.0 アクセス トークンになります。</p><p>これがないか、無効の場合、要求は失敗し、401 ステータス コードが表示されます。 「[認証とアクセス許可](..\howto\onenote-auth.md)」を参照してください。</p> |  
+| Content-Type ヘッダー | <p>JSON 変更オブジェクトの配列の `application/json`。メッセージ本文または[マルチパート要求](#multipart)の必須の "Commands" パートで直接送信。</p><p>マルチパート要求はバイナリ データを送信するときに必須であり、コンテンツ タイプとして `multipart/form-data; boundary=part-boundary` を使用します。*{part-boundary}* は、各データ パートの開始と終了を伝える文字列です。</p> |  
  
 
 | 応答データ | 説明 |  
 |------|------|  
 | 成功コード | 204 HTTP ステータス コード。PATCH 要求に対して JSON データは返されません。 |  
-| エラー | 要求が失敗すると、API は応答本文の @api.diagnostics オブジェクトに**エラー**を返します。 The request will fail if:<br /> JSON コンテンツに無効な属性が含まれているか、JSON コンテンツの形式が誤っている。<br /> **target**、**action**、または **content** 属性が欠落している。<br /> ターゲット要素が存在していない。<br /> - The format of the target value is invalid. Example, a **data-id** isn't prefixed with a #.<br /> 指定されたアクションがターゲット要素でサポートされていない。<br /> アクションまたは位置の値が無効である。 |  
-| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行うときに、この値を Date ヘッダーの値とともに使用できます。 |  
+| エラー | 更新要求が失敗すると、API は応答本文の **@api.diagnostics** オブジェクトでエラーを返します。 次の場合、要求は失敗します。<br /> - JSON オブジェクトに含まれている属性が無効であるか、形式が不正です。<br /> - **target**、**action**、**content** 属性がありません。<br /> - ターゲット要素が存在しません。<br /> - ターゲット値の形式が無効です。 たとえば、**data-id** にプレフィックスとして # が付いていません。<br /> - ターゲット要素が指定のアクションに対応していません。<br /> - **action** または **position** 値が無効です。 |  
+| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行う際に、この値を Date ヘッダーの値とともに使用できます。 |  
  
 
 <a name="root-url"></a>
@@ -442,10 +442,10 @@ OneNote ページを更新するには、適切なアクセス許可を要求す
    
 
 <a name="see-also"></a>
-## その他の技術情報
+## その他のリソース
 
 - [画像とファイルを追加する](../howto/onenote-images-files.md)
-- [OneNote 開発](../howto/onenote-landing.md)
+- [OneNote の開発](../howto/onenote-landing.md)
 - [OneNote デベロッパー センター](http://dev.onenote.com/)
 - [OneNote の開発者ブログ](http://go.microsoft.com/fwlink/?LinkID=390183)
 - [スタック オーバーフローに関する OneNote の開発の質問](http://go.microsoft.com/fwlink/?LinkID=390182) 

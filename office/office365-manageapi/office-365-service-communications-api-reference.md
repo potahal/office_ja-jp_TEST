@@ -7,13 +7,13 @@
 
 Office 365 サービス通信 API V2 を使用して、次のデータにアクセスできます。
 
--  **Get Services**:サブスクライブしているサービスのリストを取得します。
+-  **サービスの取得**:サブスクライブしているサービスのリストを取得します。
     
--  **Get Current Status**:現在進行中のサービス インシデントやメンテナンス イベントのリアルタイム ビューを取得します。
+-  **現在の状態の取得**:現在進行中のサービス インシデントやメンテナンス イベントのリアルタイム ビューを取得します。
     
--  **Get Historical Status**:サービス インシデントやメンテナンス イベントなどの、サービス正常性の履歴ビューを取得します。
+-  **過去の状態の取得**:サービス インシデントやメンテナンス イベントなどの、サービス正常性の履歴ビューを取得します。
     
--  **Get Messages**:インシデント、計画済みメンテナンス、およびメッセージ センター通信を検索します。
+-  **メッセージの取得**:インシデント、計画済みメンテナンス、およびメッセージ センター通信を検索します。
     
 現時点では、Office 365 サービス通信 API には、以下のサービスについてのデータが含まれています。Dynamics CRM、Dynamics Marketing、Exchange Online、Exchange Online Protection、ID サービス、モバイル デバイス管理、Office 365 パートナー管理センター、OneDrive for Business、Parature、Power BI for Office 365、Rights Management Service、SharePoint Online、SHD Admin、Skype for Business、Social Engagement、および Yammer Enterprise。
 
@@ -26,7 +26,7 @@ API のルート URL には、操作の範囲を単一のテナントに限定�
 https://manage.office.com/api/v1.0/{tenant_identifier}/ServiceComms/{operation}
 ```
 
-The  **Office 365 Service Communications API** is a REST service that allows you to develop solutions using any web language and hosting environment that supports HTTPS and X.509 certificates. The API relies on **Microsoft Azure Active Directory** and the **OAuth2** protocol for authentication and authorization. To access the API from your application, you'll need to first register it in Azure AD and configure it with permissions at the appropriate scope. This will enable your application to request OAuth2 access tokens necessary for calling the API. You can find more information about registering and configuring an application in Azure AD at [Office 365 Management APIs getting started](https://msdn.microsoft.com/EN-US/library/dn707385.aspx).
+**Office 365 サービス通信 API** は、任意の Web 言語と、HTTPS および X.509 証明書をサポートするホスト環境とを用いてソリューションを開発できる、REST サービスの 1 つです。 この API は、認証と承認に **Microsoft Azure Active Directory** および **OAuth2** プロトコルを使用します。 アプリケーションからこの API にアクセスする場合は、まず Azure AD で登録し、適切な範囲を指定したアクセス許可で設定する必要があります。 これにより、アプリケーションで、API を呼び出すために必要な OAuth2 アクセス トークンを要求できます。 Azure AD でのアプリケーションの登録および設定の詳細については、「[Office 365 管理 API の概要](https://msdn.microsoft.com/EN-US/library/dn707385.aspx)」を参照してください。
 
 すべての API 要求は、**ServiceHealth.Read** 要求が含まれている Azure AD から取得した有効な OAuth2 JWT のアクセス トークンがある、承認 HTTP ヘッダーを必要とします。テナント ID は、ルート URL のテナント ID と一致していなければなりません。
 
@@ -45,7 +45,7 @@ Authorization: Bearer {OAuth2 token}
 
 |**ヘッダー**|**説明**|
 |:-----|:-----|
-|**Accept (省略可能)**|受け入れられる応答の表現は以下のとおりです。application/json;odata.metadata=full application/json;odata.metadata=minimal [ヘッダーが指定されていない場合の既定値] application/json;odata.metadata=none|
+|**Accept (省略可能)**|受け入れられる応答の表現は以下のとおりです。**application/json;odata.metadata=full** **application/json;odata.metadata=minimal** (ヘッダーが指定されていない場合の既定値) **application/json;odata.metadata=none**|
 |**Authorization (必須)**|要求の認証トークン (Bearer JWT AAD トークン)。|
  **応答ヘッダー:**
 
@@ -55,17 +55,17 @@ Authorization: Bearer {OAuth2 token}
 
 |**ヘッダー**|**説明**|
 |:-----|:-----|
-|**コンテンツ長**|応答本体の長さです。|
-|**コンテンツ タイプ**|応答の表現: application/json application/json;odata.metadata=full application/json;odata.metadata=minimal application/json;odata.metadata=none odata.streaming=true|
+|**Content-Length**|応答本体の長さです。|
+|**Content-Type**|応答の表現: **application/json** **application/json;odata.metadata=full** **application/json;odata.metadata=minimal** **application/json;odata.metadata=none** **odata.streaming=true**|
 |**Cache-Control**|要求/応答チェーンに沿うすべてのキャッシュ機構が従う必要があるディレクティブを指定するために使用されます。|
 |**Pragma**|実装固有の動作。|
 |**Expires**|クライアントがリソースを有効期限切れにする必要があるタイミング。|
 |**X-Activity-Id**|サーバー生成のアクティビティ ID。|
 |**OData-Version**|サポートされている OData のバージョン (4.0)。|
-|**Date**|サーバーから応答が送信されたときの、UTC 形式の日付。|
+|**日付**|サーバーから応答が送信されたときの、UTC 形式の日付。|
 |**X-Time-Taken**|応答の生成にかかった時間 (ミリ秒)。|
 |**X-Instance-Name**|(デバッグ目的で) 応答の生成に使用される Azure インスタンスの ID。|
-|**Server**|(デバッグ目的で) 応答を生成するために使用されるサーバー。|
+|**サーバー**|(デバッグ目的で) 応答を生成するために使用されるサーバー。|
 |**X-ASPNET-Version**|(デバッグ目的で) 応答を生成したサーバーにより使用される ASP.Net のバージョン。|
 |**X-Powered-By**|(デバッグ目的で) 応答を生成したサーバーで使用されるテクノロジ。|
 
@@ -81,7 +81,7 @@ Authorization: Bearer {OAuth2 token}
 
 ||**サービス**|**説明**|
 |:-----|:-----|:-----|
-|**パス**| `/Services`||
+|**Path**| `/Services`||
 |**クエリ オプション**|$select|プロパティのサブセットを選択します。|
 |**応答**|"Service" エンティティのリスト|"Service" エンティティには、"Id" (文字列)、"DisplayName" (文字列)、および "FeatureNames" (文字列のリスト) が含まれています。|
  **要求のサンプル:**
@@ -144,7 +144,7 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
 
 ||**サービス**|**説明**|
 |:-----|:-----|:-----|
-|**パス**| `/CurrentStatus`||
+|**Path**| `/CurrentStatus`||
 |**フィルター**|Workload|ワークロードでフィルター (文字列、既定値: all)。|
 |**クエリ オプション**|$select|プロパティのサブセットを選択します。|
 |**応答**|"WorkloadStatus" エンティティのリスト。|"WorkloadStatus" エンティティには、"Id" (文字列)、"Workload" (文字列)、"StatusTime"(DateTimeOffset)、"WorkloadDisplayName" (文字列)、"Status" (文字列)、"IncidentIds" (文字列のリスト)、および FeatureGroupStatusCollection ("FeatureStatus" のリスト) が含まれます。"FeatureStatus" エンティティには、"Feature" (文字列)、"FeatureGroupDisplayName" (文字列)、および "FeatureStatus" (文字列) が含まれます。|
@@ -275,7 +275,7 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
 
 ||**サービス**|**説明**|
 |:-----|:-----|:-----|
-|**パス**| `/HistoricalStatus`||
+|**Path**| `/HistoricalStatus`||
 |**フィルター**|Workload|ワークロードでフィルター (文字列、既定値: all)。|
 ||StatusTime|StatusTime より後の日付でフィルター処理します (DateTimeOffset、既定値: ge CurrentTime - 7 日)。|
 |**クエリ オプション**|$select|プロパティのサブセットを選択します。|
@@ -379,13 +379,13 @@ Authorization: Bearer {AAD_Bearer_JWT_Token}
 
 ### Get Messages
 
- **説明:**
+ **Description:**
 
 特定の時間範囲内のサービスに関するメッセージを返します。"サービス インシデント"、"計画済みメンテナンス"、または "メッセージ センター" メッセージをフィルター処理するためのタイプ フィルターを使用します。
 
 ||**サービス**|**説明**|
 |:-----|:-----|:-----|
-|**パス**| `/Messages`||
+|**Path**| `/Messages`||
 |**フィルター**|Workload|ワークロードでフィルター (文字列、既定値: all)。|
 ||StartTime|開始時刻でフィルター処理します (DateTimeOffset、既定値: ge CurrentTime - 7 日)。|
 ||EndTime|終了時刻でフィルター処理します (DateTimeOffset、既定値: le CurrentTime)。|

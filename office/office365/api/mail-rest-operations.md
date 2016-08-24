@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Outlook Mail REST API reference
 title: "Outlook メール REST API リファレンス"
-description: "ms.TocTitle:Outlook メール REST API リファレンスTitle:Outlook メール REST API リファレンスDescription:フォルダー、電子メール メッセージ、および電子メールの添付ファイルへのアクセスを提供するメール REST API とクライアント ライブラリ API を操作する方法のリファレンスです。ms.ContentId: aaf0a812-2ddb-4a63-969f-88916c96ab01ms.topic: リファレンス (API) ms.date:2016 年 5 月 19 日"
+description: "フォルダー、メール メッセージ、メールの添付ファイルへのアクセスを提供するメール REST API とクライアント ライブラリ API を操作する方法のリファレンスです。"
 ms.ContentId: aaf0a812-2ddb-4a63-969f-88916c96ab01
 ms.date: July 19, 2016
 
@@ -21,16 +21,16 @@ ms.date: July 19, 2016
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
 
-<p class="previewnote">This documentation covers synchronizing messages and their folders, unsubscribing messages, automatic replies, quick replies, and reference attachments which are all currently in preview. Preview features are subject to change prior to finalization, and may break code that uses them. プレビュー機能は、最終処理までに変更される場合があります。それらを使用するコードを破棄する場合もあります。このため、一般に、実稼働コードでは実稼働バージョンの API のみを使用してください。可能な場合には、現在バージョン 2.0 が優先バージョンです。</p> If available, v2.0 is currently the preferred version.</p>
+<p class="previewnote">このドキュメントでは、メッセージとそのフォルダー、登録解除メッセージ、自動応答、クイック応答、参照添付ファイルなど、プレビューに表示されているものすべての同期について説明します。 プレビュー機能は、最終版までに変更される場合があり、それらの機能を使用するコードが動作しなくなる場合もあります。 このため、一般に、運用コードでは運用バージョンの API のみを使用してください。 入手可能な場合、現時点ではバージョン 2.0 が優先バージョンです。</p>
 
 [!INCLUDE [END Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
 <!-- ==================================== End BETA content ====================================================== -->
 
 
- _**Applies to:** Exchange Online | Office 365 | Hotmail.com | Live.com | MSN.com | Outlook.com | Passport.com_
+ _**適用対象:**Exchange Online | Office 365 | Hotmail.com | Live.com | MSN.com | Outlook.com | Passport.com_
 
-Outlook メール API では、メッセージと添付ファイルの読み取り、作成、送信、イベント メッセージの表示と応答、および Office 365 での Azure Active Directory で保護されているフォルダーの管理が可能です。また、次のドメインでは、特に Microsoft アカウントと同じ機能も提供されます:Hotmail.com、Live.com、MSN.com、Outlook.com、および Passport.com。 Outlook メール API では、メッセージと添付ファイルの読み取り、作成、送信、イベント メッセージの表示と応答、および Office 365 での Azure Active Directory で保護されているフォルダーの管理が可能です。また、次のドメインでは、特に Microsoft アカウントと同じ機能も提供されます:Hotmail.com、Live.com、MSN.com、Outlook.com、および Passport.com。
+Outlook メール API では、メッセージと添付ファイルの読み取り、作成、送信、イベント メッセージの表示と応答、および Office 365 での Azure Active Directory で保護されているフォルダーの管理が可能です。 また、次のドメインでは、特に Microsoft アカウントと同じ機能も提供されます:Hotmail.com、Live.com、MSN.com、Outlook.com、および Passport.com。
 
 
 <!-- Can add the following sentence back once the client libraries have been updated for converged auth and outlook.com
@@ -38,14 +38,14 @@ Outlook メール API では、メッセージと添付ファイルの読み取�
 You can access the Mail API by calling the corresponding REST APIs directly in your apps, or by using the Office 365 client libraries and SDKs.
 -->
 
-**メモ** リファレンスをわかりやすくするため、この記事の残りの部分では **"Outlook.com" をこれらの Microsoft アカウントのドメインを含めた語として**使用しています。
+**注** リファレンスをわかりやすくするため、この記事の残りの部分では **"Outlook.com" をこれらの Microsoft アカウントのドメインを含めた語として**使用しています。
 
 
 <!-- ==================================== Start beta content ==================================================== -->
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-**Not interested in the beta version of the API?** API v2.0 が不要な場合右上隅のコントロールを使用して、必要なバージョンを選択します。
+**ベータ版の API が不要な場合** 右上隅のコントロールを使用して、必要なバージョンを選択します。
 
 [!INCLUDE [END Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
@@ -57,7 +57,7 @@ You can access the Mail API by calling the corresponding REST APIs directly in y
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-**Not interested in v2.0 of the API?** API v1.0 に関心がない場合: 右上のコントロールを使用して、必要なバージョンを選択します。
+**API v2.0 が不要な場合** 右上のコントロールを使用して、必要なバージョンを選択します。
 
 [!INCLUDE [END Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
@@ -70,7 +70,7 @@ You can access the Mail API by calling the corresponding REST APIs directly in y
 
 [!INCLUDE [BEGIN Outlook v1 section](../includes/controls/outlookrestapiv1section.xml)]
 
-**Not interested in v1.0 of the API?** API v1.0 に関心がない場合: 右上のコントロールを使用して、必要なバージョンを選択します。
+**API v1.0 が不要な場合** 右上のコントロールを使用して、必要なバージョンを選択します。
 
 [!INCLUDE [END Outlook v1 section](../includes/controls/outlookrestapiv1section.xml)]
 
@@ -80,32 +80,32 @@ You can access the Mail API by calling the corresponding REST APIs directly in y
 
 ## すべてのメール API の操作
 
-**Message operations** Messages are stored in mailbox folders, so message endpoints often include the folder that contains the message.
-メッセージはメールボックス フォルダーに格納されるため、多くの場合、メッセージ エンドポイントには、メッセージを含むフォルダーが含まれます。フォルダーは ID または既知のフォルダー名のいずれか (Inbox、Drafts、SentItems、または DeletedItems) で指定されます。
+**メッセージの操作**: メッセージはメールボックス フォルダーに格納されるため、多くの場合、メッセージ エンドポイントには、メッセージを含むフォルダーが含まれます。
+フォルダーは ID または既知のフォルダー名のいずれか (`Inbox`、`Drafts`、`SentItems`、または `DeletedItems`) で指定されます。
 
-[Get messages](#GetMessages) | [Synchronize messages](#SynchronizeMessagesAPI) (preview) | [Create and send messages](#SendMessages) | [Reply or reply all to messages](#ReplyToMessages) | 
-[Forward new or drafted messages](#ForwardMessages) | [Update messages](#UpdateMessages) | [Delete messages](#DeleteMessages) | [Move or copy messages](#MoveCopyMessages) |  
-[Manage Focused Inbox](#ManageFocusedInbox) | 
-[Unsubscribe](#Unsubscribe) (preview) | [Get auto reply settings](#GetAutoReplySettings) (preview) | [Update auto reply settings](#UpdateAutoReplySettings) (preview) | [Get attachments](#GetAttachments) | 
-[Create attachments](#CreateAttachments) | [Delete attachments](#DeleteAttachments)
+[メッセージを取得する](#GetMessages) | [メッセージを同期する](#SynchronizeMessagesAPI) (プレビュー) | [メッセージを作成して送信する](#SendMessages) | [メッセージを返信または全員に返信する](#ReplyToMessages) | 
+[新規または下書きメッセージを転送する](#ForwardMessages) | [メッセージを更新する](#UpdateMessages) | [メッセージを削除する](#DeleteMessages) | [メッセージを移動またはコピーする](#MoveCopyMessages) |  
+[優先受信トレイを管理する](#ManageFocusedInbox) | 
+[登録を解除する](#Unsubscribe) (プレビュー) | [自動応答の設定を取得する](#GetAutoReplySettings) (プレビュー) | [自動応答の設定を更新する](#UpdateAutoReplySettings) (プレビュー) | [添付ファイルを取得する](#GetAttachments) | 
+[添付ファイルを作成する](#CreateAttachments) | [添付ファイルを削除する](#DeleteAttachments)
 
 
-**Folder operations** Mailbox folders can contain messages and other folders. You can get, create, change, delete, and manage folders.
-メールボックス フォルダーにはメッセージと他のフォルダーを含めることができます。フォルダーを取得、作成、変更、削除、管理することができます。ID の代わりに既知のフォルダー名 (Inbox、SentItems、Drafts、または DeletedItems) を使用して、対応するフォルダーを指定することができます。
+**フォルダーの操作**: メールボックス フォルダーにはメッセージとその他のフォルダーを含めることができます。 フォルダーを取得、作成、変更、削除、管理することができます。
+ID の代わりに既知のフォルダー名 (`Inbox`、`SentItems`、`Drafts`、または `DeletedItems`) を使用して、対応するフォルダーを指定することができます。
 
-[Get folders](#GetFolders) | [Synchronize folders](#SynchronizeFolders) (preview) | [Create folders](#CreateFolders) | [Update folders](#UpdateFolders) | [Delete folders](#DeleteFolders) | [Move or copy folders](#MoveCopyFolders)
+[フォルダーを取得する](#GetFolders) | [フォルダーを同期する](#SynchronizeFolders) (プレビュー) | [フォルダーを作成する](#CreateFolders) | [フォルダーを更新する](#UpdateFolders) | [フォルダーを削除する](#DeleteFolders) | [フォルダーを移動またはコピーする](#MoveCopyFolders)
 
 関連項目:
 
-REST API メッセージ リソース  REST API フォルダー リファレンス
+[REST API メッセージ リソース](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource) | [REST API フォルダー リファレンス](..\api\complex-types-for-mail-contacts-calendar.md#FolderResource)
 
 <a name="Overview"> </a>
 ## メール REST API を使用する
 
 ###認証
 
-Like other [Outlook REST API](..\api\use-outlook-rest-api.md#DefineOutlookRESTAPI), for every request to the Mail API, you should include a valid access token. アクセス トークンを取得するには、アプリを登録して識別し、適切な承認を取得する必要があります。効率化された登録と承認のオプションに関する詳細情報を参照してください。要求のバッチ処理についての理解を深める際には、この点に留意してください。 You can [find out more](..\api\use-outlook-rest-api.md#ShortRegAuthWorkflow) about some streamlined registration and authorization options for you.
-Keep this in mind as you proceed with the specific operations in the Mail API.
+他の [Outlook REST API](..\api\use-outlook-rest-api.md#DefineOutlookRESTAPI) と同様に、メール API へのすべての要求に対して、有効なアクセス トークンを含める必要があります。 アクセス トークンを取得するには、アプリを登録して識別し、適切な承認を取得する必要があります。 効率化された登録と承認のオプションに関する[詳細情報](..\api\use-outlook-rest-api.md#ShortRegAuthWorkflow)を参照してください。
+メール API で特定の操作を続行する際には、この点に留意してください。
 
 <a name="SupportedVersions"> </a>
 
@@ -117,7 +117,7 @@ Keep this in mind as you proceed with the specific operations in the Mail API.
 
 すべてのメール API 要求は、指定しない限り常にサインイン ユーザーのために実行されます。優先受信トレイ API など、一部の API サブセットは、サインイン ユーザーまたはユーザー ID で指定したユーザーで、適切な権限を付与して実行できます。
 
-Outlook REST API のすべてのサブセットに共通な情報について詳しくは、「[Outlook REST API の使用](..\api\use-outlook-rest-api.md)」をご覧ください。
+Outlook REST API のすべてのサブセットに共通な情報の詳細については、「[Outlook REST API の使用](..\api\use-outlook-rest-api.md)」を参照してください。
 
 ****
 
@@ -127,23 +127,23 @@ Outlook REST API のすべてのサブセットに共通な情報について詳
 
 メールボックス フォルダーからメッセージ コレクションまたは個々のメッセージを取得できます。
 
-Each message in the response contains multiple properties, including the [Body](..\api\complex-types-for-mail-contacts-calendar.md#MessageBody) property. メッセージ本文は、HTML またはテキストのいずれかにできます。本文が HTML の場合、既定では、Body 応答内の各メッセージには、Body プロパティをはじめとする複数のプロパティが含まれます。メッセージ本文は、HTML またはテキストのいずれかにできます。本文が HTML の場合、既定では、**Body** プロパティに組み込まれている安全ではない可能性がある HTML (たとえば、JavaScript など) が、本文の内容が REST 応答で返される前に削除されます。元の HTML コンテンツ全体を取得するには、次の HTTP 要求ヘッダーを含めます。 元の HTML コンテンツ全体を取得するには、次の HTTP 要求ヘッダーを含めます。
+応答内の各メッセージには、[Body](..\api\complex-types-for-mail-contacts-calendar.md#MessageBody) プロパティをはじめとする複数のプロパティが含まれます。 メッセージ本文は、HTML またはテキストのいずれかにできます。 本文が HTML の場合、既定では、**Body** プロパティに組み込まれている安全ではない可能性がある HTML (たとえば、JavaScript など) が、本文の内容が REST 応答で返される前に削除されます。 元の HTML コンテンツ全体を取得するには、次の HTTP 要求ヘッダーを含めます。
 ```
 Prefer: outlook.allow-unsafe-html
 ```
 
-REST API:メッセージ コレクションを取得する (REST)  メッセージを取得する (REST)
+REST API:[メッセージ コレクションを取得する (REST)](#GetMessageCollection) | [メッセージを取得する (REST)](#GetMessage)
 
-クライアント ライブラリ:メッセージ コレクションを取得する (クライアント)  メッセージを取得する (クライアント)
+クライアント ライブラリ:[メッセージ コレクションを取得する (クライアント)](#GetMessagesClient) | [メッセージを取得する (クライアント)](#GetMessageClient)
 
 <a name="GetMessageCollection"> </a>
 ###メッセージ コレクションを取得する (REST)
 
-__**Minimum required scope**: 次のいずれか:__ 
+_**最小限必要なスコープ**: 次のいずれかです。_ 
 - _https://outlook.office.com/mail.read_
 - _wl.imap_
 
-**Note** The behavior of the operations in this section vary by version. このセクションの操作の動作は、バージョンによって異なります。ページの右上隅のバージョンを選択して詳細を確認します。
+**注** このセクションの操作の動作は、バージョンによって異なります。 ページの右上隅のバージョンを選択して詳細を確認します。
 
 <!-- ==================================== Start beta content ==================================================== -->
 
@@ -162,24 +162,24 @@ GET https://outlook.office.com/api/beta/me/MailFolders/{folder_id}/messages
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|フォルダーの ID、または既知のフォルダー名 Inbox、Drafts、SentItems、または DeletedItems (特定のフォルダーからメッセージを取得する場合) です。|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、または既知のフォルダー名 `Inbox`、`Drafts`、`SentItems`、または `DeletedItems` (特定のフォルダーからメッセージを取得する場合) です。|
 
-**メモ**: 既定では、応答内の各メッセージにそのプロパティがすべて含まれます。最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、$select を 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned.
+**注** 既定では、応答内の各メッセージにそのプロパティがすべて含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。
 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 次の例は、**$select** を使用して、応答内の各メッセージの **Sender** と **Subject** プロパティのみを返すように指定する方法を示しています。**$select**. を使用しない場合のメッセージに返されるプロパティの完全な一覧に関しては、「[メッセージを取得する (REST)](#GetMessage)」の最初の応答サンプルをご参照ください。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/beta/me/MailFolders/sentitems/messages/?$select=Sender,Subject
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 {
@@ -250,24 +250,24 @@ GET https://outlook.office.com/api/v2.0/me/MailFolders/{folder_id}/messages
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|フォルダーの ID、または既知のフォルダー名 Inbox、Drafts、SentItems、または DeletedItems (特定のフォルダーからメッセージを取得する場合) です。|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、または既知のフォルダー名 `Inbox`、`Drafts`、`SentItems`、または `DeletedItems` (特定のフォルダーからメッセージを取得する場合) です。|
 
-**メモ**: 既定では、応答内の各メッセージにそのプロパティがすべて含まれます。最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、$select を 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned.
+**注** 既定では、応答内の各メッセージにそのプロパティがすべて含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。
 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 次の例は、**$select** を使用して、応答内の各メッセージの **Sender** と **Subject** プロパティのみを返すように指定する方法を示しています。**$select**. を使用しない場合のメッセージに返されるプロパティの完全な一覧に関しては、「[メッセージを取得する (REST)](#GetMessage)」の最初の応答サンプルをご参照ください。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/v2.0/me/MailFolders/sentitems/messages/?$select=Sender,Subject
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 {
@@ -339,12 +339,12 @@ GET https://outlook.office.com/api/v1.0/me/MailFolders/{folder_id}/messages
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|フォルダーの ID、または既知のフォルダー名 Inbox、Drafts、SentItems、または DeletedItems (特定のフォルダーからメッセージを取得する場合) です。|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、または既知のフォルダー名 `Inbox`、`Drafts`、`SentItems`、または `DeletedItems` (特定のフォルダーからメッセージを取得する場合) です。|
 
-**メモ**: 既定では、応答内の各メッセージにそのプロパティがすべて含まれます。最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、$select を 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned.
+**注** 既定では、応答内の各メッセージにそのプロパティがすべて含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。
 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 次の例は、**$select** を使用して、応答内の各メッセージの **Sender** と **Subject** プロパティのみを返すように指定する方法を示しています。**$select**. を使用しない場合のメッセージに返されるプロパティの完全な一覧に関しては、「[メッセージを取得する (REST)](#GetMessage)」の最初の応答サンプルをご参照ください。
@@ -368,7 +368,7 @@ GET https://outlook.office.com/api/v1.0/me/MailFolders/{folder_id}/messages
 <a name="GetMessage"> </a>
 ###メッセージを取得する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.read_
 - _wl.imap_
 
@@ -384,9 +384,9 @@ GET https://outlook.office.com/api/beta/me/messages/{message_id}
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|メッセージ ID。|
 
 **要求のサンプル**
@@ -395,7 +395,7 @@ GET https://outlook.office.com/api/beta/me/messages/{message_id}
 GET https://outlook.office.com/api/beta/me/messages/AAMkAGI2THVSAAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 {
@@ -454,9 +454,9 @@ GET https://outlook.office.com/api/beta/me/messages/AAMkAGI2THVSAAA=
 
  **応答の種類**
 
-要求された[メッセージ](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource).です。
+要求された[メッセージ](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource)です。
 
-**メモ**: 既定では、応答に指定されたメッセージのすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** 既定では、応答に指定されたメッセージのすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 次の例は、**$select** を使用して、応答内のメッセージの **Sender** と **Subject** プロパティのみを返すように指定する方法を示しています。
 
@@ -482,9 +482,9 @@ GET https://outlook.office.com/api/v2.0/me/messages/{message_id}
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|メッセージ ID。|
 
 
@@ -494,7 +494,7 @@ GET https://outlook.office.com/api/v2.0/me/messages/{message_id}
 GET https://outlook.office.com/api/v2.0/me/messages/AAMkAGI2THVSAAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 {
@@ -551,9 +551,9 @@ GET https://outlook.office.com/api/v2.0/me/messages/AAMkAGI2THVSAAA=
 
  **応答の種類**
 
-要求された[メッセージ](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource).です。
+要求された[メッセージ](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource)です。
 
-**メモ**: 既定では、応答に指定されたメッセージのすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** 既定では、応答に指定されたメッセージのすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 次の例は、**$select** を使用して、応答内のメッセージの **Sender** と **Subject** プロパティのみを返すように指定する方法を示しています。
 
@@ -578,9 +578,9 @@ GET https://outlook.office.com/api/v1.0/me/messages/{message_id}
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|メッセージ ID。|
 
 [!code-REST-i[mail_api_get_message_by_id](./_data/mail_api_get_message_by_id.json)]
@@ -588,9 +588,9 @@ GET https://outlook.office.com/api/v1.0/me/messages/{message_id}
 
  **応答の種類**
 
-要求された[メッセージ](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource).です。
+要求された[メッセージ](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource)です。
 
-**メモ**: 既定では、応答に指定されたメッセージのすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** 既定では、応答に指定されたメッセージのすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 次の例は、**$select** を使用して、応答内のメッセージの **Sender** と **Subject** プロパティのみを返すように指定する方法を示しています。
 
@@ -609,16 +609,16 @@ GET https://outlook.office.com/api/v1.0/me/messages/AAMkAGEI5MTAAA=?$select=Send
 <a name="GetMessagesClient"> </a>
 ###メッセージ コレクションを取得する (クライアント)
 
-Get the messages in the Inbox by using the `Me.Messages` shortcut property. To get the messages from a different folder, use the folder's **Messages** property.
-You can use the following well-known folder names instead of the ID for the corresponding folder: `Inbox`, `SentItems`, `Drafts`, `DeletedItems`.
+受信トレイ内のメッセージを取得するには、`Me.Messages` ショートカット プロパティを使用します。 別のフォルダーからメッセージを取得するには、フォルダーの **Messages** プロパティを使用します。
+対応するフォルダーについては、ID の代わりに既知のフォルダー名 (`Inbox`、`SentItems`、`Drafts`、`DeletedItems`) を使用できます。
 
-例`outlookClient.Me.Folders["SentItems"].Messages.ExecuteAsync()`
+例: `outlookClient.Me.Folders["SentItems"].Messages.ExecuteAsync()`
 
 
 **注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
 
 
-**メモ**: メッセージ コレクションでは、**Select**、**OrderBy**、**Take** などのクエリ式がサポートされます。
+**注** メッセージ コレクションでは、**Select**、**OrderBy**、**Take** などのクエリ式がサポートされます。
 
 この例では、[Outlook サービス クライアントを作成する](..\api\use-outlook-rest-api.md#GetClient)メソッドを呼び出します。
 
@@ -657,7 +657,7 @@ outlookClient.me.folders.getFolder('Inbox').messages.getMessages().orderBy('Date
 <a name="GetMessageClient"> </a>
 ###メッセージを取得する (クライアント)
 
-特定のメッセージを取得するには、**メッセージ** コレクションのインデックスとしてメッセージ ID を指定するか、**GetById** メソッドを使用します。
+特定のメッセージを取得するには、**Messages** コレクションのインデックスとしてメッセージ ID を指定するか、**GetById** メソッドを使用します。
 
 ****
 
@@ -668,42 +668,42 @@ outlookClient.me.folders.getFolder('Inbox').messages.getMessages().orderBy('Date
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.read_
 - _wl.imap_
 
-You can synchronize your local data store with the messages on the server. Message synchronization is a per-folder operation, for example, you can synchronize all of the messages in your Inbox. To synchronize the messages in a folder hierarchy you need to synchronize each folder individually.
+ローカル データ ストアはサーバー上のメッセージと同期できます。 メッセージの同期はフォルダー単位の操作であり、たとえば、受信トレイ内のすべてのメッセージを同期できます。 フォルダー階層内のメッセージを同期するには、各フォルダーを個別に同期する必要があります。
 
 API では、フォルダー内のすべてのメッセージを取得する完全な同期と、最後の完全な同期から変更されたすべてのメッセージを取得する差分同期の両方がサポートされています。
 
-Synchronizing a mail folder typically requires two or more GET requests. You make the GET request much like the way you [get messages](#GetMessages), except that you include certain request headers, and a _deltaToken_ or _skipToken_ when appropriate.
+通常、メール フォルダーを同期するには、2 つ以上の GET 要求が必要です。 GET 要求は[メッセージを取得する](#GetMessages)のとよく似た方法で実行できますが、特定の要求ヘッダーおよび必要に応じて _deltaToken_ または _skipToken_ を含める必要があります。
 
 **要求ヘッダー**
 
-- 以前の同期要求から返される skipToken を含む同期要求を除き、すべての同期要求で "Prefer: odata.track-changes" ヘッダーを指定する必要があります。(skipToken に関する詳細については、以下の 2 番目の応答データのサンプルを参照)。 In the first response, look for the _Preference-Applied: odata.track-changes_ header to confirm that the resource supports synchronizing before proceeding.
+- 以前の同期要求から返される `skipToken` を含む同期要求を除き、すべての同期要求で _Prefer: odata.track-changes_ ヘッダーを指定する必要があります。 最初の応答で _Preference-Applied: odata.track-changes_ ヘッダーを探して、リソースが同期をサポートすることを確認してから、先に進みます。
 
-- _Prefer: odata.maxpagesize={x}_ ヘッダーを指定して、要求ごとに返されるメッセージの最大数を指定することができます。
+- _Prefer: odata.maxpagesize={x}_ ヘッダーを指定して、要求で返されるメッセージの最大数を指定することができます。
 
-Here's a typical round of synchronizing messages:
+メッセージ同期の一般的なラウンドは次のとおりです。
 
-1. Make the initial GET request with the mandatory _Prefer: odata.track-changes_ header. The initial response to a sync request always returns a _deltaToken_. 2 番目以降の GET 要求は、前の応答で受信した _deltaToken_ または _skipToken_ のいずれかを含むため、最初の GET 要求とは異なります。
+1. 必須の _Prefer: odata.track-changes_ ヘッダーを指定して最初の GET 要求を行います。 同期要求に対する最初の応答では、常に _deltaToken_ が返されます  (2 番目以降の GET 要求は、前の応答で受信した _deltaToken_ または _skipToken_ のいずれかを含むため、最初の GET 要求とは異なります)。
 
-2. If the first response returns the _Preference-Applied: odata.track-changes_ header, you can proceed with synchronizing the folder.
+2. 最初の応答で _Preference-Applied: odata.track-changes_ ヘッダーが返った場合は、フォルダーの同期に進むことができます。
 
-  - Make a second GET request. Specify the _Prefer: odata.track-changes_ header and the _deltaToken_ returned from the first GET to determine if there are any additional messages. The second request will return additional messages, and either a _skipToken_ if there are more messages available, or a _deltaToken_ if the last message has been synchronized, in which case you can stop.
+  - 2 番目 GET 要求を行います。 最初の GET 要求から返された _Prefer: odata.track-changes_ ヘッダーと _deltaToken_ を指定して、追加のメッセージがあるかどうかを調べます。 2 番目の要求では、追加のメッセージと、さらにメッセージがある場合は _skipToken_ が、最後のメッセージが同期された場合は _deltaToken_ が (この場合は停止できます)、返されます。
 
-  - Continue synchronizing by sending a GET call and including a _skipToken_ that's returned from the previous call. Stop when you get a final response that contains an _@odata.deltaLink_ header with a _deltaToken_ again, which indicates the sync is complete.
+  - 前の呼び出しから返された _skipToken_ を指定して GET 呼び出しを送信することで、同期を続けます。 _@odata.deltaLink_ ヘッダーと再び _deltaToken_ (同期が完了したことを示します) が含まれる最後の応答を受け取ったら、停止します。
 
 
-### 特定の予定表で同期するには
+### 特定のフォルダー内のメッセージを同期するには
 
-**最初の要求：**
+**最初の要求**
 
 ```no-highlight
 GET https://outlook.office365.com/api/beta/me/MailFolders('{folder_id}')/messages
 ```
 
-**2 番目の要求、またはそれ以降のラウンドの最初の要求：**
+**2 番目の要求、またはそれ以降のラウンドの最初の要求**
 
 ```no-highlight
 GET https://outlook.office365.com/api/beta/me/MailFolders('{folder_id}')/messages/?$deltaToken={delta_token}
@@ -711,7 +711,7 @@ GET https://outlook.office365.com/api/beta/me/MailFolders('{folder_id}')/message
 
 **同じラウンドの 3 番目またはそれ以降の要求**
 
-Continue to send the next sync request if the previous response includes a `skipToken`. Stop when you get a response that contains an `@odata.deltaLink` header with a `deltaToken` again.
+前の応答に `skipToken` が含まれる場合は、次の同期要求の送信を続けます。 `@odata.deltaLink` ヘッダーと `deltaToken` を再び含む応答を受け取ったら停止します。
 
 ```no-highlight
 GET https://outlook.office365.com/api/beta/me/MailFolders('{folder_id}')/messages/?$skipToken={skip_token}
@@ -719,39 +719,39 @@ GET https://outlook.office365.com/api/beta/me/MailFolders('{folder_id}')/message
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|__Header parameters_|
-|Prefer|odata.track-changes|要求が同期要求であることを示します。 Required for the first 2 GET requests in a round.|
-|Prefer|odata.maxpagesize|各応答で返されるメッセージの数を設定します。 省略可能。|
-|_URL のパラメーター_|
-|folder_id|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。 必須。|
-|deltaToken|String|The token that identifies the last sync request for that folder. 以前の同期の応答で、@odata.deltaLink の値の一部として返される deltaToken 文字列。 Required for the second GET request.|
-|skipToken|String|ダウンロードするメッセージがまだあることを示すトークン。 以前の同期の応答で、@odata.nextLink の値の一部として返される skipToken 文字列。|
+|_ヘッダー パラメーター_|
+|優先|odata.track-changes|要求が同期要求であることを示します。 ラウンドの最初の 2 つの GET 要求に対して必須です。|
+|優先|odata.maxpagesize|各応答で返されるメッセージの数を設定します。 省略可能。|
+|_URL パラメーター_|
+|folder_id|string|同期するフォルダーの ID、または既知のフォルダー名 (`Inbox`、`Drafts`、`SentItems`、`DeletedItems`)。 必須。|
+|deltaToken|String|そのフォルダーの最後の同期要求を示すトークン。 その前の同期応答で、@odata.deltaLink の値の一部として返されます。 2 番目の GET 要求に対して必須です。|
+|skipToken|String|ダウンロードするメッセージがまだあることを示すトークン。 前の同期応答で @odata.nextLink の値の一部として返され手いる場合は必須です。|
 
 
-既定では、同期によってフォルダー内のすべてのプロパティとメッセージが返されます。同期では、クエリ式 $select、$top、$expand がサポートされています。$filter および $orderby のサポートは制限されており、$search はサポートされていません。 $select クエリ式を使用して、最適なパフォーマンスに必要なプロパティのみを指定します。常に  The _Id_ property is always returned. 
+既定では、同期はフォルダー内のすべてのプロパティおよびすべてのメッセージを返します。 $select クエリ式を使用して、最適なパフォーマンスに必要なプロパティのみを指定します。 _Id_ プロパティは常に返されます。 
 
-Synchronization supports the query expressions $select, $top, $expand. There is limited support for $filter and $orderby, and no support for $search.
+同期は、クエリ式 $select、$top、$expand をサポートします。 $filter および $orderby のサポートは制限されており、$search はサポートされていません。
 
 * サポートされている $filter 式は “$filter=ReceivedDateTime+ge+{value}” または “$filter=ReceivedDateTime+gt+{value}" だけです。
-* The only supported $orderby expression is “$orderby=ReceivedDateTime+desc”. サポートされている $orderby 式は “$orderby=ReceivedDateTime+desc” だけです。$orderby 式を含めない場合、戻り値の順序は保証されません。
+* サポートされている $orderby 式は “$orderby=ReceivedDateTime+desc” だけです。 $orderby 式を含めない場合、戻り値の順序は保証されません。
   
 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 
 **応答の種類**
 
-A collection containing the requested messages, and a _deltaToken_ or _skipToken_ that you use to request additional pages of message data from server for an incremental synchronization. 
+要求されたメッセージと、差分メッセージについてサーバーにメッセージ データの追加ページを要求するための _deltaToken_ または _skipToken_ を含むコレクション。 
 
 
 
 
 **例**
 
-The following example shows a series of requests to synchronize a specific folder which contains 7 messages. The first sync request specifies returning 2 messages at a time (_odata.maxpagesize_ is 2), and only the **Sender** and **Subject** properties for each message.
+次の例では、7 通のメッセージが含まれる特定のフォルダーを同期するための一連の要求を示します。 最初の同期要求では、一度に 2 通のメッセージを返し (_odata.maxpagesize_ が 2)、各メッセージの **Sender** プロパティと **Subject** プロパティだけを返すように指定します。
 
-- The initial response returns 2 messages, a `deltaLink` and `deltaToken`. 
-- The second request uses that `deltaToken`. The second response returns 2 messages, a `nextLink` and `skipToken`.
-- To complete the sync, the third and fourth requests use the `skipToken` returned from the previous sync request, until the fourth sync response returns a `deltaLink` and `deltaToken`, in which case this round of sync is complete. このような場合、このラウンドの同期は完了しています。次のラウンドの同期の deltaToken`deltaToken` を保存します。 
+- 最初の応答では、2 通のメッセージ、`deltaLink`、および `deltaToken` が返されます。 
+- 2 番目の要求では、その `deltaToken` を使用します。 2 番目の応答では、2 通のメッセージ、`nextLink`、および `skipToken` が返されます。
+- 同期を完了するには、4 番目の同期応答で `deltaLink` と `deltaToken` が返されるまで (この場合、このラウンドの同期は完了します)、前の同期要求で返された `skipToken` を 3 番目と 4 番目の要求で使用します。 次のラウンドの同期のために `deltaToken` を保存します。 
 
 **最初の要求のサンプル**
 
@@ -764,7 +764,7 @@ Prefer: odata.track-changes
 
 **最初の応答データのサンプル**
 
-The initial response includes a `Preference-Applied: odata.track-changes` header, indicating that this folder supports synchronization. The response also includes two messages and a `deltaToken`.
+最初の応答には、このフォルダーが同期をサポートすることを示す `Preference-Applied: odata.track-changes` ヘッダーが含まれます。 応答には、2 つのメッセージと `deltaToken` も含まれます。
 
 ```
 Preference-Applied: odata.track-changes
@@ -803,7 +803,7 @@ Preference-Applied: odata.track-changes
 
 **2 番目の要求のサンプル**
 
-The second request specifies the `deltaToken` returned from the previous response.
+2 番目の要求では、前の応答で返された `deltaToken` を指定します。
 
 ```
 GET https://outlook.office.com/api/beta/Me/MailFolders('AAMkAGI5MAAAwW-j-AAA=')/messages/?%24select=Subject%2cSender&%24deltatoken=MfzCBD5nm2dcGAFGk5qypL1PSyEAADFmX28BAAAA HTTP/1.1
@@ -813,7 +813,7 @@ Prefer: odata.track-changes
 
 **2 番目の応答データのサンプル**
 
-The second response includes two more messages and a `skipToken`, indicating there are more messages to sync in the folder.
+2 番目の応答には、次の 2 つのメッセージと、フォルダーに同期するメッセージがまだあることを示す `skipToken` が含まれます。
 
 ```
 {
@@ -848,18 +848,18 @@ The second response includes two more messages and a `skipToken`, indicating the
 }
 ```
 
-**Sample third request**
+**3 番目の要求のサンプル**
 
-The thirs request includes the `skipToken` returned from the previous response.
+3 番目の要求には、前の応答で返された `skipToken` を含めます。
 
 ```
 GET https://outlook.office.com/api/beta/Me/MailFolders('AAMkAGI5MAAAwW-j-AAA=')/messages/?%24select=Subject%2cSender&%24skipToken=MfzCAj5nm2dcGAFGk5qypL1PSyEAADFmX28CAAAA HTTP/1.1
 Prefer: odata.maxpagesize=2
 ```
 
-**応答データのサンプル**
+**3 番目の応答データのサンプル**
 
-The third response returns two more messages and another `skipToken`, indicating there are still messages in the folder to sync.
+3 番目の応答では、さらに 2 つのメッセージと、フォルダーに同期するメッセージがまだあることを示す別の `skipToken` が返されます。
 
 ```
 {
@@ -894,18 +894,18 @@ The third response returns two more messages and another `skipToken`, indicating
 }
 ```
 
-**Sample fourth request**
+**4 番目の要求のサンプル**
 
-The fourth request includes the `skipToken` from the previous response.
+4 番目の要求には、前の応答で返された `skipToken` を含めます。
 
 ```
 GET https://outlook.office.com/api/beta/Me/MailFolders('AAMkAGI5MAAAwW-j-AAA=')/messages/?%24select=Subject%2cSender&%24skipToken=MfzCAj5nm2dcGAFGk5qypL1PSyEAADFmX28DAAAA HTTP/1.1
 Prefer: odata.maxpagesize=2
 ```
 
-**Sample fourth and final response data**
+**4 番目と最後の応答データのサンプル**
 
-The fourth response returns the only remaining message in the folder, and a `deltaToken` which indicates synchronization is complete for this folder. Save the `deltaToken` for the next round of sync for this folder.
+4 番目の応答では、フォルダーに残っている 1 つだけのメッセージと、そのフォルダーの同期が完了したことを示す `deltaToken` が返されます。 そのフォルダーの同期の次のラウンドのために `deltaToken` を保存します。
 
 ```
 {
@@ -961,15 +961,15 @@ The fourth response returns the only remaining message in the folder, and a `del
 
 オンザフライで新しいメッセージを送信するか、下書きメッセージを作成してからそれを送信することができます。任意のフォルダーに下書きを作成できます。
 
-REST API:オンザフライで新しいメッセージを送信する (REST)  下書きメッセージを作成する (REST)  下書きメッセージを送信する (REST)
+REST API:[オンザフライで新しいメッセージを送信する (REST)](#SendMessageOnTheFly) | [下書きメッセージを作成する (REST)](#CreateNewDraft) | [下書きメッセージを送信する (REST)](#SendDraftMessages)
 
-クライアント ライブラリ:オンザフライで新しいメッセージを送信する (クライアント)  下書きメッセージを作成する (クライアント)  下書きメッセージを送信する (クライアント)
+クライアント ライブラリ:[オンザフライで新しいメッセージを送信する (クライアント)](#SendMessageOnTheFlyClient) | [下書きメッセージを作成する (クライアント)](#CreateDraftClient) | [下書きメッセージを送信する (クライアント)](#SendDraftClient)
 
 
 <a name="SendMessageOnTheFly"> </a>
 ###オンザフライで新しいメッセージを送信する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.send_
 - _wl.imap_
 
@@ -984,16 +984,16 @@ __**Minimum required scope**: 次のいずれか:__
 POST https://outlook.office.com/api/beta/me/sendmail
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_Body parameters_|
+|_本文パラメーター_|
 |Message|[Message](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource)|送信するメッセージです。|
-|SavetoSentItems|boolean|[送信済みアイテム] 内のメッセージを保存するかどうかを示します。既定値は true です。 既定は **True** です。|
+|SavetoSentItems|boolean|[送信済みアイテム] 内のメッセージを保存するかどうかを示します。 既定値は **true** です。|
 
 要求本文に必要な **ToRecipients** プロパティと任意の書き込み可能な [message](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource) プロパティを設定して、**Message** パラメーターを指定します。**SaveToSentItems** パラメーターは、**false** の場合にのみ必要です。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/beta/me/sendmail
@@ -1025,7 +1025,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 202
@@ -1046,16 +1046,16 @@ Status code: 202
 POST https://outlook.office.com/api/v2.0/me/sendmail
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_Body parameters_|
+|_本文パラメーター_|
 |Message|[Message](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource)|送信するメッセージです。|
-|SavetoSentItems|boolean|[送信済みアイテム] 内のメッセージを保存するかどうかを示します。既定値は true です。 既定は **True** です。|
+|SavetoSentItems|boolean|[送信済みアイテム] 内のメッセージを保存するかどうかを示します。 既定値は **true** です。|
 
 要求本文に必要な **ToRecipients** プロパティと任意の書き込み可能な [message](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource) プロパティを設定して、**Message** パラメーターを指定します。**SaveToSentItems** パラメーターは、**false** の場合にのみ必要です。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/v2.0/me/sendmail
@@ -1087,7 +1087,7 @@ POST https://outlook.office.com/api/v2.0/me/sendmail
 
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 202
@@ -1109,11 +1109,11 @@ Status code: 202
 POST https://outlook.office.com/api/v1.0/me/sendmail
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_Body parameters_|
+|_本文パラメーター_|
 |Message|[Message](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource)|送信するメッセージです。|
-|SavetoSentItems|boolean|[送信済みアイテム] 内のメッセージを保存するかどうかを示します。既定値は true です。 既定は **True** です。|
+|SavetoSentItems|boolean|[送信済みアイテム] 内のメッセージを保存するかどうかを示します。 既定値は **true** です。|
 
 要求本文に必要な **ToRecipients** プロパティと任意の書き込み可能な [message](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource) プロパティを設定して、**Message** パラメーターを指定します。**SaveToSentItems** パラメーターは、**false** の場合にのみ必要です。
 
@@ -1132,12 +1132,12 @@ POST https://outlook.office.com/api/v1.0/me/sendmail
 <a name="CreateNewDraft"> </a>
 ###下書きメッセージを作成する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
-Create a draft of a new message. Drafts can be created in any folder and optionally [updated](#UpdateMessages) before [sending](#SendDraftMessages).
-To save to the Drafts folder, use the `/me/messages` shortcut.
+新しいメッセージの下書きを作成します。 下書きを任意のフォルダーに作成し、必要に応じて[送信](#SendDraftMessages)前に[更新](#UpdateMessages)できます。
+[下書き] フォルダーに保存するには、`/me/messages` ショートカットを使用します。
 
 <!-- ==================================== Start beta content ==================================================== -->
 
@@ -1149,14 +1149,14 @@ POST https://outlook.office.com/api/beta/me/messages
 POST https://outlook.office.com/api/beta/me/MailFolders/{folder_id}/messages
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|宛先フォルダーの ID、あるいは Inbox`Inbox` または Drafts`Drafts` の既知のフォルダー名です。|
+|_URL パラメーター_|
+|folder_id|string|宛先フォルダーの ID または既知のフォルダー名 (`Inbox` または `Drafts`)。|
 
 要求本文に任意の書き込み可能な [message](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource) プロパティを指定します。
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/beta/me/MailFolders/inbox/messages
@@ -1179,7 +1179,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -1244,14 +1244,14 @@ POST https://outlook.office.com/api/v2.0/me/messages
 POST https://outlook.office.com/api/v2.0/me/MailFolders/{folder_id}/messages
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|宛先フォルダーの ID、あるいは Inbox`Inbox` または Drafts`Drafts` の既知のフォルダー名です。|
+|_URL パラメーター_|
+|folder_id|string|宛先フォルダーの ID または既知のフォルダー名 (`Inbox` または `Drafts`)。|
 
 要求本文に任意の書き込み可能な [message](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource) プロパティを指定します。
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/v2.0/me/MailFolders/inbox/messages
@@ -1274,7 +1274,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -1337,10 +1337,10 @@ POST https://outlook.office.com/api/v1.0/me/messages
 POST https://outlook.office.com/api/v1.0/me/folders/{folder_id}/messages
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|宛先フォルダーの ID、あるいは Inbox`Inbox` または Drafts`Drafts` の既知のフォルダー名です。|
+|_URL パラメーター_|
+|folder_id|string|宛先フォルダーの ID または既知のフォルダー名 (`Inbox` または `Drafts`)。|
 
 要求本文に任意の書き込み可能な [message](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource) プロパティを指定します。
 
@@ -1363,7 +1363,7 @@ POST https://outlook.office.com/api/v1.0/me/folders/{folder_id}/messages
 <a name="SendDraftMessages"> </a>
 ###下書きメッセージを送信する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.send_
 - _wl.imap_
 
@@ -1378,9 +1378,9 @@ __**Minimum required scope**: 次のいずれか:__
 POST https://outlook.office.com/api/beta/me/messages/{message_id}/send
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|送信する下書きメッセージの ID です。|
 
 
@@ -1390,7 +1390,7 @@ POST https://outlook.office.com/api/beta/me/messages/{message_id}/send
 POST https://outlook.office.com/api/beta/me/messages/AAMkAGE0Mz7k0AAA=/send
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 202
@@ -1411,9 +1411,9 @@ Status code: 202
 POST https://outlook.office.com/api/v2.0/me/messages/{message_id}/send
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|送信する下書きメッセージの ID です。|
 
 
@@ -1423,7 +1423,7 @@ POST https://outlook.office.com/api/v2.0/me/messages/{message_id}/send
 POST https://outlook.office.com/api/v2.0/me/messages/AAMkAGE0Mz7k0AAA=/send
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 202
@@ -1445,9 +1445,9 @@ Status code: 202
 POST https://outlook.office.com/api/v1.0/me/messages/{message_id}/send
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|送信する下書きメッセージの ID です。|
 
 [!code-REST-i[mail_api_send_message_by_id](./_data/mail_api_send_message_by_id.json)]
@@ -1515,7 +1515,7 @@ await outlookClient.Me.SendMailAsync(newMessage, true);
 <a name="CreateDraftClient"> </a>
 ###下書きメッセージを作成する (クライアント)
 
-下書きメッセージを作成し、それを **AddMessageAsync メソッドに渡します。その後、下書きを更新して送信**できます。 下書きの転送メッセージを作成するには、CreateForwardAsync を呼び出します。その後、[下書きを更新](#UpdateMessagesClient)して[送信](#SendDraftClient)できます。
+下書きメッセージを作成し、それを **AddMessageAsync** メソッドに渡します。 その後、[下書きを更新](#UpdateMessagesClient)して[送信](#SendDraftClient)できます。
 
 
 **注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
@@ -1559,14 +1559,14 @@ string messageId = draftMessage.Id;
 
 **Me.Messages** コレクションにメッセージを追加すると [下書き] フォルダーに下書きが保存されますが、下書きは任意のフォルダーの **Messages** コレクションに保存できます。
 
-例`outlookClient.Me.Folders["AAMkADE3N..."].Messages.AddMessageAsync(newMessage)`
+例: `outlookClient.Me.Folders["AAMkADE3N..."].Messages.AddMessageAsync(newMessage)`
 
 ****
 
 <a name="SendDraftClient"> </a>
 ###下書きメッセージを送信する (クライアント)
 
-Send a draft message by calling **SendAsync**. 下書きメッセージを送信するには、SendAsync を呼び出します。新規、返信、全員に返信、または転送メッセージの下書きを送信できます。
+下書きメッセージを送信するには、**SendAsync** を呼び出します。 新規、返信、全員に返信、または転送メッセージの下書きを送信できます。
 
 
 **注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
@@ -1588,7 +1588,7 @@ await outlookClient.Me.Messages[messageId].SendAsync();
 <a name="ReplyToMessages"> </a>
 ##メッセージを返信または全員に返信する
 
-**Note** The behavior of the operations in this section vary by version. このセクションの操作の動作は、バージョンによって異なります。ページの右上隅のバージョンを選択して詳細を確認します。
+**注** このセクションの操作の動作は、バージョンによって異なります。 ページの右上隅のバージョンを選択して詳細を確認します。
 
 <!-- ==================================== Start beta content ==================================================== -->
 
@@ -1626,14 +1626,14 @@ await outlookClient.Me.Messages[messageId].SendAsync();
 <!-- ==================================== End v1 content ======================================================== -->
 
 
-REST API:オンザフライで送信者に返信する (REST)  オンザフライで全員に返信する (REST)  下書きの返信メッセージを作成する (REST)  下書きの全員に返信メッセージを作成する (REST)
+REST API:[オンザフライで送信者に返信する (REST)](#ReplyToSender) | [オンザフライで全員に返信する (REST)](#ReplyAll) | [下書きの返信メッセージを作成する (REST)](#CreateReplyDraft) | [下書きの全員に返信メッセージを作成する (REST)](#CreateReplyAllDraft)
 
-クライアント ライブラリ:オンザフライで返信または全員に返信する (クライアント)  下書きの返信または全員に返信メッセージを作成する (クライアント)
+クライアント ライブラリ:[オンザフライで返信または全員に返信する (クライアント)](#ReplyOnTheFlyClient) | [下書きの返信または全員に返信メッセージを作成する (クライアント)](#CreateDraftReplyClient)
 
 <a name="ReplyToSender"> </a>
 ###オンザフライで送信者に返信する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.send_
 - _wl.imap_
 
@@ -1650,17 +1650,17 @@ __**Minimum required scope**: 次のいずれか:__
 POST https://outlook.office.com/api/beta/me/messages/{message_id}/reply
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|返信するメッセージの ID です。|
-|_Body parameters_|
+|_本文パラメーター_|
 |Comment|string|含めるコメントです。空の文字列にすることができます。|
 |Message|[Message](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource)|返信メッセージで更新する書き込み可能なプロパティです。 |
 
 **注意**
 
-- コメントまたはMessage`Message` パラメーターの **Body** プロパティを指定できます。両方を指定すると、「HTTP 400 要求が正しくありません」というエラーが返されます。 コメントまたはMessage パラメーターの Body プロパティを指定できます。両方を指定すると、「HTTP 400 要求が正しくありません」というエラーが返されます。
+- コメントまたは `Message` パラメーターの **Body** プロパティを指定できます。 両方を指定すると、「HTTP 400 要求が正しくありません」というエラーが返されます。
 - **ReplyTo** が元のメッセージに指定されている場合、インターネット メッセージ形式 ([RFC 2822](http://www.rfc-editor.org/info/rfc2822)) ごとに、**From** の受信者ではなく、**ReplyTo** の受信者に返信を送信する必要があります。 
 
 
@@ -1718,14 +1718,14 @@ Status code: 202
 POST https://outlook.office.com/api/v2.0/me/messages/{message_id}/reply
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|返信するメッセージの ID です。|
-|_Body parameters_|
-|Comment|string|含めるコメントです。空の文字列にすることができます。 含めるコメントです。空の文字列にすることができます。|
+|_本文パラメーター_|
+|Comment|string|含めるコメントです。 空の文字列にすることができます。|
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/v2.0/me/messages/AAMkAGE0Mz8DmAAA=/reply
@@ -1736,7 +1736,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 202
@@ -1762,12 +1762,12 @@ Status code: 202
 POST https://outlook.office.com/api/v1.0/me/messages/{message_id}/reply
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|返信するメッセージの ID です。|
-|_Body parameters_|
-|Comment|string|含めるコメントです。空の文字列にすることができます。 含めるコメントです。空の文字列にすることができます。|
+|_本文パラメーター_|
+|Comment|string|含めるコメントです。 空の文字列にすることができます。|
 
 [!code-REST-i[mail_api_send_reply_by_id](./_data/mail_api_send_reply_by_id.json)]
 
@@ -1784,7 +1784,7 @@ POST https://outlook.office.com/api/v1.0/me/messages/{message_id}/reply
 <a name="ReplyAll"> </a>
 ###オンザフライで全員に返信する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.send_
 - _wl.imap_
 
@@ -1802,17 +1802,17 @@ __**Minimum required scope**: 次のいずれか:__
 POST https://outlook.office.com/api/beta/me/messages/{message_id}/replyall
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|返信するメッセージの ID です。|
-|_Body parameters_|
+|_本文パラメーター_|
 |Comment|string|含めるコメントです。空の文字列にすることができます。|
 |Message|[Message](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource)|全員に返信メッセージで更新する書き込み可能なプロパティです。 |
 
 **注意**
 
-- コメントまたはMessage`Message` パラメーターの **Body** プロパティを指定できます。両方を指定すると、「HTTP 400 要求が正しくありません」というエラーが返されます。 コメントまたはMessage パラメーターの Body プロパティを指定できます。両方を指定すると、「HTTP 400 要求が正しくありません」というエラーが返されます。
+- コメントまたは `Message` パラメーターの **Body** プロパティを指定できます。 両方を指定すると、「HTTP 400 要求が正しくありません」というエラーが返されます。
 - **ReplyTo** が元のメッセージに指定されている場合、インターネット メッセージ形式 ([RFC 2822](http://www.rfc-editor.org/info/rfc2822)) ごとに、**From** と**ToRecipients** の受信者ではなく、**ReplyTo** と**ToRecipients** の受信者に返信を送信する必要があります。 
 
 
@@ -1863,14 +1863,14 @@ Status code: 202
 POST https://outlook.office.com/api/v2.0/me/messages/{message_id}/replyall
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|返信するメッセージの ID です。|
-|_Body parameters_|
-|Comment|string|含めるコメントです。空の文字列にすることができます。 含めるコメントです。空の文字列にすることができます。|
+|_本文パラメーター_|
+|Comment|string|含めるコメントです。 空の文字列にすることができます。|
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/v2.0/me/messages/AAMkAGE0MSz8DmAAA=/replyall
@@ -1881,7 +1881,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 202
@@ -1907,12 +1907,12 @@ Status code: 202
 POST https://outlook.office.com/api/v1.0/me/messages/{message_id}/replyall
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|返信するメッセージの ID です。|
-|_Body parameters_|
-|Comment|string|含めるコメントです。空の文字列にすることができます。 含めるコメントです。空の文字列にすることができます。|
+|_本文パラメーター_|
+|Comment|string|含めるコメントです。 空の文字列にすることができます。|
 
 [!code-REST-i[mail_api_send_reply_all_by_id](./_data/mail_api_send_reply_all_by_id.json)]
 
@@ -1929,7 +1929,7 @@ POST https://outlook.office.com/api/v1.0/me/messages/{message_id}/replyall
 <a name="CreateReplyDraft"> </a>
 ###下書きの返信メッセージを作成する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
@@ -1945,17 +1945,17 @@ __**Minimum required scope**: 次のいずれか:__
 POST https://outlook.office.com/api/beta/me/messages/{message_id}/createreply
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|返信するメッセージの ID です。|
-|_Body parameters_|
+|_本文パラメーター_|
 |Comment|string|含めるコメントです。空の文字列にすることができます。|
 |Message|[Message](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource)|返信メッセージで更新する書き込み可能なプロパティです。 |
 
 **注意**
 
-- コメントまたはMessage`Message` パラメーターの **Body** プロパティを指定できます。両方を指定すると、「HTTP 400 要求が正しくありません」というエラーが返されます。 コメントまたはMessage パラメーターの Body プロパティを指定できます。両方を指定すると、「HTTP 400 要求が正しくありません」というエラーが返されます。
+- コメントまたは `Message` パラメーターの **Body** プロパティを指定できます。 両方を指定すると、「HTTP 400 要求が正しくありません」というエラーが返されます。
 - **ReplyTo** が元のメッセージに指定されている場合、インターネット メッセージ形式 ([RFC 2822](http://www.rfc-editor.org/info/rfc2822)) ごとに、**From** の受信者ではなく、**ReplyTo** の受信者に返信する必要があります。 
 
 
@@ -2070,20 +2070,20 @@ Status code: 201
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-1 回の **CreateReply 呼び出しで返信メッセージの下書きを作成し、コメントを追加します。次に、**メッセージのプロパティ**を更新し、下書きを送信**します。 You can then [update](#UpdateMessages) [message properties](..\api\complex-types-for-mail-contacts-calendar.md#MessageProperties) and [send](#SendDraftMessages) the draft.
+1 回の **CreateReply** 呼び出しで返信メッセージの下書きを作成し、コメントを追加します。 次に、[メッセージのプロパティ](..\api\complex-types-for-mail-contacts-calendar.md#MessageProperties)を[更新](#UpdateMessages)し、下書きを[送信](#SendDraftMessages)します。
 
 ```no-highlight
 POST https://outlook.office.com/api/v2.0/me/messages/{message_id}/createreply
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|返信するメッセージの ID です。|
-|_Body parameters_|
-|Comment|string|含めるコメントです。空の文字列にすることができます。 含めるコメントです。空の文字列にすることができます。|
+|_本文パラメーター_|
+|Comment|string|含めるコメントです。 空の文字列にすることができます。|
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/beta/me/messages/AAMkADA1MTAAAAqldOAAA=/createreply
@@ -2095,7 +2095,7 @@ Content-Type: application/json
 
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -2162,20 +2162,20 @@ Status code: 201
 
 [!INCLUDE [BEGIN Outlook v1 section](../includes/controls/outlookrestapiv1section.xml)]
 
-1 回の **CreateReply 呼び出しで返信メッセージの下書きを作成し、コメントを追加します。次に、**メッセージのプロパティ**を更新し、下書きを送信**します。 You can then [update](#UpdateMessages) [message properties](..\api\complex-types-for-mail-contacts-calendar.md#MessageProperties) and [send](#SendDraftMessages) the draft.
+1 回の **CreateReply** 呼び出しで返信メッセージの下書きを作成し、コメントを追加します。 次に、[メッセージのプロパティ](..\api\complex-types-for-mail-contacts-calendar.md#MessageProperties)を[更新](#UpdateMessages)し、下書きを[送信](#SendDraftMessages)します。
 
 ```no-highlight
 POST https://outlook.office.com/api/v1.0/me/messages/{message_id}/createreply
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|返信するメッセージの ID です。|
-|_Body parameters_|
-|Comment|string|含めるコメントです。空の文字列にすることができます。 含めるコメントです。空の文字列にすることができます。|
+|_本文パラメーター_|
+|Comment|string|含めるコメントです。 空の文字列にすることができます。|
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/beta/me/messages/AAMkADA1MTAAAAqldOAAA=/createreply
@@ -2187,7 +2187,7 @@ Content-Type: application/json
 
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -2259,7 +2259,7 @@ Status code: 201
 <a name="CreateReplyAllDraft"> </a>
 ###下書きの全員に返信メッセージを作成する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
@@ -2275,21 +2275,21 @@ __**Minimum required scope**: 次のいずれか:__
 POST https://outlook.office.com/api/beta/me/messages/{message_id}/createreplyall
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|全員に返信するメッセージの ID です。|
-|_Body parameters_|
+|_本文パラメーター_|
 |Comment|string|含めるコメントです。空の文字列にすることができます。|
 |Message|[Message](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource)|全員に返信メッセージで更新する書き込み可能なプロパティです。 |
 
 **注意**
 
-- コメントまたはMessage`Message` パラメーターの **Body** プロパティを指定できます。両方を指定すると、「HTTP 400 要求が正しくありません」というエラーが返されます。 コメントまたはMessage パラメーターの Body プロパティを指定できます。両方を指定すると、「HTTP 400 要求が正しくありません」というエラーが返されます。
-- **ReplyTo** が元のメッセージに指定されている場合、インターネット メッセージ形式 ([RFC 2822](http://www.rfc-editor.org/info/rfc2822)) ごとに、**From** と**ToRecipients** プロパティの受信者ではなく、**ReplyTo** と**ToRecipients** プロパティの受信者に返信する必要があります。 
+- コメントまたは `Message` パラメーターの **Body** プロパティを指定できます。 両方を指定すると、「HTTP 400 要求が正しくありません」というエラーが返されます。
+- **ReplyTo** が元のメッセージに指定されている場合、インターネット メッセージ形式 ([RFC 2822](http://www.rfc-editor.org/info/rfc2822)) ごとに、**From** と**ToRecipients** プロパティの受信者ではなく、**ReplyTo** と **ToRecipients** プロパティの受信者に返信する必要があります。 
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 次の例では、1 回の **CreateReplyAll** 呼び出しで全員に返信する下書きを作成し、添付ファイルをコメントに追加します。
 
@@ -2311,7 +2311,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -2392,21 +2392,21 @@ Status code: 201
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-1 回の **CreateReplyAll 呼び出しで全員に返信メッセージの下書きを作成し、コメントを追加します。次に、**メッセージのプロパティ**を更新し、下書きを送信**します。 You can then [update](#UpdateMessages) [message properties](..\api\complex-types-for-mail-contacts-calendar.md#MessageProperties) and [send](#SendDraftMessages) the draft.
+1 回の **CreateReplyAll** 呼び出しで全員に返信メッセージの下書きを作成し、コメントを追加します。 次に、[メッセージのプロパティ](..\api\complex-types-for-mail-contacts-calendar.md#MessageProperties)を[更新](#UpdateMessages)し、下書きを[送信](#SendDraftMessages)します。
 
 ```no-highlight
 POST https://outlook.office.com/api/v2.0/me/messages/{message_id}/createreplyall
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|全員に返信するメッセージの ID です。|
-|_Body parameters_|
-|Comment|string|含めるコメントです。空の文字列にすることができます。 含めるコメントです。空の文字列にすることができます。|
+|_本文パラメーター_|
+|Comment|string|含めるコメントです。 空の文字列にすることができます。|
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/v2.0/me/messages/AAMkAGE0Mz8DmAAA=/createreplyall
@@ -2417,7 +2417,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -2490,14 +2490,14 @@ Status code: 201
 POST https://outlook.office.com/api/v1.0/me/messages/{message_id}/createreplyall
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|全員に返信するメッセージの ID です。|
-|_Body parameters_|
-|Comment|string|含めるコメントです。空の文字列にすることができます。 含めるコメントです。空の文字列にすることができます。|
+|_本文パラメーター_|
+|Comment|string|含めるコメントです。 空の文字列にすることができます。|
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/v2.0/me/messages/AAMkAGE0Mz8DmAAA=/createreplyall
@@ -2508,7 +2508,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -2608,7 +2608,7 @@ await outlookClient.Me.Messages[messageId].ReplyAllAsync("Count me in.");
 <a name="CreateDraftReplyClient"> </a>
 ###下書きの返信または全員に返信メッセージを作成する (クライアント)
 
-下書きの返信または全員に返信メッセージを作成するには、**CreateReplyAsync** または **CreateReplyAllAsync を呼び出します。その後、下書きを更新**して送信できます。 下書きの転送メッセージを作成するには、CreateForwardAsync を呼び出します。その後、[下書きを更新](#UpdateMessagesClient)して[送信](#SendDraftClient)できます。
+下書きの返信または全員に返信メッセージを作成するには、**CreateReplyAsync** または **CreateReplyAllAsync** を呼び出します。 その後、[下書きを更新](#UpdateMessagesClient)して[送信](#SendDraftClient)できます。
 
 
 **注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
@@ -2648,7 +2648,7 @@ string replyAllMessageId = replyAllDraft.Id;
 <a name="ForwardMessages"> </a>
 ##新規または下書きメッセージを転送する
 
-**Note** The behavior of the operations in this section vary by version. このセクションの操作の動作は、バージョンによって異なります。ページの右上隅のバージョンを選択して詳細を確認します。
+**注** このセクションの操作の動作は、バージョンによって異なります。 ページの右上隅のバージョンを選択して詳細を確認します。
  
 <!-- ==================================== Start beta content ==================================================== -->
 
@@ -2684,14 +2684,14 @@ string replyAllMessageId = replyAllDraft.Id;
 
 
 
-REST API:メッセージを直接転送する (REST)  転送メッセージを作成する (REST)
+REST API:[メッセージを直接転送する (REST)](#ForwardDirectly) | [転送メッセージを作成する (REST)](#CreateForwardDraft)
 
-クライアント ライブラリ:メッセージを直接転送する (クライアント)  下書きの転送メッセージを作成する (クライアント)
+クライアント ライブラリ:[メッセージを直接転送する (クライアント)](#ForwardDirectlyClient) | [下書きの転送メッセージを作成する (クライアント)](#CreateDraftForwardClient)
 
 <a name="ForwardDirectly"></a>
 ###メッセージを直接転送する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.send_
 - _wl.imap_
 
@@ -2708,22 +2708,22 @@ __**Minimum required scope**: 次のいずれか:__
 POST https://outlook.office.com/api/beta/me/messages/{message_id}/forward
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|転送するメッセージの ID です。|
-|_Body parameters_|
+|_本文パラメーター_|
 |Comment|string|含めるコメントです。空の文字列にすることができます。|
 |ToRecipients|Collection([Recipient](..\api\complex-types-for-mail-contacts-calendar.md#ComplexTypes))|受信者の一覧です。|
 |Message|[Message](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource)|返信メッセージで更新する書き込み可能なプロパティです。 |
 
 **注意**
 
-- コメントまたはMessage`Message` パラメーターの **Body** プロパティを指定できます。両方を指定すると、「HTTP 400 要求が正しくありません」というエラーが返されます。 コメントまたはMessage パラメーターの Body プロパティを指定できます。両方を指定すると、「HTTP 400 要求が正しくありません」というエラーが返されます。
-- ToRecipients`ToRecipients` パラメーター、または Message`Message` パラメーターの **ToRecipients** プロパティを指定する必要があります。両方を指定するか、どちらも指定しないと、「HTTP 400 要求が正しくありません」というエラーが返されます。 ToRecipients パラメーター、または Message パラメーターの ToRecipients プロパティを指定する必要があります。両方を指定するか、どちらも指定しないと、「HTTP 400 要求が正しくありません」というエラーが返されます。
+- コメントまたは `Message` パラメーターの **Body** プロパティを指定できます。 両方を指定すると、「HTTP 400 要求が正しくありません」というエラーが返されます。
+- `ToRecipients` パラメーター、または `Message` パラメーターの **ToRecipients** プロパティを指定する必要があります。 両方を指定するか、どちらも指定しないと、「HTTP 400 要求が正しくありません」というエラーが返されます。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 次の例では、**IsDeliveryReceiptRequested** プロパティを true に設定し、コメントを追加してメッセージを転送します。
 
@@ -2747,7 +2747,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 202
@@ -2764,7 +2764,7 @@ Status code: 202
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-**Forward** メソッドを使用してメッセージを転送し、オプションでコメントを指定します。その後、メッセージは [送信済みアイテム] フォルダーに保存されます。 メッセージは直ちに送信され、コピーは [送信済みアイテム] フォルダーに保存されます。
+**Forward** メソッドを使用してメッセージを転送し、オプションでコメントを指定します。 その後、メッセージは [送信済みアイテム] フォルダーに保存されます。
 
 または、メッセージを転送するために[更新可能なプロパティ](..\api\complex-types-for-mail-contacts-calendar.md#MessageProperties)を変更する必要がある場合、最初に[下書きの転送メッセージを作成](#CreateForwardDraft)し、メッセージのプロパティを[更新](#UpdateMessages)してから、返信を[送信](#SendDraftMessages)します。
 
@@ -2773,18 +2773,18 @@ Status code: 202
 POST https://outlook.office.com/api/v2.0/me/messages/{message_id}/forward
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|転送するメッセージの ID です。|
-|_Body parameters_|
+|_本文パラメーター_|
 |Comment|string|含めるコメントです。空の文字列にすることができます。|
 |ToRecipients|Collection([Recipient](..\api\complex-types-for-mail-contacts-calendar.md#ComplexTypes))|受信者の一覧です。|
 
 要求本文に **Comment** と **ToRecipients** パラメーターを指定します。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/v2.0/me/messages/AAMkAGE0Mz8DmAAA=/forward
@@ -2807,7 +2807,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 202
@@ -2825,7 +2825,7 @@ Status code: 202
 
 [!INCLUDE [BEGIN Outlook v1 section](../includes/controls/outlookrestapiv1section.xml)]
 
-**Forward** メソッドを使用してメッセージを転送し、オプションでコメントを指定します。その後、メッセージは [送信済みアイテム] フォルダーに保存されます。 メッセージは直ちに送信され、コピーは [送信済みアイテム] フォルダーに保存されます。
+**Forward** メソッドを使用してメッセージを転送し、オプションでコメントを指定します。 その後、メッセージは [送信済みアイテム] フォルダーに保存されます。
 
 または、メッセージを転送するために[更新可能なプロパティ](..\api\complex-types-for-mail-contacts-calendar.md#MessageProperties)を変更する必要がある場合、最初に[下書きの転送メッセージを作成](#CreateForwardDraft)し、メッセージのプロパティを[更新](#UpdateMessages)してから、返信を[送信](#SendDraftMessages)します。
 
@@ -2834,11 +2834,11 @@ Status code: 202
 POST https://outlook.office.com/api/v1.0/me/messages/{message_id}/forward
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|転送するメッセージの ID です。|
-|_Body parameters_|
+|_本文パラメーター_|
 |Comment|string|含めるコメントです。空の文字列にすることができます。|
 |ToRecipients|Collection([Recipient](..\api\complex-types-for-mail-contacts-calendar.md#ComplexTypes))|受信者の一覧です。|
 
@@ -2860,7 +2860,7 @@ POST https://outlook.office.com/api/v1.0/me/messages/{message_id}/forward
 <a name="CreateForwardDraft"> </a>
 ###下書きの転送メッセージを作成する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
@@ -2875,22 +2875,22 @@ __**Minimum required scope**: 次のいずれか:__
 POST https://outlook.office.com/api/v1.0/me/messages/{message_id}/createforward
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|転送するメッセージの ID です。|
-|_Body parameters_|
+|_本文パラメーター_|
 |Comment|string|含めるコメントです。空の文字列にすることができます。|
 |ToRecipients|Collection([Recipient](..\api\complex-types-for-mail-contacts-calendar.md#ComplexTypes))|受信者の一覧です。|
 |Message|[Message](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource)|返信メッセージで更新する書き込み可能なプロパティです。 |
 
 **注意**
 
-- コメントまたはMessage`Message` パラメーターの **Body** プロパティを指定できます。両方を指定すると、「HTTP 400 要求が正しくありません」というエラーが返されます。 コメントまたはMessage パラメーターの Body プロパティを指定できます。両方を指定すると、「HTTP 400 要求が正しくありません」というエラーが返されます。
-- ToRecipients`ToRecipients` パラメーター、または Message`Message` パラメーターの **ToRecipients** プロパティを指定する必要があります。両方を指定するか、どちらも指定しないと、「HTTP 400 要求が正しくありません」というエラーが返されます。 ToRecipients パラメーター、または Message パラメーターの ToRecipients プロパティを指定する必要があります。両方を指定するか、どちらも指定しないと、「HTTP 400 要求が正しくありません」というエラーが返されます。
+- コメントまたは `Message` パラメーターの **Body** プロパティを指定できます。 両方を指定すると、「HTTP 400 要求が正しくありません」というエラーが返されます。
+- `ToRecipients` パラメーター、または `Message` パラメーターの **ToRecipients** プロパティを指定する必要があります。 両方を指定するか、どちらも指定しないと、「HTTP 400 要求が正しくありません」というエラーが返されます。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/beta/me/messages/AAMkADA1MTAAAH5JaLAAA=/createforward
@@ -2912,7 +2912,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -2987,18 +2987,18 @@ Status code: 201
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-1 回の **CreateForward 呼び出しで下書きの転送メッセージを作成して、コメントまたは受信者を追加します。次に、**メッセージのプロパティ**を更新し、下書きを送信**します。 You can then [update](#UpdateMessages) [message properties](..\api\complex-types-for-mail-contacts-calendar.md#MessageProperties) and [send](#SendDraftMessages) the draft.
+1 回の **CreateForward** 呼び出しで下書きの転送メッセージを作成して、コメントまたは受信者を追加します。 次に、[メッセージのプロパティ](..\api\complex-types-for-mail-contacts-calendar.md#MessageProperties)を[更新](#UpdateMessages)し、下書きを[送信](#SendDraftMessages)します。
 
 
 ```no-highlight
 POST https://outlook.office.com/api/v2.0/me/messages/{message_id}/createforward
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|転送するメッセージの ID です。|
-|_Body parameters_|
+|_本文パラメーター_|
 |Comment|string|含めるコメントです。空の文字列にすることができます。|
 |ToRecipients|Collection([Recipient](..\api\complex-types-for-mail-contacts-calendar.md#ComplexTypes))|受信者の一覧です。|
 
@@ -3021,7 +3021,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -3084,17 +3084,17 @@ Status code: 201
 
 [!INCLUDE [BEGIN Outlook v1 section](../includes/controls/outlookrestapiv1section.xml)]
 
-1 回の **CreateForward 呼び出しで下書きの転送メッセージを作成して、コメントまたは受信者を追加します。次に、**メッセージのプロパティ**を更新し、下書きを送信**します。 You can then [update](#UpdateMessages) [message properties](..\api\complex-types-for-mail-contacts-calendar.md#MessageProperties) and [send](#SendDraftMessages) the draft.
+1 回の **CreateForward** 呼び出しで下書きの転送メッセージを作成して、コメントまたは受信者を追加します。 次に、[メッセージのプロパティ](..\api\complex-types-for-mail-contacts-calendar.md#MessageProperties)を[更新](#UpdateMessages)し、下書きを[送信](#SendDraftMessages)します。
 
 ```no-highlight
 POST https://outlook.office.com/api/v1.0/me/messages/{message_id}/createforward
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|転送するメッセージの ID です。|
-|_Body parameters_|
+|_本文パラメーター_|
 |Comment|string|含めるコメントです。空の文字列にすることができます。|
 |ToRecipients|Collection([Recipient](..\api\complex-types-for-mail-contacts-calendar.md#ComplexTypes))|受信者の一覧です。|
 
@@ -3118,7 +3118,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -3213,7 +3213,7 @@ await outlookClient.Me.Messages[messageId].ForwardAsync("Interested?", recipient
 <a name="CreateDraftForwardClient"> </a>
 ###下書きの転送メッセージを作成する (クライアント)
 
-下書きの転送メッセージを作成するには、**CreateForwardAsync を呼び出します。その後、下書きを更新して送信**できます。 下書きの転送メッセージを作成するには、CreateForwardAsync を呼び出します。その後、[下書きを更新](#UpdateMessagesClient)して[送信](#SendDraftClient)できます。
+下書きの転送メッセージを作成するには、**CreateForwardAsync** を呼び出します。 その後、[下書きを更新](#UpdateMessagesClient)して[送信](#SendDraftClient)できます。
 
 
 **注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
@@ -3249,12 +3249,12 @@ REST API:[メッセージを更新する (REST)](#UpdateAMessage)
 <a name="UpdateAMessage"></a>
 ###メッセージを更新する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
 
-下書きまたは既存の[メッセージ](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource)の書き込み可能なプロパティを変更します。指定したプロパティのみが変更されます。 下書きまたは既存のメッセージの書き込み可能なプロパティを変更します。指定したプロパティのみが変更されます。
+下書きまたは既存の[メッセージ](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource)の書き込み可能なプロパティを変更します。 指定したプロパティのみが変更されます。
 
 
 <!-- ==================================== Start beta content ==================================================== -->
@@ -3265,15 +3265,15 @@ __**Minimum required scope**: 次のいずれか:__
 PATCH https://outlook.office.com/api/beta/me/messages/{message_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|更新するメッセージの ID です。|
 
 要求本文に 1 つ以上の書き込み可能な[メッセージ](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource)のプロパティを指定します。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 PATCH https://outlook.office.com/api/beta/me/messages/AAMkAGE0Mz8S-AAA=
@@ -3288,7 +3288,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -3308,7 +3308,7 @@ Status code: 200
   "CreatedDateTime": "2014-10-17T17:12:15Z",
   "LastModifiedDateTime": "2014-10-19T03:24:35Z",
   "Subject": "Meeting notes from today",
-  "BodyPreview": "See attached",
+  "BodyPreview": "​See attached​",
   "Body": {
     "ContentType": "HTML",
     "Content": "<html>\r\n...</html>\r\n"
@@ -3365,14 +3365,14 @@ Status code: 200
 PATCH https://outlook.office.com/api/v2.0/me/messages/{message_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|更新するメッセージの ID です。|
 
 要求本文に 1 つ以上の書き込み可能な[メッセージ](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource)のプロパティを指定します。
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 PATCH https://outlook.office.com/api/v2.0/me/messages/AAMkAGE0Mz8S-AAA=
@@ -3387,7 +3387,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -3406,7 +3406,7 @@ Status code: 200
   "CreatedDateTime": "2014-10-17T17:12:15Z",
   "LastModifiedDateTime": "2014-10-19T03:24:35Z",
   "Subject": "Meeting notes from today",
-  "BodyPreview": "See attached",
+  "BodyPreview": "​See attached​",
   "Body": {
     "ContentType": "HTML",
     "Content": "<html>\r\n...</html>\r\n"
@@ -3463,9 +3463,9 @@ Status code: 200
 PATCH https://outlook.office.com/api/v1.0/me/messages/{message_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|更新するメッセージの ID です。|
 
 要求本文に 1 つ以上の書き込み可能な[メッセージ](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource)のプロパティを指定します。
@@ -3517,8 +3517,8 @@ await message.UpdateAsync();
 <!-- ENDSECTION -->
 
 次のパターンを使用して、クライアント側で複数の更新を定義し、要求をまとめて (バッチ処理で) 送信できます。
-1. Call `UpdateAsync(true)` for each entity you want to update. 更新するエンティティごとに UpdateAsync(true)`true` を呼び出します。true を指定すると、更新がクライアント上でローカルに登録されますが、サーバーには投稿されません。
-2. outlookClient.Context.SaveChangesAsync()`outlookClient.Context.SaveChangesAsync()` を呼び出して、ローカルに登録されているすべての更新を投稿します。
+1. 更新するエンティティごとに `UpdateAsync(true)` を呼び出します。 `true` を指定すると、更新がクライアント上でローカルに登録されますが、サーバーには投稿されません。
+2. `outlookClient.Context.SaveChangesAsync()` を呼び出して、ローカルに登録されているすべての更新を投稿します。
 
 
 
@@ -3530,8 +3530,8 @@ await message.UpdateAsync();
 
 メッセージを削除します。
 
-**注**: メッセージを削除するときには注意してください。削除した内容を回復できない可能性があります。 注 フォルダーを削除するときには注意してください。削除した内容を回復できない可能性があります。
-詳細については、「アイテムの削除」を参照してください。
+**注**: メッセージを削除するときには注意してください。 削除した内容を回復できない可能性があります。
+詳細については、「[アイテムの削除](http://msdn.microsoft.com/library/c81e3160-e12b-47e0-b3d6-4be28537f301%28Office.15%29.aspx)」を参照してください。
 
 REST API:[メッセージを削除する (REST)](#DeleteAMessage)
 
@@ -3540,7 +3540,7 @@ REST API:[メッセージを削除する (REST)](#DeleteAMessage)
 <a name="DeleteAMessage"></a>
 ###メッセージを削除する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
@@ -3555,9 +3555,9 @@ __**Minimum required scope**: 次のいずれか:__
 DELETE https://outlook.office.com/api/beta/me/messages/{message_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|削除するメッセージの ID です。|
 
 **要求のサンプル**
@@ -3566,7 +3566,7 @@ DELETE https://outlook.office.com/api/beta/me/messages/{message_id}
 DELETE https://outlook.office.com/api/beta/me/messages/AAMkAGE0Mz8TBAAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 204
@@ -3588,9 +3588,9 @@ Status code: 204
 DELETE https://outlook.office.com/api/v2.0/me/messages/{message_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|削除するメッセージの ID です。|
 
 **要求のサンプル**
@@ -3599,7 +3599,7 @@ DELETE https://outlook.office.com/api/v2.0/me/messages/{message_id}
 DELETE https://outlook.office.com/api/v2.0/me/messages/AAMkAGE0Mz8TBAAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 204
@@ -3622,9 +3622,9 @@ Status code: 204
 DELETE https://outlook.office.com/api/v1.0/me/messages/{message_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|削除するメッセージの ID です。|
 
 [!code-REST-i[mail_api_delete_message_by_id](./_data/mail_api_delete_message_by_id.json)]
@@ -3668,18 +3668,18 @@ await message.DeleteAsync();
 
 メッセージをフォルダーに移動またはコピーできます。
 
-REST API:メッセージを移動する (REST)  メッセージをコピーする (REST)
+REST API:[メッセージを移動する (REST)](#MoveMessage) | [メッセージをコピーする (REST)](#CopyMessage)
 
 クライアント ライブラリ:[メッセージを移動またはコピーする (クライアント)](#MoveMessagesClient)
 
 <a name="MoveMessage"> </a>
 ###メッセージを移動する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
-Move a message to a folder. メッセージをフォルダーに移動します。これにより、宛先フォルダーにメッセージの新しいコピーが作成されます。
+メッセージをフォルダーに移動します。 これにより、宛先フォルダーにメッセージの新しいコピーが作成されます。
 
 
 <!-- ==================================== Start beta content ==================================================== -->
@@ -3690,15 +3690,15 @@ Move a message to a folder. メッセージをフォルダーに移動します�
 POST https://outlook.office.com/api/beta/me/messages/{message_id}/move
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|移動するメッセージの ID です。|
-|_Body parameters_|
-|DestinationId|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
+|_本文パラメーター_|
+|DestinationId|string|宛先フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/beta/me/messages/AAMkAGI2TIy-AAA=/move
@@ -3709,7 +3709,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -3788,15 +3788,15 @@ Status code: 201
 POST https://outlook.office.com/api/v2.0/me/messages/{message_id}/move
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|移動するメッセージの ID です。|
-|_Body parameters_|
-|DestinationId|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
+|_本文パラメーター_|
+|DestinationId|string|宛先フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/v2.0/me/messages/AAMkAGI2TIy-AAA=/move
@@ -3807,7 +3807,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -3885,12 +3885,12 @@ Status code: 201
 POST https://outlook.office.com/api/v1.0/me/messages/{message_id}/move
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|移動するメッセージの ID です。|
-|_Body parameters_|
-|DestinationId|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
+|_本文パラメーター_|
+|DestinationId|string|宛先フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
 
 [!code-REST-i[mail_api_move_message_by_id](./_data/mail_api_move_message_by_id.json)]
 
@@ -3910,7 +3910,7 @@ POST https://outlook.office.com/api/v1.0/me/messages/{message_id}/move
 <a name="CopyMessage"> </a>
 ###メッセージをコピーする (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
@@ -3925,15 +3925,15 @@ __**Minimum required scope**: 次のいずれか:__
 POST https://outlook.office.com/api/beta/me/messages/{message_id}/copy
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|コピーするメッセージの ID です。|
-|_Body parameters_|
-|DestinationId|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
+|_本文パラメーター_|
+|DestinationId|string|宛先フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/beta/me/messages/AAMkAGI2TIy-AAA=/copy
@@ -3944,7 +3944,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -4023,15 +4023,15 @@ Status code: 201
 POST https://outlook.office.com/api/v2.0/me/messages/{message_id}/copy
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|コピーするメッセージの ID です。|
-|_Body parameters_|
-|DestinationId|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
+|_本文パラメーター_|
+|DestinationId|string|宛先フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/v2.0/me/messages/AAMkAGI2TIy-AAA=/copy
@@ -4042,7 +4042,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -4120,12 +4120,12 @@ Status code: 201
 POST https://outlook.office.com/api/v1.0/me/messages/{message_id}/copy
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|コピーするメッセージの ID です。|
-|_Body parameters_|
-|DestinationId|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
+|_本文パラメーター_|
+|DestinationId|string|宛先フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
 
 
 [!code-REST-i[mail_api_copy_message_by_id](./_data/mail_api_copy_message_by_id.json)]
@@ -4175,19 +4175,19 @@ await messageToCopy.CopyAsync("Inbox");
 ****
 
 <a name="ManageFocusedInbox"></a>
-##優先受信トレイを管理します。
+##優先受信トレイを管理する
 
 <!-- ==================================== Start beta content ==================================================== -->
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-Focused Inbox allows you to view important messages in the `Focused` tab of the Inbox, and the rest of the Inbox messages in the `Other` tab. The classification system initially organizes Inbox messages in a default way. You can correct and train the system over time through the user interface or programmatically. The more you use it, the better the system can infer which incoming message as important.
+優先受信トレイでは、受信トレイの `Focused` タブに重要メッセージを表示し、その他の受信トレイのメッセージを `Other` タブに表示します。 システム主体の分類方法によって、既定の方法で受信トレイのメッセージが整理されます。 ユーザー インターフェイスまたはプログラムを介して、時間の経過によってシステムを修正し、学習させることができます。 使用時間が増えるほど、システムは、受信したメッセージの重要性をより高い精度で予想するようになります。
 
-At the programmatic level, the Focused Inbox REST API works on the specified user's messages, and supports an **InferenceClassification** property for each message. The possible values are `Focused` and `Other`, which indicate whether the user considers that message as, respectively, more important and less important. To correct and train the message classification system, use the [PATCH operation on the **InferenceClassification** property](#UpdateMessageClassificationBeta) at the message level. 
+プログラム レベルでは、優先受信トレイ REST API は指定のユーザー メッセージで機能し、メッセージごとの **InferenceClassification** プロパティをサポートします。 考えられる値は `Focused` と `Other` であり、ユーザーがそれぞれのメッセージの重要性をどのように想定しているかを示すものです。 メッセージ分類システムを修正し学習させるには、メッセージ レベルで [**InferenceClassification** プロパティの PATCH 操作](#UpdateMessageClassificationBeta)を使用します。 
 
-The Focused Inbox REST API also lets you create overrides. Each override, represented by an [InferenceClassificationOverride](..\api\complex-types-for-mail-contacts-calendar.md#InferenceClassificationOverrideResource) instance, is an instruction for the classification system to always designate messages from a specific sender in a consistent way (i.e., always as "Focused" or always as "Other"), regardless of any previously learned approach. You can [create](#CreateOverrideBeta), [get](#GetAllSenderOverridesBeta), [update](#UpdateOverrideBeta) and [delete](#DeleteOverrideBeta) overrides for the specified user. That user's overrides, if any, are accessible in an **InferenceClassification** navigation property, which is a collection of **InferenceClassificationOverride** instances. 更新、および 削除することができます。ユーザーのオーバーライド (ある場合) とは、InferenceClassificationOverride インスタンスのコレクションであり、InferenceClassification ナビゲーション プロパティでアクセスできます。オーバーライドでは、ユーザーは受信メッセージの分類をさらに細かく制御でき、分類システムの信頼性を高めることができます。
+優先受信トレイ REST API では、オーバーライドの作成も可能です。 それぞれのオーバーライドは [InferenceClassificationOverride](..\api\complex-types-for-mail-contacts-calendar.md#InferenceClassificationOverrideResource) インスタンスで表され、分類システムが常に一貫した方法 (常に "優先" または "その他") で、それまでに学習した方法に関係なく、特定の送信者からのメッセージを指定するように指示するものです。 指定したユーザーのオーバーライドを[作成](#CreateOverrideBeta)、[取得](#GetAllSenderOverridesBeta)、[更新](#UpdateOverrideBeta)、[削除](#DeleteOverrideBeta)することができます。 ユーザーのオーバーライド (ある場合) とは、**InferenceClassificationOverride** インスタンスのコレクションであり、**InferenceClassification** ナビゲーション プロパティでアクセスできます。 オーバーライドでは、ユーザーは受信メッセージの分類をさらに細かく制御でき、分類システムの信頼性を高めることができます。
 
-Note that the classification system learns and applies classification only on incoming messages in the Inbox. Messages in other folders are by default "Focused". 分類システムでは受信トレイの受信メッセージについてのみ分類を学習し、適用することに注意してください。その他のフォルダーにあるメッセージは、既定で「優先」になっています。オーバーライドの設定は、今後、受信トレイに入ってくるメッセージに反映され、オーバーライドでは、受信トレイを含むフォルダーにある既存のメッセージの **InferenceClassification** プロパティは変更されません。
+分類システムでは受信トレイの受信メッセージについてのみ分類を学習し、適用することに注意してください。 その他のフォルダーにあるメッセージは、既定で "優先" になっています。 オーバーライドの設定は、今後、受信トレイに入ってくるメッセージに反映され、オーバーライドでは、受信トレイを含むフォルダーにある既存のメッセージの **InferenceClassification** プロパティは変更されません。
 
 
 **メッセージ分類システムの記憶**
@@ -4197,17 +4197,17 @@ Note that the classification system learns and applies classification only on in
 
 **オーバーライドを使用した、送信者ごとに一貫した分類**
 
-送信者に対するオーバーライドを作成する  すべてのユーザーのオーバーライドを取得する  送信者に対するオーバーライドを更新する  送信者のオーバーライドを削除する 
+[送信者に対するオーバーライドを作成する](#CreateOverrideBeta) | [すべてのユーザーのオーバーライドを取得する](#GetAllSenderOverridesBeta) | [送信者に対するオーバーライドを更新する](#UpdateOverrideBeta) | [送信者のオーバーライドを削除する](#DeleteOverrideBeta) 
 
 
 <a name="UpdateMessageClassificationBeta"></a>
 ###メッセージ分類を更新する
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
-Change the **InferenceClassification** property of the specified message. If the message is in the Inbox, the user will see that message under the corresponding `Focused` or `Other` tab. This kind of correction also trains the message classification system to customize future classification for the specified user. 
+指定したメッセージの **InferenceClassification** プロパティを変更します。 メッセージが受信トレイにある場合は、該当する `Focused` または `Other` タブでユーザーにメッセージが表示されます。 この種の訂正によって、メッセージ分類システムは、指定したユーザーに関する将来の分類をカスタマイズする方法を学習します。 
 
 ```no-highlight
 PATCH https://outlook.office.com/api/beta/me/messages('{message_id}')
@@ -4217,7 +4217,7 @@ PATCH https://outlook.office.com/api/beta/Users('{user_id}')/messages('{message_
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|送信する下書きメッセージの ID です。|
 |user_id|string|ユーザーの電子メール アドレスです。 |
 
@@ -4226,9 +4226,9 @@ PATCH https://outlook.office.com/api/beta/Users('{user_id}')/messages('{message_
 
 更新された[メッセージ](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource)です。
 
-**要求のサンプル:**
+**要求のサンプル**
 
-この例では、サインイン ユーザーの指定したメッセージについて **InferenceClassification** プロパティを Other`Other` に変更します。
+この例では、サインイン ユーザーの指定したメッセージについて **InferenceClassification** プロパティを `Other` に変更します。
 ```
 PATCH https://outlook.office.com/api/beta/me/messages('AAMkADA1MTQBAAA=')
 
@@ -4237,7 +4237,7 @@ PATCH https://outlook.office.com/api/beta/me/messages('AAMkADA1MTQBAAA=')
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 個々に示す応答オブジェクトは、更新された **InferenceClassification** プロパティを示しており、切り詰めて簡略化されています。実際の PATCH 要求では、メッセージのすべてのプロパティが返されます。
 ```
@@ -4277,7 +4277,7 @@ Status code: 200 OK
 <a name="CreateOverrideBeta"></a>
 ###送信者のオーバーライドを作成する
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
@@ -4300,7 +4300,7 @@ POST https://outlook.office.com/api/beta/Users('{user_id}')/InferenceClassificat
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |user_id|string|ユーザーの電子メール アドレスです。 |
 
 **応答の種類**
@@ -4308,7 +4308,7 @@ POST https://outlook.office.com/api/beta/Users('{user_id}')/InferenceClassificat
 新しく作成された [InferenceClassicationOverride](..\api\complex-types-for-mail-contacts-calendar.md#InferenceClassicationOverrideResource)、または同じ SMTP アドレスがすでにある場合は更新された **InferenceClassicationOverride** インスタンス。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/beta/me/InferenceClassification/Overrides
@@ -4322,7 +4322,7 @@ POST https://outlook.office.com/api/beta/me/InferenceClassification/Overrides
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201 Created
@@ -4343,13 +4343,13 @@ Status code: 201 Created
 <a name="GetAllSenderOverridesBeta"></a>
 ###すべてのユーザーのオーバーライドを取得する
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.read_
 - _wl.imap_
 
 ユーザーが設定したオーバーライドを取得して、特定の送信者からのメッセージを常に一定の方法で分類します。
 
-それぞれのオーバーライドは、送信者の SMTP アドレスに対応します。最初は、ユーザーにはオーバーライドはありません。 それぞれのオーバーライドは、送信者の SMTP アドレスに対応します。最初は、ユーザーにはオーバーライドはありません。
+それぞれのオーバーライドは、送信者の SMTP アドレスに対応します。 最初は、ユーザーにはオーバーライドはありません。
 
 ```no-highlight
 GET https://outlook.office.com/api/beta/me/InferenceClassification/Overrides
@@ -4359,23 +4359,23 @@ GET https://outlook.office.com/api/beta/Users('{user_id}')/InferenceClassificati
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |user_id|string|ユーザーの電子メール アドレスです。 |
 
 
 **応答の種類**
 
-A collection of [InferenceClassicationOverride](..\api\complex-types-for-mail-contacts-calendar.md#InferenceClassicationOverrideResource) instances.
-InferenceClassicationOverride インスタンスのコレクション。ユーザーがオーバーライドを設定していない場合は、空のコレクションが返されます。
+[InferenceClassicationOverride](..\api\complex-types-for-mail-contacts-calendar.md#InferenceClassicationOverrideResource) インスタンスのコレクション。
+ユーザーがオーバーライドを設定していない場合は、空のコレクションが返されます。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/beta/me/InferenceClassification/Overrides
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200 OK
@@ -4409,7 +4409,7 @@ Status code: 200 OK
 <a name="UpdateOverrideBeta"></a>
 ###送信者のオーバーライドを更新する
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
@@ -4430,7 +4430,7 @@ PATCH https://outlook.office.com/api/beta/Users('{user_id}')/InferenceClassifica
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |override_id|string|更新するオーバーライドの ID です。|
 |user_id|string|ユーザーの電子メール アドレスです。 |
 
@@ -4440,9 +4440,9 @@ PATCH https://outlook.office.com/api/beta/Users('{user_id}')/InferenceClassifica
 更新された [InferenceClassicationOverride](..\api\complex-types-for-mail-contacts-calendar.md#InferenceClassicationOverrideResource) インスタンス。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
-The following example changes an override for the signed-in user. 次の例では、サインイン ユーザーのオーバーライドを変更します。オーバーライドは SMTP アドレス randiw@adatum.onmicrosoft.com の送信者のものであり、Other`Other` から Focused`Focused` に変更されます。
+次の例では、サインイン ユーザーのオーバーライドを変更します。 オーバーライドは SMTP アドレス randiw@adatum.onmicrosoft.com の送信者のものであり、`Other` から `Focused` に変更されます。
 ```
 PATCH https://outlook.office.com/api/beta/me/InferenceClassification/Overrides('98f5bdef-576a-404d-a2ea-07a3cf34af4r')
 
@@ -4452,7 +4452,7 @@ PATCH https://outlook.office.com/api/beta/me/InferenceClassification/Overrides('
 
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200 OK
@@ -4473,7 +4473,7 @@ Status code: 200 OK
 <a name="DeleteOverrideBeta"></a>
 ###送信者のオーバーライドを削除する
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
@@ -4488,7 +4488,7 @@ DELETE https://outlook.office.com/api/beta/Users('{user_id}')/InferenceClassific
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |override_id|string|送信する下書きメッセージの ID です。|
 |user_id|string|ユーザーの電子メール アドレスです。 |
 
@@ -4499,7 +4499,7 @@ DELETE https://outlook.office.com/api/beta/Users('{user_id}')/InferenceClassific
 DELETE https://outlook.office.com/api/beta/me/InferenceClassification/Overrides('98f5bdef-576a-404d-a2ea-07a3cf34af4r')
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 204 No Content
@@ -4515,13 +4515,13 @@ Status code: 204 No Content
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-Focused Inbox allows you to view important messages in the `Focused` tab of the Inbox, and the rest of the Inbox messages in the `Other` tab. The classification system initially organizes Inbox messages in a default way. You can correct and train the system over time through the user interface or programmatically. The more you use it, the better the system can infer which incoming message as important.
+優先受信トレイでは、受信トレイの `Focused` タブに重要メッセージを表示し、その他の受信トレイのメッセージを `Other` タブに表示します。 システム主体の分類方法によって、既定の方法で受信トレイのメッセージが整理されます。 ユーザー インターフェイスまたはプログラムを介して、時間の経過によってシステムを修正し、学習させることができます。 使用時間が増えるほど、システムは、受信したメッセージの重要性をより高い精度で予想するようになります。
 
-At the programmatic level, the Focused Inbox REST API works on the specified user's messages, and supports an **InferenceClassification** property for each message. The possible values are `Focused` and `Other`, which indicate whether the user considers that message as, respectively, more important and less important. To correct and train the message classification system, use the [PATCH operation on the **InferenceClassification** property](#UpdateMessageClassificationV2) at the message level. 
+プログラム レベルでは、優先受信トレイ REST API は指定のユーザー メッセージで機能し、メッセージごとの **InferenceClassification** プロパティをサポートします。 考えられる値は `Focused` と `Other` であり、ユーザーがそれぞれのメッセージの重要性をどのように想定しているかを示すものです。 メッセージ分類システムを修正し学習させるには、メッセージ レベルで [**InferenceClassification** プロパティの PATCH 操作](#UpdateMessageClassificationV2)を使用します。 
 
-The Focused Inbox REST API also lets you create overrides. Each override, represented by an [InferenceClassificationOverride](..\api\complex-types-for-mail-contacts-calendar.md#InferenceClassificationOverrideResource) instance, is an instruction for the classification system to always designate messages from a specific sender in a consistent way (i.e., always as "Focused" or always as "Other"), regardless of any previously learned approach. You can [create](#CreateOverrideV2), [get](#GetAllSenderOverridesV2), [update](#UpdateOverrideV2) and [delete](#DeleteOverrideV2) overrides for the specified user. That user's overrides, if any, are accessible in an **InferenceClassification** navigation property, which is a collection of **InferenceClassificationOverride** instances. 更新、および 削除することができます。ユーザーのオーバーライド (ある場合) とは、InferenceClassificationOverride インスタンスのコレクションであり、InferenceClassification ナビゲーション プロパティでアクセスできます。オーバーライドでは、ユーザーは受信メッセージの分類をさらに細かく制御でき、分類システムの信頼性を高めることができます。
+優先受信トレイ REST API では、オーバーライドの作成も可能です。 それぞれのオーバーライドは [InferenceClassificationOverride](..\api\complex-types-for-mail-contacts-calendar.md#InferenceClassificationOverrideResource) インスタンスで表され、分類システムが常に一貫した方法 (常に "優先" または "その他") で、それまでに学習した方法に関係なく、特定の送信者からのメッセージを指定するように指示するものです。 指定したユーザーのオーバーライドを[作成](#CreateOverrideV2)、[取得](#GetAllSenderOverridesV2)、[更新](#UpdateOverrideV2)、[削除](#DeleteOverrideV2)することができます。 ユーザーのオーバーライド (ある場合) とは、**InferenceClassificationOverride** インスタンスのコレクションであり、**InferenceClassification** ナビゲーション プロパティでアクセスできます。 オーバーライドでは、ユーザーは受信メッセージの分類をさらに細かく制御でき、分類システムの信頼性を高めることができます。
 
-Note that the classification system learns and applies classification only on incoming messages in the Inbox. Messages in other folders are by default "Focused". 分類システムでは受信トレイの受信メッセージについてのみ分類を学習し、適用することに注意してください。その他のフォルダーにあるメッセージは、既定で「優先」になっています。オーバーライドの設定は、今後、受信トレイに入ってくるメッセージに反映され、オーバーライドでは、受信トレイを含むフォルダーにある既存のメッセージの **InferenceClassification** プロパティは変更されません。
+分類システムでは受信トレイの受信メッセージについてのみ分類を学習し、適用することに注意してください。 その他のフォルダーにあるメッセージは、既定で "優先" になっています。 オーバーライドの設定は、今後、受信トレイに入ってくるメッセージに反映され、オーバーライドでは、受信トレイを含むフォルダーにある既存のメッセージの **InferenceClassification** プロパティは変更されません。
 
 
 **メッセージ分類システムの記憶**
@@ -4531,17 +4531,17 @@ Note that the classification system learns and applies classification only on in
 
 **オーバーライドを使用した、送信者ごとに一貫した分類**
 
-送信者に対するオーバーライドを作成する  すべてのユーザーのオーバーライドを取得する  送信者に対するオーバーライドを更新する  送信者のオーバーライドを削除する 
+[送信者に対するオーバーライドを作成する](#CreateOverrideV2) | [すべてのユーザーのオーバーライドを取得する](#GetAllSenderOverridesV2) | [送信者に対するオーバーライドを更新する](#UpdateOverrideV2) | [送信者のオーバーライドを削除する](#DeleteOverrideV2) 
 
 
 <a name="UpdateMessageClassificationV2"></a>
 ###メッセージ分類を更新する
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
-Change the **InferenceClassification** property of the specified message. If the message is in the Inbox, the user will see that message under the corresponding `Focused` or `Other` tab. This kind of correction also trains the message classification system to customize future classification for the specified user. 
+指定したメッセージの **InferenceClassification** プロパティを変更します。 メッセージが受信トレイにある場合は、該当する `Focused` または `Other` タブでユーザーにメッセージが表示されます。 この種の訂正によって、メッセージ分類システムは、指定したユーザーに関する将来の分類をカスタマイズする方法を学習します。 
 
 ```no-highlight
 PATCH https://outlook.office.com/api/v2.0/me/messages('{message_id}')
@@ -4551,7 +4551,7 @@ PATCH https://outlook.office.com/api/v2.0/Users('{user_id}')/messages('{message_
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|送信する下書きメッセージの ID です。|
 |user_id|string|ユーザーの電子メール アドレスです。 |
 
@@ -4560,9 +4560,9 @@ PATCH https://outlook.office.com/api/v2.0/Users('{user_id}')/messages('{message_
 
 更新された[メッセージ](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource)です。
 
-**要求のサンプル:**
+**要求のサンプル**
 
-この例では、サインイン ユーザーの指定したメッセージについて **InferenceClassification** プロパティを Other`Other` に変更します。
+この例では、サインイン ユーザーの指定したメッセージについて **InferenceClassification** プロパティを `Other` に変更します。
 ```
 PATCH https://outlook.office.com/api/v2.0/me/messages('AAMkADA1MTQBAAA=')
 
@@ -4571,7 +4571,7 @@ PATCH https://outlook.office.com/api/v2.0/me/messages('AAMkADA1MTQBAAA=')
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 個々に示す応答オブジェクトは、更新された **InferenceClassification** プロパティを示しており、切り詰めて簡略化されています。実際の PATCH 要求では、メッセージのすべてのプロパティが返されます。
 ```
@@ -4611,7 +4611,7 @@ Status code: 200 OK
 <a name="CreateOverrideV2"></a>
 ###送信者のオーバーライドを作成する
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
@@ -4634,7 +4634,7 @@ POST https://outlook.office.com/api/v2.0/Users('{user_id}')/InferenceClassificat
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |user_id|string|ユーザーの電子メール アドレスです。 |
 
 
@@ -4643,7 +4643,7 @@ POST https://outlook.office.com/api/v2.0/Users('{user_id}')/InferenceClassificat
 新しく作成された [InferenceClassicationOverride](..\api\complex-types-for-mail-contacts-calendar.md#InferenceClassicationOverrideResource)、または同じ SMTP アドレスがすでにある場合は更新された **InferenceClassicationOverride** インスタンス。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/v2.0/me/InferenceClassification/Overrides
@@ -4657,7 +4657,7 @@ POST https://outlook.office.com/api/v2.0/me/InferenceClassification/Overrides
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201 Created
@@ -4678,13 +4678,13 @@ Status code: 201 Created
 <a name="GetAllSenderOverridesV2"></a>
 ###すべてのユーザーのオーバーライドを取得する
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.read_
 - _wl.imap_
 
 ユーザーが設定したオーバーライドを取得して、特定の送信者からのメッセージを常に一定の方法で分類します。
 
-それぞれのオーバーライドは、送信者の SMTP アドレスに対応します。最初は、ユーザーにはオーバーライドはありません。 それぞれのオーバーライドは、送信者の SMTP アドレスに対応します。最初は、ユーザーにはオーバーライドはありません。
+それぞれのオーバーライドは、送信者の SMTP アドレスに対応します。 最初は、ユーザーにはオーバーライドはありません。
 
 ```no-highlight
 GET https://outlook.office.com/api/v2.0/me/InferenceClassification/Overrides
@@ -4694,23 +4694,23 @@ GET https://outlook.office.com/api/v2.0/Users('{user_id}')/InferenceClassificati
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |user_id|string|ユーザーの電子メール アドレスです。 |
 
 
 **応答の種類**
 
-A collection of [InferenceClassicationOverride](..\api\complex-types-for-mail-contacts-calendar.md#InferenceClassicationOverrideResource) instances.
-InferenceClassicationOverride インスタンスのコレクション。ユーザーがオーバーライドを設定していない場合は、空のコレクションが返されます。
+[InferenceClassicationOverride](..\api\complex-types-for-mail-contacts-calendar.md#InferenceClassicationOverrideResource) インスタンスのコレクション。
+ユーザーがオーバーライドを設定していない場合は、空のコレクションが返されます。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/v2.0/me/InferenceClassification/Overrides
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200 OK
@@ -4744,7 +4744,7 @@ Status code: 200 OK
 <a name="UpdateOverrideV2"></a>
 ###送信者のオーバーライドを更新する
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
@@ -4765,7 +4765,7 @@ PATCH https://outlook.office.com/api/v2.0/Users('{user_id}')/InferenceClassifica
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |override_id|string|更新するオーバーライドの ID です。|
 |user_id|string|ユーザーの電子メール アドレスです。 |
 
@@ -4775,9 +4775,9 @@ PATCH https://outlook.office.com/api/v2.0/Users('{user_id}')/InferenceClassifica
 更新された [InferenceClassicationOverride](..\api\complex-types-for-mail-contacts-calendar.md#InferenceClassicationOverrideResource) インスタンス。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
-The following example changes an override for the signed-in user. 次の例では、サインイン ユーザーのオーバーライドを変更します。オーバーライドは SMTP アドレス randiw@adatum.onmicrosoft.com の送信者のものであり、Other`Other` から Focused`Focused` に変更されます。
+次の例では、サインイン ユーザーのオーバーライドを変更します。 オーバーライドは SMTP アドレス randiw@adatum.onmicrosoft.com の送信者のものであり、`Other` から `Focused` に変更されます。
 ```
 PATCH https://outlook.office.com/api/v2.0/me/InferenceClassification/Overrides('98f5bdef-576a-404d-a2ea-07a3cf34af4r')
 
@@ -4787,7 +4787,7 @@ PATCH https://outlook.office.com/api/v2.0/me/InferenceClassification/Overrides('
 
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200 OK
@@ -4808,7 +4808,7 @@ Status code: 200 OK
 <a name="DeleteOverrideV2"></a>
 ###送信者のオーバーライドを削除する
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
@@ -4823,7 +4823,7 @@ DELETE https://outlook.office.com/api/v2.0/Users('{user_id}')/InferenceClassific
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |override_id|string|送信する下書きメッセージの ID です。|
 |user_id|string|ユーザーの電子メール アドレスです。 |
 
@@ -4834,7 +4834,7 @@ DELETE https://outlook.office.com/api/v2.0/Users('{user_id}')/InferenceClassific
 DELETE https://outlook.office.com/api/v2.0/me/InferenceClassification/Overrides('98f5bdef-576a-404d-a2ea-07a3cf34af4r')
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 204 No Content
@@ -4867,41 +4867,41 @@ Status code: 204 No Content
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.send_
 - _wl.imap_
 
-サイン インユーザーに代わって電子メール要求を送信し、電子メール配布リストから登録を解除します。List-Unsubscribe ヘッダー内の情報を使用します。 Uses the information in the `List-Unsubscribe` header.
+サイン インユーザーに代わって電子メール要求を送信し、電子メール配布リストから登録を解除します。 `List-Unsubscribe` ヘッダー内の情報を使用します。
 
 ```no-highlight
 POST https://outlook.office.com/api/beta/me/messages('{message_id}')/unsubscribe
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|送信する下書きメッセージの ID です。|
 
 
-メッセージ送信者は、メーリング リストで受信者を除外するオプションを組み込む簡単な方法を使用できます。これは、それぞれのメッセージで RFC-2369 に続いて List-Unsubscribe ヘッダーを指定することで処理できます。 They can do so by specifying the `List-Unsubscribe` header in each message following [RFC-2369](http://www.faqs.org/rfcs/rfc2369.html).
+メッセージ送信者は、メーリング リストで受信者を除外するオプションを組み込む簡単な方法を使用できます。 これは、それぞれのメッセージで [RFC-2369](http://www.faqs.org/rfcs/rfc2369.html) に続いて `List-Unsubscribe` ヘッダーを指定することで処理できます。
 
-具体的には、**Unsubscribe** アクションを有効にするには、送信者が URL ベースの登録解除情報ではなく、mailto:`mailto:` を指定する必要があります。
+**注** 具体的には、**Unsubscribe** アクションを有効にするには、送信者が URL ベースの登録解除情報ではなく、`mailto:` を指定する必要があります。
 
-そのヘッダーを設定すると、[メッセージ](../api/complex-types-for-mail-contacts-calendar.md#MessageResource) インスタンスの **UnsubscribeEnabled** プロパティが true`true` に設定され、**UnsubscribeData** プロパティがヘッダー データに設定されます。
+そのヘッダーを設定すると、[メッセージ](../api/complex-types-for-mail-contacts-calendar.md#MessageResource) インスタンスの **UnsubscribeEnabled** プロパティが `true` に設定され、**UnsubscribeData** プロパティがヘッダー データに設定されます。
 
-メッセージの **UnsubscribeEnabled** プロパティが true`true` の場合、**Unsubscribe** アクションを使用して、メッセージ送信者が管理するとおり、同じような今後のメッセージについてユーザーを登録解除することができます。 
+メッセージの **UnsubscribeEnabled** プロパティが `true` の場合、**Unsubscribe** アクションを使用して、メッセージ送信者が管理するとおり、同じような今後のメッセージについてユーザーを登録解除することができます。 
 
 **Unsubscribe** アクションが完了すると、メッセージは削除済みアイテム フォルダーに移動します。将来のメール配布からのユーザーの実際の除外は、送信者によって管理されます。
 
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/beta/me/messages('AAMkADA1MTk1ZAAAKXBQCAAA=')/unsubscribe
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 202 Accepted
@@ -4950,15 +4950,15 @@ Status code: 202 Accepted
 
 自動応答はユーザーのメールボックス設定の一部 ([MailboxSettings](../api/complex-types-for-mail-contacts-calendar.md#MailboxSettings)) であるため、自動応答設定を含むすべてのメールボックス設定を取得、または自動応答設定だけを取得すると表示できます。
 
-Prefer: outlook.timezone`Prefer: outlook.timezone`HTTP ヘッダーを使用して優先するタイムゾーンに **ScheduledStartDateTime** と **ScheduledEndDateTime** の値が表示されるように指定します。
+`Prefer: outlook.timezone`HTTP ヘッダーを使用して優先するタイムゾーンに **ScheduledStartDateTime** と **ScheduledEndDateTime** の値が表示されるように指定します。
 
-REST API:すべてのメールボックス設定を取得する (プレビュー)  自動応答設定のみを取得する (プレビュー)
+REST API:[すべてのメールボックス設定を取得する](#GetAllMailboxSettings) (プレビュー) | [自動応答設定のみを取得する](#GetOnlyAutoReplySettings) (プレビュー)
 
 
 <a name="GetAllMailboxSettings"></a>
 ###すべてのメールボックスの設定を取得する (プレビュー)
 
-__**最小必須範囲**: https://outlook.office.com/mailboxsettings.readwrite__
+_**最小限必要なスコープ**: https://outlook.office.com/mailboxsettings.readwrite_
 
 サインイン ユーザーのプライマリ メールボックスの設定を取得します。
 
@@ -4969,16 +4969,16 @@ GET https://outlook.office.com/api/beta/me/MailboxSettings
 
  **応答の種類**
 
-[MailboxSettings](../api/complex-types-for-mail-contacts-calendar.md#MailboxSettings).
+[MailboxSettings](../api/complex-types-for-mail-contacts-calendar.md#MailboxSettings)。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/beta/me/MailboxSettings
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -5011,7 +5011,7 @@ Status code: 200
 <a name="GetOnlyAutoReplySettings"></a>
 ###自動応答の設定を取得する (プレビュー)
 
-__**最小必須範囲**: https://outlook.office.com/mailboxsettings.readwrite__
+_**最小限必要なスコープ**: https://outlook.office.com/mailboxsettings.readwrite_
 
 サインインしているユーザーのメールボックスの自動応答の設定を取得します。
 
@@ -5022,16 +5022,16 @@ GET https://outlook.office.com/api/beta/me/MailboxSettings/AutomaticRepliesSetti
 
  **応答の種類**
 
-[AutomaticRepliesSetting](#AutomaticRepliesSetting).
+[AutomaticRepliesSetting](#AutomaticRepliesSetting)。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/beta/me/MailboxSettings/AutomaticRepliesSetting
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -5093,7 +5093,7 @@ Status code: 200
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-__**最小必須範囲**: https://outlook.office.com/mailboxsettings.readwrite__
+_**最小限必要なスコープ**: https://outlook.office.com/mailboxsettings.readwrite_
 
 
 自動応答はユーザーの ([MailboxSettings](../api/complex-types-for-mail-contacts-calendar.md#MailboxSettings) で表される) メールボックス設定の一部です。該当するメールボックス設定を更新して、自動応答を有効化、構成、または無効化することができます。 
@@ -5106,12 +5106,12 @@ PATCH https://outlook.office.com/api/beta/me/MailboxSettings
 
 **応答の種類**
 
-[MailboxSettings](../api/complex-types-for-mail-contacts-calendar.md#MailboxSettings).
+[MailboxSettings](../api/complex-types-for-mail-contacts-calendar.md#MailboxSettings)。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
-自動応答設定の取得を示す[前の例](#GetOnlyAutoReplySettings)に続き、次の例では**ステータス**を AlwaysEnabled`AlwaysEnabled` から Scheduled`Scheduled` に変更し、開始日と終了日を異なる日付範囲に変更します。
+自動応答設定の取得を示す[前の例](#GetOnlyAutoReplySettings)に続き、次の例では**ステータス**を `AlwaysEnabled` から `Scheduled` に変更し、開始日と終了日を異なる日付範囲に変更します。
 
 
 
@@ -5137,7 +5137,7 @@ Content-Type: application/json
 
 
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -5200,11 +5200,11 @@ Status code: 200
 ****
 
 <a name="GetAttachments"> </a>
-##添付ファイルの取得
+##添付ファイルを取得する
 
-添付ファイルのコレクションまたは添付ファイルを取得できます。 Attachments can be files (for example, 
+添付ファイルのコレクションまたは添付ファイルを取得できます。 添付ファイルはファイルになります (例:  
 
-REST API:添付ファイルのコレクションを取得する (REST)  添付ファイルを取得する (REST)
+REST API:[添付ファイルのコレクションを取得する (REST)](#GetAttachmentCollection) | [添付ファイルを取得する (REST)](#GetAttachment)
 
 クライアント ライブラリ:[1 つ以上のメッセージの添付ファイルを取得する (クライアント)](#GetAttachmentsClient)
 
@@ -5212,7 +5212,7 @@ REST API:添付ファイルのコレクションを取得する (REST)  添付�
 <a name="GetAttachmentCollection"> </a>
 ###添付ファイルのコレクションを取得する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.read_
 - _wl.imap_
 
@@ -5229,12 +5229,12 @@ GET https://outlook.office.com/api/beta/me/messages/{message_id}/attachments
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|メッセージ ID。|
 
-**メモ**: 既定では、応答内の各添付ファイルに、その添付ファイルの種類に対応するすべてのプロパティが含まれます。最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、$select を 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** 既定では、応答内の各添付ファイルに、その添付ファイルの種類に対応するすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 **応答の種類**
 
@@ -5245,7 +5245,7 @@ GET https://outlook.office.com/api/beta/me/messages/{message_id}/attachments
 
 次の例は、**$select** を使用して、応答内の各添付ファイルの **Name** プロパティのみを返すように指定する方法を示しています。**$select** を使用しない場合の添付ファイルに返されるプロパティの完全な一覧に関しては、「[イベントを取得する (REST)](#GetAttachment)」の応答サンプルをご参照ください。
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/beta/me/messages/AAMkAGI2THVSAAA=/attachments?$select=Name
@@ -5312,12 +5312,12 @@ GET https://outlook.office.com/api/v2.0/me/messages/{message_id}/attachments
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|メッセージ ID。|
 
-**メモ**: 既定では、応答内の各添付ファイルに、その添付ファイルの種類に対応するすべてのプロパティが含まれます。最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、$select を 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** 既定では、応答内の各添付ファイルに、その添付ファイルの種類に対応するすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 
 **応答の種類**
@@ -5329,7 +5329,7 @@ GET https://outlook.office.com/api/v2.0/me/messages/{message_id}/attachments
 
 次の例は、**$select** を使用して、応答内の各添付ファイルの **Name** プロパティのみを返すように指定する方法を示しています。**$select** を使用しない場合の添付ファイルに返されるプロパティの完全な一覧に関しては、「[イベントを取得する (REST)](#GetAttachment)」の応答サンプルをご参照ください。
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/v2.0/me/messages/AAMkAGI2THVSAAA=/attachments?$select=Name
@@ -5393,12 +5393,12 @@ GET https://outlook.office.com/api/v1.0/me/messages/{message_id}/attachments
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|メッセージ ID。|
 
-**メモ**: 既定では、応答内の各添付ファイルに、その添付ファイルの種類に対応するすべてのプロパティが含まれます。最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、$select を 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** 既定では、応答内の各添付ファイルに、その添付ファイルの種類に対応するすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 
 **応答の種類**
@@ -5447,7 +5447,7 @@ Content-Type: application/json
 <a name="GetAttachment"> </a>
 ###添付ファイルを取得する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.read_
 - _wl.imap_
 
@@ -5462,16 +5462,16 @@ __**Minimum required scope**: 次のいずれか:__
 GET https://outlook.office.com/api/beta/me/messages/{message_id}/attachments/{attachment_id}
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|メッセージ ID。|
 |attachment_id|string|添付ファイル ID。|
 
-**メモ**: 既定では、応答に指定されたメッセージのすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に Refer to [Get an attachment collection (REST)](#GetAttachmentCollection) for an example.  
-The **Id** property is always returned. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** 既定では、応答に添付ファイルのすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 例については、「[添付ファイルのコレクションを取得する (REST)](#GetAttachmentCollection)」を参照してください。  
+**Id** プロパティは常に返されます。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 **応答の種類**
 
@@ -5678,28 +5678,28 @@ Status code: 200
 GET https://outlook.office.com/api/v2.0/me/messages/{message_id}/attachments/{attachment_id}
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|メッセージ ID。|
 |attachment_id|string|添付ファイル ID。|
 
-**メモ**: 既定では、応答に指定されたメッセージのすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に Refer to [Get an attachment collection (REST)](#GetAttachmentCollection) for an example.  
-The **Id** property is always returned. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** 既定では、応答に添付ファイルのすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 例については、「[添付ファイルのコレクションを取得する (REST)](#GetAttachmentCollection)」を参照してください。  
+**Id** プロパティは常に返されます。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
  **応答の種類**
 
 要求された[添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#FileAttachmentResource)または[アイテムの添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ItemAttachmentResource)。
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/v2.0/me/messages/AAMkAGI2THVSAAA=/attachments/AAMkAGI2j4kShdM=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -5736,16 +5736,16 @@ Status code: 200
 GET https://outlook.office.com/api/v1.0/me/messages/{message_id}/attachments/{attachment_id}
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|メッセージ ID。|
 |attachment_id|string|添付ファイル ID。|
 
-**メモ**: 既定では、応答に指定されたメッセージのすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に Refer to [Get an attachment collection (REST)](#GetAttachmentCollection) for an example.  
-The **Id** property is always returned. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** 既定では、応答に添付ファイルのすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 例については、「[添付ファイルのコレクションを取得する (REST)](#GetAttachmentCollection)」を参照してください。  
+**Id** プロパティは常に返されます。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
  **応答の種類**
 
@@ -5767,16 +5767,17 @@ The **Id** property is always returned. パラメーターのフィルタリン�
 <a name="GetAttachmentsClient"> </a>
 ###1 つ以上のメッセージの添付ファイルを取得する (クライアント)
 
-Get attachments on message by calling the **Attachments** property. メッセージの添付ファイルを取得するには、**Attachments** プロパティを呼び出します。特定の添付ファイルを取得するには、**添付ファイル** コレクションのインデックスとして添付ファイル ID を指定するか、GetById メソッドを使用します。
+メッセージの添付ファイルを取得するには、**Attachments** プロパティを呼び出します。 特定の添付ファイルを取得するには、**添付ファイル**
+ コレクションのインデックスとして添付ファイル ID を指定するか、**GetById** メソッドを使用します。
 
 
 **注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
 
 
-**メモ**: 添付ファイル コレクションでは、**Select**、**OrderBy**、**Take** などのクエリ式がサポートされます。
+**注** 添付ファイル コレクションでは、**Select**、**OrderBy**、**Take** などのクエリ式がサポートされます。
 
 
-この例では、[Outlook サービス クライアントを作成する](..\api\use-outlook-rest-api.md#GetClient)メソッドを呼び出します。 この例では、Outlook サービス クライアントを作成するメソッドを呼び出します。この .NET コードでは、既に[メッセージ ID が取得されている](#GetMessagesClient)と仮定します。
+この例では、[Outlook サービス クライアントを作成する](..\api\use-outlook-rest-api.md#GetClient)メソッドを呼び出します。 この .NET コードでは、既に[メッセージ ID が取得されている](#GetMessagesClient)と仮定します。
 
 <!-- BEGINSECTION class="tabbedCodeSnippets" data-resources="OutlookServices.Mail" -->
 
@@ -5830,14 +5831,15 @@ outlookClient.me.folders.getFolder('Inbox').messages.getMessages().filter('HasAt
 ##添付ファイルを作成する
 メッセージの添付ファイルまたは[アイテムの添付ファイルを作成](#CreateItemAttachment)できます。
 
-REST API:添付ファイルを作成する (REST)  アイテムの添付ファイルを作成する (REST)  参照添付ファイルを作成する (REST)
+REST API:[添付ファイルを作成する (REST)](#CreateFileAttachment) | [アイテムの添付ファイルを作成する (REST)](#CreateItemAttachment) | 
+[参照添付ファイルを作成する (REST)](#CreateReferenceAttachment)
 
 
 
 <a name="CreateFileAttachment"></a>
 ###添付ファイルを作成する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
@@ -5886,13 +5888,13 @@ POST https://outlook.office.com/api/v1.0/me/messages/{message_id}/attachments
 <!-- ==================================== End v1 content ======================================================== -->
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|メッセージ ID。|
-|_Body parameters_|
+|_本文パラメーター_|
 |@odata.type|string|`#Microsoft.OutlookServices.FileAttachment`|
-|名前|string|添付ファイルの名前。|
+|Name|string|添付ファイルの名前。|
 |ContentBytes|binary|添付するファイル。|
 
 要求本文に、**Name** と **ContentBytes** パラメーターおよび書き込み可能な[添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#FileAttachmentResource) プロパティを指定します。
@@ -5913,7 +5915,7 @@ POST https://outlook.office.com/api/v1.0/me/messages/{message_id}/attachments
 <a name="CreateItemAttachment"></a>
 ###アイテムの添付ファイルを作成する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
@@ -5964,13 +5966,13 @@ POST https://outlook.office.com/api/v1.0/me/messages/{message_id}/attachments
 
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|メッセージ ID。|
-|_Body parameters_|
+|_本文パラメーター_|
 |@odata.type|string|```#Microsoft.OutlookServices.ItemAttachment```|
-|名前|string|添付ファイルの名前。|
+|Name|string|添付ファイルの名前。|
 |アイテム|[Message](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource) または [Event](..\api\complex-types-for-mail-contacts-calendar.md#EventResource) エンティティです。|添付するアイテム。|
 
 要求本文に、**Name** と **Item** パラメーターおよび書き込み可能な[アイテムの添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ItemAttachmentResource) プロパティを指定します。
@@ -6041,7 +6043,7 @@ This example assumes you already [got the Outlook Services client](..\api\use-ou
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
@@ -6051,16 +6053,16 @@ __**Minimum required scope**: 次のいずれか:__
 POST https://outlook.office.com/api/beta/me/messages/{message_id}/attachments
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|String|メッセージ ID。|
-|_Body parameters_|
+|_本文パラメーター_|
 |@odata.type|String|```#Microsoft.OutlookServices.ReferenceAttachment```|
-|名前|String|添付ファイルの表示名。必須。|
+|Name|String|添付ファイルの表示名。必須。|
 |SourceUrl|String | 添付ファイルの内容を取得するための URL。フォルダーへの URL の場合、Outlook または Outlook on the web 上でフォルダーが正しく表示されるには、**IsFolder** を true に設定します。必須。|
 
-要求本文に、**Name** と**SourceUrl** パラメーターおよび書き込み可能な[参照添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ReferenceAttachmentResource) プロパティを指定します。
+要求本文に、**Name** と **SourceUrl** パラメーターおよび書き込み可能な[参照添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ReferenceAttachmentResource) プロパティを指定します。
 
 
 
@@ -6069,9 +6071,9 @@ POST https://outlook.office.com/api/beta/me/messages/{message_id}/attachments
 [参照添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ReferenceAttachmentResource)。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
-次の例では、既存メッセージに添付ファイルを追加します。添付ファイルは、OneDrive for Business 上のファイルへのリンクです。 次の例では、既存メッセージに添付ファイルを追加します。添付ファイルは、OneDrive for Business 上のファイルへのリンクです。
+次の例では、既存メッセージに添付ファイルを追加します。 添付ファイルは、OneDrive for Business 上のファイルへのリンクです。
 
 ```
 POST https://outlook.office.com/api/beta/me/messages/AAMkAGE1Mbs88AADUv0uFAAA=/attachments
@@ -6088,7 +6090,7 @@ Content-Type: application/json
 ```
 
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201 Created
@@ -6253,7 +6255,7 @@ Status code: 201 Created
 <a name="DeleteAttachments"> </a>
 ##添付ファイルを削除する
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
@@ -6261,15 +6263,15 @@ __**Minimum required scope**: 次のいずれか:__
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-Delete the specified attachment of a message. メッセージの指定した添付ファイルを削除します。添付ファイルは、[添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#FileAttachmentResource)、[アイテムの添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ItemAttachmentResource)、または[参照添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ReferenceAttachmentResource)にすることができます。
+メッセージの指定した添付ファイルを削除します。 添付ファイルは、[添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#FileAttachmentResource)、[アイテムの添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ItemAttachmentResource)、または[参照添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ReferenceAttachmentResource)にすることができます。
 
 ```no-highlight
 DELETE https://outlook.office.com/api/beta/me/messages/{message_id}/attachments/{attachment_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|メッセージ ID。|
 |attachment_id|string|添付ファイル ID。|
 
@@ -6280,7 +6282,7 @@ DELETE https://outlook.office.com/api/beta/me/messages/{message_id}/attachments/
 DELETE https://outlook.office.com/api/beta/me/messages/AAMkAGE0Mz8S-AAA=/attachments/AAMkAGE0Mg67gL7o=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 204
@@ -6297,15 +6299,15 @@ Status code: 204
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-Delete the specified attachment of a message. メッセージの指定した添付ファイルを削除します。添付ファイルは、[添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#FileAttachmentResource)または[アイテムの添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ItemAttachmentResource)にすることができます。
+メッセージの指定した添付ファイルを削除します。 添付ファイルは、[添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#FileAttachmentResource)または[アイテムの添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ItemAttachmentResource)にすることができます。
 
 ```no-highlight
 DELETE https://outlook.office.com/api/v2.0/me/messages/{message_id}/attachments/{attachment_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|メッセージ ID。|
 |attachment_id|string|添付ファイル ID。|
 
@@ -6316,7 +6318,7 @@ DELETE https://outlook.office.com/api/v2.0/me/messages/{message_id}/attachments/
 DELETE https://outlook.office.com/api/v2.0/me/messages/AAMkAGE0Mz8S-AAA=/attachments/AAMkAGE0Mg67gL7o=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 204
@@ -6334,15 +6336,15 @@ Status code: 204
 
 [!INCLUDE [BEGIN Outlook v1 section](../includes/controls/outlookrestapiv1section.xml)]
 
-Delete the specified attachment of a message. メッセージの指定した添付ファイルを削除します。添付ファイルは、[添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#FileAttachmentResource)または[アイテムの添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ItemAttachmentResource)にすることができます。
+メッセージの指定した添付ファイルを削除します。 添付ファイルは、[添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#FileAttachmentResource)または[アイテムの添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ItemAttachmentResource)にすることができます。
 
 ```no-highlight
 DELETE https://outlook.office.com/api/v1.0/me/messages/{message_id}/attachments/{attachment_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |message_id|string|メッセージ ID。|
 |attachment_id|string|添付ファイル ID。|
 
@@ -6393,7 +6395,7 @@ This example assumes you already [got the Outlook Services client](..\api\use-ou
 
 ユーザーのメールボックス内のフォルダーのコレクションまたはフォルダーを取得できます。
 
-REST API:フォルダーのコレクションを取得する (REST)  フォルダーを取得する (REST)
+REST API:[フォルダーのコレクションを取得する (REST)](#GetFolderCollection) | [フォルダーを取得する (REST)](#GetFolder)
 
 クライアント ライブラリ:[フォルダーまたはフォルダーのコレクションを取得する (クライアント)](#GetFoldersClient)
 
@@ -6401,7 +6403,7 @@ REST API:フォルダーのコレクションを取得する (REST)  フォル�
 <a name="GetFolderCollection"> </a>
 ###フォルダーのコレクションを取得する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.read_
 - _wl.imap_
 
@@ -6411,28 +6413,28 @@ __**Minimum required scope**: 次のいずれか:__
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-サインインしているユーザーのメールボックス内のすべてのメール フォルダーを取得する (.../me/MailFolders`.../me/MailFolders`) か、指定されたフォルダーからフォルダー コレクションを取得します。
+サインインしているユーザーのメールボックス内のすべてのメール フォルダーを取得する (`.../me/MailFolders`) か、指定されたフォルダーからフォルダー コレクションを取得します。
 
 ```no-highlight
 GET https://outlook.office.com/api/beta/me/MailFolders
 GET https://outlook.office.com/api/beta/me/MailFolders/{folder_id}/childfolders
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|フォルダーの ID、または既知のフォルダー名 Inbox、Drafts、SentItems、または DeletedItems (特定のフォルダーからフォルダーを取得する場合) です。|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、または既知のフォルダー名 `Inbox`、`Drafts`、`SentItems`、または `DeletedItems` (特定のフォルダーからフォルダーを取得する場合) です。|
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/beta/me/MailFolders
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -6516,27 +6518,27 @@ Status code: 200
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-サインイン中のユーザーの既定の連絡先フォルダーから連絡先フォルダーのコレクションを取得する (.../me/contactfolders`.../me/MailFolders`) か、指定した連絡先フォルダーから取得します。 サインイン中のユーザーのルート フォルダーからフォルダー コレクションを取得する (.../me/folders`.../me/MailFolders`) か、指定したフォルダーから取得します。.../me/folders ショートカットを使用して、最上位フォルダーのコレクションを取得して、別のフォルダーに移動することができます。
+サインイン中のユーザーのルート フォルダーからフォルダー コレクションを取得する (`.../me/MailFolders`) か、指定したフォルダーから取得します。 `.../me/MailFolders` ショートカットを使用して、最上位フォルダーのコレクションを取得して、別のフォルダーに移動することができます。
 
 ```no-highlight
 GET https://outlook.office.com/api/v2.0/me/MailFolders
 GET https://outlook.office.com/api/v2.0/me/MailFolders/{folder_id}/childfolders
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|フォルダーの ID、または既知のフォルダー名 Inbox、Drafts、SentItems、または DeletedItems (特定のフォルダーからフォルダーを取得する場合) です。|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、または既知のフォルダー名 `Inbox`、`Drafts`、`SentItems`、または `DeletedItems` (特定のフォルダーからフォルダーを取得する場合) です。|
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/v2.0/me/MailFolders
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -6614,19 +6616,19 @@ Status code: 200
 
 [!INCLUDE [BEGIN Outlook v1 section](../includes/controls/outlookrestapiv1section.xml)]
 
-サインイン中のユーザーの既定の連絡先フォルダーから連絡先フォルダーのコレクションを取得する (.../me/contactfolders`.../me/folders`) か、指定した連絡先フォルダーから取得します。 サインイン中のユーザーのルート フォルダーからフォルダー コレクションを取得する (.../me/folders`.../me/folders`) か、指定したフォルダーから取得します。.../me/folders ショートカットを使用して、最上位フォルダーのコレクションを取得して、別のフォルダーに移動することができます。
+サインイン中のユーザーのルート フォルダーからフォルダー コレクションを取得する (`.../me/folders`) か、指定したフォルダーから取得します。 `.../me/folders` ショートカットを使用して、最上位フォルダーのコレクションを取得して、別のフォルダーに移動することができます。
 
 ```no-highlight
 GET https://outlook.office.com/api/v1.0/me/folders
 GET https://outlook.office.com/api/v1.0/me/folders/{folder_id}/childfolders
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|フォルダーの ID、または既知のフォルダー名 Inbox、Drafts、SentItems、または DeletedItems (特定のフォルダーからフォルダーを取得する場合) です。|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、または既知のフォルダー名 `Inbox`、`Drafts`、`SentItems`、または `DeletedItems` (特定のフォルダーからフォルダーを取得する場合) です。|
 
 [!code-REST-i[mail_api_get_folders](./_data/mail_api_get_folders.json)]
 
@@ -6646,7 +6648,7 @@ GET https://outlook.office.com/api/v1.0/me/folders/{folder_id}/childfolders
 <a name="GetFolder"> </a>
 ###フォルダーを取得する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.read_
 - _wl.imap_
 
@@ -6660,21 +6662,21 @@ ID でフォルダーを取得します。
 GET https://outlook.office.com/api/beta/me/MailFolders/{folder_id}
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/beta/me/MailFolders/inbox
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -6707,21 +6709,21 @@ Status code: 200
 GET https://outlook.office.com/api/v2.0/me/MailFolders/{folder_id}
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/v2.0/me/MailFolders/inbox
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -6754,12 +6756,12 @@ Status code: 200
 GET https://outlook.office.com/api/v1.0/me/folders/{folder_id}
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
 
 [!code-REST-i[mail_api_get_folder_by_id](./_data/mail_api_get_folder_by_id.json)]
 
@@ -6778,10 +6780,10 @@ GET https://outlook.office.com/api/v1.0/me/folders/{folder_id}
 <a name="GetFoldersClient"> </a>
 ###フォルダーまたはフォルダーのコレクションを取得する (クライアント)
 
-Get the top-level folders in the mailbox by using the `Me.Folders` shortcut property. To get the folders from a specific folder, use its **ChildFolders** property.
-You can use the following well-known folder names instead of the ID for the corresponding folder: `Inbox`, `SentItems`, `Drafts`, `DeletedItems`.
+メールボックスの最上位フォルダーを取得するには、`Me.Folders` ショートカット プロパティを使用します。 特定のフォルダーからフォルダーを取得するには、そのフォルダーの **ChildFolders** プロパティを使用します。
+対応するフォルダーについては、ID の代わりに既知のフォルダー名 (`Inbox`、`SentItems`、`Drafts`、`DeletedItems`) を使用できます。
 
-例`outlookClient.Me.Folders["Drafts"].ChildFolders.ExecuteAsync()`
+例: `outlookClient.Me.Folders["Drafts"].ChildFolders.ExecuteAsync()`
 
 
 **注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
@@ -6789,7 +6791,7 @@ You can use the following well-known folder names instead of the ID for the corr
 
 特定のフォルダーを取得するには、**フォルダー** コレクションのインデックスとしてフォルダー ID を指定するか、**GetById** メソッドを使用します。
 
-**メモ**: フォルダー コレクションでは、**Select**、**OrderBy**、**Take** などのクエリ式がサポートされます。
+**注** フォルダー コレクションでは、**Select**、**OrderBy**、**Take** などのクエリ式がサポートされます。
 
 この例では、[Outlook サービス クライアントを取得する](..\api\use-outlook-rest-api.md#GetClient)メソッドを呼び出します。
 
@@ -6830,31 +6832,31 @@ outlookClient.me.folders.getFolders().fetchAll(100).then(function (result) {
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-メールボックス内のすべてのフォルダーのフラットなテーブルを取得できます。メール フォルダー階層を同期するときは、このカテゴリを要求します。 メールボックス内のすべてのフォルダーのフラットなテーブルを取得できます。メール フォルダー階層を同期するときは、このカテゴリを要求します。
+メールボックス内のすべてのフォルダーのフラットなテーブルを取得できます。 メール フォルダー階層を同期するときは、このカテゴリを要求します。
 
 |**エンドポイント**|**フォルダー カテゴリ**|
 |:-----|:-----|
 | Me/MailFolders | メール フォルダー |
 
-各フォルダー カテゴリの最上位レベルのみを同期できます。たとえば、以下のように要求できます。 For example, you can request _Me/MailFolders_ but not _Me/MailFolders('inbox')_.
+各フォルダー カテゴリの最上位レベルのみを同期できます。 たとえば、_Me/MailFolders_ は要求できますが、_Me/MailFolders('inbox')_ は要求できません。
 
 同期では、階層内のすべてのフォルダーを取得する完全な同期と、最後の完全な同期から変更されたすべてのフォルダーを取得する差分同期の両方がサポートされています。 
 
-__**Minimum required scope**:__
+_**最低限必要なスコープ**:_
 
 |**フォルダー階層**|**アクセス許可**|
 |:-----|:-----|
-|Me/Folders|_https://outlook.office.com/mail.read_ または wl.imap|
+|Me/Folders|_https://outlook.office.com/mail.read_ または _wl.imap_|
 
 ```no-highlight
 GET https://outlook.office365.com/api/beta/me/MailFolders
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_Header parameter_|
-|Prefer|odata.trackchanges|要求が同期要求であることを示します。|
-|_Body parameters_|
+|_ヘッダー パラメーター_|
+|優先|odata.trackchanges|要求が同期要求であることを示します。|
+|_本文パラメーター_|
 |odata.deltaLink|string|前回フォルダー階層が同期されたことを示すトークン。|
 
 $filter、$orderby、$search、$top のクエリ パラメーターは、どれが要求に含まれていても無視されます。
@@ -6903,11 +6905,11 @@ REST API:[フォルダーを作成する (REST)](#CreateAFolder)
 <a name="CreateAFolder"> </a>
 ###フォルダーを作成する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
-**DisplayName に指定した名前で子フォルダーを作成します。DisplayName は、フォルダー**の唯一の書き込み可能なプロパティです。 フォルダー名を変更します。DisplayName は、フォルダーの唯一の書き込み可能なプロパティです。
+**DisplayName** に指定した名前で子フォルダーを作成します。 **DisplayName** は、[フォルダー](..\api\complex-types-for-mail-contacts-calendar.md#FolderResource)の唯一の書き込み可能なプロパティです。
 
 
 <!-- ==================================== Start beta content ==================================================== -->
@@ -6918,11 +6920,11 @@ __**Minimum required scope**: 次のいずれか:__
 POST https://outlook.office.com/api/beta/me/MailFolders/{folder_id}/childfolders
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
-|_Body parameters_|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
+|_本文パラメーター_|
 |DisplayName|string|フォルダーの表示名です。|
 
 
@@ -6937,7 +6939,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -6970,11 +6972,11 @@ Status code: 201
 POST https://outlook.office.com/api/v2.0/me/MailFolders/{folder_id}/childfolders
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
-|_Body parameters_|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
+|_本文パラメーター_|
 |DisplayName|string|フォルダーの表示名です。|
 
 **要求のサンプル**
@@ -6988,7 +6990,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -7021,11 +7023,11 @@ Status code: 201
 POST https://outlook.office.com/api/v1.0/me/folders/{folder_id}/childfolders
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
-|_Body parameters_|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
+|_本文パラメーター_|
 |DisplayName|string|フォルダーの表示名です。|
 
 [!code-REST-i[mail_api_create_folder](./_data/mail_api_create_folder.json)]
@@ -7040,9 +7042,9 @@ POST https://outlook.office.com/api/v1.0/me/folders/{folder_id}/childfolders
 
 新しい[フォルダー](..\api\complex-types-for-mail-contacts-calendar.md#FolderResource)です。
 
-**注釈**
+**解説**
 
-You can't create a top-level folder. 最上位フォルダーを作成することはできません。フォルダーを追加できるのは、childfolders`childfolders` エンドポイントのみです。
+最上位フォルダーを作成することはできません。 フォルダーを追加できるのは、`childfolders` エンドポイントのみです。
 
 ****
 
@@ -7090,11 +7092,11 @@ REST API:[フォルダーを更新する (REST)](#UpdateAFolder)
 <a name="UpdateAFolder"> </a>
 ###フォルダーを更新する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
-フォルダー名を **DisplayName で指定したものに変更します。この名前は、フォルダー**の唯一の書き込み可能なプロパティです。 フォルダー名を DisplayName で指定したものに変更します。この名前は、[フォルダー](..\api\complex-types-for-mail-contacts-calendar.md#FolderResource)の唯一の書き込み可能なプロパティです。
+フォルダー名を **DisplayName** で指定したものに変更します。 この名前は、[フォルダー](..\api\complex-types-for-mail-contacts-calendar.md#FolderResource)の唯一の書き込み可能なプロパティです。
 
 
 <!-- ==================================== Start beta content ==================================================== -->
@@ -7105,11 +7107,11 @@ __**Minimum required scope**: 次のいずれか:__
 PATCH https://outlook.office.com/api/beta/me/MailFolders/{folder_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
-|_Body parameters_|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
+|_本文パラメーター_|
 |DisplayName|string|フォルダーの新しい表示名です。|
 
 
@@ -7124,7 +7126,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -7158,11 +7160,11 @@ Status code: 200
 PATCH https://outlook.office.com/api/v2.0/me/MailFolders/{folder_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
-|_Body parameters_|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
+|_本文パラメーター_|
 |DisplayName|string|フォルダーの新しい表示名です。|
 
 
@@ -7177,7 +7179,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -7211,11 +7213,11 @@ Status code: 200
 PATCH https://outlook.office.com/api/v1.0/me/folders/{folder_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
-|_Body parameters_|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
+|_本文パラメーター_|
 |DisplayName|string|フォルダーの新しい表示名です。|
 
 [!code-REST-i[mail_api_update_folder_by_id](./_data/mail_api_update_folder_by_id.json)]
@@ -7235,7 +7237,7 @@ PATCH https://outlook.office.com/api/v1.0/me/folders/{folder_id}
 <a name="UpdateFoldersClient"> </a>
 ###フォルダーを更新する (クライアント)
 
-フォルダー名を変更します。 フォルダー名を変更します。**DisplayName** は、フォルダーの唯一の書き込み可能なプロパティです。
+フォルダー名を変更します。 **DisplayName** は、フォルダーの唯一の書き込み可能なプロパティです。
 
 
 **注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
@@ -7259,8 +7261,8 @@ string updatedName = folder.DisplayName;
 <!-- ENDSECTION -->
 
 次のパターンを使用して、クライアント側で複数の更新を定義し、要求をまとめて (バッチ処理で) 送信できます。
-1. Call `UpdateAsync(true)` for each entity you want to update. 更新するエンティティごとに UpdateAsync(true)`true` を呼び出します。true を指定すると、更新がクライアント上でローカルに登録されますが、サーバーには投稿されません。
-2. outlookClient.Context.SaveChangesAsync()`outlookClient.Context.SaveChangesAsync()` を呼び出して、ローカルに登録されているすべての更新を投稿します。
+1. 更新するエンティティごとに `UpdateAsync(true)` を呼び出します。 `true` を指定すると、更新がクライアント上でローカルに登録されますが、サーバーには投稿されません。
+2. `outlookClient.Context.SaveChangesAsync()` を呼び出して、ローカルに登録されているすべての更新を投稿します。
 
 ****
 
@@ -7270,8 +7272,8 @@ string updatedName = folder.DisplayName;
 
 フォルダーとそのすべての内容を削除します。
 
-**注** フォルダーを削除するときには注意してください。削除した内容を回復できない可能性があります。 注 フォルダーを削除するときには注意してください。削除した内容を回復できない可能性があります。
-詳細については、「アイテムの削除」を参照してください。
+**注**: フォルダーを削除するときには注意してください。 削除した内容を回復できない可能性があります。
+詳細については、「[アイテムの削除](http://msdn.microsoft.com/library/c81e3160-e12b-47e0-b3d6-4be28537f301%28Office.15%29.aspx)」を参照してください。
 
 REST API:[フォルダーを削除する (REST)](#DeleteAFolder)
 
@@ -7280,7 +7282,7 @@ REST API:[フォルダーを削除する (REST)](#DeleteAFolder)
 <a name="DeleteAFolder"> </a>
 ###フォルダーを削除する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
@@ -7295,19 +7297,19 @@ __**Minimum required scope**: 次のいずれか:__
 DELETE https://outlook.office.com/api/beta/me/MailFolders/{folder_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 DELETE https://outlook.office.com/api/BETA/me/MailFolders/AAMkAGE0Mz-l_AAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 204
@@ -7328,19 +7330,19 @@ Status code: 204
 DELETE https://outlook.office.com/api/v2.0/me/MailFolders/{folder_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 DELETE https://outlook.office.com/api/v2.0/me/MailFolders/AAMkAGE0Mz-l_AAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 204
@@ -7362,10 +7364,10 @@ Status code: 204
 DELETE https://outlook.office.com/api/v1.0/me/folders/{folder_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
 
 [!code-REST-i[mail_api_delete_folder_by_id](./_data/mail_api_delete_folder_by_id.json)]
 
@@ -7405,14 +7407,14 @@ await folder.DeleteAsync();
 ##フォルダーを移動またはコピーする
 フォルダーを別のフォルダーに移動またはコピーできます。
 
-REST API:フォルダーを移動する (REST)  フォルダーをコピーする (REST)
+REST API:[フォルダーを移動する (REST)](#MoveFolders) | [フォルダーをコピーする (REST)](#CopyFolders)
 
 クライアント ライブラリ:[フォルダーを移動またはコピーする (クライアント)](#MoveFoldersClient)
 
 <a name="MoveFolders"> </a>
 ###フォルダーを移動する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
@@ -7426,15 +7428,15 @@ __**Minimum required scope**: 次のいずれか:__
 POST https://outlook.office.com/api/beta/me/MailFolders/{folder_id}/move
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
-|_Body parameters_|
-|DestinationId|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
+|_本文パラメーター_|
+|DestinationId|string|宛先フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/beta/me/MailFolders/AAMkAGE0Mz-l_AAA=/move
@@ -7445,7 +7447,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -7478,15 +7480,15 @@ Status code: 201
 POST https://outlook.office.com/api/v2.0/me/MailFolders/{folder_id}/move
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
-|_Body parameters_|
-|DestinationId|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
+|_本文パラメーター_|
+|DestinationId|string|宛先フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/v2.0/me/MailFolders/AAMkAGE0Mz-l_AAA=/move
@@ -7497,7 +7499,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -7530,12 +7532,12 @@ Status code: 201
 POST https://outlook.office.com/api/v1.0/me/folders/{folder_id}/move
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
-|_Body parameters_|
-|DestinationId|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
+|_本文パラメーター_|
+|DestinationId|string|宛先フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
 
 [!code-REST-i[mail_api_move_folder_by_id](./_data/mail_api_move_folder_by_id.json)]
 
@@ -7555,7 +7557,7 @@ POST https://outlook.office.com/api/v1.0/me/folders/{folder_id}/move
 <a name="CopyFolders"> </a>
 ###フォルダーをコピーする (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _wl.imap_
 
@@ -7570,15 +7572,15 @@ __**Minimum required scope**: 次のいずれか:__
 POST https://outlook.office.com/api/beta/me/MailFolders/{folder_id}/copy
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
-|_Body parameters_|
-|DestinationId|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
+|_本文パラメーター_|
+|DestinationId|string|宛先フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/beta/me/MailFolders/AAMkAGE0Mz-l_AAA=/copy
@@ -7589,7 +7591,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -7619,19 +7621,19 @@ Status code: 201
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 
 ```no-highlight
 POST https://outlook.office.com/api/v2.0/me/MailFolders/{folder_id}/copy
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
-|_Body parameters_|
-|DestinationId|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
+|_本文パラメーター_|
+|DestinationId|string|宛先フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
 
 
 ```
@@ -7643,7 +7645,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -7676,12 +7678,12 @@ Status code: 201
 POST https://outlook.office.com/api/v1.0/me/folders/{folder_id}/copy
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|folder_id|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
-|_Body parameters_|
-|DestinationId|string|宛先フォルダーの ID、あるいは Inbox または Drafts の既知のフォルダー名です。|
+|_URL パラメーター_|
+|folder_id|string|フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
+|_本文パラメーター_|
+|DestinationId|string|宛先フォルダーの ID、あるいは `Inbox`、`Drafts`、`SentItems` または `DeletedItems` の既知のフォルダー名です。|
 
 [!code-REST-i[mail_api_copy_folder_by_id](./_data/mail_api_copy_folder_by_id.json)]
 
@@ -7729,11 +7731,11 @@ await folder.CopyAsync("Inbox");
 ****
 
 <a name="NextSteps"> </a>
-## 次のステップ
+## 次の手順
 
 アプリケーション開発を開始する準備ができている方にも、単に詳しい情報を必要としている方にも、最適なコンテンツをご用意しています。
 
-- [メール、予定表、および連絡先 REST API 入門](http://dev.outlook.com/RestGettingStarted)。
+- [メール、予定表、および連絡先 REST API の使用を開始します](http://dev.outlook.com/RestGettingStarted)。
 
 - Office 365 の API を実際に試してみるには、対話形式の [API サンドボックス](http://apisandbox.msdn.microsoft.com/)をお使いください。
 
@@ -7746,11 +7748,11 @@ Office 365 プラットフォームの使い方の詳細については、次の
 
 - [Office 365 プラットフォーム上での開発の概要](..\howto\platform-development-overview.md)
 
-- [Office 365 アプリケーションの認証およびリソース承認](..\howto\common-app-authentication-tasks.md)
+- [Office 365 のアプリ認証とリソース承認](..\howto\common-app-authentication-tasks.md)
 
 - [Office 365 API にアクセスできるようにアプリを手動で Azure AD に登録する](..\howto\add-common-consent-manually.md)
 
-- [予定表 API リファレンス](..\api\calendar-rest-operations.md)
+- [Calendar API リファレンス](..\api\calendar-rest-operations.md)
 
 - [連絡先 API リファレンス](..\api\contacts-rest-operations.md)
 

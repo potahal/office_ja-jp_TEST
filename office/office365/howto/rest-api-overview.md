@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Office 365 API catalog
-title: "Office 365 API ツール"
-description: "ms.TocTitle: Office 365 API リファレンスTitle: Office 365 API リファレンスDescription: Office 365 の REST API とクライアント ライブラリ API、探索サービス、メール、予定表、連絡先、ファイルのデータの操作方法に関する詳細な記事へのリンクです。ms.assetid:6736150c-641e-4e1b-bcc0-6cce0996778dms.ContentId: 6736150c-641e-4e1b-bcc0-6cce0996778d ms.topic: 記事 (手順)"
+title: "Office 365 API カタログ"
+description: "Office 365 の REST API とクライアント ライブラリ API、探索サービス、メール、予定表、連絡先、タスク、およびファイルのデータの操作方法に関する詳細な記事へのリンクです。"
 ms.assetid: 6736150c-641e-4e1b-bcc0-6cce0996778d
 ms.ContentId: 6736150c-641e-4e1b-bcc0-6cce0996778d
 ms.date: March 14, 2016
@@ -1067,7 +1067,7 @@ iOS アプリ用には、[Xcode 6](https://developer.apple.com/xcode/) 内で Xc
 
 ### どのようにして開始すればよいですか。
 
-まず、[開発環境をセットアップします。](..\howto\setup-development-environment.md)次に、Office 365 API を使用する最初の [iOS](..\howto\getting-started-Office-365-APIs.md)、[Android](..\howto\getting-started-Office-365-APIs.md)、[JavaScript](..\howto\getting-started-Office-365-APIs.md) または [ASP.NET](..\howto\getting-started-Office-365-APIs.md) アプリの作成を開始します。
+まず、[開発環境をセットアップします](..\howto\setup-development-environment.md)。次に、Office 365 API を使用する最初の [iOS](..\howto\getting-started-Office-365-APIs.md)、[Android](..\howto\getting-started-Office-365-APIs.md)、[JavaScript](..\howto\getting-started-Office-365-APIs.md) または [ASP.NET](..\howto\getting-started-Office-365-APIs.md) アプリの作成を開始します。
 
 
 <a name="AdditionalResources"> </a>
@@ -1080,7 +1080,7 @@ iOS アプリ用には、[Xcode 6](https://developer.apple.com/xcode/) 内で Xc
 
 - [Office 365 の予定表、連絡先、およびメールとの OAuth2 の連動](http://blogs.msdn.com/b/exchangedev/archive/2014/10/28/oauth2-in-action-with-the-release-of-office-365-calendar-contacts-and-mail.aspx)
 
-**Code**
+**コード**
 
 -  [Office 365 API スタート プロジェクト、サンプル コード、およびビデオ](..\howto\starter-projects-and-code-samples.md) 
 
@@ -1104,7 +1104,7 @@ iOS アプリ用には、[Xcode 6](https://developer.apple.com/xcode/) 内で Xc
 
 - [ユーザー写真 REST API リファレンス](..\api\photo-rest-operations.md) 
 
-- バッチ Outlook REST 要求 (プレビュー)
+- [バッチ Outlook REST 要求](#..\api\batch-outlook-rest-requests.md) (プレビュー)
 
 - [21Vianet が運用している Office 365 の API エンドポイント](..\api\o365-china-endpoints.md)
 

@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Platform overview
-title: "Office 365 API のプラットフォームの概要"
-description: "ms.TocTitle: プラットフォームの概要Title: Office 365 API プラットフォームの概要Description: Office 365 API を使用すると、お客様の Office 365 データにアクセスするカスタム ソリューションを作成したり、それらのアプリをモバイル、Web、およびデスクトップ プラットフォームにわたって構築したりできます。ms.ContentId: 16fbf0c0-5470-466b-aab8-a0c9074c94e2 ms.topic: 記事 (方法)"
+title: "Office 365 API プラットフォームの概要"
+description: "Office 365 API を使用すると、お客様の Office 365 データにアクセスするカスタム ソリューションを作成したり、それらのアプリをモバイル、Web、およびデスクトップ プラットフォームにわたって構築したりできます。"
 ms.ContentId: 16fbf0c0-5470-466b-aab8-a0c9074c94e2
 ms.date: July 20, 2015
 ---
@@ -12,44 +12,45 @@ ms.date: July 20, 2015
 
 
 
-# O365API リポジトリ スタイルの追加
+# Office 365 API プラットフォームの概要
 
-_**適用対象:** Office 365_
+_**適用対象:**Office 365_
 
 [!INCLUDE [Use Microsoft Graph](../includes/use-msgraph-note.txt)]
 
 Office 365 のリッチ データをアプリに組み込む、Office 365 そのものの中でカスタム エクスペリエンスを作成する、カスタム レポートを使用して Office 365 Enterprise 環境を円滑に実行できるようにするといった目標を実現するために、次に示す開発者向けの機能を使用できます。 
 
-Office 365 のリッチ データをアプリに組み込む、Office 365 そのものの中でカスタム エクスペリエンスを作成する、カスタム レポートを使用して Office 365 Enterprise 環境を円滑に実行できるようにするといった目標を実現するために、次に示す開発者向けの機能を使用できます。<table id="mytable">
+<style>#mytable {border:none;} #mytable td {border:none;}</style>
+<table id="mytable">
     <tr>
         <td>
-            ![Office 365 API](images\O365_APIsAndSuiteApps_1.png)
+            ![Office 365 API。](images\O365_APIsAndSuiteApps_1.png)
 
         </td>
         <td>
 
-                <p>**Office 365 APIs.**</p>
+                <p>**Office 365 のデータを独自のアプリに統合する**</p>
                 
-                <p>Integrate Office 365 data into your own apps</p> 
+                <p>ユーザーの豊富な Office 365 データにアクセスし、やり取りできるカスタム ソリューションを作成でき、これらのソリューションをすべてのモバイル、Web、デスクトップ プラットフォーム間で構築できます。新しいOffice 365 API は、メール、予定表、連絡先、ファイル、フォルダーを含む Office 365 データへのアクセスを可能にします。すべてアプリから直接できます。</p> 
                 
-                <p>All right from within your app itself.</p>
+                <p>.NET、PHP、Java、Python、Ruby on Rails を使用して Web アプリケーションを構築しても、Windows 8、ユニバーサル アプリ、iOS、Android や他のデバイス プラットフォーム用のアプリを作成してもかまいません。</p>
                 
-                <p>See the [Office 365 API](..\api\api-catalog.md).</p>
+                <p>「[Office 365 API](..\api\api-catalog.md)」を参照してください。</p>
         </td>
     </tr>
     <tr>
         <td>
-            ![Office 365 API](images\O365_APIsAndSuiteApps_2.png)
+            ![Office 365 API。](images\O365_APIsAndSuiteApps_2.png)
         </td>
         <td>
-            <p>**Office 365 APIs.**</p>
+            <p>**Office 365 内でカスタムのエクスペリエンスを作成する**</p>
             
             <p>Create custom experiences within Office 365</p>  
                     
             <ul>
-                <li>[Create a FileHandler add-in](..\howto\using-cross-suite-apps.md)。ユーザー作成の種類のファイルを SharePoint Online に表示する方法と操作性を制御できます。たとえば、ユーザー作成の種類のファイルのアイコン、Office 365 UI に表示されるファイル プレビュー、その種類のファイルをカスタム エディターで開く方法などを調整できます。 And since FileHandler add-ins host their data and logic remotely, you can develop your add-in using the language, tools, and web development stack of your choice.
+                <li>[FileHandler アドインを作成する](..\howto\using-cross-suite-apps.md)ことで、Office 365 でカスタムのファイルの種類を表示する方法と操作する方法を制御できます。たとえば、カスタムのファイルの種類のアイコン、Office 365 UI でのファイル プレビュー、そのファイルの種類をカスタム エディターで作成する方法や開く方法などを制御できます。 また、FileHandler アドインはデータとロジックをリモートでホストするため、任意の言語、ツール、および Web 開発スタックを使用してアドインを開発できます。
                 </li>
-                <li>[Add your app to the app launcher](..\howto\connect-your-app-to-o365-app-launcher.md)。アプリを Office 365 のホーム ページに表示し、直接アクセスできるようにします。 Take advantage of Azure AD single sign-on to provide seamless access to your app for authorized users.
+                <li>[アプリ起動ツールにアプリを追加する](..\howto\connect-your-app-to-o365-app-launcher.md)ことで、Office 365 のホーム ページにアプリを表示して、すぐにアクセスできるようになります。 Azure AD シングル サインオンを利用すると、承認されたユーザーはアプリにシームレスにアクセスできます。
                 </li>
             </ul>
 
@@ -57,18 +58,21 @@ Office 365 のリッチ データをアプリに組み込む、Office 365 その
     </tr>
     <tr>
         <td>
-            ![Take advantage of Azure AD single sign-on to provide seamless access to your app for authorized users.](images\O365_APIsAndSuiteApps_3.png)
+            ![Office 365 API。](images\O365_APIsAndSuiteApps_3.png)
         </td>
         <td>
-            <p>**Office 365 APIs.**</p>
+            <p>**Office 365 Enterprise 環境の正常性を分析および管理する**</p>
             
-            <p>Analyze and manage the health of your Office 365 Enterprise environment</p>
+            <p>Office 365 Enterprise ではさまざまな開発者向け機能が用意されており、管理者はドメインとサブスクリプションを効果的かつ適切に調整された状態で保持できます。</p>
             
             <ul>
-                <li>[Access the Reporting web service](https://msdn.microsoft.com/en-us/library/office/jj984325.aspx) to build reporting dashboards, charts, and graphs to help their organization manage their subscription usage.
+                <li>
+  [レポート Web サービスにアクセスする](https://msdn.microsoft.com/en-us/library/office/jj984325.aspx)ことで、レポート ダッシュボード、チャート、およびグラフを作成して、組織がサブスクリプションの使用状況を管理できます。
                 </li>
-                <li>[Access the Reporting web service](https://msdn.microsoft.com/library/office/dn707386.aspx) to build reporting dashboards, charts, and graphs to help their organization manage their subscription usage.</li>
-                <li>Office 365 管理アクティビティ API は、Office 365 と Azure AD のアクティビティ ログから、ユーザー、管理者、システム、およびポリシー アクションとポリシー イベントについての情報を取得するために使用します。 Use this information to build solutions that provide monitoring, analysis, and data visualizations. 
+                <li>
+  [Access the Reporting web service](https://msdn.microsoft.com/library/office/dn707386.aspx) to build reporting dashboards, charts, and graphs to help their organization manage their subscription usage.</li>
+                <li>
+  [Office 365 管理アクティビティ API を使用する](https://msdn.microsoft.com/library/office/mt227394.aspx)ことで、Office 365 と Azure AD のアクティビティ ログから、ユーザー、管理者、システム、およびポリシーのアクションとイベントについての情報を取得できます。 この情報を使用して、監視、分析、およびデータのビジュアル化を提供するソリューションを構築します。 
                 </li>
             </ul>
 
@@ -77,15 +81,15 @@ Office 365 のリッチ データをアプリに組み込む、Office 365 その
     
 </table>
 
-Word、Excel、PowerPoint などの Office クライアントや SharePoint 2013 および SharePoint Online 内で、カスタム エクスペリエンスを作成することもできます。詳細については、「Office アドイン」および「SharePoint アドイン」を参照してください。 To learn more, see [Office add-ins](https://msdn.microsoft.com/library/jj220060.aspx) and [SharePoint add-ins](https://msdn.microsoft.com/library/fp179930.aspx).
+Word、Excel、PowerPoint などの Office クライアントや SharePoint 2013 および SharePoint Online 内で、カスタム エクスペリエンスを作成することもできます。 詳細については、「[Office アドイン](https://msdn.microsoft.com/library/jj220060.aspx)」および「[SharePoint アドイン](https://msdn.microsoft.com/library/fp179930.aspx)」を参照してください。
   
 
-## 予定表、連絡先
+## その他のリソース
 <a name="bk_addresources"> </a>
 
 
 ### 全般
--  [Code samples on dev.office.com](http://dev.office.com/code-samples#?filters=office%20365%20app)
+-  [dev.office.com のコード サンプル](http://dev.office.com/code-samples#?filters=office%20365%20app)
 
 -  [Office 365 開発環境のセットアップ](..\howto\setup-development-environment.md)
     
@@ -101,7 +105,7 @@ Word、Excel、PowerPoint などの Office クライアントや SharePoint 2013
 
 -  [夏の更新プログラムでの Office 365 API 認証ライブラリへの変更](http://chakkaradeep.com/index.php/changes-to-office-365-api-authentication-library-in-the-summer-update/)
 
--  [Training videos on the Office Dev Center](http://dev.office.com/training)
+-  [Office デベロッパー センターでのトレーニング ビデオ](http://dev.office.com/training)
 
 -  [Office 365 API 入門 (トレーニングビデオ)](http://www.microsoftvirtualacademy.com/training-courses/introduction-to-office-365-development?m=10072&ct=31602) 
 
@@ -116,7 +120,7 @@ Word、Excel、PowerPoint などの Office クライアントや SharePoint 2013
     
 -  [Office 365 API と Python 第 2 部: 連絡先 API](http://blogs.msdn.com/b/exchangedev/archive/2015/01/09/office-365-apis-and-python-part-2-contacts-api.aspx)
     
--  [Office 365 API と Python 第 3 部: メールおよび予定表 API](http://blogs.msdn.com/b/exchangedev/archive/2015/01/15/office-365-apis-and-python-part-3-mail-and-calendar-api.aspx)
+-  [Office 365 API と Python 第 3 部:メールおよび予定表 API](http://blogs.msdn.com/b/exchangedev/archive/2015/01/15/office-365-apis-and-python-part-3-mail-and-calendar-api.aspx)
 
     
 

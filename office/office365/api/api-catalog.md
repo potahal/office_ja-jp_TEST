@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Office 365 API reference
 title: "Office 365 API リファレンス"
-description: "Find Office 365 API references and info about REST and client library APIs."
+description: "Office 365 API リファレンスと、REST およびクライアント ライブラリ API に関する情報を参照してください。"
 ms.ContentId: 6736150c-641e-4e1b-bcc0-6cce0996779d
 ms.date: July 26, 2016
 
@@ -10,7 +10,7 @@ ms.date: July 26, 2016
 
 # Office 365 API リファレンス 
     
- _**Applies to:** Exchange Online | Office 365 | OneDrive for Business_
+ _**適用対象:**Exchange Online | Office 365 | OneDrive for Business_
 
 [!INCLUDE [Use Microsoft Graph](../includes/use-msgraph-note.txt)]
 
@@ -20,13 +20,13 @@ Office 365 API へは、モバイル、Web、およびデスクトップ プラ�
     
 ### アプリ開発を簡単にする Office 365 SDK
 
-REST API を直接プログラミングして、Office 365 と通信するようにできます。このようにすると、認証トークンの管理、アクセスする API 用の正しい URL やクエリの構築、その他のタスクなどを実行するコードを記述および維持する必要があります。Visual Studio、Eclipse および Android Studio、Xcode 用の Office 365 SDK では、Office 365 API にアクセスする複雑なコードが単純になります。 The Office 365 SDKs for Visual Studio, Eclipse and Android Studio, or Xcode, help reduce the complexity of the code you need to write to access the Office 365 APIs.
+直接 REST API を使用してプログラミングすれば、Office 365 を操作でき、認証トークンの管理、アクセスする API 用の正しい URL やクエリの構築、その他のタスクなどを実行するコードを記述および維持できます。 Visual Studio、Eclipse および Android Studio、Xcode 用の Office 365 SDK では、Office 365 API にアクセスする複雑なコードが単純になります。
 
 [Visual Studio の Office 開発ツール](http://aka.ms/OfficeDevToolsForVS2013)には、Office 365 の REST サービスをラップする Office 365 データへの接続を容易にする .NET や JavaScript のライブラリとなる SDK が含まれています。Visual Studio の SDK は、ASP.NET MVC、ASP.NET Web フォーム、WPF、Win フォーム、ユニバーサル アプリ、Cordova、Xamarin プロジェクトの種類用に用意されています。 
 
-また、Android 開発者用に、Android SDK for Eclipse と Android Studio が一般に利用できるようになりました。「Android 用の Office 365 SDK を使用した Office 365 アプリの開発」を参照してください。  [Office 365 SDK for Android](https://github.com/OfficeDev/Office-365-SDK-for-Android)。 
+また、Android 開発者用に、Android SDK for Eclipse と Android Studio が一般に利用できるようになりました。  「[Android 用の Office 365 SDK](https://github.com/OfficeDev/Office-365-SDK-for-Android)」をご覧ください。 
 
-iOS アプリ用には、[Xcode 6 内で Xcode 用 iOS SDK (現在プレビュー中) が Objective C と Swift 言語の両方でサポートされています。「iOS 用の Office 365 SDK](https://developer.apple.com/xcode/)」を参照してください。 See the [Office 365 SDK for iOS](https://github.com/OfficeDev/Office-365-SDK-for-iOS). 
+iOS アプリ用には、[Xcode 6](https://developer.apple.com/xcode/) 内で Xcode 用 iOS SDK (プレビュー) が Objective C と Swift 言語の両方でサポートされています。 「[iOS 用の Office 365 SDK](https://github.com/OfficeDev/Office-365-SDK-for-iOS)」をご覧ください。 
 
 
 <!--
@@ -54,19 +54,19 @@ iOS アプリ用には、[Xcode 6 内で Xcode 用 iOS SDK (現在プレビュ�
 ## Outlook タスク (プレビュー)
 [タスク API](..\api\task-rest-operations.md)
 
-**Task operations** &nbsp;
-[Create tasks](..\api\task-rest-operations.md#CreateTasks) | [Get tasks](..\api\task-rest-operations.md#GetTasks) | [Update tasks](..\api\task-rest-operations.md#UpdateTasks) | [Delete tasks](..\api\task-rest-operations.md#DeleteTasks) | 
-[Complete tasks](..\api\task-rest-operations.md#CompleteTasks) | [Synchronize tasks or task folders](..\api\task-rest-operations.md#SyncTasks) 
+**タスクの操作** &nbsp;
+[タスクの作成](..\api\task-rest-operations.md#CreateTasks) | [タスクの取得](..\api\task-rest-operations.md#GetTasks) | [タスクの更新](..\api\task-rest-operations.md#UpdateTasks) | [タスクの削除](..\api\task-rest-operations.md#DeleteTasks) | 
+[タスクの完了](..\api\task-rest-operations.md#CompleteTasks) | [タスクまたはタスク フォルダーの同期](..\api\task-rest-operations.md#SyncTasks) 
 
 
-**Task folder operations** &nbsp;
-[Create task folders](..\api\task-rest-operations.md#CreateTaskFolders) | [Get task folders](..\api\task-rest-operations.md#GetTaskFolders) | [Update task folders](..\api\task-rest-operations.md#UpdateTaskFolders) | 
-[Delete task folders](..\api\task-rest-operations.md#DeleteTaskFolders) | [Synchronize tasks or task folders](..\api\task-rest-operations.md#SyncTasks) 
+**タスク フォルダーの操作** &nbsp;
+[タスク フォルダーの作成](..\api\task-rest-operations.md#CreateTaskFolders) | [タスク フォルダーの取得](..\api\task-rest-operations.md#GetTaskFolders) | [タスク フォルダーの更新](..\api\task-rest-operations.md#UpdateTaskFolders) | 
+[タスク フォルダーの削除](..\api\task-rest-operations.md#DeleteTaskFolders) | [タスクまたはタスク フォルダーの同期](..\api\task-rest-operations.md#SyncTasks) 
 
 
-**Task group operations** &nbsp;
-[Create task groups](..\api\task-rest-operations.md#CreateTaskGroups) | [Get task groups](..\api\task-rest-operations.md#GetTaskGroups) | [Update task groups](..\api\task-rest-operations.md#UpdateTaskGroups) | 
-[Delete task groups](..\api\task-rest-operations.md#DeleteTaskGroups)
+**タスク グループの操作** &nbsp;
+[タスク グループの作成](..\api\task-rest-operations.md#CreateTaskGroups) | [タスク グループの取得](..\api\task-rest-operations.md#GetTaskGroups) | [タスク グループの更新](..\api\task-rest-operations.md#UpdateTaskGroups) | 
+[タスク グループの削除](..\api\task-rest-operations.md#DeleteTaskGroups)
 
 
 <a name="bk_people"> </a>
@@ -75,16 +75,16 @@ iOS アプリ用には、[Xcode 6 内で Xcode 用 iOS SDK (現在プレビュ�
 
 [People API](..\api\people-rest-operations.md)
 
-**Browse:** &nbsp; 
-[Browsing](..\api\people-rest-operations.md#BrowsePeople) | [Paging](..\api\people-rest-operations.md#BrowsePaging) | 
-[Sorting](..\api\people-rest-operations.md#BrowseSort) | [Limiting](..\api\people-rest-operations.md#BrowsePageSize) |
-[Selecting](..\api\people-rest-operations.md#BrowseSelecting) | [Filtering](..\api\people-rest-operations.md#BrowseFiltering) |
-[Filtering and selecting](..\api\people-rest-operations.md#BrowseSelectingAndFiltering)
+**参照:** &nbsp; 
+[参照](..\api\people-rest-operations.md#BrowsePeople) | [ページング](..\api\people-rest-operations.md#BrowsePaging) | 
+[並べ替え](..\api\people-rest-operations.md#BrowseSort) | [制限](..\api\people-rest-operations.md#BrowsePageSize) |
+[選択](..\api\people-rest-operations.md#BrowseSelecting) | [フィルター処理](..\api\people-rest-operations.md#BrowseFiltering) |
+[フィルター処理と選択](..\api\people-rest-operations.md#BrowseSelectingAndFiltering)
 
-**Search:** &nbsp;
-[Select topic](..\api\people-rest-operations.md#SearchTopic) |
-[Filter a search](..\api\people-rest-operations.md#SearchFilter) |
-[Fuzzy search](..\api\people-rest-operations.md#FuzzySearch)
+**検索:**&nbsp;
+[トピックの選択](..\api\people-rest-operations.md#SearchTopic) |
+[検索のフィルター処理](..\api\people-rest-operations.md#SearchFilter) |
+[あいまい検索](..\api\people-rest-operations.md#FuzzySearch)
 
 
 
@@ -92,19 +92,19 @@ iOS アプリ用には、[Xcode 6 内で Xcode 用 iOS SDK (現在プレビュ�
 
 [データ拡張機能 API](..\api\extensions-rest-operations.md)
 
-**Open Type Extensions:** &nbsp; [Create in existing item](..\api\extensions-rest-operations.md#CreateExtensionInExistingItem) | [Create with new item](..\api\extensions-rest-operations.md#CreateExtensionInNewItem) |
-[Get](..\api\extensions-rest-operations.md#GetExtension) | [Get expanded item](..\api\extensions-rest-operations.md#GetExpandedExtension) |
-[Update](..\api\extensions-rest-operations.md#UpdateExtension) | [Delete](..\api\extensions-rest-operations.md#DeleteExtension)
+**オープン型の拡張機能:**&nbsp; [既存のアイテムに作成](..\api\extensions-rest-operations.md#CreateExtensionInExistingItem) | [新しいアイテムで作成](..\api\extensions-rest-operations.md#CreateExtensionInNewItem) |
+[取得](..\api\extensions-rest-operations.md#GetExtension) | [拡張アイテムの取得](..\api\extensions-rest-operations.md#GetExpandedExtension) |
+[更新](..\api\extensions-rest-operations.md#UpdateExtension) | [削除](..\api\extensions-rest-operations.md#DeleteExtension)
 
 
-## Outlook の拡張プロパティ (プレビュー)
+## Outlook の拡張プロパティ
 
 [拡張プロパティ API](..\api\extended-properties-rest-operations.md)
 
-**Extended Properties**  &nbsp;  [Create in existing item](..\api\extended-properties-rest-operations.md#CreateExtendedPropertyInExistingItem) | 
-[Create with new item](..\api\extended-properties-rest-operations.md#CreateExtendedPropertyInNewItem) | 
-[Get expanded item](..\api\extended-properties-rest-operations.md#GetExpandedExtendedProperty) | 
-[Filter](..\api\extended-properties-rest-operations.md#GetItemByFilteringExtendedProperty)
+**拡張プロパティ**  &nbsp;  [既存のアイテムに作成](..\api\extended-properties-rest-operations.md#CreateExtendedPropertyInExistingItem) | 
+[新しいアイテムで作成](..\api\extended-properties-rest-operations.md#CreateExtendedPropertyInNewItem) | 
+[拡張アイテムの取得](..\api\extended-properties-rest-operations.md#GetExpandedExtendedProperty) | 
+[フィルター処理](..\api\extended-properties-rest-operations.md#GetItemByFilteringExtendedProperty)
 
 
 
@@ -114,16 +114,16 @@ iOS アプリ用には、[Xcode 6 内で Xcode 用 iOS SDK (現在プレビュ�
 
 [メール API](..\api\mail-rest-operations.md) 
 
-**Messages:** &nbsp; [Get](..\api\mail-rest-operations.md#Getmessages) | [Create and send](..\api\mail-rest-operations.md#Sendmessages) |
- [Reply to](..\api\mail-rest-operations.md#Replytomessages) | [Forward](..\api\mail-rest-operations.md#Forwardmessages) |
- [Update](..\api\mail-rest-operations.md#Updatemessages) | [Delete](..\api\mail-rest-operations.md#DeleteMessages) |
- [Move or copy](..\api\mail-rest-operations.md#MoveCopymessages)
+**メッセージ:**&nbsp; [取得](..\api\mail-rest-operations.md#Getmessages) | [作成と送信](..\api\mail-rest-operations.md#Sendmessages) |
+ [返信](..\api\mail-rest-operations.md#Replytomessages) | [転送](..\api\mail-rest-operations.md#Forwardmessages) |
+ [更新](..\api\mail-rest-operations.md#Updatemessages) | [削除](..\api\mail-rest-operations.md#DeleteMessages) |
+ [移動またはコピー](..\api\mail-rest-operations.md#MoveCopymessages)
 
-**Attachments:**&nbsp;  [Get](..\api\mail-rest-operations.md#GetAttachments) |
- [Create](..\api\mail-rest-operations.md#CreateAttachments) | [Delete](..\api\mail-rest-operations.md#DeleteAttachments)
+**添付ファイル:**&nbsp;[取得](..\api\mail-rest-operations.md#GetAttachments) |
+ [作成](..\api\mail-rest-operations.md#CreateAttachments) | [削除](..\api\mail-rest-operations.md#DeleteAttachments)
 
-**Folders:**&nbsp;  [Get](..\api\mail-rest-operations.md#GetFolders) | [Create](..\api\mail-rest-operations.md#CreateFolders) | [Update](..\api\mail-rest-operations.md#UpdateFolders) |
- [Delete](..\api\mail-rest-operations.md#DeleteFolders) | [Move or copy](..\api\mail-rest-operations.md#MoveCopyFolders)
+**フォルダー:**&nbsp;[取得](..\api\mail-rest-operations.md#GetFolders) | [作成](..\api\mail-rest-operations.md#CreateFolders) | [更新](..\api\mail-rest-operations.md#UpdateFolders) |
+ [削除](..\api\mail-rest-operations.md#DeleteFolders) | [移動またはコピー](..\api\mail-rest-operations.md#MoveCopyFolders)
 
 
 <a name="bk_contacts"> </a>
@@ -132,11 +132,11 @@ iOS アプリ用には、[Xcode 6 内で Xcode 用 iOS SDK (現在プレビュ�
 
 [連絡先 API](..\api\contacts-rest-operations.md)
 
-**Contacts:**&nbsp;  [Get](..\api\contacts-rest-operations.md#GetContacts) | [Create](..\api\contacts-rest-operations.md#CreateContacts) |
- [Update](..\api\contacts-rest-operations.md#UpdateContacts) | [Delete](..\api\contacts-rest-operations.md#DeleteContacts) 
+**連絡先:**&nbsp; [取得](..\api\contacts-rest-operations.md#GetContacts) | [作成](..\api\contacts-rest-operations.md#CreateContacts) |
+ [更新](..\api\contacts-rest-operations.md#UpdateContacts) | [削除](..\api\contacts-rest-operations.md#DeleteContacts) 
  
 
-**Contact folders:**&nbsp;  [Get](..\api\contacts-rest-operations.md#GetContactFolders)
+**連絡先フォルダー:**&nbsp; [取得](..\api\contacts-rest-operations.md#GetContactFolders)
 
 
 <a name="bk_calendar"> </a>
@@ -145,29 +145,29 @@ iOS アプリ用には、[Xcode 6 内で Xcode 用 iOS SDK (現在プレビュ�
 
 [予定表 API](..\api\calendar-rest-operations.md)
 
-**Calendar view:**  &nbsp;  [Get](..\api\calendar-rest-operations.md#GetCalendarView) | [Sync](..\api\calendar-rest-operations.md#SyncCalendarView)
+**予定表ビュー:**&nbsp;  [取得](..\api\calendar-rest-operations.md#GetCalendarView) | [同期](..\api\calendar-rest-operations.md#SyncCalendarView)
 
-**Events:** &nbsp;  [Get](..\api\calendar-rest-operations.md#GetEvents) | [Sync](..\api\calendar-rest-operations.md#SyncCalendarView) |
- [Create](..\api\calendar-rest-operations.md#CreateEvents) |
- [Update](..\api\calendar-rest-operations.md#UpdateEvents) | [Respond](..\api\calendar-rest-operations.md#RespondToEvents) | 
- [Delete](..\api\calendar-rest-operations.md#DeleteEvents)
+**イベント:**&nbsp;  [取得](..\api\calendar-rest-operations.md#GetEvents) | [同期](..\api\calendar-rest-operations.md#SyncCalendarView) |
+ [作成](..\api\calendar-rest-operations.md#CreateEvents) |
+ [更新](..\api\calendar-rest-operations.md#UpdateEvents) | [応答](..\api\calendar-rest-operations.md#RespondToEvents) | 
+ [削除](..\api\calendar-rest-operations.md#DeleteEvents)
 
-**Attachments:** &nbsp; 
- [Get](..\api\calendar-rest-operations.md#GetAttachments) | [Create](..\api\calendar-rest-operations.md#reateAttachments) |
- [Delete](..\api\calendar-rest-operations.md#DeleteAttachments)
+**添付ファイル:**&nbsp; 
+ [取得](..\api\calendar-rest-operations.md#GetAttachments) | [作成](..\api\calendar-rest-operations.md#reateAttachments) |
+ [削除](..\api\calendar-rest-operations.md#DeleteAttachments)
  
- **Reminders:** &nbsp;
- [Get](..\api\calendar-rest-operations.md#GetReminders) | 
- [Snooze](..\api\calendar-rest-operations.md#SnoozeReminders) | 
- [Dismiss](..\api\calendar-rest-operations.md#DismissReminders)
+ **アラーム:** &nbsp;
+ [取得](..\api\calendar-rest-operations.md#GetReminders) | 
+ [再通知](..\api\calendar-rest-operations.md#SnoozeReminders) | 
+ [解除](..\api\calendar-rest-operations.md#DismissReminders)
 
-**Calendars:** &nbsp;  [Get](..\api\calendar-rest-operations.md#GetCalendars) |
- [Create](..\api\calendar-rest-operations.md#CreateCalendars) | [Update](..\api\calendar-rest-operations.md#UpdateCalendars) |
- [Delete](..\api\calendar-rest-operations.md#DeleteCalendars)
+**予定表:**&nbsp;  [取得](..\api\calendar-rest-operations.md#GetCalendars) |
+ [作成](..\api\calendar-rest-operations.md#CreateCalendars) | [更新](..\api\calendar-rest-operations.md#UpdateCalendars) |
+ [削除](..\api\calendar-rest-operations.md#DeleteCalendars)
 
-**Calendar groups:**&nbsp;   [Get](..\api\calendar-rest-operations.md#GetCalendarGroups) |
- [Create](..\api\calendar-rest-operations.md#CreateCalendarGroups) | [Update](..\api\calendar-rest-operations.md#UpdateCalendarGroups) |
- [Delete](..\api\calendar-rest-operations.md#DeleteCalendarGroups)
+**予定表グループ:**&nbsp; [取得](..\api\calendar-rest-operations.md#GetCalendarGroups) |
+ [作成](..\api\calendar-rest-operations.md#CreateCalendarGroups) | [更新](..\api\calendar-rest-operations.md#UpdateCalendarGroups) |
+ [削除](..\api\calendar-rest-operations.md#DeleteCalendarGroups)
 
 
 
@@ -175,33 +175,33 @@ iOS アプリ用には、[Xcode 6 内で Xcode 用 iOS SDK (現在プレビュ�
 
 [リソース リファレンス](..\API\complex-types-for-mail-contacts-calendar.md) 
  
- **Entities:** &nbsp;  [Calendar](..\api\complex-types-for-mail-contacts-calendar.md#CalendarResource) |
+ **エンティティ:**&nbsp;  [Calendar](..\api\complex-types-for-mail-contacts-calendar.md#CalendarResource) |
  [CalendarGroup](..\api\complex-types-for-mail-contacts-calendar.md#CalendarGroupResource) | [Contact](..\api\complex-types-for-mail-contacts-calendar.md#ContactResource) |
  [ContactFolder](..\api\complex-types-for-mail-contacts-calendar.md#ContactFolderResource) | [Event](..\api\complex-types-for-mail-contacts-calendar.md#EventResource) |
  [EventMessage](..\api\complex-types-for-mail-contacts-calendar.md#EventMessageResource) | [Extended properties](..\api\complex-types-for-mail-contacts-calendar.md#ExtendedProperties) | 
  [FileAttachment](..\api\complex-types-for-mail-contacts-calendar.md#FileAttachmentResource) | [Folder](..\api\complex-types-for-mail-contacts-calendar.md#FolderResource) |
  [ItemAttachment](..\api\complex-types-for-mail-contacts-calendar.md#ItemAttachmentResource) | [Message](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource) |
- [Task (preview)](..\api\complex-types-for-mail-contacts-calendar.md#TaskResource) | [TaskFolder (preview)](..\api\complex-types-for-mail-contacts-calendar.md#TaskFolderResource) | 
- [TaskGroup (preview)](..\api\complex-types-for-mail-contacts-calendar.md#TaskGroupResource) | 
+ [Task (プレビュー)](..\api\complex-types-for-mail-contacts-calendar.md#TaskResource) | [TaskFolder (プレビュー)](..\api\complex-types-for-mail-contacts-calendar.md#TaskFolderResource) | 
+ [TaskGroup (プレビュー)](..\api\complex-types-for-mail-contacts-calendar.md#TaskGroupResource) | 
  [User](..\api\complex-types-for-mail-contacts-calendar.md#UserResource) 
  
- **Complex types:** &nbsp;   [Attendee](..\api\complex-types-for-mail-contacts-calendar.md#Attendee) | 
- [AttendeeBase](..\api\complex-types-for-mail-contacts-calendar.md#AttendeeBase) (preview) |  [AttendeeAvailability](..\api\complex-types-for-mail-contacts-calendar.md#AttendeeAvailability) (preview) |  [DateTimeTimeZone](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZoneBeta) | 
+ **複合型:**&nbsp;   [Attendee](..\api\complex-types-for-mail-contacts-calendar.md#Attendee) | 
+ [AttendeeBase](..\api\complex-types-for-mail-contacts-calendar.md#AttendeeBase) (プレビュー) |  [AttendeeAvailability](..\api\complex-types-for-mail-contacts-calendar.md#AttendeeAvailability) (プレビュー) |  [DateTimeTimeZone](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZoneBeta) | 
  [EmailAddress](..\api\complex-types-for-mail-contacts-calendar.md#EmailAddress) | 
  [GeoCoordinates](..\api\complex-types-for-mail-contacts-calendar.md#GeoCoordinates) | 
  [ItemBody](..\api\complex-types-for-mail-contacts-calendar.md#ItemBody)  | 
- [Location](..\api\complex-types-for-mail-contacts-calendar.md#Location) (preview) |  [LocationConstraint](..\api\complex-types-for-mail-contacts-calendar.md#LocationConstraint) (preview) |  [MeetingTimeCandidate](..\api\complex-types-for-mail-contacts-calendar.md#MeetingTimeCandidate) (preview) |  [PatternedRecurrence](..\api\complex-types-for-mail-contacts-calendar.md#PatternedRecurrence) | 
+ [Location](..\api\complex-types-for-mail-contacts-calendar.md#Location) (プレビュー) |  [LocationConstraint](..\api\complex-types-for-mail-contacts-calendar.md#LocationConstraint) (プレビュー) |  [MeetingTimeCandidate](..\api\complex-types-for-mail-contacts-calendar.md#MeetingTimeCandidate) (プレビュー) |  [PatternedRecurrence](..\api\complex-types-for-mail-contacts-calendar.md#PatternedRecurrence) | 
  [PhysicalAddress](..\api\complex-types-for-mail-contacts-calendar.md#PhysicalAddress) | 
  [Recipient](..\api\complex-types-for-mail-contacts-calendar.md#Recipient) | 
  [RecurrencePattern](..\api\complex-types-for-mail-contacts-calendar.md#RecurrencePattern) | 
  [RecurrenceRange](..\api\complex-types-for-mail-contacts-calendar.md#RecurrenceRange) | 
  [ResponseStatus](..\api\complex-types-for-mail-contacts-calendar.md#ResponseStatus) | 
- [TimeConstraint](..\api\complex-types-for-mail-contacts-calendar.md#TimeConstraint) (preview) |  [TimeSlot](..\api\complex-types-for-mail-contacts-calendar.md#TimeSlot) (preview) |  [TimeStamp](..\api\complex-types-for-mail-contacts-calendar.md#TimeStamp) (preview) 
+ [TimeConstraint](..\api\complex-types-for-mail-contacts-calendar.md#TimeConstraint) (プレビュー) |  [TimeSlot](..\api\complex-types-for-mail-contacts-calendar.md#TimeSlot) (プレビュー) |  [TimeStamp](..\api\complex-types-for-mail-contacts-calendar.md#TimeStamp) (プレビュー) 
  
  
- **OData query parameters:** &nbsp;  [$search](..\api\complex-types-for-mail-contacts-calendar.md#Search) | 
+ **OData クエリ パラメーター:** &nbsp;  [$search](..\api\complex-types-for-mail-contacts-calendar.md#Search) | 
  [$filter](..\api\complex-types-for-mail-contacts-calendar.md#Filter) | [$select](..\api\complex-types-for-mail-contacts-calendar.md#Select) | 
- [$orderby](..\api\complex-types-for-mail-contacts-calendar.md#OrderBy) | [$top and $skip](..\api\complex-types-for-mail-contacts-calendar.md#TopSkip) | 
+ [$orderby](..\api\complex-types-for-mail-contacts-calendar.md#OrderBy) | [$top および $skip](..\api\complex-types-for-mail-contacts-calendar.md#TopSkip) | 
  $expand | [$count](..\api\complex-types-for-mail-contacts-calendar.md#Count) 
 
 <a name="bk_notify"> </a>
@@ -224,8 +224,8 @@ iOS アプリ用には、[Xcode 6 内で Xcode 用 iOS SDK (現在プレビュ�
 
 [探索サービス API](..\api\discovery-service-rest-operations.md)
 
-[Initial sign in](..\api\discovery-service-rest-operations.md#DiscoveryServiceoperationsInitialsignin) |
- [Discover specific services](..\api\discovery-service-rest-operations.md#DiscoveryServiceoperationsDiscoverspecificservices) | [Learn what services are discoverable](..\api\discovery-service-rest-operations.md#DiscoveryServiceoperationsLearnwhatservicesarediscoverable)
+[最初のサインイン](..\api\discovery-service-rest-operations.md#DiscoveryServiceoperationsInitialsignin) |
+ [特定のサービスの検出](..\api\discovery-service-rest-operations.md#DiscoveryServiceoperationsDiscoverspecificservices) | [検出可能なサービスについて](..\api\discovery-service-rest-operations.md#DiscoveryServiceoperationsLearnwhatservicesarediscoverable)
 
 
 <a name="bk_files"> </a>
@@ -241,23 +241,24 @@ iOS アプリ用には、[Xcode 6 内で Xcode 用 iOS SDK (現在プレビュ�
 
 [ビデオ API](../api/video-rest-operations.md)
 
-**Video portal:** &nbsp; 
-  [Get information](..\api\video-rest-operations.md#GetPortalInformation)
+**ビデオ ポータル:**&nbsp; 
+  [情報の取得](..\api\video-rest-operations.md#GetPortalInformation)
   
-**Channels:** &nbsp; 
-  [Get information](..\api\video-rest-operations.md#GetChannelsInfo) 
+**チャネル:**&nbsp; 
+  [情報の取得](..\api\video-rest-operations.md#GetChannelsInfo) 
   
-**Video information:** &nbsp; 
-  [Get](..\api\video-rest-operations.md#GetVideoInfo) | [Update video metadata](..\api\video-rest-operations.md#UpdateVideo) 
+**ビデオの情報:**&nbsp; 
+  [取得](..\api\video-rest-operations.md#GetVideoInfo) | [ビデオ メタデータの更新](..\api\video-rest-operations.md#UpdateVideo) 
   
-**Videos:** &nbsp; 
-  [Upload](..\api\video-rest-operations.md#UploadVideos) | [Delete](..\api\video-rest-operations.md#DeleteVideos) 
+**ビデオ:** &nbsp; 
+  [アップロード](..\api\video-rest-operations.md#UploadVideos) | [削除](..\api\video-rest-operations.md#DeleteVideos) 
 
 ##21Vianet が運用している Office 365 の API リソースおよびサービス エンドポイント
 [21Vianet が運用している Office 365 の API エンドポイント](..\api\o365-china-endpoints.md)
 
 ##Office 365 管理 API
-[Getting started](https://msdn.microsoft.com/library/office/dn707383.aspx) | [Service Communications API (preview)](https://msdn.microsoft.com/EN-US/library/dn707386.aspx) | [Management Activity API Reference (preview)](https://msdn.microsoft.com/library/office/mt227394.aspx) | [Reporting web service](https://msdn.microsoft.com/en-us/library/office/jj984325.aspx) 
+
+  [はじめに](https://msdn.microsoft.com/library/office/dn707383.aspx) | [サービス通信 API (プレビュー)](https://msdn.microsoft.com/EN-US/library/dn707386.aspx) | [管理アクティビティ API リファレンス (プレビュー)](https://msdn.microsoft.com/library/office/mt227394.aspx) | [レポート Web サービス](https://msdn.microsoft.com/en-us/library/office/jj984325.aspx) 
 
 ##その他の技術情報
 
@@ -266,15 +267,15 @@ iOS アプリ用には、[Xcode 6 内で Xcode 用 iOS SDK (現在プレビュ�
 
 ###Office 365 プラットフォームの概要
 
-Office 365 プラットフォーム上での開発の概要  Office 365 開発環境のセットアップ 
+[Office 365 プラットフォーム上での開発の概要](..\howto\platform-development-overview.md) | [Office 365 開発環境のセットアップ](..\howTo\setup-development-environment.md) 
 
-[Getting Started with Office 365APIs](..\howto\getting-started-Office-365-APIs.md) 
+[Office 365 API を使う](..\howto\getting-started-Office-365-APIs.md) 
 
 ###Office 365 のアクセス許可スコープ
 [Office 365 のすべてのアクセス許可スコープの詳細](..\howto\application-manifest.md)
 
 ###Microsoft パートナー センターの API リファレンス
-パートナーは、CSP Commerce REST API を使用して、Microsoft Commerce Platform での顧客アカウントの作成、顧客プロファイルの管理ができます。また、顧客向け Microsoft 製品の注文とサブスクリプションを購入および管理できます。 
+パートナーは、[CSP Commerce REST API](https://msdn.microsoft.com/en-us/library/partnercenter/dn974944.aspx) を使用して、Microsoft Commerce Platform での顧客アカウントの作成、顧客プロファイルの管理ができます。また、顧客向け Microsoft 製品の注文とサブスクリプションを購入および管理できます。 
 
 
 

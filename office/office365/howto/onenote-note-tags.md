@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Use note tags
 title: "ノート シールを使用する"
-description: "Add, update, and retrieve OneNote note tags."
+description: "OneNote のノート シールを追加、更新、取得します。"
 ms.ContentId: 8521e2bf-eca6-4e9b-8377-6babb2846f7c
 ms.date: January 19, 2016
 ---
@@ -11,56 +11,57 @@ ms.date: January 19, 2016
 
 # ノート シールを使用する
 
-*__Applies to:__ Consumer notebooks on OneDrive | Enterprise notebooks on Office 365*
+*__適用対象:__OneDrive のコンシューマー ノートブック | Office 365 のエンタープライズ ノートブック*
 
-次の図に示すように、data-tag`data-tag` 属性を使用してチェック ボックス、星、その他の組み込みノート シールを OneNote ページに追加したり、更新したりします。
+次の図に示すように、`data-tag` 属性を使用してチェック ボックス、星、その他の組み込みノート シールを OneNote ページに追加したり、更新したりします。
 <br />
 
-![OneNote ページに表示される 3 つのノート シール](images\onenote\note-tags-example.png)
+![OneNote ページに表示される 3 つのノート シール。](images\onenote\note-tags-example.png)
 
 <a name="attributes"></a>
 ## ノート シールの属性
 
-OneNote ページの HTML では、ノート シールは data-tag`data-tag` 属性として示されます。次に例を示します。 次に例を示します。
+OneNote ページの HTML では、ノート シールは `data-tag` 属性として示されます。 次に例を示します。
 
-<p id="indent">チェックが付けられていない To Do ボックス:  <p data-tag="to-do"><p data-tag="to-do">`</p>
-<p id="indent">A checked to-do box:  `<p data-tag="to-do:completed">`</p>
-<p id="indent">A star:  `<h2 data-tag="important">`</p>
+<p id="indent">チェック マークのない To Do ホックス:  `<p data-tag="to-do">`</p>
+<p id="indent">チェック マークのある To Do ホックス:  `<p data-tag="to-do:completed">`</p>
+<p id="indent">星:  `<h2 data-tag="important">`</p>
 
-data-tag`data-tag` の値は shape で構成されますが、status の場合もあります (*すべてのサポートされる値を参照*)。 (*see all [supported values](#built-in-tags)*)
+`data-tag` の値は shape で構成されますが、status の場合もあります。 (*すべての[サポートされる値](#built-in-tags)をご覧ください*)
 
 | プロパティ | 説明 |  
 |:------|:------|  
-| shape | ノート シールの識別子 (例: to-do`to-do` または important`important`)。 |  
-| status | The status of check-box note tags. チェック ボックス ノート シールの状態。チェック ボックスを完了状態に設定する場合にのみ使用します。 |  
+| shape | ノート シールの識別子 (例: `to-do` または `important`)。 |  
+| status | チェック ボックス ノート シールの状態。 チェック ボックスを完了状態に設定する場合にのみ使用します。 |  
  
 
 <a name="note-tags"></a>
 ## ノート シールの追加または更新
 
-組み込みのノート シールは、サポートされた要素で data-tag`data-tag` 属性を使用するだけで、追加したり更新したりすることができます。たとえば、重要としてマークされた段落があるとします。 For example, here's a paragraph marked as important:
+組み込みのノート シールは、サポートされた要素で `data-tag` 属性を使用するだけで、追加したり更新したりすることができます。 例として、important というマークが付けられた段落を次に示します。
 
 ```
 <p data-tag="important">...</p>
 ```
 
-複数のノート シールをコンマで区切ります。
+複数のノート シールはコンマで区切ります。
 
 ```
 <p data-tag="important, critical">...</p>
 ```
 
-次の要素の data-tag`data-tag` を定義できます。
+次に示す要素で、`data-tag` を定義できます。
 
 <p id="indent">p</p>
-<p id="indent">ul、ol、li (*詳細については、リストのノート シールを参照*)</p>
+<p id="indent">ul、ol、li (*詳細については、「[リストのノート シール](#note-tags-lists)」を参照*)</p>
 <p id="indent">img</p>
-<p id="indent">h1 - h6</p>
+<p id="indent">h1 から h6</p>
 <p id="indent">title</p>
 
 OneNote API で使用できるノート シールのリストの[組み込みのノート シール](#built-in-tags) を参照してください。OneNote API を使用したカスタム シールの追加または更新はサポートされていません。
  
-<br />例
+<br />
+**例**
 
 最初の項目が完了状態の簡単な To Do リストを以下に示します。
 
@@ -70,7 +71,7 @@ OneNote API で使用できるノート シールのリストの[組み込みの
 <p data-tag="to-do" data-id="summer">Plant tomatoes and peppers</p>
 ```
 
-Note that the `<p>` tags above each include a `data-id` attribute. This makes it easier to update the check-box note tags. For example, the following request marks the spring planting to-do item as completed.
+上記の `<p>` タグには、それぞれ `data-id` 属性が含まれている点に注意してください。 このようにすると、チェック ボックス ノート シールの更新が簡単になります。 たとえば、次に示す要求では、春植え (spring planting) の To Do 項目に完了のマークを付けます。
 
 ``` 
 PATCH https://www.onenote.com/api/v1.0/me/notes/pages/{page-id}/content
@@ -87,7 +88,7 @@ Authorization: Bearer {token}
 ]
 ```
 
-次の要求は、すべての[組み込みノート シール](#built-in-tags)を含んだページを作成します。
+次に示す要求では、すべての[組み込みノート シール](#built-in-tags)を含んだページを作成します。
 
 ``` 
 POST https://www.onenote.com/api/v1.0/me/notes/pages
@@ -158,7 +159,7 @@ Authorization: Bearer {token}
 </html>
 ``` 
 
-ページ作成の詳細については、「[OneNote ページの作成」を参照してください。ページ更新の詳細については、「OneNote ページの更新](../howto/onenote-create-page.md)」を参照してください。 ページ作成の詳細については、「OneNote ページの作成」を参照してください。ページ更新の詳細については、「[OneNote ページの更新](../howto/onenote-update-page.md)」を参照してください。
+ページ作成の詳細については、「[OneNote ページの作成](../howto/onenote-create-page.md)」を参照してください。 ページ更新の詳細については、「[OneNote ページの更新](../howto/onenote-update-page.md)」を参照してください。
 
 
 <a name="note-tags-lists"></a>
@@ -166,37 +167,37 @@ Authorization: Bearer {token}
 
 リストのノート シールの処理方法に関するいくつかのガイドラインを次に示します。
 
-- Use `p` elements for to-do lists. To Do リストには p 要素を使用します。この要素は段落記号や行番号を表示しません。また、簡単に更新できます。
+- To Do リストには、`p` 要素を使用します。 この要素は行頭文字や行頭番号を表示しません。また、簡単に更新できます。
 
 - すべてのリスト項目に対して**同じ**ノート シールを表示するリストを作成または更新する場合は、次の操作を実行します。
   
-   <p id="indent">Define `data-tag` on the `ul` or `ol`. ul`data-tag` または ol`ul` の data-tag を定義します。リスト全体を更新するには、ul または ol の data-tag を再定義する必要があります。`ol`</p>
+   <p id="indent">`ul` または `ol` に `data-tag` を定義します。 リスト全体を更新するには、`ul` または `ol` に `data-tag` を再定義する必要があります。</p>
 
-- 一部またはすべてのリスト項目に対して**一意の**ノート シールを表示するリストを作成または更新する場合は、次の操作を実行します。
+- 一部またはすべてのリスト項目に対して**一意**のノート シールを表示するリストを作成または更新する場合は、次の操作を実行します。
   
-   <p id="indent">Define `data-tag` on `li` elements, and don't nest the `li` elements in a `ul` or `ol`. li`ul` 要素の data-tag`li` を定義します。ul または ol 内の li 要素を入れ子にしてはいけません。リスト全体を更新するには、出力 HTML に返される ul を削除して、入れ子になっていない li 要素のみを提供する必要があります。</p>
+   <p id="indent">`li` 要素に `data-tag` を定義します。この `li` 要素は、`ul` または `ol` でネストしてはいけません。 リスト全体を更新するには、出力 HTML で返される `ul` を削除して、ネストされていない `li` 要素のみを指定する必要があります。</p>
 
-- 特定の li`li` 要素を更新するには、次の操作を実行します。
+- 特定の `li` 要素を更新するには、次の操作を実行します。
 
-   <p id="indent">Target the `li` elements individually and define the `data-tag` on the `li` element. 複数の li`li` 要素をそれぞれターゲットにして、li 要素の data-tag を定義します。対応するそれぞれの li 要素は、一意のノート シールを表示するように更新できます。リストがどのように定義されていたかは関係ありません。</p>
+   <p id="indent">それぞれの `li` 要素を個別にターゲットにして、`li` 要素に `data-tag` を定義します。 個別に処理された `li` 要素は、元のリストがどのように定義されていても、一意のノート シールを表示するように更新できます。</p>
 
 ガイドラインは OneNote API により適用される次の規則に基づいています。
 
-- The `data-tag` setting for a `ul` or `ol` overrides all settings on child `li` elements. ul`ul` または ol`ol` の data-tag`data-tag` の設定は、子の li`li` 要素ですべての設定を上書きします。これは、ul または ol は data-tag を指定しないが、その子の li 要素は指定する場合でも適用されます。
+- `ul` または `ol` の `data-tag` 設定は、子 `li` 要素の設定をすべて上書きします。 これは、子 `li` 要素でのみ `data-tag` を指定している (`ul` または `ol` では指定していない) 場合にも当てはまります。
 
-   For example, if you create a `ul` or `ol` that defines `data-tag="project-a"`, all its list items will display the *Project A* note tag. Or if the `ul` or `ol` doesn't define a `data-tag`, none of its items will display a note tag. This override happens regardless of any explicit settings on child `li` elements.
+   たとえば、`data-tag="project-a"` を定義している `ul` または `ol` を作成すると、そのリスト項目のすべてが *Project A* ノート シールを表示するようになります。 また、`ul` または `ol` で `data-tag` を定義していない場合は、そのどの項目にもノート シールが表示されなくなります。 この上書きは、子 `li` 要素の明示的な設定に関係なく発生します。
 
-- 以下の条件下では、固有の data-tag`data-tag` 設定がリスト項目に適用されます。
+- 次に示す条件下では、固有の `data-tag` 設定がリスト項目に適用されます。
 
-   - 作成または更新要求では、li`li` 要素が ul`ul` や ol`ol` で入れ子になることはありません。
+   - 作成要求または更新要求で、`li` 要素が `ul` または `ol` 内でネストされていない。
 
-   - 更新要求では、li`li` 要素が個別に処理されます。
+   - 更新要求で、`li` 要素が個別に処理される。
 
-- 入力 HTML で送信される、入れ子になっていないli`li` 要素は、出力 HTML では ul`ul` で返されます。
+- 入力 HTML で送信されるネストされていない `li` 要素は、出力 HTML では `ul` で返されます。
 
-- 出力 HTML では、すべての data-tag`data-tag` リストの設定はリスト項目の span`span` 要素で定義されます。
+- 出力 HTML では、すべての `data-tag` リストの設定が、リスト項目の `span` 要素で定義されます。
 
-<br />次のコードは、これらの規則の一部がどのように適用されるかを示しています。入力 HTML は、ノート シールが含まれる 2 つのリストを作成します。出力 HTML は、ページ コンテンツを取得するときに返されるリストです。
+<br /> 次のコードは、これらの規則の一部がどのように適用されるかを示しています。入力 HTML は、ノート シールが含まれる 2 つのリストを作成します。出力 HTML は、ページ コンテンツを取得するときに返されるリストです。
 
 **入力 HTML**
 
@@ -233,7 +234,7 @@ Authorization: Bearer {token}
 
 <p id="indent">`GET ../api/v1.0/pages/{page-id}/content`</p>
 
-出力 HTML の data-tag`data-tag` 属性には shape 値が必ず含まれます。status が含まれるのは、completed に設定されているチェック ボックス ノート シールを表す場合のみです。以下の例は、ノート シールを作成するために使用される HTML と、戻される出力 HTML を示しています。 The following examples show the input HTML used to create some note tags and the output HTML that's returned.
+出力 HTML 内の `data-tag` 属性には、常に shape 値が含まれています。完了状態に設定されたチェック ボックス ノート シールを表す場合にのみ status も含まれます。 次の例は、いくつかのノート シールを作成する作成する入力 HTML と、返される出力 HTML を示しています。
 
 **入力 HTML**
 
@@ -263,22 +264,22 @@ Authorization: Bearer {token}
 </ul>
 ```
 
-リスト レベルで定義されている data-tag`data-tag` 属性は、そのリスト項目にプッシュされます。リストとノート シールの併用の詳細については、「リストのノート シール」を参照してください。 リスト レベルで定義されている data-tag 属性は、そのリスト項目にプッシュされます。リストとノート シールの併用の詳細については、「[リストのノート シール](#note-tags-lists)」を参照してください。
+リスト レベルで定義された `data-tag` 属性がリスト項目にプッシュされている点に注目してください。 リストにノート シールを使用することに関する詳細については、「[リストのノート シール](#note-tags-lists)」を参照してください。
 
->>出力 HTML では、定義も remember-for-later ノート シールも data-tag="remember-for-later" として返されます。title 要素はノート シールの情報を返しません。 要素は、ノート シール情報を何も戻しません。
+>出力 HTML では、[定義] ノート シールと [要確認] ノート シールが、どちらも `data-tag="remember-for-later"` として返されます。 `title` 要素はノート シールの情報を返しません。
 
 <a name="built-in-tags"></a>
 ## OneNote の組み込みノート シール
 
 OneNote には、次に示す組み込みのノート シールが用意されています。
 
-![All built-in note tags.](images\onenote\note-tags-all.png)
+![すべての組み込みノート シール。](images\onenote\note-tags-all.png)
 
-以下に、data-tag`data-tag` 属性に割り当て可能な値を示します。 Custom tags are not supported.
+`data-tag` 属性に割り当てられる値は、次のとおりです。 カスタムのシールはサポートされていません。
 
 **shape[:status]**
 
-to-do<br />to-do:completed
+To Do<br />to-do:completed
  
 important
 
@@ -316,25 +317,25 @@ music-to-listen-to
  
 source-for-article
  
-remember-for-blog
+ブログの題材
  
-discuss-with-person-a<br />discuss-with-person-a:completed
+相談 a<br />discuss-with-person-a:completed
 
-discuss-with-person-b<br />discuss-with-person-b:completed
+相談 b<br />discuss-with-person-b:completed
 
-discuss-with-manager<br />discuss-with-manager:completed
+上司と相談<br />discuss-with-manager:completed
 
 send-in-email
  
-schedule-meeting<br />schedule-meeting:completed
+会議を設定<br />schedule-meeting:completed
 
-call-back<br />call-back:completed
+要連絡<br />call-back:completed
  
-to-do-priority-1<br />to-do-priority-1:completed
+To Do 優先度 1<br />to-do-priority-1:completed
  
-to-do-priority-2<br />to-do-priority-2:completed
+To Do 優先度 2<br />to-do-priority-2:completed
 
-client-request<br />client-request:completed
+顧客からの依頼<br />client-request:completed
 
 
 <a name="request-response-info"></a>
@@ -344,8 +345,8 @@ OneNote API は、次の情報を応答で返します。
 | 応答データ | 説明 |  
 |------|------|  
 | 成功コード | 成功した POST 要求に対しては 201 HTTP ステータス コード、成功した PATCH 要求に対しては 204 HTTP ステータス コードが戻ります。 |  
-| エラー | <p>次のいずれかの条件により、応答の **api.diagnostics** プロパティに警告が表示されます。</p><ul><li>要求に、無効な data-tag`data-tag` 属性値が含まれています。</li><li>The request contains an invalid `data-tag` status value. Checkbox note tags can have a `completed` status.</li></ul> |  
-| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行うときに、この値を Date ヘッダーの値とともに使用できます。 |  
+| エラーまたは警告 | <p>次に示すいずれかの条件が成立する場合は、応答の **api.diagnostics** プロパティで警告を受け取ることになります。</p><ul><li>要求に、無効な `data-tag` 属性値が含まれている。</li><li>要求に、無効な `data-tag` ステータス値が含まれている。 チェックボックスのノート シールには、`completed` ステータス値を指定できます。</li></ul> |  
+| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行う際に、この値を Date ヘッダーの値とともに使用できます。 |  
 
 
 <a name="permissions"></a>
@@ -365,11 +366,11 @@ OneNote ページを作成または更新するには、適切なアクセス許
 
 
 <a name="see-also"></a>
-## その他の技術情報
+## その他のリソース
 
 - [OneNote ページの作成](../howto/onenote-create-page.md)
 - [OneNote ページ コンテンツを更新する](../howto/onenote-update-page.md)
-- [OneNote 開発](../howto/onenote-landing.md)
+- [OneNote の開発](../howto/onenote-landing.md)
 - [OneNote デベロッパー センター](http://dev.onenote.com/)
 - [OneNote の開発者ブログ](http://go.microsoft.com/fwlink/?LinkID=390183)
 - [スタック オーバーフローに関する OneNote の開発の質問](http://go.microsoft.com/fwlink/?LinkID=390182)

@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Add images, videos, and files
-title: "OneNote ページにイメージとファイルを追加する" 
-description: "Learn how to add images, webpage snapshots, embedded videos, and file attachments to OneNote pages."
+title: "OneNote ページに画像、ビデオ、ファイルを追加する" 
+description: "OneNote ページに画像、Web ページのスナップショット、埋め込みビデオ、添付ファイルを追加する方法について説明します。"
 ms.ContentId: cdee3bca-0da3-4225-9e31-7e0fb519a607
 ms.date: July 5, 2016
 
@@ -9,18 +9,18 @@ ms.date: July 5, 2016
 [!INCLUDE [Add the O365API repo styles](../includes/controls/addo365apistyles.xml)]
 [!INCLUDE [Add the ONAPI repo styles](../includes/controls/addonapistyles.xml)]
 
-<style>##indent {margin:0px 0px 0px 25px;} #outdent {margin:0px 0px 0px 7px;} #tb-padding {margin:10px 0px 10px 0px;}</style>
+<style>#indent {margin:0px 0px 0px 25px;} #outdent {margin:0px 0px 0px 7px;} #tb-padding {margin:10px 0px 10px 0px;}</style>
 
 
-# OneNote ページにイメージとファイルを追加する
+# OneNote ページに画像、ビデオ、ファイルを追加する
 
-*__Applies to:__ Consumer notebooks on OneDrive | Enterprise notebooks on Office 365*
+*__適用対象:__OneDrive のコンシューマー ノートブック | Office 365 のエンタープライズ ノートブック*
 
-You can use **img**, **object**, and **iframe** elements to add images, videos, and files to a OneNote page when you're [creating](../howto/onenote-create-page.md) or [updating](../howto/onenote-update-page.md) the page. 
+**img**、**object**、および **iframe** 要素を使用すると、OneNote ページの[作成](../howto/onenote-create-page.md)時や[更新](../howto/onenote-update-page.md)時に、画像、ビデオ、およびファイルをページに追加できます。 
 
-- Use **img** to render an image on the page.
-- Use **iframe** to embed a video on the page.
-- Use **object** to add a file attachment to the page.
+- **img** を使用して、ページに画像を表示します。
+- **iframe** を使用して、ページにビデオを埋め込みます。
+- **object** を使用して、ページに添付ファイルを追加します。
 
 <a name="images"></a>
 ## 画像を追加する
@@ -28,30 +28,30 @@ You can use **img**, **object**, and **iframe** elements to add images, videos, 
 URL の参照または生データの送信によって、画像を追加できます。OneNote API では、OneNote ページに画像、ロゴ、および写真を追加する次の方法がサポートされています。 
 
 <p id="outdent">[Web からパブリック イメージを追加する](#image-img-url-src)</p>
-<p id="indent">img`img` と src="http://image-url"`src="http://image-url"` を使用し、公開されていてアクセス可能な画像の URL を指定します。OneNote ページに画像を表示します。 Renders the image on the OneNote page.</p>
+<p id="indent">`img` と `src="http://image-url"` を使用します。パブリックにアクセス可能な画像の URL を指定します。 OneNote ページに画像を表示します。</p>
 <p id="outdent">[バイナリ データを使用して画像を追加する](#image-img-binary-src)</p>
-<p id="indent">img`img` と src="name:image-block-name"`src="name:image-block-name"` を使用し、マルチパート要求のデータ部分で画像ファイルを送信します。OneNote ページに画像を表示します。 Renders the image on the OneNote page.</p>
+<p id="indent">`img` と `src="name:image-block-name"` を使用します。マルチパート要求のデータ部分で画像ファイルを送信します。 OneNote ページに画像を表示します。</p>
 <p id="outdent">[Web ページのスナップショットを追加する](#image-img-url-data-render-src)</p>
-<p id="indent">Use `img` with `data-render-src="http://webpage-url"` and specify the URL of a webpage. img と data-render-src="http://webpage-url" を使用し、Web ページの URL を指定します。OneNote ページで Web ページ全体のスナップショットを表示します。</p>
+<p id="indent">`img` と `data-render-src="http://webpage-url"` を使用します。Web ページの URL を指定します。 OneNote ページで Web ページ全体のスナップショットを表示します。</p>
 <p id="outdent">[HTML から表示される画像を追加する](#image-img-binary-data-render-src)</p>
-<p id="indent">img`img` と data-render-src="name:html-block-name"`data-render-src="name:html-block-name"` を使用して、マルチパート要求のデータ部分で HTML を送信します。OneNote ページに画像として HTML を表示します。 Renders the HTML as an image on the OneNote page.</p>
-<p id="outdent">[Add images of PDF file contents](#file-img-binary-data-render-src)</p>
-<p id="indent">Use `<img data-render-src="name:part-name" />` and send the PDF file in the data part of a multipart request.  を使用して、マルチパート要求のデータ部分で PDF ファイルを送信します。OneNote ページの個別の画像として、PDF の各ページを表示します。</p>
-<p id="outdent">[添付ファイルとして埋め込まれている画像ファイルを追加する](#image-object)</p>
-<p id="indent">object`object` と data="name:file-block-name" data-attachment="file-name.file-ext" type="media-type"`data="name:file-block-name" data-attachment="file-name.file-ext" type="media-type"` を使用して、マルチパート要求のデータ部分で画像ファイルを送信します。添付ファイルを OneNote ページに追加し、埋め込まれたファイルのアイコンを表示します。 Adds a file attachment to the OneNote page and displays a file icon.</p>
+<p id="indent">`img` と `data-render-src="name:html-block-name"` を使用します。マルチパート要求のデータ部分で HTML を送信します。 OneNote ページに画像として HTML を表示します。</p>
+<p id="outdent">[PDF ファイルのコンテンツの画像を追加する](#file-img-binary-data-render-src)</p>
+<p id="indent">`<img data-render-src="name:part-name" />` を使用します。マルチパート要求のデータ部分で PDF ファイルを送信します。 OneNote ページの個別の画像として、PDF の各ページを表示します。</p>
+<p id="outdent">[添付ファイルとして画像ファイルを追加する](#image-object)</p>
+<p id="indent">`object` と `data="name:file-block-name" data-attachment="file-name.file-ext" type="media-type"` を使用します。マルチパート要求のデータ部分で画像ファイルを送信します。 添付ファイルを OneNote ページに追加して、ファイルのアイコンを表示します。</p>
 
->To get images on a OneNote page, first send a [GET request for the page content](../howto/onenote-get-content.md#get-page-content). This returns the URLs to the image resources on the page. Then you separate [GET requests to the image resources](../howto/onenote-get-content.md#get-resource).
+>OneNote ページで画像を取得するには、最初に[ページのコンテンツの GET 要求](../howto/onenote-get-content.md#get-page-content)を送信します。 これにより、ページで画像リソースへの URL を返します。 次に、[画像リソースに対する GET 要求](../howto/onenote-get-content.md#get-resource)を分離します。
 
 <br />
 ### 画像の属性
 
-**img** 要素には、**alt**、**height**、および **width** 属性をオプションで含めることができ、スタイル属性の **max-width** と **max-height** を含めることができます。
+**img** 要素には、**alt**、**height**、**width** 属性をオプションで含めることができ、スタイル属性の **max-width** と **max-height** を含めることができます。
 
-### 画像メディア タイプ
+### 画像のメディア タイプ
 
 OneNote API では、TIFF、PNG、GIF、JPEG、BMP の画像タイプがサポートされています。変換を望まない別の形式を使用する画像をキャプチャするには、マルチパート要求の[バイナリ データを送信](#image-img-binary-src)します。Base64 を使用する必要はなく、送信するバイナリ データをエンコードする必要もありません。
 
->> API は元の入力画像の種類を検出し、それを data-fullres-src-type として出力 HTML で返します。またこの API は、data-src-type で最適化された画像の画像タイプを返します。 The API also returns the image type of the optimized image in **data-src-type**.
+>API は元の入力画像の種類を検出し、それを **data-fullres-src-type** として[出力 HTML](../howto/onenote-input-output-html.md#image-output) で返します。 API は、**data-src-type** で最適化された画像の種類も返します。
  
 メディアを含むページを作成する場合に適用する[制限](#size-limits)を確認してください。
 
@@ -87,7 +87,8 @@ Content-Type: text/html
 <a name="image-img-binary-src"></a>
 ### バイナリ データを使用して画像を追加する
 
-要求の **Presentation** 部分の入力 HTML に、`<img src="name:part-name" />` を含めます。ここで、*part-name* は、バイナリ画像データを含む[マルチパート要求](../howto/onenote-create-page.md#example)のデータ部分の一意識別子です。バイナリ データのみを送信し、Base64 を使用したりエンコードしたりしないでください。 画像データはバイナリ ファイル データです。Base64 やその他の方式でエンコードしないでください。
+要求の **Presentation** 部分の入力 HTML に、`<img src="name:part-name" />` を含めます。ここで、*part-name* は、バイナリ画像データを含む[マルチパート要求](../howto/onenote-create-page.md#example) 
+のデータ部分の一意識別子です。 バイナリ データのみを送信し、Base64 を使用したりエンコードしたりしないでください。
 
 ```
 Content-Type: multipart/form-data; boundary=MyAppPartBoundary
@@ -152,7 +153,8 @@ Content-Type: text/html
 ### HTML から表示される画像を追加する
 HTML をデータ ブロックとして渡す場合、ユーザーの資格情報または事前に読み込まれたブラウザー プラグインを必要とするアクティブ コンテンツがないことを確認してください。HTML ページを画像にレンダリングするために OneNote API が使用するエンジンには、ユーザーにログインする機能はありません。また、Adobe Flash、Apple QuickTime などのプラグインも組み込みません。これはまた、データの取得にユーザー ログイン資格情報または Cookie を必要とする場合、動的に読み込まれるコンテンツ (AJAX スクリプトを伴うなど) を表示できないことも意味します。
 
-要求の **Presentation** 部分の入力 HTML に、`<img data-render-src="name:part-name" />` を含めます。ここで、*part-name* は、HTML を含む[マルチパート要求](../howto/onenote-create-page.md#example)のデータ部分の一意識別子です。
+要求の **Presentation** 部分の入力 HTML に、`<img data-render-src="name:part-name" />` を含めます。ここで、*part-name* は、HTML を含む[マルチパート要求](../howto/onenote-create-page.md#example) 
+のデータ部分の一意識別子です。
 
 ```
 Content-Type: multipart/form-data; boundary=MyAppPartBoundary
@@ -191,9 +193,10 @@ it won't work. Instead, use URL-based real images like this:</p>
 ```
 
 <a name="image-object"></a>
-### 添付ファイルとして埋め込まれている画像ファイルを追加する
+### 添付ファイルとして画像ファイルを追加する
 
-要求の **Presentation** 部分の入力 HTML に、`<object data="name:part-name" data-attachment="file-name.file-ext" type="media-type/media-subtype" />` を含めます。ここで、*part-name* は、バイナリ画像データを含む[マルチパート要求](../howto/onenote-create-page.md#example)のデータ部分の一意識別子です。バイナリ データのみを送信し、Base64 を使用したりエンコードしたりしないでください。 画像データはバイナリ ファイル データです。Base64 やその他の方式でエンコードしないでください。
+要求の **Presentation** 部分の入力 HTML に、`<object data="name:part-name" data-attachment="file-name.file-ext" type="media-type/media-subtype" />` を含めます。ここで、*part-name* は、バイナリ画像データを含む[マルチパート要求](../howto/onenote-create-page.md#example) 
+のデータ部分の一意識別子です。 バイナリ データのみを送信し、Base64 を使用したりエンコードしたりしないでください。
 
 ```
 Content-Type: multipart/form-data; boundary=MyAppPartBoundary
@@ -228,11 +231,11 @@ Content-Type: image/jpeg
 
 
 <a name="videos"></a>
-## Adding videos
+## ビデオを追加する
 
-You can embed videos in OneNote pages using `<iframe data-original-src="http://..." />` in the input HTML. 
+入力 HTML の `<iframe data-original-src="http://..." />` を使用して、OneNote ページにビデオを埋め込むことができます。 
 
-**Supported video sites**
+**サポートされるビデオ サイト**
 
 - Dailymotion
 - Office Mix
@@ -244,19 +247,19 @@ You can embed videos in OneNote pages using `<iframe data-original-src="http://.
 - Vine
 
 <br />
-### iframe attributes
+### iframe の属性
 
 <p id="outdent">**data-original-src**</p>
-<p id="indent">必須。 ThumbnailURL - ビデオのサムネイル イメージの URL。<br />例`data-original-src="https://www.youtube.com/watch?v=3Ztr44aKmQ8"`</p>
+<p id="indent">必須。 ビデオの URL。<br />例: `data-original-src="https://www.youtube.com/watch?v=3Ztr44aKmQ8"`</p>
 <p id="outdent">**width**</p>
-<p id="indent">省略可能。 The width of the iframe that contains the video. Default is 480.<br />例`width="300"`</p>
+<p id="indent">省略可能。 ビデオを含む iframe の幅。 既定値は 480 です。<br />例: `width="300"`</p>
 <p id="outdent">**height**</p>
-<p id="indent">省略可能。 The height of the iframe that contains the video. Default is 360.<br />例`height="300"`</p>
+<p id="indent">省略可能。 ビデオを含む iframe の高さ。 既定値は 360 です。<br />例: `height="300"`</p>
 
 <br />
-###例
+### 例
 
-要求の入力 HTML では、`<iframe data-original-src="http://..." />` を含め、**src** 属性に挿入する Web ページの URL を指定します。
+要求の入力 HTML では、`<iframe data-original-src="http://..." />` を含め、**data-original-src** 属性のビデオの URL を指定します。
 
 ```
 Content-Type: multipart/form-data; boundary=MyAppPartBoundary
@@ -285,28 +288,28 @@ Content-Type: text/html
 
 入力 HTML の **object** 要素を使用して、添付ファイルを OneNote ページに追加できます。PDF ファイルを追加している場合は、**img** 要素を使用して、PDF ページを画像として表示できます。 
 
-<p id="outdent">[メッセージに添付ファイルを追加します。](#file-object)</p>
-<p id="indent"> img と src="name:image-block-name" を使用し、マルチパート要求のデータ部分で画像ファイルを送信します。OneNote ページに画像を表示します。 Adds a file attachment that displays a file icon on the OneNote page.</p>
-<p id="outdent">[Add images of PDF file contents](#file-img-binary-data-render-src)</p>
-<p id="indent">    を使用して、マルチパート要求のデータ部分で PDF ファイルを送信します。OneNote ページの個別の画像として、PDF の各ページを表示します。  を使用して、マルチパート要求のデータ部分で PDF ファイルを送信します。OneNote ページの個別の画像として、PDF の各ページを表示します。</p>
+<p id="outdent">[添付ファイルを追加する](#file-object)</p>
+<p id="indent">`<object .../>` を使用します。マルチパート要求のデータ部分でファイルを送信します。 OneNote ページでファイル アイコンを表示する添付ファイルを追加します。</p>
+<p id="outdent">[PDF ファイルのコンテンツの画像を追加する](#file-img-binary-data-render-src)</p>
+<p id="indent">`<img data-render-src="name:part-name" />` を使用します。マルチパート要求のデータ部分で PDF ファイルを送信します。 OneNote ページの個別の画像として、PDF の各ページを表示します。</p>
 
 <br />
-###ファイルの属性
+### ファイルの属性
 
-**オブジェクト**要素には、次の属性が必要です。
+**object** 要素には、次の属性が必要です。
 
 <p id="outdent">**data-attachment**</p>
-<p id="indent">OneNote ページで表示するファイル名と拡張子。例: data-attachment="filename.docx"<br />例`data-attachment="filename.docx"`</p>
+<p id="indent">OneNote ページで表示するファイル名と拡張子。<br />例: `data-attachment="filename.docx"`</p>
 <p id="outdent">**data**</p>
-<p id="indent">バイナリ ファイルのデータを含むマルチパート要求のボディ部の名前です。OneNote API は、ここでの URL 参照の受け渡しはサポートしていません。例:  data="name:part-name" The OneNote API does not support passing a URL reference here.<br />例`data="name:part-name"`</p>
-<p id="outdent">**型**</p>
-<p id="indent">ファイルのメディア タイプ。ページで利用するファイル アイコンの決定に使用されます。また、ユーザーが OneNote からデバイス上のファイルをアクティブ化する際に開始されるアプリケーションを決定します。例: type="application/pdf"<br />例`type="application/pdf"`</p>
+<p id="indent">バイナリ ファイルのデータを含むマルチパート要求のボディ部の名前。 OneNote API は、ここでの URL 参照の受け渡しはサポートしていません。<br />例: `data="name:part-name"`</p>
+<p id="outdent">**type**</p>
+<p id="indent">ファイルのメディア タイプ。ページで利用するファイル アイコンの決定に使用されます。また、ユーザーが OneNote からデバイス上のファイルをアクティブ化する際に開始されるアプリケーションを決定します。<br />例: `type="application/pdf"`</p>
 
 
 <a name="file-media-types"></a>
-###ファイルのメディア タイプ
+### ファイルのメディア タイプ
 
-OneNote API は、埋め込まれたファイルの定義済みのファイル タイプを使用し、API がファイル タイプを認識しない場合は汎用のアイコンを使用します。API によって認識されている一般的なファイル タイプのいくつかを次の表に示します。 The following table shows some common file types that are recognized by the API.
+OneNote API は、添付ファイルの定義済みのファイル タイプのアイコンを使用し、API がファイル タイプを認識しない場合は汎用のアイコンを使用します。 API によって認識されている一般的なファイル タイプのいくつかを次の表に示します。
 
 - application/pdf  
 - application/vnd.openxmlformats-officedocument.wordprocessingml.document  
@@ -325,9 +328,10 @@ OneNote API は、埋め込まれたファイルの定義済みのファイル �
 
 
 <a name="file-object"></a>
-### メッセージに添付ファイルを追加します。
+### 添付ファイルを追加する
 
-要求の **Presentation** 部分の入力 HTML に、`<object data="name:part-name" data-attachment="file-name.file-ext" type="media-type/media-subtype" />` を含めます。ここで、*part-name* は、バイナリ ファイルのデータを含む[マルチパート要求](../howto/onenote-create-page.md#example)のデータ部分の一意識別子です。バイナリ データのみを送信し、Base64 を使用したりエンコードしたりしないでください。 画像データはバイナリ ファイル データです。Base64 やその他の方式でエンコードしないでください。
+要求の **Presentation** 部分の入力 HTML に、`<object data="name:part-name" data-attachment="file-name.file-ext" type="media-type/media-subtype" />` を含めます。ここで、*part-name* は、バイナリ ファイルのデータを含む[マルチパート要求](../howto/onenote-create-page.md#example) 
+のデータ部分の一意識別子です。 バイナリ データのみを送信し、Base64 を使用したりエンコードしたりしないでください。
 
 ```
 Content-Type: multipart/form-data; boundary=MyAppPartBoundary
@@ -358,9 +362,10 @@ Content-Type: image/jpeg
 ```
 
 <a name="file-binary-data-render-src"></a>
-### Add images of PDF file contents
+### PDF ファイルのコンテンツの画像を追加する
 
-要求の **Presentation** 部分の入力 HTML に、`<img data-render-src="name:part-name" ... />` を含めます。ここで、*part-name* は、バイナリ ファイルのデータを含む[マルチパート要求](../howto/onenote-create-page.md#example)のデータ部分の一意識別子です。バイナリ データのみを送信し、Base64 を使用したりエンコードしたりしないでください。 画像データはバイナリ ファイル データです。Base64 やその他の方式でエンコードしないでください。
+要求の **Presentation** 部分の入力 HTML に、`<img data-render-src="name:part-name" ... />` を含めます。ここで、*part-name* は、バイナリ ファイルのデータを含む[マルチパート要求](../howto/onenote-create-page.md#example) 
+のデータ部分の一意識別子です。 バイナリ データのみを送信し、Base64 を使用したりエンコードしたりしないでください。
 
 ```
 Content-Type: multipart/form-data; boundary=MyAppPartBoundary
@@ -393,17 +398,17 @@ Content-Type: application/pdf
 <a name="size-limits"></a>
 ## *POST pages* 要求のサイズの上限
 
-When sending image and file data, be aware of these limitations:
+画像やファイルのデータを送信する場合は、これらの制限にご注意ください:
 
 - 合計 POST サイズの上限は 70 MB までであり、画像、ファイル、その他のデータが含まれます。実際の上限はダウンストリームのエンコーディングに影響されるため、固定のバイト数の制限はありません。上限を超える要求は、信頼性の低い結果になる可能性があります。
 
 - 各データ部分の上限は、part ヘッダーを含めて 25 MB です。上限を超えるデータ部分は、OneNote API によって拒否されます。 
 
-- The maximum number of images per page is 150. 1 ページあたりの画像の最大数は、150 です。src="http://..."`src="http://..."` 属性を使用する場合、API は上限を超えた **img** タグを無視します。
+- 1 ページあたりの画像の最大数は 150 です。 `src="http://..."` 属性を使用する場合、API は上限を超えた **img** タグを無視します。
 
 - データ部分の最大数は、必須の **Presentation** パートを含めて POST あたり 6 です。
 
-- 各要求は、data-render-src を使用する img 要素を 最大で 5 つ、data-render-src を使用する object 要素を 1 つ含めることができます。追加の表示画像と埋め込みファイルは無視されます。 Additional image and file references are ignored.
+- 各要求は、**data-render-src** を使用する **img** 要素を最大で 5 つ、**data-render-src** を使用する **object** 要素を 1 つ含めることができます。 追加の画像とファイルの参照は無視されます。
 
 - API への送信に使用する方法に関係なく、単一の POST 内の画像の最大数は 30 です。追加の画像は無視されます。多数の画像を含む Web ページをキャプチャする場合は、[スナップショットとしてページ全体をキャプチャする](#image-img-url-data-render-src)ことを検討してください。
 
@@ -443,9 +448,9 @@ OneNote ページを作成または更新するには、適切なアクセス許
 
 
 <a name="see-also"></a>
-## その他の技術情報
+## その他のリソース
 
-- [OneNote 開発](../howto/onenote-landing.md)
+- [OneNote の開発](../howto/onenote-landing.md)
 - [OneNote デベロッパー センター](http://dev.onenote.com/)
 - [OneNote の開発者ブログ](http://go.microsoft.com/fwlink/?LinkID=390183)
 - [スタック オーバーフローに関する OneNote の開発の質問](http://go.microsoft.com/fwlink/?LinkID=390182) 

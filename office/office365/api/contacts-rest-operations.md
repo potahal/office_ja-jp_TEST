@@ -1,7 +1,7 @@
 ---
 ms.TocTitle: Outlook Contacts REST API reference
 title: "Outlook の連絡先 REST API リファレンス"
-Description: "ms.TocTitle:Outlook の連絡先 REST API リファレンスTitle:Outlook の連絡先 REST API リファレンスDescription:Exchange Online でユーザーの連絡先や連絡先フォルダーへのアクセスを提供する、Office 365 Contacts REST API とクライアント ライブラリ API を操作する方法のリファレンスです。ms.ContentId: dcfb466f-0faf-4015-971f-aab4f8fc9c07ms.topic: reference (API) ms.date:2016 年 5 月 19 日"
+Description: "Exchange Online でユーザーの連絡先や連絡先フォルダーへのアクセスを提供する、Office 365 Contacts REST API とクライアント ライブラリ API を操作する方法のリファレンスです。"
 ms.ContentId: dcfb466f-0faf-4015-971f-aab4f8fc9c07
 ms.date: July 20, 2016
 
@@ -21,30 +21,30 @@ ms.date: July 20, 2016
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-<p class="previewnote"><p class="previewnote">このドキュメントは、プレビューに表示される連絡先と連絡先フォルダーの同期のベータ バージョンについて説明します。 Preview features are subject to change prior to finalization, and may break code that uses them. プレビュー機能は、最終処理までに変更される場合があります。それらを使用するコードを破棄する場合もあります。このため、一般に、実稼働コードでは実稼働バージョンの API のみを使用してください。可能な場合には、現在バージョン 2.0 が優先バージョンです。</p> If available, v2.0 is currently the preferred version.</p>
+<p class="previewnote">このドキュメントでは、プレビューに表示される連絡先と連絡先フォルダーの同期のベータ バージョンについて説明します。 プレビュー機能は、最終版までに変更される場合があり、それらの機能を使用するコードが動作しなくなる場合もあります。 このため、一般に、運用コードでは運用バージョンの API のみを使用してください。 入手可能な場合、現時点ではバージョン 2.0 が優先バージョンです。</p>
 
 [!INCLUDE [END Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
 <!-- ==================================== End BETA content ====================================================== -->
 
   
- _**Applies to:** Exchange Online | Office 365 | Hotmail.com | Live.com | MSN.com | Outlook.com | Passport.com_
+ _**適用対象:**Exchange Online | Office 365 | Hotmail.com | Live.com | MSN.com | Outlook.com | Passport.com_
 
 
-<a name="Overview"> </a>Outlook 連絡先 API は、Office 365 の Azure Active Directory によって保護されているユーザーの連絡先と連絡先フォルダーへのアクセス、および Microsoft アカウントの類似したデータへのアクセスを提供します。具体的には、次のドメインです。Hotmail.com、Live.com、MSN.com、Outlook.com、および Passport.com。
+<a name="Overview"></a>Outlook 連絡先 API は、Office 365 の Azure Active Directory によって保護されているユーザーの連絡先と連絡先フォルダーへのアクセス、および Microsoft アカウントの類似したデータへのアクセスを提供します。具体的には、次のドメインです。Hotmail.com、Live.com、MSN.com、Outlook.com、および Passport.com。
 
 
 <!-- Can add the following sentence back once the client libraries have been updated for converged auth and outlook.com
 You can access the Contacts API by calling the corresponding REST APIs directly in your apps, or by using the Office 365 client libraries and SDKs.
 -->
 
-**メモ** リファレンスをわかりやすくするため、この記事の残りの部分では **"Outlook.com" をこれらの Microsoft アカウントのドメインを含めた語として**使用しています。
+**注** リファレンスをわかりやすくするため、この記事の残りの部分では **"Outlook.com" をこれらの Microsoft アカウントのドメインを含めた語として**使用しています。
 
 <!-- ==================================== Start beta content ==================================================== -->
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-**Not interested in the beta version of the API?** API v2.0 が不要な場合右上隅のコントロールを使用して、必要なバージョンを選択します。
+**ベータ版の API が不要な場合** 右上隅のコントロールを使用して、必要なバージョンを選択します。
 
 [!INCLUDE [END Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
@@ -56,7 +56,7 @@ You can access the Contacts API by calling the corresponding REST APIs directly 
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-**Not interested in v2.0 of the API?** API v1.0 に関心がない場合: 右上のコントロールを使用して、必要なバージョンを選択します。
+**API v2.0 が不要な場合** 右上のコントロールを使用して、必要なバージョンを選択します。
 
 [!INCLUDE [END Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
@@ -69,7 +69,7 @@ You can access the Contacts API by calling the corresponding REST APIs directly 
 
 [!INCLUDE [BEGIN Outlook v1 section](../includes/controls/outlookrestapiv1section.xml)]
 
-**Not interested in v1.0 of the API?** API v1.0 に関心がない場合: 右上のコントロールを使用して、必要なバージョンを選択します。
+**API v1.0 が不要な場合** 右上のコントロールを使用して、必要なバージョンを選択します。
 
 [!INCLUDE [END Outlook v1 section](../includes/controls/outlookrestapiv1section.xml)]
 
@@ -80,30 +80,33 @@ You can access the Contacts API by calling the corresponding REST APIs directly 
 
 ##連絡先 API のすべての操作
 
-連絡先の操作 連絡先は連絡先フォルダーに保存されます。連絡先を取得、作成、変更、および削除することができます。 連絡先の操作 連絡先は連絡先フォルダーに保存されます。連絡先を取得、作成、変更、および削除することができます。
+<a name="ContactOperations"></a>
+**連絡先の操作** 連絡先は連絡先フォルダーに保存されます。 連絡先を取得、作成、変更、および削除することができます。
 
-[Get contacts](#GetContacts) | [Synchronize contacts and contact folders](#SyncContacts) (preview) | [Create contacts](#CreateContacts) | [Update contacts](#UpdateContacts) | [Delete contacts](#DeleteContacts)
+[連絡先を取得する](#GetContacts) | [連絡先と連絡先フォルダーを同期する](#SyncContacts) (プレビュー) | [連絡先を作成する](#CreateContacts) | [連絡先を更新する](#UpdateContacts) | [連絡先を削除する](#DeleteContacts)
 
-連絡先フォルダーの操作 連絡先フォルダーには連絡先や別の連絡先フォルダーを含めることができます。
+<a name="ContactFoldersOperations"></a>
+**連絡先フォルダーの操作** 連絡先フォルダーには連絡先や別の連絡先フォルダーを含めることができます。
 連絡先フォルダーを取得し、連絡先フォルダーに連絡先を作成できます。
 
 [連絡先フォルダーの取得](#GetContactFolders)
 
-**連絡先の写真の操作** それぞれの連絡先に、オプションで連絡先の写真を指定できます。連絡先の写真を取得また設定することができます。 連絡先の写真の操作 それぞれの連絡先に、オプションで連絡先の写真を指定できます。連絡先の写真を取得また設定することができます。
+**連絡先の写真の操作** それぞれの連絡先に、オプションで連絡先の写真を指定できます。 連絡先の写真を取得また設定することができます。
 
-連絡先の写真を取得する  連絡先の写真を設定する
+[連絡先の写真を取得する](#GetContactPhotoandMetadata) | [連絡先の写真を設定する](#SetContactPhoto)
 
 関連項目:
 
-REST API 連絡先リソース  REST API 連絡先フォルダーのリソース
+[REST API 連絡先リソース](..\api\complex-types-for-mail-contacts-calendar.md#ContactResource) |
+[REST API 連絡先フォルダーのリソース](..\api\complex-types-for-mail-contacts-calendar.md#ContactFolderResource)
 
 
 ## 連絡先 REST API の使用
 
 ###認証
 
-Like other [Outlook REST API](..\api\use-outlook-rest-api.md#DefineOutlookRESTAPI), for every request to the Contacts API, you should include a valid access token. アクセス トークンを取得するには、アプリを登録して識別し、適切な承認を取得する必要があります。効率化された登録と承認のオプションに関する詳細情報を参照してください。要求のバッチ処理についての理解を深める際には、この点に留意してください。 You can [find out more](..\api\use-outlook-rest-api.md#ShortRegAuthWorkflow) about some streamlined registration and authorization options for you.
-Keep this in mind as you proceed with the specific operations in the Contacts API.
+他の [Outlook REST API](..\api\use-outlook-rest-api.md#DefineOutlookRESTAPI) と同様に、連絡先 API へのすべての要求に対して、有効なアクセス トークンを含める必要があります。 アクセス トークンを取得するには、アプリを登録して識別し、適切な承認を取得する必要があります。 効率化された登録と承認のオプションに関する[詳細情報](..\api\use-outlook-rest-api.md#ShortRegAuthWorkflow)を参照してください。
+連絡先 API で特定の操作を続行する際には、この点に留意してください。
 
 <a name="SupportedVersions"> </a>
 
@@ -115,7 +118,7 @@ Keep this in mind as you proceed with the specific operations in the Contacts AP
 
 連絡先 API 要求は、常に現在のユーザーのために実行されます。 
 
-Outlook REST API のすべてのサブセットに共通な情報について詳しくは、「[Outlook REST API の使用](..\api\use-outlook-rest-api.md)」を参照してください。
+Outlook REST API のすべてのサブセットに共通な情報の詳細については、「[Outlook REST API の使用](..\api\use-outlook-rest-api.md)」を参照してください。
 
 ****
 
@@ -128,14 +131,14 @@ Outlook REST API のすべてのサブセットに共通な情報について詳
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.read_
 - _wl.basic_
 
 <a name="GetContactCollection"> </a>
 ###連絡先のコレクションを取得する
 
-サインインしているユーザーのメールボックス内のすべての連絡先を取得する (.../me/contacts`.../me/contacts`) か、指定された連絡先フォルダーから取得します。
+サインインしているユーザーのメールボックス内のすべての連絡先を取得する (`.../me/contacts`) か、指定された連絡先フォルダーから取得します。
 
 ```no-highlight
 GET https://outlook.office.com/api/beta/me/contacts
@@ -143,20 +146,20 @@ GET https://outlook.office.com/api/beta/me/contactfolders/{contact_folder_id}/co
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |contact_folder_id|string|特定のフォルダーから連絡先を取得している場合は、連絡先フォルダー ID です。|
 
-**注**: 既定では、応答内の各連絡先にそのプロパティがすべて含まれます。最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、$select を 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** 既定では、応答内の各連絡先にそのプロパティがすべて含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/beta/me/contacts?$select=EmailAddresses,GivenName,Surname
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -204,7 +207,7 @@ Status code: 200
 <a name="GetContact"> </a>
 ###連絡先を取得する
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.read_
 - _wl.basic_
 
@@ -216,23 +219,23 @@ GET https://outlook.office.com/api/beta/me/contacts/{contact_id}
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|contact_id|string|連絡先の ID。|
+|_URL パラメーター_|
+|contact_id|string|連絡先 ID。|
 
  **応答の種類**
 
 要求された[連絡先](..\api\complex-types-for-mail-contacts-calendar.md#ContactResource)です。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/beta/me/contacts/AAMkADlkAAAMRFUEAAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -313,18 +316,18 @@ Status code: 200
 
 
 
-**メモ**： 既定では、応答に連絡先のすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** 既定では、応答に連絡先のすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 次の例は、**$select** を使用して、応答内の連絡先の**EmailAddresses**、**GivenName**、および **Surname** プロパティのみを返すように指定する方法を示しています。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/beta/me/contacts/AAMkAGI2THk0AAA=?$select=EmailAddresses,GivenName,Surname
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -356,14 +359,14 @@ Status code: 200
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.read_
 - _wl.basic_
 
 <a name="GetContactCollection"> </a>
 ###連絡先のコレクションを取得する
 
-サインイン中のユーザーの既定の連絡先フォルダーから連絡先のコレクションを取得する (.../me/contacts`.../me/contacts`) か、指定した連絡先フォルダーから取得します。
+サインイン中のユーザーの既定の連絡先フォルダーから連絡先のコレクションを取得する (`.../me/contacts`) か、指定した連絡先フォルダーから取得します。
 
 ```no-highlight
 GET https://outlook.office.com/api/v2.0/me/contacts
@@ -371,21 +374,21 @@ GET https://outlook.office.com/api/v2.0/me/contactfolders/{contact_folder_id}/co
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |contact_folder_id|string|特定のフォルダーから連絡先を取得している場合は、連絡先フォルダー ID です。|
 
-**注**: 既定では、応答内の各連絡先にそのプロパティがすべて含まれます。最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、$select を 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** 既定では、応答内の各連絡先にそのプロパティがすべて含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/v2.0/me/contacts?$select=EmailAddresses,GivenName,Surname
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -433,7 +436,7 @@ Status code: 200
 <a name="GetContact"> </a>
 ###連絡先を取得する
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.read_
 - _wl.basic_
 
@@ -445,10 +448,10 @@ GET https://outlook.office.com/api/v2.0/me/contacts/{contact_id}
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|contact_id|string|連絡先の ID。|
+|_URL パラメーター_|
+|contact_id|string|連絡先 ID。|
 
 
 **要求のサンプル**
@@ -457,7 +460,7 @@ GET https://outlook.office.com/api/v2.0/me/contacts/{contact_id}
 GET https://outlook.office.com/api/v2.0/me/contacts/AAMkAGI2THk0AAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -527,17 +530,17 @@ Status code: 200
 
 要求された[連絡先](..\api\complex-types-for-mail-contacts-calendar.md#ContactResource)です。
 
-**メモ**： 既定では、応答に連絡先のすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** 既定では、応答に連絡先のすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 次の例は、**$select** を使用して、応答内の連絡先の**EmailAddresses**、**GivenName**、および **Surname** プロパティのみを返すように指定する方法を示しています。
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/v2.0/me/contacts/AAMkAGI2THk0AAA=?$select=EmailAddresses,GivenName,Surname
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -569,18 +572,18 @@ Status code: 200
 [!INCLUDE [BEGIN Outlook v1 section](../includes/controls/outlookrestapiv1section.xml)]
 
 
-REST API:連絡先のコレクションを取得する (REST)  連絡先を取得する (REST)
+REST API:[連絡先のコレクションを取得する (REST)](#GetContactCollection) | [連絡先を取得する (REST)](#GetContact)
 
 クライアント ライブラリ:[既定の連絡先フォルダーから連絡先を取得する (クライアント)](#GetContactsClient)
 
 <a name="GetContactCollection"> </a>
 ###連絡先のコレクションを取得する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.read_
 - _wl.basic_
 
-サインイン中のユーザーの既定の連絡先フォルダーから連絡先のコレクションを取得する (.../me/contacts`.../me/contacts`) か、指定した連絡先フォルダーから取得します。
+サインイン中のユーザーの既定の連絡先フォルダーから連絡先のコレクションを取得する (`.../me/contacts`) か、指定した連絡先フォルダーから取得します。
 
 ```no-highlight
 GET https://outlook.office.com/api/v1.0/me/contacts
@@ -588,12 +591,12 @@ GET https://outlook.office.com/api/v1.0/me/contactfolders/{contact_folder_id}/co
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |contact_folder_id|string|特定のフォルダーから連絡先を取得している場合は、連絡先フォルダー ID です。|
 
-**注**: 既定では、応答内の各連絡先にそのプロパティがすべて含まれます。最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、$select を 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** 既定では、応答内の各連絡先にそのプロパティがすべて含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 次の例は、**$select** を使用して、応答内の各連絡先の **EmailAddresses**、**GivenName**、および **Surname** プロパティのみを返すように指定する方法を示しています。**$select** を使用しない場合の連絡先に返されるプロパティの完全な一覧については、「[連絡先を取得する (REST)](#GetContact)」の最初の応答サンプルを参照してください。
 
@@ -611,7 +614,7 @@ GET https://outlook.office.com/api/v1.0/me/contactfolders/{contact_folder_id}/co
 <a name="GetContact"> </a>
 ###連絡先を取得する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.read_
 - _wl.basic_
 
@@ -623,9 +626,9 @@ GET https://outlook.office.com/api/{version}/me/contacts/{contact_id}
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |バージョン|文字列|API の[バージョン](#SupportedVersions)。|
 |contact_id|string|連絡先の ID。|
 
@@ -636,7 +639,7 @@ GET https://outlook.office.com/api/{version}/me/contacts/{contact_id}
 
 要求された[連絡先](..\api\complex-types-for-mail-contacts-calendar.md#ContactResource)です。
 
-**メモ**： 既定では、応答に連絡先のすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** 既定では、応答に連絡先のすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 次の例は、**$select** を使用して、応答内の連絡先の**EmailAddresses**、**GivenName**、および **Surname** プロパティのみを返すように指定する方法を示しています。
 
@@ -655,17 +658,17 @@ GET https://outlook.office.com/api/{version}/me/contacts/{contact_id}
 
 
 <a name="GetContactsClient"> </a>
-###既定の連絡先フォルダーから連絡先を取得する (クライアント) 
+###既定の連絡先フォルダーから連絡先を取得する (クライアント)
 
 既定の連絡先フォルダーから連絡先を取得します。特定の連絡先を取得するには、**Contacts** コレクションのインデックスとして連絡先 ID を指定するか、**GetById** メソッドを使用します。
 
-例`outlookClient.Me.Contacts[contactId].ExecuteAsync()`
+例: `outlookClient.Me.Contacts[contactId].ExecuteAsync()`
 
 
 **注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
 
 
-**注**: 連絡先コレクションでは、**Select**、**OrderBy**、**Take** などのクエリ式がサポートされます。
+**注** 連絡先コレクションでは、**Select**、**OrderBy**、**Take** などのクエリ式がサポートされます。
 
 この例では、[Outlook サービス クライアントを作成する](#GetClient)メソッドを呼び出します。
 
@@ -714,24 +717,24 @@ console.log('*  ' + emailAddress.address);
 <a name="SyncContacts"> </a>
 ##連絡先と連絡先フォルダーを同期する (プレビュー)
 
-You can synchronize your local list of contacts with the contacts on the server. Contacts synchronization is a per-folder operation, for example you can synchronize all of the contacts in your root Contacts folder. If you have additonal Contacts folders you need to synchronize each folder individually.
+ローカルの連絡先の一覧とサーバーの連絡先を同期できます。 Contactssynchronization はフォルダーごとの操作であり、たとえばルート連絡先フォルダーのすべての連絡先を同期できます。 その他の連絡先フォルダーがある場合は、各フォルダーを個別に同期する必要があります。
 
 同期は、完全同期のみサポートしています。各要求には、指定したフォルダー内のすべての連絡先が返されます。
 
-Synchronizing a contacts folder typically requires two or more GET requests. 通常、連絡先フォルダーを同期するには、2 つ以上の GET 要求が必要です。GET 要求は [get contacts](#GetContacts) と同じ方法で実行できますが、次の要求ヘッダーを追加する必要があります。
+通常、連絡先フォルダーを同期するには、2 つ以上の GET 要求が必要です。 GET 要求は[連絡先を取得する](#GetContacts)と同じ方法で実行できますが、次の要求ヘッダーを追加する必要があります。
 
 - すべての同期要求で、_Prefer: odata.track-changes_ ヘッダーを指定する必要があります。
 - _Prefer: odata.maxpages={n}_ ヘッダーを指定して、要求ごとに返される連絡先の最大数を指定することができます。
   
   2 番目以降の GET 要求は、前の応答で受信した _deltaToken_ または _skipToken_ のいずれかを含むため、最初の GET 要求とは異なります。
   
-  The initial response to a sync request always returns a _deltaToken_. You should always make a second GET request using the _deltaToken_ to determine if there are any additional contacts. 同期要求に対する初回応答は、常に _deltaToken_ を返します。追加の連絡先がある場合は、2番目の GET 要求には常に deltaToken を使用します。2 番目の要求は、追加の連絡先、および他にも連絡先がある場合は skipToken、最後の連絡先が送信された場合は deltaToken が返されます。
+  同期要求に対する最初の応答では、常に _deltaToken_ が返されます。 追加の連絡先がある場合は、2 番目の GET 要求には常に _deltaToken_ を使用します。 2 番目の要求は、追加の連絡先、および他にも連絡先がある場合は _skipToken_、最後の連絡先が送信された場合は _deltaToken_ が返されます。
 
 <!-- ==================================== Start beta content ==================================================== -->
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.read_
 - _wl.basic_
 
@@ -740,26 +743,26 @@ GET https://outlook.office.com/api/beta/me/Contacts
 GET https://outlook.office.com/api/beta/me/ContactFolders/{folderName}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|__Header parameters_|
-|Prefer|odata.track-changes|要求が同期要求であることを示します。|
+|_ヘッダー パラメーター_|
+|優先|odata.track-changes|要求が同期要求であることを示します。|
 |Prefer|odata.maxpagesize|各応答で返される連絡先の数を設定します。|
-|_URL パラメータ_|
-|folderName|string|同期するフォルダーの名前。|
+|_URL パラメーター_|
+|folderName|文字列|同期するフォルダーの名前。|
 |odata.deltaLink|String|前回フォルダーが同期されたことを示すトークン。|
 |odata.skiptoken|String|ダウンロードするメッセージがまだあることを示すトークン。|
 
 **応答の種類**
 
-要求された連絡先と、サーバーからの連絡先データの追加ページを要求し、増分同期を要求するために使用する _deltaToken_ を含むコレクション。返された連絡先の数が odata.maxpagesize ヘッダーで指定した値より多い場合、応答は複数のページで返されます。 要求されたメッセージと、サーバーからのメッセージ データの追加ページを要求し、差分メッセージを要求するための _deltaToken_ または skipToken を含むコレクション。返されたメッセージの数が odata.maxpagesize ヘッダーで指定した値より大きい場合、応答は複数のページで返されます。
+要求された連絡先と、サーバーからの連絡先データの追加ページを要求し、増分同期を要求するために使用する _deltaToken_ を含むコレクションです。 返された連絡先の数が _odata.maxpagesize_ ヘッダーで指定した値より多い場合、応答は複数のページで返されます。
 
-The response will include a _Preference-Applied: odata-trackchanges_ header. If you attempt to sync a resource that is not supported, this header will not be returned in the response.
-Check for this header before processing the response to avoid errors.
+応答には _Preference-Applied: odata.track-changes_ ヘッダーが含まれます。 サポートされていないリソースを同期しようとすると、応答でこのヘッダーが返されません。
+エラーを回避するには、応答を処理する前にこのヘッダーを確認します。
 
-**注**: 既定では、応答に指定された連絡先のすべてのプロパティが含まれます。
-最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、_$select_ を使用します。常に The **Id** property is always returned. Do not use $filter, $orderby, $search or $top as they are not supported for synchronizing contacts or contact folders.
-詳細については、「OData クエリ パラメーター」を参照してください。
+**注** 既定では、応答に指定された連絡先のすべてのプロパティが含まれます。
+最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、_$select_ を使用します。 **Id** プロパティは常に返されます。 $filter、$orderby、$search、または $top は使用しないでください。これらは連絡先または連絡先フォルダーの同期ではサポートされません。
+詳細については、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 ** 例 **
 
@@ -793,7 +796,7 @@ Preference-Applied: odata.track-changes
 
 @odata.deltaLink=https://outlook.office.com/api/beta/me/Contacts/messages/?%24skiptoken=169ca50467d34d9fb8adb664961b9836
 
-_Payload messages_
+_ペイロード メッセージ_
 
 すべての連絡先が送信された場合の、2 番目以降のサーバーからの応答です。
 
@@ -805,7 +808,7 @@ Preference-Applied: odata.track-changes
 
 @odata.deltaLink=https://outlook.office.com/api/beta/me/Contacts/?%24deltatoken=169ca50467d34d9fb8adb664961b9836
 
-_Payload messages_
+_ペイロード メッセージ_
 
 追加ページがある場合のサーバーへの要求です。
 
@@ -826,7 +829,7 @@ https://outlook.office.com/api/beta/Me/Contacts/?%24skiptoken=169ca50467d34d9fb8
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.read_
 - _wl.basic_
 
@@ -835,26 +838,26 @@ GET https://outlook.office.com/api/v2.0/me/Contacts
 GET https://outlook.office.com/api/v2.0/me/ContactFolders/{folderName}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|__Header parameters_|
-|Prefer|odata.track-changes|要求が同期要求であることを示します。|
+|_ヘッダー パラメーター_|
+|優先|odata.track-changes|要求が同期要求であることを示します。|
 |Prefer|odata.maxpagesize|各応答で返される連絡先の数を設定します。|
-|_URL パラメータ_|
-|folderName|string|同期するフォルダーの名前。|
+|_URL パラメーター_|
+|folderName|文字列|同期するフォルダーの名前。|
 |odata.deltaLink|String|前回フォルダーが同期されたことを示すトークン。|
 |odata.skiptoken|String|ダウンロードするメッセージがまだあることを示すトークン。|
 
 **応答の種類**
 
-要求された連絡先と、サーバーからの連絡先データの追加ページを要求し、増分同期を要求するために使用する _deltaToken_ を含むコレクション。返された連絡先の数が odata.maxpagesize ヘッダーで指定した値より多い場合、応答は複数のページで返されます。 要求されたメッセージと、サーバーからのメッセージ データの追加ページを要求し、差分メッセージを要求するための _deltaToken_ または skipToken を含むコレクション。返されたメッセージの数が odata.maxpagesize ヘッダーで指定した値より大きい場合、応答は複数のページで返されます。
+要求された連絡先と、サーバーからの連絡先データの追加ページを要求し、増分同期を要求するために使用する _deltaToken_ を含むコレクションです。 返された連絡先の数が _odata.maxpagesize_ ヘッダーで指定した値より多い場合、応答は複数のページで返されます。
 
-The response will include a _Preference-Applied: odata-trackchanges_ header. If you attempt to sync a resource that is not supported, this header will not be returned in the response.
-Check for this header before processing the response to avoid errors.
+応答には _Preference-Applied: odata.track-changes_ ヘッダーが含まれます。 サポートされていないリソースを同期しようとすると、応答でこのヘッダーが返されません。
+エラーを回避するには、応答を処理する前にこのヘッダーを確認します。
 
-**注**: 既定では、応答に指定された連絡先のすべてのプロパティが含まれます。
-最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、_$select_ を使用します。常に The **Id** property is always returned. Do not use $filter, $orderby, $search or $top as they are not supported for synchronizing contacts or contact folders.
-詳細については、「OData クエリ パラメーター」を参照してください。
+**注** 既定では、応答に指定された連絡先のすべてのプロパティが含まれます。
+最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、_$select_ を使用します。 **Id** プロパティは常に返されます。 $filter、$orderby、$search、または $top は使用しないでください。これらは連絡先または連絡先フォルダーの同期ではサポートされません。
+詳細については、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 ** 例 **
 
@@ -888,7 +891,7 @@ Preference-Applied: odata.track-changes
 
 @odata.deltaLink=https://outlook.office.com/api/v2.0/me/Contacts/messages/?%24skiptoken=169ca50467d34d9fb8adb664961b9836
 
-_Payload messages_
+_ペイロード メッセージ_
 
 すべての連絡先が送信された場合の、2 番目以降のサーバーからの応答です。
 
@@ -900,7 +903,7 @@ Preference-Applied: odata.track-changes
 
 @odata.deltaLink=https://outlook.office.com/api/v2.0/me/Contacts/?%24deltatoken=169ca50467d34d9fb8adb664961b9836
 
-_Payload messages_
+_ペイロード メッセージ_
 
 追加ページがある場合のサーバーへの要求です。
 
@@ -921,7 +924,7 @@ https://outlook.office.com/api/v2.0/Me/Contacts/?%24skiptoken=169ca50467d34d9fb8
 
 [!INCLUDE [BEGIN Outlook v1 section](../includes/controls/outlookrestapiv1section.xml)]
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.read_
 - _wl.basic_
 
@@ -930,26 +933,26 @@ GET https://outlook.office.com/api/v1.0/me/Contacts
 GET https://outlook.office.com/api/v1.0/me/ContactFolders/{folderName}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|__Header parameters_|
-|Prefer|odata.track-changes|要求が同期要求であることを示します。|
+|_ヘッダー パラメーター_|
+|優先|odata.track-changes|要求が同期要求であることを示します。|
 |Prefer|odata.maxpagesize|各応答で返される連絡先の数を設定します。|
-|_URL パラメータ_|
-|folderName|string|同期するフォルダーの名前。|
+|_URL パラメーター_|
+|folderName|文字列|同期するフォルダーの名前。|
 |odata.deltaLink|String|前回フォルダーが同期されたことを示すトークン。|
 |odata.skiptoken|String|ダウンロードするメッセージがまだあることを示すトークン。|
 
 **応答の種類**
 
-要求された連絡先と、サーバーからの連絡先データの追加ページを要求し、増分同期を要求するために使用する _deltaToken_ を含むコレクション。返された連絡先の数が odata.maxpagesize ヘッダーで指定した値より多い場合、応答は複数のページで返されます。 要求されたメッセージと、サーバーからのメッセージ データの追加ページを要求し、差分メッセージを要求するための _deltaToken_ または skipToken を含むコレクション。返されたメッセージの数が odata.maxpagesize ヘッダーで指定した値より大きい場合、応答は複数のページで返されます。
+要求された連絡先と、サーバーからの連絡先データの追加ページを要求し、増分同期を要求するために使用する _deltaToken_ を含むコレクションです。 返された連絡先の数が _odata.maxpagesize_ ヘッダーで指定した値より多い場合、応答は複数のページで返されます。
 
-The response will include a _Preference-Applied: odata-trackchanges_ header. If you attempt to sync a resource that is not supported, this header will not be returned in the response.
-Check for this header before processing the response to avoid errors.
+応答には _Preference-Applied: odata.track-changes_ ヘッダーが含まれます。 サポートされていないリソースを同期しようとすると、応答でこのヘッダーが返されません。
+エラーを回避するには、応答を処理する前にこのヘッダーを確認します。
 
-**注**: 既定では、応答に指定された連絡先のすべてのプロパティが含まれます。
-最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、_$select_ を使用します。常に The **Id** property is always returned. Do not use $filter, $orderby, $search or $top as they are not supported for synchronizing contacts or contact folders.
-詳細については、「OData クエリ パラメーター」を参照してください。
+**注** 既定では、応答に指定された連絡先のすべてのプロパティが含まれます。
+最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、_$select_ を使用します。 **Id** プロパティは常に返されます。 $filter、$orderby、$search、または $top は使用しないでください。これらは連絡先または連絡先フォルダーの同期ではサポートされません。
+詳細については、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 ** 例 **
 
@@ -983,7 +986,7 @@ Preference-Applied: odata.track-changes
 
 @odata.deltaLink=https://outlook.office.com/api/v1.0/me/Contacts/messages/?%24skiptoken=169ca50467d34d9fb8adb664961b9836
 
-_Payload messages_
+_ペイロード メッセージ_
 
 すべての連絡先が送信された場合の、2 番目以降のサーバーからの応答です。
 
@@ -995,7 +998,7 @@ Preference-Applied: odata.track-changes
 
 @odata.deltaLink=https://outlook.office.com/api/v1.0/me/Contacts/?%24deltatoken=169ca50467d34d9fb8adb664961b9836
 
-_Payload messages_
+_ペイロード メッセージ_
 
 追加ページがある場合のサーバーへの要求です。
 
@@ -1033,28 +1036,28 @@ REST API:[連絡先を作成する (REST)](#CreateAContact)
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.readwrite_
 - _wl.contacts_create_
 
-連絡先をルート連絡先フォルダーまたは別の連絡先フォルダーの contacts`contacts` エンドポイントに追加します。
+連絡先をルート連絡先フォルダーまたは別の連絡先フォルダーの `contacts` エンドポイントに追加します。
 
 ```no-highlight
 POST https://outlook.office.com/api/beta/me/contacts
 POST https://outlook.office.com/api/beta/me/contactfolders/{contact_folder_id}/contacts
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |contact_folder_id|string|特定の連絡先フォルダーに連絡先を作成する場合は連絡先フォルダー ID です。|
-|_Body parameters_|
+|_本文パラメーター_|
 |GivenName|string|連絡先の名前。|
 
-要求本文に **GivenName** パラメーターと任意の書き込み可能な [contact](..\api\complex-types-for-mail-contacts-calendar.md#ContactResource) プロパティを指定します。
+要求本文に **GivenName** パラメーターと任意の書き込み可能な[連絡先](..\api\complex-types-for-mail-contacts-calendar.md#ContactResource)プロパティを指定します。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/beta/me/contacts
@@ -1078,7 +1081,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -1166,28 +1169,28 @@ Status code: 201
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.readwrite_
 - _wl.contacts_create_
 
-連絡先をルート連絡先フォルダーまたは別の連絡先フォルダーの contacts`contacts` エンドポイントに追加します。
+連絡先をルート連絡先フォルダーまたは別の連絡先フォルダーの `contacts` エンドポイントに追加します。
 
 ```no-highlight
 POST https://outlook.office.com/api/v2.0/me/contacts
 POST https://outlook.office.com/api/v2.0/me/contactfolders/{contact_folder_id}/contacts
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |contact_folder_id|string|特定の連絡先フォルダーに連絡先を作成する場合は連絡先フォルダー ID です。|
-|_Body parameters_|
+|_本文パラメーター_|
 |GivenName|string|連絡先の名前。|
 
-要求本文に **GivenName** パラメーターと任意の書き込み可能な [contact](..\api\complex-types-for-mail-contacts-calendar.md#ContactResource) プロパティを指定します。
+要求本文に **GivenName** パラメーターと任意の書き込み可能な[連絡先](..\api\complex-types-for-mail-contacts-calendar.md#ContactResource)プロパティを指定します。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/v2.0/me/contacts
@@ -1208,7 +1211,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -1316,25 +1319,25 @@ Status code: 201
 
 [!INCLUDE [BEGIN Outlook v1 section](../includes/controls/outlookrestapiv1section.xml)]
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.readwrite_
 - _wl.contacts_create_
 
-連絡先をルート連絡先フォルダーまたは別の連絡先フォルダーの contacts`contacts` エンドポイントに追加します。
+連絡先をルート連絡先フォルダーまたは別の連絡先フォルダーの `contacts` エンドポイントに追加します。
 
 ```no-highlight
 POST https://outlook.office.com/api/v1.0/me/contacts
 POST https://outlook.office.com/api/v1.0/me/contactfolders/{contact_folder_id}/contacts
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |contact_folder_id|string|特定の連絡先フォルダーに連絡先を作成する場合は連絡先フォルダー ID です。|
-|_Body parameters_|
+|_本文パラメーター_|
 |GivenName|string|連絡先の名前。|
 
-要求本文に **GivenName** パラメーターと任意の書き込み可能な [contact](..\api\complex-types-for-mail-contacts-calendar.md#ContactResource) プロパティを指定します。
+要求本文に **GivenName** パラメーターと任意の書き込み可能な[連絡先](..\api\complex-types-for-mail-contacts-calendar.md#ContactResource)プロパティを指定します。
 
 [!code-REST-i[contacts_api_create_contact](./_data/contacts_api_create_contact.json)]
 
@@ -1417,21 +1420,21 @@ REST API:[連絡先を更新する (REST)](#UpdateAContact)
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.readwrite_
 - _wl.contacts_create_
 
-要求本文に GivenName パラメーターと任意の書き込み可能な [contact](..\api\complex-types-for-mail-contacts-calendar.md#ContactResource) プロパティを指定します。
-下書きまたは既存のメッセージの書き込み可能なプロパティを変更します。指定したプロパティのみが変更されます。
+要求本文に任意の書き込み可能な[連絡先](..\api\complex-types-for-mail-contacts-calendar.md#ContactResource)プロパティを指定します。
+指定したプロパティのみが変更されます。
 
 ```no-highlight
 PATCH https://outlook.office.com/api/beta/me/contacts/{contact_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|contact_id|string|連絡先の ID。|
+|_URL パラメーター_|
+|contact_id|string|連絡先 ID。|
 
 
 **要求のサンプル**
@@ -1454,7 +1457,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -1548,21 +1551,21 @@ Status code: 200
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.readwrite_
 - _wl.contacts_create_
 
-要求本文に GivenName パラメーターと任意の書き込み可能な [contact](..\api\complex-types-for-mail-contacts-calendar.md#ContactResource) プロパティを指定します。
-下書きまたは既存のメッセージの書き込み可能なプロパティを変更します。指定したプロパティのみが変更されます。
+要求本文に任意の書き込み可能な[連絡先](..\api\complex-types-for-mail-contacts-calendar.md#ContactResource)プロパティを指定します。
+指定したプロパティのみが変更されます。
 
 ```no-highlight
 PATCH https://outlook.office.com/api/v2.0/me/contacts/{contact_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|contact_id|string|連絡先の ID。|
+|_URL パラメーター_|
+|contact_id|string|連絡先 ID。|
 
 
 **要求のサンプル**
@@ -1582,7 +1585,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -1689,20 +1692,20 @@ Status code: 200
 
 [!INCLUDE [BEGIN Outlook v1 section](../includes/controls/outlookrestapiv1section.xml)]
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.readwrite_
 - _wl.contacts_create_
 
-要求本文に GivenName パラメーターと任意の書き込み可能な [contact](..\api\complex-types-for-mail-contacts-calendar.md#ContactResource) プロパティを指定します。
-下書きまたは既存のメッセージの書き込み可能なプロパティを変更します。指定したプロパティのみが変更されます。
+要求本文に任意の書き込み可能な[連絡先](..\api\complex-types-for-mail-contacts-calendar.md#ContactResource)プロパティを指定します。
+指定したプロパティのみが変更されます。
 
 ```no-highlight
 PATCH https://outlook.office.com/api/v1.0/me/contacts/{contact_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |contact_id|string|連絡先の ID。|
 
 
@@ -1731,7 +1734,7 @@ PATCH https://outlook.office.com/api/v1.0/me/contacts/{contact_id}
 **注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
 
 
-この例では、[Outlook サービス クライアント](#GetClient)と[連絡先 ID](#GetContactsClient) が既に取得されていると仮定します。
+この例では、[Outlook サービス クライアントの取得](#GetClient)と[連絡先 ID の取得](#GetContactsClient)が済んでいると仮定します。
 
 
 <!-- BEGINSECTION class="tabbedCodeSnippets" -->
@@ -1754,8 +1757,8 @@ string contactPostalCode = contact.HomeAddress.PostalCode;
 <!-- ENDSECTION -->
 
 次のパターンを使用して、クライアント側で複数の更新を定義し、要求をまとめて (バッチ処理で) 送信できます。
-1. Call `UpdateAsync(true)` for each entity you want to update. 更新するエンティティごとに UpdateAsync(true)`true` を呼び出します。true を指定すると、更新がクライアント上でローカルに登録されますが、サーバーには投稿されません。
-2. outlookClient.Context.SaveChangesAsync()`client.Context.SaveChangesAsync()` を呼び出して、ローカルに登録されているすべての更新を投稿します。
+1. 更新するエンティティごとに `UpdateAsync(true)` を呼び出します。 `true` を指定すると、更新がクライアント上でローカルに登録されますが、サーバーには投稿されません。
+2. `client.Context.SaveChangesAsync()` を呼び出して、ローカルに登録されているすべての更新を投稿します。
 
 ****
 
@@ -1763,8 +1766,8 @@ string contactPostalCode = contact.HomeAddress.PostalCode;
 <a name="DeleteContacts"> </a>
 ##連絡先を削除する
 
-連絡先を削除する 注 フォルダーを削除するときには注意してください。削除した内容を回復できない可能性があります。
-詳細については、「アイテムの削除」を参照してください。
+連絡先を削除します。 削除した内容を回復できない可能性があります。
+詳細については、「[アイテムの削除](http://msdn.microsoft.com/library/c81e3160-e12b-47e0-b3d6-4be28537f301%28Office.15%29.aspx)」を参照してください。
  
 REST API:[連絡先を削除する (REST)](#DeleteAContact)
 
@@ -1781,7 +1784,7 @@ REST API:[連絡先を削除する (REST)](#DeleteAContact)
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.readwrite_
 - _wl.contacts_create_
 
@@ -1789,10 +1792,10 @@ __**Minimum required scope**: 次のいずれか:__
 DELETE https://outlook.office.com/api/beta/me/contacts/{contact_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|contact_id|string|連絡先の ID。|
+|_URL パラメーター_|
+|contact_id|string|連絡先 ID。|
 
 
 **要求のサンプル**
@@ -1801,7 +1804,7 @@ DELETE https://outlook.office.com/api/beta/me/contacts/{contact_id}
 DELETE https://outlook.office.com/api/beta/me/contacts/AAMkAGE0Myy2hAAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 204
@@ -1826,7 +1829,7 @@ Status code: 204
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.readwrite_
 - _wl.contacts_create_
 
@@ -1834,10 +1837,10 @@ __**Minimum required scope**: 次のいずれか:__
 DELETE https://outlook.office.com/api/v2.0/me/contacts/{contact_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|contact_id|string|連絡先の ID。|
+|_URL パラメーター_|
+|contact_id|string|連絡先 ID。|
 
 
 **要求のサンプル**
@@ -1846,7 +1849,7 @@ DELETE https://outlook.office.com/api/v2.0/me/contacts/{contact_id}
 DELETE https://outlook.office.com/api/v2.0/me/contacts/AAMkAGE0Myy2hAAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 204
@@ -1872,7 +1875,7 @@ Status code: 204
 
 
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.readwrite_
 - _wl.contacts_create_
 
@@ -1880,9 +1883,9 @@ __**Minimum required scope**: 次のいずれか:__
 DELETE https://outlook.office.com/api/v1.0/me/contacts/{contact_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |contact_id|string|連絡先の ID。|
 
 
@@ -1911,7 +1914,7 @@ DELETE https://outlook.office.com/api/v1.0/me/contacts/{contact_id}
 **注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
 
 
-この例では、[Outlook サービス クライアント](#GetClient)と[連絡先 ID](#GetContactsClient) が既に取得されていると仮定します。
+この例では、[Outlook サービス クライアントの取得](#GetClient)と[連絡先 ID の取得](#GetContactsClient)が済んでいると仮定します。
 
 
 <!-- BEGINSECTION class="tabbedCodeSnippets" -->
@@ -1930,7 +1933,7 @@ await contact.DeleteAsync();
 
 連絡先フォルダーのコレクションを取得したり、連絡先フォルダーを取得したりすることができます。
 
-REST API:連絡先フォルダーのコレクションを取得する (REST)  連絡先フォルダーを取得する (REST)
+REST API:[連絡先フォルダーのコレクションを取得する (REST)](#GetContactFolderCollection) | [連絡先フォルダーを取得する (REST)](#GetContactFolder)
 
 クライアント ライブラリ:[連絡先フォルダーの取得 (クライアント)](#GetContactFoldersClient)
 
@@ -1947,23 +1950,23 @@ REST API:連絡先フォルダーのコレクションを取得する (REST)  �
 <a name="GetContactFolderCollection"> </a>
 ###連絡先フォルダーのコレクションを取得する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.read_
 - _wl.basic_
 
-サインインしているユーザーのメールボックス内のすべての連絡先フォルダーを取得する (.../me/contactfolders`.../me/contactfolders`) か、指定された連絡先フォルダーから取得します。
+サインインしているユーザーのメールボックス内のすべての連絡先フォルダーを取得する (`.../me/contactfolders`) か、指定された連絡先フォルダーから取得します。
 
 ```no-highlight
 GET https://outlook.office.com/api/beta/me/contactfolders
 GET https://outlook.office.com/api/beta/me/contactfolders/{contact_folder_id}/childfolders
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |contact_folder_id|string|特定の連絡先フォルダーから連絡先フォルダーを取得している場合は、連絡先フォルダー ID です。|
 
 
@@ -1973,7 +1976,7 @@ GET https://outlook.office.com/api/beta/me/contactfolders/{contact_folder_id}/ch
 GET https://outlook.office.com/api/beta/me/contactfolders
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -2009,7 +2012,7 @@ Status code: 200
 <a name="GetContactFolder"> </a>
 ###連絡先フォルダーの取得 (REST) 
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.read_
 - _wl.basic_
 
@@ -2019,12 +2022,12 @@ __**Minimum required scope**: 次のいずれか:__
 GET https://outlook.office.com/api/beta/me/contactfolders/{contact_folder_id}
 ```
 
-**注**: パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |contact_folder_id|string|連絡先フォルダー ID。|
 
 
@@ -2034,7 +2037,7 @@ GET https://outlook.office.com/api/beta/me/contactfolders/{contact_folder_id}
 GET https://outlook.office.com/api/beta/me/contactfolders/AAMkAGI2TKI5AAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -2074,23 +2077,23 @@ Status code: 200
 <a name="GetContactFolderCollection"> </a>
 ###連絡先フォルダーのコレクションを取得する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.read_
 - _wl.basic_
 
-サインイン中のユーザーの既定の連絡先フォルダーから連絡先フォルダーのコレクションを取得する (.../me/contactfolders`.../me/contactfolders`) か、指定した連絡先フォルダーから取得します。
+サインイン中のユーザーの既定の連絡先フォルダーから連絡先フォルダーのコレクションを取得する (`.../me/contactfolders`) か、指定した連絡先フォルダーから取得します。
 
 ```no-highlight
 GET https://outlook.office.com/api/v2.0/me/contactfolders
 GET https://outlook.office.com/api/v2.0/me/contactfolders/{contact_folder_id}/childfolders
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |contact_folder_id|string|特定の連絡先フォルダーから連絡先フォルダーを取得している場合は、連絡先フォルダー ID です。|
 
 
@@ -2100,7 +2103,7 @@ GET https://outlook.office.com/api/v2.0/me/contactfolders/{contact_folder_id}/ch
 GET https://outlook.office.com/api/v2.0/me/contactfolders
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -2128,7 +2131,7 @@ Status code: 200
 <a name="GetContactFolder"> </a>
 ###連絡先フォルダーの取得 (REST) 
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.read_
 - _wl.basic_
 
@@ -2138,12 +2141,12 @@ __**Minimum required scope**: 次のいずれか:__
 GET https://outlook.office.com/api/v2.0/me/contactfolders/{contact_folder_id}
 ```
 
-**注**: パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |contact_folder_id|string|連絡先フォルダー ID。|
 
 
@@ -2153,7 +2156,7 @@ GET https://outlook.office.com/api/v2.0/me/contactfolders/{contact_folder_id}
 GET https://outlook.office.com/api/v2.0/me/contactfolders/AAMkAGI2TKI5AAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -2195,23 +2198,23 @@ Status code: 200
 <a name="GetContactFolderCollection"> </a>
 ###連絡先フォルダーのコレクションを取得する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.read_
 - _wl.basic_
 
-サインイン中のユーザーの既定の連絡先フォルダーから連絡先フォルダーのコレクションを取得する (.../me/contactfolders`.../me/contactfolders`) か、指定した連絡先フォルダーから取得します。
+サインイン中のユーザーの既定の連絡先フォルダーから連絡先フォルダーのコレクションを取得する (`.../me/contactfolders`) か、指定した連絡先フォルダーから取得します。
 
 ```no-highlight
 GET https://outlook.office.com/api/v1.0/me/contactfolders
 GET https://outlook.office.com/api/v1.0/me/contactfolders/{contact_folder_id}/childfolders
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |contact_folder_id|string|特定の連絡先フォルダーから連絡先フォルダーを取得している場合は、連絡先フォルダー ID です。|
 
 
@@ -2227,7 +2230,7 @@ GET https://outlook.office.com/api/v1.0/me/contactfolders/{contact_folder_id}/ch
 <a name="GetContactFolder"> </a>
 ###連絡先フォルダーの取得 (REST) 
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.read_
 - _wl.basic_
 
@@ -2237,12 +2240,12 @@ __**Minimum required scope**: 次のいずれか:__
 GET https://outlook.office.com/api/v1.0/me/contactfolders/{contact_folder_id}
 ```
 
-**注**: パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |contact_folder_id|string|連絡先フォルダー ID。|
 
 [!code-REST-i[contacts_api_contact_get_contact_folder_by_id](./_data/contacts_api_contact_get_contact_folder_by_id.json)]
@@ -2269,13 +2272,13 @@ GET https://outlook.office.com/api/v1.0/me/contactfolders/{contact_folder_id}
 
 既定の連絡先フォルダーにある連絡先フォルダーを取得します。特定の連絡先フォルダーを取得するには、**ContactFolders** コレクションのインデックスとしてフォルダー ID を指定するか、**GetById** メソッドを使用します。
 
-例`client.Me.ContactFolders[folderId].ExecuteAsync()`
+例: `client.Me.ContactFolders[folderId].ExecuteAsync()`
 
 
 **注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
 
 
-**注**: 連絡先フォルダー コレクションでは、**Select**、**OrderBy**、**Take** などのクエリ式がサポートされます。
+**注** 連絡先フォルダー コレクションでは、**Select**、**OrderBy**、**Take** などのクエリ式がサポートされます。
 
 この例では、[Outlook サービス クライアントを取得する](#GetClient)メソッドを呼び出します。
 
@@ -2385,13 +2388,13 @@ await contactFolder.DeleteAsync();
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-連絡先の写真を取得する  連絡先の写真のメタデータを取得する
+[連絡先の写真を取得する](#GetContactPhoto) | [連絡先の写真のメタデータを取得する](#GetContactPhotoMetadata)
 
 <a name="GetContactPhoto"></a>
 
 ###連絡先の写真を取得する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.read_
 - _wl.basic_
 
@@ -2402,9 +2405,9 @@ __**Minimum required scope**: 次のいずれか:__
 GET https://outlook.office.com/api/beta/me/contacts('{contact_id}')/photo/$value
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |contact_id|文字列|サインインしているユーザーの特定の連絡先を指定する ID です。|
 
 **要求のサンプル**
@@ -2416,7 +2419,7 @@ Content-Type: image/jpg
 
 **応答データ**
 
-要求した写真のバイナリ データが含まれています。HTTP 応答コードは 200 です。 要求した写真のバイナリ データが含まれています。HTTP 応答コードは 200 です。
+要求した写真のバイナリ データが含まれています。 HTTP 応答コードは 200 です。
 
 この操作では、Exchange Online で連絡先に連絡先の写真がまだない場合に、HTTP 404 を返します。
 
@@ -2426,7 +2429,7 @@ Content-Type: image/jpg
 
 ###連絡先の写真とメタデータを取得する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.read_
 - _wl.basic_
 
@@ -2437,9 +2440,9 @@ __**Minimum required scope**: 次のいずれか:__
 GET https://outlook.office.com/api/beta/me/contacts('{contact_id}')/photo
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |contact_id|文字列|サインインしているユーザーの特定の連絡先を指定する ID です。|
 
 **要求のサンプル**
@@ -2481,13 +2484,13 @@ GET https://outlook.office.com/api/beta/me/contacts('AAMkAGE1M2IyNGNm')/photo
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-連絡先の写真を取得する  連絡先の写真のメタデータを取得する
+[連絡先の写真を取得する](#GetContactPhoto) | [連絡先の写真のメタデータを取得する](#GetContactPhotoMetadata)
 
 <a name="GetContactPhoto"></a>
 
 ###連絡先の写真を取得する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.read_
 - _wl.basic_
 
@@ -2498,9 +2501,9 @@ __**Minimum required scope**: 次のいずれか:__
 GET https://outlook.office.com/api/v2.0/me/contacts('{contact_id}')/photo/$value
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |contact_id|文字列|サインインしているユーザーの特定の連絡先を指定する ID です。|
 
 **要求のサンプル**
@@ -2512,7 +2515,7 @@ Content-Type: image/jpg
 
 **応答データ**
 
-要求した写真のバイナリ データが含まれています。HTTP 応答コードは 200 です。 要求した写真のバイナリ データが含まれています。HTTP 応答コードは 200 です。
+要求した写真のバイナリ データが含まれています。 HTTP 応答コードは 200 です。
 
 この操作では、Exchange Online で連絡先に連絡先の写真がまだない場合に、HTTP 404 を返します。
 
@@ -2522,7 +2525,7 @@ Content-Type: image/jpg
 
 ###連絡先の写真とメタデータを取得する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.read_
 - _wl.basic_
 
@@ -2533,9 +2536,9 @@ __**Minimum required scope**: 次のいずれか:__
 GET https://outlook.office.com/api/v2.0/me/contacts('{contact_id}')/photo
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |contact_id|文字列|サインインしているユーザーの特定の連絡先を指定する ID です。|
 
 **要求のサンプル**
@@ -2607,23 +2610,23 @@ GET https://outlook.office.com/api/v2.0/me/contacts('AAMkAGE1M2IyNGNm')/photo
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.readwrite_
 - _wl.contacts_create_
 
-Assign a photo to the specified signed-in user's contact. The photo should be in binary. It replaces any existing photo for that  
-Contact 
+指定したサインインしているユーザーの連絡先に写真を割り当てます。 写真はバイナリ形式にする必要があります。 該当する連絡先の既存の写真と置き換えられます  
+。 
 
-Use only PUT for this operation in the beta version.
+ベータ版では、この操作にのみ PUT を使用します。
 
 
 ```no-highlight
 PUT https://outlook.office.com/api/beta/me/contacts('{contact_id}')/photo/$value
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |contact_id|文字列|サインインしているユーザーの特定の連絡先を指定する ID です。|
 
 
@@ -2658,14 +2661,14 @@ Content-Type: image/jpeg
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-__**Minimum required scope**: 次のいずれか:__
+_**最小限必要なスコープ**: 次のいずれかです。_
 - _https://outlook.office.com/contacts.readwrite_
 - _wl.contacts_create_
 
-Assign a photo to the specified signed-in user's contact. The photo should be in binary. It replaces any existing photo for that  
-Contact 
+指定したサインインしているユーザーの連絡先に写真を割り当てます。 写真はバイナリ形式にする必要があります。 該当する連絡先の既存の写真と置き換えられます  
+。 
 
-You can use PATCH or PUT for this operation in version 2.0.
+バージョン 2.0 では、この操作に PATCH または PUT を使用できます。
 
 
 ```no-highlight
@@ -2674,9 +2677,9 @@ PATCH https://outlook.office.com/api/v2.0/me/contacts('{contact_id}')/photo/$val
 PUT https://outlook.office.com/api/v2.0/me/contacts('{contact_id}')/photo/$value
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |contact_id|文字列|サインインしているユーザーの特定の連絡先を指定する ID です。|
 
 
@@ -2725,12 +2728,12 @@ Content-Type: image/jpeg
 ****
 
 <a name="NextSteps"> </a>
-## 次のステップ
+## 次の手順
 
 アプリケーション開発を開始する準備ができている方にも、単に詳しい情報を必要としている方にも、最適なコンテンツをご用意しています。
 
 
-- [メール、予定表、および連絡先 REST API 入門](http://dev.outlook.com/RestGettingStarted)。
+- [メール、予定表、および連絡先 REST API の使用を開始します](http://dev.outlook.com/RestGettingStarted)。
 
 - Office 365 の API を実際に試してみるには、対話形式の [API サンドボックス](http://apisandbox.msdn.microsoft.com/)をお使いください。
 
@@ -2743,13 +2746,13 @@ Office 365 プラットフォームの使い方の詳細については、次の
 
 - [Office 365 プラットフォーム上での開発の概要](..\howto\platform-development-overview.md)
 
-- [Office 365 アプリケーションの認証およびリソース承認](..\howto\common-app-authentication-tasks.md)
+- [Office 365 のアプリ認証とリソース承認](..\howto\common-app-authentication-tasks.md)
 
 - [Office 365 API にアクセスできるようにアプリを手動で Azure AD に登録する](..\howto\add-common-consent-manually.md)
 
-- [メール API リファレンス](..\api\mail-rest-operations.md)
+- [Mail API リファレンス](..\api\mail-rest-operations.md)
 
-- [予定表 API リファレンス](..\api\calendar-rest-operations.md)
+- [Calendar API リファレンス](..\api\calendar-rest-operations.md)
 
 - [タスク REST API (プレビュー)](..\api\task-rest-operations.md)
 

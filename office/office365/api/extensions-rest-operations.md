@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Office 365 Data Extensions REST API reference
 title: "Office 365 データ拡張機能 REST API リファレンス"
-description: "ms.TocTitle:Office 365 データ拡張機能 REST API リファレンスTitle:Office 365 データ拡張機能 REST API リファレンスDescription:Office 365 のデータ拡張機能 REST API と Outlook.com を使用して、oData オープン型の拡張情報の一部としてプロパティを動的に作成し、カスタム データの取得、設定および削除を行う方法のリファレンスです。ms.ContentId:6034eaed-831f-4a6e-888a-0c670476023fms.topic: リファレンス (API) ms.date:2016 年 4 月 20 日"
+description: "Office 365 のデータ拡張機能 REST API と Outlook.com を使用して、oData オープン型の拡張情報の一部としてプロパティを動的に作成し、カスタム データの取得、設定および削除を行う方法のリファレンスです。"
 ms.ContentId: 6034eaed-831f-4a6e-888a-0c670476023f
 ms.date: April 20, 2016
 
@@ -12,20 +12,20 @@ ms.date: April 20, 2016
 
 [!INCLUDE [Add the Outlook REST API filters--v2 default v1 disabled](../includes/controls/addOutlookversion_v2default_v1disabled.xml)]
 
- _**Applies to:** Exchange Online | Office 365 | Hotmail.com | Live.com | MSN.com | Outlook.com | Passport.com_
+ _**適用対象:**Exchange Online | Office 365 | Hotmail.com | Live.com | MSN.com | Outlook.com | Passport.com_
 
 
 <!-- ==================================== Start beta content ==================================================== -->
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-<p class="previewnote"><p class="previewnote">このドキュメントは、ベータ版の Office 365 データ拡張機能 API について説明します Preview features are subject to change prior to finalization, and may break code that uses them. プレビュー機能は、最終処理までに変更される場合があります。それらを使用するコードを破棄する場合もあります。このため、一般に、実稼働コードでは実稼働バージョンの API のみを使用してください。可能な場合には、現在バージョン 2.0 が優先バージョンです。</p> If available, v2.0 is currently the preferred version.</p>
+<p class="previewnote">このドキュメントでは、プレビュー段階の、ベータ版の Office 365 データ拡張機能 API について説明します プレビュー機能は、最終版までに変更される場合があり、それらの機能を使用するコードが動作しなくなる場合もあります。 このため、一般に、運用コードでは運用バージョンの API のみを使用してください。 入手可能な場合、現時点ではバージョン 2.0 が優先バージョンです。</p>
 
-Office 365 データ拡張機能 REST API を使用すると、アプリによりユーザー アカウントのメッセージ、イベント、または連絡先でカスタム データを動的に保存できるようになります。Office 365 アカウントまたは Microsoft アカウント (Hotmail.com、Live.com、MSN.com、Outlook.com、Passport.com) をこのアカウントの対象にすることができます。 Office 365 データ拡張機能 REST API を使用すると、アプリによりユーザー アカウントのメッセージ、イベント、または連絡先でカスタム データを動的に保存できるようになります。Office 365 アカウントまたは Microsoft アカウント (Hotmail.com、Live.com、MSN.com、Outlook.com、Passport.com) をこのアカウントの対象にすることができます。
+Office 365 データ拡張機能 REST API を使用すると、アプリによりユーザー アカウントのメッセージ、イベント、または連絡先でカスタム データを動的に保存できるようになります。 Office 365 アカウントまたは Microsoft アカウント (Hotmail.com、Live.com、MSN.com、Outlook.com、Passport.com) をこのアカウントの対象にすることができます。
 
-**メモ** リファレンスをわかりやすくするため、この記事の残りの部分では **"Outlook.com" をこれらの Microsoft アカウントのドメインを含めた語として**使用しています。
+**注** リファレンスをわかりやすくするため、この記事の残りの部分では **"Outlook.com" をこれらの Microsoft アカウントのドメインを含めた語として**使用しています。
 
-**Not interested in the beta version of the API?** API v2.0 が不要な場合右上隅のコントロールを使用して、必要なバージョンを選択します。
+**ベータ版の API が不要な場合** 右上隅のコントロールを使用して、必要なバージョンを選択します。
 
 [!INCLUDE [END Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
@@ -35,11 +35,11 @@ Office 365 データ拡張機能 REST API を使用すると、アプリによ�
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-Office 365 データ拡張機能 REST API を使用すると、アプリによりユーザー アカウントのメッセージ、イベント、または連絡先でカスタム データを動的に保存できるようになります。Office 365 アカウントまたは Microsoft アカウント (Hotmail.com、Live.com、MSN.com、Outlook.com、Passport.com) をこのアカウントの対象にすることができます。 Office 365 データ拡張機能 REST API を使用すると、アプリによりユーザー アカウントのメッセージ、イベント、または連絡先でカスタム データを動的に保存できるようになります。Office 365 アカウントまたは Microsoft アカウント (Hotmail.com、Live.com、MSN.com、Outlook.com、Passport.com) をこのアカウントの対象にすることができます。
+Office 365 データ拡張機能 REST API を使用すると、アプリによりユーザー アカウントのメッセージ、イベント、または連絡先でカスタム データを動的に保存できるようになります。 Office 365 アカウントまたは Microsoft アカウント (Hotmail.com、Live.com、MSN.com、Outlook.com、Passport.com) をこのアカウントの対象にすることができます。
 
-**メモ** リファレンスをわかりやすくするため、この記事の残りの部分では **"Outlook.com" をこれらの Microsoft アカウントのドメインを含めた語として**使用しています。
+**注** リファレンスをわかりやすくするため、この記事の残りの部分では **"Outlook.com" をこれらの Microsoft アカウントのドメインを含めた語として**使用しています。
 
-**Not interested in v2.0 of the API?** API v2.0 が不要な場合右上隅のコントロールを使用して、必要なバージョンを選択します。
+**API v2.0 が不要な場合** 右上隅のコントロールを使用して、必要なバージョンを選択します。
 
 [!INCLUDE [END Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
@@ -48,11 +48,11 @@ Office 365 データ拡張機能 REST API を使用すると、アプリによ�
 
 ## 概要
 
-A data extension in the Outlook REST API is an OData v4 open type which contains properties that you can specify at runtime. Outlook REST API のデータ拡張情報は、OData v4 オープン型で、実行時に指定できるプロパティが含まれています。データ拡張機能 API を使用すると、JSON ペイロード内でカスタムのプロパティや値を動的に指定することにより、Entity Data Model (EDM) で既に定義されているエンティティ型 (メッセージ、イベント、連絡先) のインスタンスを_拡張_できます。したがって、このようなエンティティ型の定義の柔軟性が増し、この目的だけのために新しいエンティティ型を定義する時間を節約できます。 This makes the definition of such entity types more flexible, saving you time to define new entity types just for this purpose.
+Outlook REST API のデータ拡張情報は、OData v4 オープン型で、実行時に指定できるプロパティが含まれています。 データ拡張機能 API を使用すると、JSON ペイロード内でカスタムのプロパティや値を動的に指定することにより、Entity Data Model (EDM) で既に定義されているエンティティ型 (メッセージ、イベント、連絡先) のインスタンスを_拡張_できます。 したがって、このようなエンティティ型の定義の柔軟性が増し、この目的だけのために新しいエンティティ型を定義する時間を節約できます。
 
-The **ExtensionName** property is the only property defined for all extensions. すべての拡張情報に対して定義されるプロパティは、ExtensionName プロパティだけです。拡張情報名を一意にするのに役立つ方法の 1 つとして、独自のドメインに依存しているドメイン ネーム システム (DNS) 逆引きの方法を使用できます。 たとえば、Com.Contoso.Contact を使用できます。拡張情報名に Microsoft ドメインを含めることはできません。
+すべての拡張情報に対して定義されるプロパティは、**ExtensionName** プロパティだけです。 拡張情報名を一意にするのに役立つ方法の 1 つとして、_独自のドメイン_ (`Com.Contoso.Contact`) に依存しているドメイン ネーム システム (DNS) 逆引きの方法を使用できます。 拡張情報名に Microsoft ドメインを含めることはできません。
 
-Because an extension is an open type, you can specify additional data specific to an instance of an entity. 拡張情報はオープン型なので、エンティティのインスタンスに固有の追加データを指定できます。たとえば、次に示すように、個々の取引先担当者に関する拡張情報を作成することにより会社名や初期参照元などのカスタム データを追跡できるようにして、JSON ペイロード内でデータを指定できます。
+拡張情報はオープン型なので、エンティティのインスタンスに固有の追加データを指定できます。 たとえば、次に示すように、個々の取引先担当者に関する拡張情報を作成することにより会社名や初期参照元などのカスタム データを追跡できるようにして、JSON ペイロード内でデータを指定できます。
 
 <!-- ==================================== Start beta content ==================================================== -->
 
@@ -94,7 +94,7 @@ POST https://outlook.office.com/api/v2.0/me/contacts('{contact_id}')/extensions
 <!-- ==================================== End v2 content ======================================================== -->
 
 
-データ拡張機能 API を使用すると、新しいリソースや既存のリソースに対して CRUD 操作を実行できます。詳細については、サポートされている操作を参照してください。 Read more about the [supported operations](#ExtensionOperations). 
+データ拡張機能 API を使用すると、新しいリソースや既存のリソースに対して CRUD 操作を実行できます。 詳細については、[サポートされている操作](#ExtensionOperations)を参照してください。 
 
 OData オープン型の詳細については、[OData.org](http://www.odata.org/documentation/) 上の OData v4 のドキュメントを参照してください。
 
@@ -102,36 +102,36 @@ OData オープン型の詳細については、[OData.org](http://www.odata.org
 
 ###データ拡張情報と拡張プロパティのどちらを使用するか
 
-Data extensions is the recommended solution for most scenarios involving storing and accessing custom data. If, however, you need to access custom data for Outlook MAPI properties that are not already exposed through the Outlook REST API metadata, you can use [extended properties and its REST API](..\api\extended-properties-rest-operations.md). You can verify which properties the metadata exposes at https://outlook.office.com/api/{version}/$metadata, substituting {version} by v2.0, beta, etc., for the version of your choice.
+データ拡張機能は、カスタム データの格納およびカスタムデータへのアクセスを必要とするほとんどのシナリオに対して推奨されるソリューションです。 ただし、[拡張プロパティとこの REST API](..\api\extended-properties-rest-operations.md) は、Outlook REST API のメタデータを通じてまだ公開されていない Outlook MAPI プロパティのカスタム データにアクセスする必要がある場合にのみ使用します。 {version} を v2.0、beta など、選択したバージョンに置き換えて、メタデータが https://outlook.office.com/api/{version}/$metadata でどのプロパティを公開するかを確認できます。
 
 
 ###認証
-Like other [Outlook REST API](..\api\use-outlook-rest-api.md#DefineOutlookRESTAPI), for every request to the Data Extensions API, you should include a valid access token. アクセス トークンを取得するには、アプリを登録して識別し、適切な承認を取得する必要があります。効率化された登録と承認のオプションに関する詳細情報を参照してください。要求のバッチ処理についての理解を深める際には、この点に留意してください。 You can [find out more](..\api\use-outlook-rest-api.md#ShortRegAuthWorkflow) about some streamlined registration and authorization options for you.
-Keep this in mind as you proceed with the specific operations in the Data Extensions API.
+他の [Outlook REST API](..\api\use-outlook-rest-api.md#DefineOutlookRESTAPI) と同様に、データ拡張機能 API へのすべての要求に対して、有効なアクセス トークンを含める必要があります。 アクセス トークンを取得するには、アプリを登録して識別し、適切な承認を取得する必要があります。 効率化された登録と承認のオプションに関する[詳細情報](..\api\use-outlook-rest-api.md#ShortRegAuthWorkflow)を参照してください。
+データ拡張機能 API で特定の操作を続行する際には、この点に留意してください。
 
 ###サポートされている REST リソース 
 
 Outlook REST エンドポイントで、次のリソースのインスタンスに対する拡張情報を作成できます。
-- [Message](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource)
+- [メッセージ](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource)
 - [イベント](..\api\complex-types-for-mail-contacts-calendar.md#EventResource)
-- [Contact](..\api\complex-types-for-mail-contacts-calendar.md#ContactResource)
+- [連絡先](..\api\complex-types-for-mail-contacts-calendar.md#ContactResource)
 
 
 ###API のバージョン
 
-この API は、プレビューから一般提供 (GA) の状態にレベル上げされています。v2.0 とベータのバージョンでサポートされます。 この API は、プレビューから一般提供 (GA) の状態にレベル上げされています。v2.0 とベータのバージョンでサポートされます。
+この API は、プレビューから一般提供 (GA) の状態にレベル上げされています。 v2.0 とベータのバージョンでサポートされます。
 
 `https://outlook.office.com/api/v2.0/`
 
 `https://outlook.office.com/api/beta/`
 
-### URL のパラメーター
+### URL パラメーター
 
 この記事の例では、REST 要求 URL のパラメーターに次の ID のプレース ホルダーを使用します。拡張機能を作成する対象のリソースのインスタンスの ID を指定する必要があります。
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |contact_id|string|連絡先の ID。 |
 |event_id|string|イベント ID。 |
 |message_id|string|メッセージ ID。 |
@@ -145,10 +145,10 @@ Outlook REST API と Office 365 データ拡張機能 REST API のすべての�
 <a name="ExtensionOperations"> </a>
 ## 拡張情報の操作
 
-[Create an extension in an existing item](#CreateExtensionInExistingItem) | [Create an extension in a new item](#CreateExtensionInNewItem) | 
-[Get an extension](#GetExtension) | [Get item expanded with an extension](#GetExpandedExtension) |  
-[Find and expand items with an extension](#FindAndExpandItemsWithExtension) | 
-[Add or modify data in an extension](#UpdateExtension) | [Delete an extension](#DeleteExtension)
+[既存のアイテムの拡張情報を作成する](#CreateExtensionInExistingItem) | [新しいアイテムの拡張情報を作成する](#CreateExtensionInNewItem) | 
+[拡張情報を取得する](#GetExtension) | [拡張情報を使用して展開されたアイテムを取得する](#GetExpandedExtension) |  
+[拡張情報を使用してアイテムを検索したり展開したりする](#FindAndExpandItemsWithExtension) | 
+[拡張情報のデータを追加したり変更したりする](#UpdateExtension) | [拡張機能を削除する](#DeleteExtension)
 
 
 <a name="CreateExtensionInExistingItem"> </a>
@@ -189,7 +189,7 @@ POST https://outlook.office.com/api/v2.0/me/contacts('{contact_id}')/extensions
 <!-- ==================================== End v2 content ======================================================== -->
 
 
-__**最低限必要な範囲**: 次のいずれかのうち、対象リソースに対応する読み取り/書き込み範囲:__
+_**最小限必要なスコープ**: 次の対象リソースに対応する読み取り/書き込みスコープのうちのいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _https://outlook.office.com/calendars.readwrite_
 - _https://outlook.office.com/contacts.readwrite_
@@ -201,16 +201,16 @@ __**最低限必要な範囲**: 次のいずれかのうち、対象リソース
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_Body parameters_|
-|ExtensionName|string|拡張情報の一意のテキスト識別子。必須。 必須。|
+|_本文パラメーター_|
+|ExtensionName|string|拡張情報の一意のテキスト識別子。 必須。|
 
  
-**要求のサンプル:**
+**要求のサンプル**
 
-この例では、指定されたメッセージに関する拡張情報を作成します。要求本文には、拡張情報に関する次のものが含まれます。 応答本文には、新しい拡張情報に関する次のものが含まれています。
-- 型 Microsoft.OutlookServices.OpenTypeExtension`Microsoft.OutlookServices.OpenTypeExtension`。Outlook REST API メタデータ内で OData オープン型として定義されています。 
+この例では、指定されたメッセージに関する拡張情報を作成します。 要求本文には、拡張情報に関する次のものが含まれます。
+- 型 `Microsoft.OutlookServices.OpenTypeExtension`。Outlook REST API メタデータ内で OData オープン型として定義されています。 
 - 拡張情報名 "Com.Contoso.Referral"。
-- JSON ペイロード内にカスタム プロパティとして保存される追加のデータ: プリミティブ型が含まれる CompanyName、ExpirationDate、DealValue とプリミティブ型の配列が含まれる TopModels、TopSalespersonsです。
+- JSON ペイロード内にカスタム プロパティとして保存される追加のデータ: プリミティブ型が含まれる `CompanyName`、`DealValue`、`ExpirationDate` とプリミティブ型の配列が含まれる `TopModels`、`TopSalespersons`です。
 
 <!-- ==================================== Start beta content ==================================================== -->
 
@@ -243,11 +243,11 @@ Content-Type: application/json
 
 **応答のサンプル**
 
-成功した応答は、HTTP 200 応答コードで示されます。
+成功した応答は、`HTTP 201 Created` 応答コードで示されます。
 
 応答本文には、新しい拡張情報に関する次のものが含まれています。
 - 既定のプロパティ **ExtensionName**。
-- **Id** プロパティと Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral`Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral` の完全修飾名。
+- **Id** プロパティと `Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral` の完全修飾名。
 - 保存されるカスタム データ。  
 
 ```
@@ -314,11 +314,11 @@ Content-Type: application/json
 
 **応答のサンプル**
 
-成功した応答は、HTTP 200 応答コードで示されます。
+成功した応答は、`HTTP 201 Created` 応答コードで示されます。
 
 応答本文には、新しい拡張情報に関する次のものが含まれています。
 - 既定のプロパティ **ExtensionName**。
-- **Id** プロパティと Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral`Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral` の完全修飾名。
+- **Id** プロパティと `Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral` の完全修飾名。
 - 保存されるカスタム データ。  
 
 ```
@@ -359,7 +359,7 @@ Content-Type: application/json
 
 ### 新しいアイテムの拡張情報を作成する
 
-Create one or more extensions while creating a new instance of a resource, all in the same POST call, and add custom properties to the extension. Office 365 または Outlook.com のメッセージ、予定表イベント、または連絡先をリソースにすることができます。 The data in the JSON payload can be primitive types, or arrays of primitive types.
+同一の POST 呼び出しで新しいリソースのインスタンスを作成しながら 1 つ以上の拡張情報を作成し、その拡張情報にカスタム プロパティを追加します。 Office 365 または Outlook.com のメッセージ、予定表イベント、または連絡先をリソースにすることができます。 JSON ペイロード内のデータは、プリミティブ型か、プリミティブ型の配列にすることができます。
 
 サポートされているリソースごとに拡張情報を作成するには、そのリソースを作成する場合と同様に POST 呼び出しを行い、POST 要求の本文に拡張情報を含めます。
 
@@ -393,7 +393,7 @@ POST https://outlook.office.com/api/v2.0/me/contacts
 <!-- ==================================== End v2 content ======================================================== -->
 
 
-__**最低限必要な範囲**: 次のいずれかのうち、対象リソースに対応する読み取り/書き込み範囲:__
+_**最小限必要なスコープ**: 次の対象リソースに対応する読み取り/書き込みスコープのうちのいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _https://outlook.office.com/calendars.readwrite_
 - _https://outlook.office.com/contacts.readwrite_
@@ -405,18 +405,18 @@ __**最低限必要な範囲**: 次のいずれかのうち、対象リソース
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_Body parameters_|
-|ExtensionName|string|拡張情報の一意のテキスト識別子。必須。 必須。|
+|_本文パラメーター_|
+|ExtensionName|string|拡張情報の一意のテキスト識別子。 必須。|
 
  
-**要求のサンプル:**
+**要求のサンプル**
 
-この例では、同一の呼び出しでメッセージと拡張情報を作成します。要求本文には、次のものが含まれます。 The request body includes the following:
+この例では、同一の呼び出しでメッセージと拡張情報を作成します。 要求本文には、次のものが含まれます。
 - 新しいメッセージ固有の **Subject**、**Body**、**ToRecipients** プロパティ。 
 - 拡張情報に関する次のもの。
-  - 型 Microsoft.OutlookServices.OpenTypeExtension`Microsoft.OutlookServices.OpenTypeExtension`。Outlook REST API メタデータ内で OData オープン型として定義されています。 
+  - 型 `Microsoft.OutlookServices.OpenTypeExtension`。Outlook REST API メタデータ内で OData オープン型として定義されています。 
   - 拡張情報名 "Com.Contoso.Referral"。
-  - JSON ペイロード内にカスタム プロパティとして保存される追加のデータ: プリミティブ型が含まれる CompanyName、ExpirationDate、DealValue とプリミティブ型の配列が含まれる TopModels、TopSalespersonsです。  
+  - JSON ペイロード内にカスタム プロパティとして保存される追加のデータ: プリミティブ型が含まれる `CompanyName`、`ExpirationDate`、`DealValue` とプリミティブ型の配列が含まれる `TopModels`、`TopSalespersons`です。  
 
 <!-- ==================================== Start beta content ==================================================== -->
 
@@ -464,10 +464,10 @@ Content-Type: application/json
 
 **応答のサンプル**
 
-成功した応答は、HTTP 200 応答コードで示されます。
+成功した応答は、`HTTP 201 Created` 応答コードで示されます。
 
 応答本文には、新しいメッセージのプロパティと、新しい拡張情報に関する次のものが含まれています。
-- **Id** プロパティと Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral`Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral` の完全修飾名。 
+- **Id** プロパティと `Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral` の完全修飾名。 
 - 要求で指定されている既定のプロパティ **ExtensionName**。
 - 要求で指定されている、カスタム プロパティとして保存されるカスタム データ。 
 
@@ -598,10 +598,10 @@ Content-Type: application/json
 
 **応答のサンプル**
 
-成功した応答は、HTTP 200 応答コードで示されます。
+成功した応答は、`HTTP 201 Created` 応答コードで示されます。
 
 応答本文には、新しいメッセージのプロパティと、新しい拡張情報に関する次のものが含まれています。
-- **Id** プロパティと Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral`Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral` の完全修飾名。 
+- **Id** プロパティと `Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral` の完全修飾名。 
 - 要求で指定されている既定のプロパティ **ExtensionName**。
 - 要求で指定されている、カスタム プロパティとして保存されるカスタム データ。 
 
@@ -726,7 +726,7 @@ GET https://outlook.office.com/api/v2.0/me/contacts('{contact_id}')/extensions('
 <!-- ==================================== End v2 content ======================================================== -->
 
 
-__**最低限必要な範囲**: 次のいずれかのうち、対象となるリソースに対応する読み取り範囲:__
+_**最小限必要なスコープ**: 次の対象リソースに対応する読み取りスコープのうちのいずれかです。_
 - _https://outlook.office.com/mail.read_
 - _https://outlook.office.com/calendars.read_
 - _https://outlook.office.com/contacts.read_
@@ -738,7 +738,7 @@ __**最低限必要な範囲**: 次のいずれかのうち、対象となるリ
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL パラメータ_|
+|_URL パラメーター_|
 |extensionId|string|リソース インスタンスのすべての拡張情報間で一意のテキスト識別子である拡張機能名にするか、拡張情報の種類と一意のテキスト識別子を連結した完全修飾名にすることができます。完全修飾名は、拡張情報の作成時に id プロパティ内に返されます。必須。 |
 
 
@@ -764,7 +764,7 @@ GET https://outlook.office.com/api/beta/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDU
 
 **応答のサンプル**
 
-成功した応答は、HTTP 200 応答コードで示されます。 
+成功した応答は、`HTTP 200 OK` 応答コードで示されます。 
 
 ```
 {
@@ -805,7 +805,7 @@ GET https://outlook.office.com/api/v2.0/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDU
 
 **応答のサンプル**
 
-成功した応答は、HTTP 200 応答コードで示されます。 
+成功した応答は、`HTTP 200 OK` 応答コードで示されます。 
 
 ```
 {
@@ -832,9 +832,9 @@ GET https://outlook.office.com/api/v2.0/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDU
 
 ### 拡張情報を使用して展開されたアイテムを取得する
 
-PropertyId`Id` のフィルターで指定されている拡張プロパティを使用して拡張されたサポートされるリソースのインスタンスを取得します。 Office 365 または Outlook.com のメッセージ、予定表イベント、または連絡先をリソースにすることができます。
+`Id` のフィルターで指定されている拡張情報を使用して展開されたリソースのインスタンスを取得します。 Office 365 または Outlook.com のメッセージ、予定表イベント、または連絡先をリソースにすることができます。
 
-以下のように、Id`Id` で拡張情報名または完全修飾名に対してフィルター処理してから、拡張情報を使用して展開されたインスタンスを取得できます。フィルター文字列内のスペース文字に URL エンコードを適用することを確認してください。 PropertyId のフィルターで指定する文字列 {propertyId_value} は、サポートされる PropertyId の形式のいずれかに従う必要があります。フィルター文字列内のスペース文字に [URL エンコード](http://www.w3schools.com/tags/ref_urlencode.asp)を適用していることを確認してください。
+以下のように、`Id` で拡張情報名または完全修飾名に対してフィルター処理してから、拡張情報を使用して展開されたインスタンスを取得できます。 フィルター文字列内のスペース文字に [URL エンコード](http://www.w3schools.com/tags/ref_urlencode.asp)を適用していることを確認してください。
 
 <!-- ==================================== Start beta content ==================================================== -->
 
@@ -870,7 +870,7 @@ GET https://outlook.office.com/api/v2.0/me/contacts('{contact_id}')?$expand=Exte
 <!-- ==================================== End v2 content ======================================================== -->
 
 
-__**最低限必要な範囲**: 次のいずれかのうち、対象となるリソースに対応する読み取り範囲:__
+_**最小限必要なスコープ**: 次の対象リソースに対応する読み取りスコープのうちのいずれかです。_
 - _https://outlook.office.com/mail.read_
 - _https://outlook.office.com/calendars.read_
 - _https://outlook.office.com/contacts.read_
@@ -882,7 +882,7 @@ __**最低限必要な範囲**: 次のいずれかのうち、対象となるリ
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL パラメータ_|
+|_URL パラメーター_|
 |extensionId|string|リソース インスタンスのすべての拡張情報間で一意のテキスト識別子である拡張機能名にするか、拡張情報の種類と一意のテキスト識別子を連結した完全修飾名にすることができます。完全修飾名は、拡張情報の作成時に id プロパティ内に返されます。必須。 |
 
 
@@ -890,9 +890,9 @@ __**最低限必要な範囲**: 次のいずれかのうち、対象となるリ
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-**要求のサンプル:**
+**要求のサンプル**
 
-次の例では、フィルターから返される拡張情報を含めることにより、指定されたメッセージを取得して展開します。このフィルターは、Id が完全修飾名と一致する拡張情報を返します。 次の例では、フィルターから返される拡張情報を含めることにより、指定されたメッセージを取得して展開します。このフィルターは、Id`Id` が完全修飾名と一致する拡張情報を返します。
+次の例では、フィルターから返される拡張情報を含めることにより、指定されたメッセージを取得して展開します。 このフィルターは、`Id` が完全修飾名と一致する拡張情報を返します。
 
 利便性を考慮して、以下の要求では、予約文字のスペースの URL エンコーディングで示しています。
 
@@ -903,7 +903,7 @@ GET https://outlook.office.com/api/beta/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDU
 
 **応答のサンプル**
 
-成功した応答は、HTTP 200 応答コードで示されます。
+成功した応答は、`HTTP 200 OK` 応答コードで示されます。
 
 応答本文には、指定されたメッセージのすべてのプロパティと、フィルターから返される拡張情報が含まれます。
 
@@ -989,9 +989,9 @@ GET https://outlook.office.com/api/beta/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDU
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-**要求のサンプル:**
+**要求のサンプル**
 
-次の例では、フィルターから返される拡張情報を含めることにより、指定されたメッセージを取得して展開します。このフィルターは、Id が完全修飾名と一致する拡張情報を返します。 次の例では、フィルターから返される拡張情報を含めることにより、指定されたメッセージを取得して展開します。このフィルターは、Id`Id` が完全修飾名と一致する拡張情報を返します。
+次の例では、フィルターから返される拡張情報を含めることにより、指定されたメッセージを取得して展開します。 このフィルターは、`Id` が完全修飾名と一致する拡張情報を返します。
 
 利便性を考慮して、以下の要求では、予約文字のスペースの URL エンコーディングで示しています。
 
@@ -1002,7 +1002,7 @@ GET https://outlook.office.com/api/v2.0/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDU
 
 **応答のサンプル**
 
-成功した応答は、HTTP 200 応答コードで示されます。
+成功した応答は、`HTTP 200 OK` 応答コードで示されます。
 
 応答本文には、指定されたメッセージのすべてのプロパティと、フィルターから返される拡張情報が含まれます。
 
@@ -1089,11 +1089,11 @@ GET https://outlook.office.com/api/v2.0/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDU
 <a name="FindAndExpandItemsWithExtension"></a>
 ### 拡張情報を使用してアイテムを検索したり展開したりする
 
-You can find instances of a resource that contain an extension matching a filter. Additionally, in the same query, you can get these instances expanded with the extension. The queries in this section find such instances, expand and include the extension in the response. 
+フィルターと一致する拡張情報が含まれているリソースのインスタンスを検索できます。 さらに、同じクエリで、この拡張情報を使用して展開されたこれらのインスタンスを取得できます。 このセクションのクエリは、このようなインスタンスを検索し、展開して、応答に拡張情報を含めます。 
 
 Office 365 または Outlook.com のメッセージ、予定表イベント、または連絡先をリソースにすることができます。
 
-次のように、Id`Id` で拡張情報名または完全修飾名に対してフィルター処理してから、拡張情報を使用して展開されたインスタンスを取得できます。フィルター文字列内のスペース文字に URL エンコードを適用することを確認してください。 PropertyId のフィルターで指定する文字列 {propertyId_value} は、サポートされる PropertyId の形式のいずれかに従う必要があります。フィルター文字列内のスペース文字に [URL エンコード](http://www.w3schools.com/tags/ref_urlencode.asp)を適用していることを確認してください。
+次のように、`Id` で拡張情報名または完全修飾名に対してフィルター処理してから、拡張情報を使用して展開されたインスタンスを取得できます。 フィルター文字列内のスペース文字に [URL エンコード](http://www.w3schools.com/tags/ref_urlencode.asp)を適用していることを確認してください。
 
 <!-- ==================================== Start beta content ==================================================== -->
 
@@ -1129,7 +1129,7 @@ GET https://outlook.office.com/api/v2.0/me/contacts?$filter=Extensions/any(f:f/I
 <!-- ==================================== End v2 content ======================================================== -->
 
 
-__**最低限必要な範囲**: 次のいずれかのうち、対象となるリソースに対応する読み取り範囲:__
+_**最小限必要なスコープ**: 次の対象リソースに対応する読み取りスコープのうちのいずれかです。_
 - _https://outlook.office.com/mail.read_
 - _https://outlook.office.com/calendars.read_
 - _https://outlook.office.com/contacts.read_
@@ -1141,16 +1141,16 @@ __**最低限必要な範囲**: 次のいずれかのうち、対象となるリ
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL パラメータ_|
+|_URL パラメーター_|
 |extensionId|string|リソース インスタンスのすべての拡張情報間で一意のテキスト識別子である拡張機能名にするか、拡張情報の種類と一意のテキスト識別子を連結した完全修飾名にすることができます。完全修飾名は、拡張情報の作成時に id プロパティ内に返されます。必須。 |
 
 <!-- ==================================== Start beta content ==================================================== -->
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-**要求のサンプル:**
+**要求のサンプル**
 
-次の例では、サインインしているユーザーのメールボックス内のすべてのメッセージを検索して、フィルターと一致する拡張情報が含まれているメッセージを検出し、拡張情報を組み込んでそれらのメッセージを展開します。フィルターは、Id が拡張情報名 Com.Contoso.Referral と一致する拡張情報を返します。 The filter returns extensions that has the `Id` matching the extension name `Com.Contoso.Referral`.
+次の例では、サインインしているユーザーのメールボックス内のすべてのメッセージを検索して、フィルターと一致する拡張情報が含まれているメッセージを検出し、拡張情報を組み込んでそれらのメッセージを展開します。 フィルターは、`Id` が拡張情報名 `Com.Contoso.Referral` と一致する拡張情報を返します。
 
 利便性を考慮して、以下の要求では、予約文字のスペースの URL エンコーディングで示しています。
 
@@ -1161,7 +1161,7 @@ GET https://outlook.office.com/api/beta/me/messages?$filter=Extensions/any(f:f/I
 
 **応答のサンプル**
 
-成功した応答は、HTTP 200 応答コードで示されます。
+成功した応答は、`HTTP 200 OK` 応答コードで示されます。
 
 応答本文には、拡張情報が一致するすべてのメッセージとすべてのメッセージ プロパティが含まれています。この例では、応答には 2 つのメッセージが含まれています。
 
@@ -1361,9 +1361,9 @@ GET https://outlook.office.com/api/beta/me/messages?$filter=Extensions/any(f:f/I
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-**要求のサンプル:**
+**要求のサンプル**
 
-次の例では、サインインしているユーザーのメールボックス内のすべてのメッセージを検索して、フィルターと一致する拡張情報が含まれているメッセージを検出し、拡張情報を組み込んでそれらのメッセージを展開します。フィルターは、Id が拡張情報名 Com.Contoso.Referral と一致する拡張情報を返します。 The filter returns extensions that has the `Id` matching the extension name `Com.Contoso.Referral`.
+次の例では、サインインしているユーザーのメールボックス内のすべてのメッセージを検索して、フィルターと一致する拡張情報が含まれているメッセージを検出し、拡張情報を組み込んでそれらのメッセージを展開します。 フィルターは、`Id` が拡張情報名 `Com.Contoso.Referral` と一致する拡張情報を返します。
 
 利便性を考慮して、以下の要求では、予約文字のスペースの URL エンコーディングで示しています。
 
@@ -1374,7 +1374,7 @@ GET https://outlook.office.com/api/v2.0/me/messages?$filter=Extensions/any(f:f/I
 
 **応答のサンプル**
 
-成功した応答は、HTTP 200 応答コードで示されます。
+成功した応答は、`HTTP 200 OK` 応答コードで示されます。
 
 応答本文には、拡張情報が一致するすべてのメッセージとすべてのメッセージ プロパティが含まれています。この例では、応答には 2 つのメッセージが含まれています。
 
@@ -1614,7 +1614,7 @@ PATCH https://outlook.office.com/api/v2.0/me/contacts('{contact_id}')/extensions
 <!-- ==================================== End v2 content ======================================================== -->
 
 
-__**最低限必要な範囲**: 次のいずれかのうち、対象リソースに対応する読み取り/書き込み範囲:__
+_**最小限必要なスコープ**: 次の対象リソースに対応する読み取り/書き込みスコープのうちのいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _https://outlook.office.com/calendars.readwrite_
 - _https://outlook.office.com/contacts.readwrite_
@@ -1626,24 +1626,24 @@ __**最低限必要な範囲**: 次のいずれかのうち、対象リソース
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL パラメータ_|
+|_URL パラメーター_|
 |extensionId|string|リソース インスタンスのすべての拡張情報間で一意のテキスト識別子である拡張機能名にするか、拡張情報の種類と一意のテキスト識別子を連結した完全修飾名にすることができます。完全修飾名は、拡張情報の作成時に id プロパティ内に返されます。必須。 |
-|_Body parameters_|
-|ExtensionName|string|拡張情報の一意のテキスト識別子。必須。 必須。|
+|_本文パラメーター_|
+|ExtensionName|string|拡張情報の一意のテキスト識別子。 必須。|
 
 
 <!-- ==================================== Start beta content ==================================================== -->
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-**要求のサンプル:**
+**要求のサンプル**
 
-このセクションの 2 つの例では、それぞれ上記の[「拡張情報を取得する」の例](#GetExtensionExample)の拡張情報を使用しています。最初の例は拡張情報を名前で参照し、2 番目の例は ID で 参照しています。要求本文と応答は同じです。
+このセクションの 2 つの例では、それぞれ上記の[「拡張情報を取得する」の例](#GetExtensionExample)の拡張情報を使用しています。最初の例は拡張情報を名前で参照し、2 番目の例は ID で参照しています。要求本文と応答は同じです。
 
 各例では、次の方法で[上記の拡張情報](#GetExtensionExample)を更新します。
-- DealValue`CompanyName` を 500050`Wingtip Toys` から 500100`Wingtip Toys (USA)` に変更する
-- DealValue`DealValue` を 500050`500050` から 500100`500100` に変更する
-- 新しいデータをカスタム プロパティ Updated`Updated` として追加する
+- `CompanyName` を `Wingtip Toys` から `Wingtip Toys (USA)` に変更する
+- `DealValue` を `500050` から `500100` に変更する
+- 新しいデータをカスタム プロパティ `Updated` として追加する
 
 次の例は、拡張情報を名前で参照します。
 ```
@@ -1680,7 +1680,7 @@ Content-Type: application/json
 
 **応答のサンプル**
 
-成功した応答は HTTP 200 OK`HTTP 200 OK` 応答コードで示され、応答本文内に更新された拡張情報が示されています。
+成功した応答は `HTTP 200 OK` 応答コードで示され、応答本文内に更新された拡張情報が示されています。
 
 ```
 {
@@ -1706,14 +1706,14 @@ Content-Type: application/json
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-**要求のサンプル:**
+**要求のサンプル**
 
-このセクションの 2 つの例では、それぞれ上記の[「拡張情報を取得する」の例](#GetExtensionExample)の拡張情報を使用しています。最初の例は拡張情報を名前で参照し、2 番目の例は ID で 参照しています。要求本文と応答は同じです。
+このセクションの 2 つの例では、それぞれ上記の[「拡張情報を取得する」の例](#GetExtensionExample)の拡張情報を使用しています。最初の例は拡張情報を名前で参照し、2 番目の例は ID で参照しています。要求本文と応答は同じです。
 
 各例では、次の方法で[上記の拡張情報](#GetExtensionExample)を更新します。
-- DealValue`CompanyName` を 500050`Wingtip Toys` から 500100`Wingtip Toys (USA)` に変更する
-- DealValue`DealValue` を 500050`500050` から 500100`500100` に変更する
-- 新しいデータをカスタム プロパティ Updated`Updated` として追加する
+- `CompanyName` を `Wingtip Toys` から `Wingtip Toys (USA)` に変更する
+- `DealValue` を `500050` から `500100` に変更する
+- 新しいデータをカスタム プロパティ `Updated` として追加する
 
 次の例は、拡張情報を名前で参照します。
 ```
@@ -1750,7 +1750,7 @@ Content-Type: application/json
 
 **応答のサンプル**
 
-成功した応答は HTTP 200 OK`HTTP 200 OK` 応答コードで示され、応答本文内に更新された拡張情報が示されています。
+成功した応答は `HTTP 200 OK` 応答コードで示され、応答本文内に更新された拡張情報が示されています。
 
 ```
 {
@@ -1812,7 +1812,7 @@ DELETE https://outlook.office.com/api/v2.0/me/contacts('{contact_id}')/extension
 <!-- ==================================== End v2 content ======================================================== -->
 
 
-__**最低限必要な範囲**: 次のいずれかのうち、対象リソースに対応する読み取り/書き込み範囲:__
+_**最小限必要なスコープ**: 次の対象リソースに対応する読み取り/書き込みスコープのうちのいずれかです。_
 - _https://outlook.office.com/mail.readwrite_
 - _https://outlook.office.com/calendars.readwrite_
 - _https://outlook.office.com/contacts.readwrite_
@@ -1824,8 +1824,8 @@ __**最低限必要な範囲**: 次のいずれかのうち、対象リソース
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
-|extension_name|string|拡張情報の一意のテキスト識別子。必須。 必須。|
+|_URL パラメーター_|
+|extension_name|string|拡張情報の一意のテキスト識別子。 必須。|
 
  
 **要求のサンプル**
@@ -1860,7 +1860,7 @@ DELETE https://outlook.office.com/api/v2.0/me/messages('AAMkAGE1M2IyNGNmLTI5MTkt
 
 **応答のサンプル**
 
-成功した応答は、HTTP 200 応答コードで示されます。 
+成功した応答は、`HTTP 204 No Content` 応答コードで示されます。 
 
 ****
 
@@ -1872,7 +1872,7 @@ DELETE https://outlook.office.com/api/v2.0/me/messages('AAMkAGE1M2IyNGNmLTI5MTkt
 
 型:**Microsoft.OutlookServices.Entity**
 
-基本型が **Entity** エンティティの抽象型エンティティ 。
+基本型が **Entity** エンティティの抽象型エンティティ。
 
 
 <a name="OpenTypeExtensionEntity"> </a>
@@ -1892,11 +1892,11 @@ DELETE https://outlook.office.com/api/v2.0/me/messages('AAMkAGE1M2IyNGNmLTI5MTkt
 
 
 <a name="NextSteps"> </a>
-## 次のステップ
+## 次の手順
 
 アプリケーション開発を開始する準備ができている方にも、単に詳しい情報を必要としている方にも、最適なコンテンツをご用意しています。
 
-- [メール、予定表、および連絡先 REST API 入門](http://dev.outlook.com/RestGettingStarted)。
+- [メール、予定表、および連絡先 REST API の使用を開始します](http://dev.outlook.com/RestGettingStarted)。
 
 - Office 365 の API を実際に試してみるには、対話形式の [API サンドボックス](https://apisandbox.msdn.microsoft.com/)をお使いください。
 
@@ -1909,7 +1909,7 @@ Office 365 プラットフォームの使い方の詳細については、次の
 
 - [Office 365 プラットフォーム上での開発の概要](..\howto\platform-development-overview.md)
 
-- [Office 365 アプリケーションの認証およびリソース承認](..\howto\common-app-authentication-tasks.md)
+- [Office 365 のアプリ認証とリソース承認](..\howto\common-app-authentication-tasks.md)
 
 - [Office 365 API にアクセスできるようにアプリを手動で Azure AD に登録する](..\howto\add-common-consent-manually.md)
 

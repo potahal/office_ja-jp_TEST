@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Outlook People REST API reference (Preview)
-title: "Outlook People REST API リファレンス (プレビュー)"
-description: "ms.TocTitle:Outlook People REST API リファレンス (プレビュー)Title:Outlook People REST API リファレンスDescription:サービス全体の人物についての情報へのアクセスを提供する People REST API と対話する方法に関するリファレンスです。ms.ContentId:99aec234-31a1-46bd-8a01-3f0d2fea22f8ms.topic: リファレンス (API) ms.date:2016 年 5 月 16 日"
+title: "Outlook People REST API リファレンス"
+description: "サービス全体の人物についての情報へのアクセスを提供する People REST API と対話する方法に関するリファレンスです。"
 ms.ContentId: 99aec234-31a1-46bd-8a01-3f0d2fea22f8
 ms.date: May 16, 2016
 
@@ -12,24 +12,24 @@ ms.date: May 16, 2016
 
 [!INCLUDE [Add the Outlook REST API filters--beta default v1 v2 disabled](../includes/controls/addOutlookversion_betadefault_v1v2disabled.xml)] 
 
-<p class="previewnote"><p class="previewnote">このドキュメントで取り上げる People API は、現時点ではプレビュー段階にあります。 Preview features are subject to change prior to finalization, and may break code that uses them. プレビュー機能は、最終処理までに変更される場合があります。それらを使用するコードを破棄する場合もあります。このため、一般に、実稼働コードでは実稼働バージョンの API のみを使用してください。可能な場合には、現在バージョン 2.0 が優先バージョンです。</p> If available, v2.0 is currently the preferred version..</p>
+<p class="previewnote">このドキュメントで取り上げる People API は、現時点ではプレビュー段階にあります。 プレビュー機能は、最終版までに変更される場合があり、それらの機能を使用するコードが動作しなくなる場合もあります。 このため、一般に、運用コードでは運用バージョンの API のみを使用してください。 入手可能な場合、現時点ではバージョン 2.0 が優先バージョンです。</p>
 
 
-The Outlook People API helps you get information about the people that are important to you from across mail, contacts, and social networks. You can combine information about a person from many sources in a single request to a single endpoint. You can use the API to access information secured by Azure Active Directory in Office 365. It also provides acces to Microsoft accounts in these domains: office.com, hotmail.com, live.com and office365.com.
+Outlook People API は、メール、連絡先、およびソーシャル ネットワークのすべてから自分にとって重要な人物に関する情報を取得するために役立ちます。 1 つのエンドポイントへの単一の要求で、多数のソースから得られる個人に関する情報を統合できます。 この API を使用すると、Office 365 の Azure Active Directory でセキュリティ保護された情報にアクセスできます。 さらに、Microsoft アカウント (office.com、hotmail.com、live.com および office365.com のドメイン) へのアクセスも可能になります。
 
-**注** この記事の内容は、同じ方法ですべてのサポート対象ドメインに適用されます。わかりやすくするために、これ以降の記述では For simplicity, the rest of this article uses **"outlook.office.com" to refer to accounts in all domains.**
+**注** この記事の内容は、同じ方法ですべてのサポート対象ドメインに適用されます。 わかりやすくするために、これ以降の記述では、**すべてのドメインのアカウントを表すために "outlook.office.com"** を使用します。
 
 ## すべての People API の操作
 
-The People API returns relevent _person_ entities with each request. A _person_ aggregates information from across mail, contacts and social networks. People API は、要求ごとに関連する person エンティティを返します。person は、メール、連絡先、およびソーシャル ネットワークのすべてからの情報を集約します。結果は、関連性の順序に並べ替えられます。この関連性は要求で指定した条件によって判断され、複数のコミュニケーション、コラボレーションおよびビジネスのリレーションシップに基づいてランク付けされます。
+People API は、要求ごとに関連する _person_ エンティティを返します。 _person_ は、メール、連絡先、およびソーシャル ネットワークのすべてからの情報を集約します。 結果は、_関連性_の順序に並べ替えられます。この関連性は要求で指定した条件によって判断され、複数のコミュニケーション、コラボレーションおよびビジネスのリレーションシップに基づいてランク付けされます。
 
-人物の一覧を参照する  検索を使用して人物の一覧を取得する
+[人物の一覧を参照する](#BrowsePeople) | [検索を使用して人物の一覧を取得する](#SearchPeople)
 
 ##People REST API の使用
 
 ###認証
 
-Like other [Outlook REST API](..\api\use-outlook-rest-api.md#DefineOutlookRESTAPI), for every request to the People API, you include a valid access token. You must register and identify your app and obtain the appropriate authorization to get an access token. You can [find out more](..\api\use-outlook-rest-api.md#ShortRegAuthWorkflow) about some streamlined registration and authorization options for you.
+他の [Outlook REST API](..\api\use-outlook-rest-api.md#DefineOutlookRESTAPI) と同様に、People API へのすべての要求に対して、有効なアクセス トークンを含めます。 アプリを登録して識別子、アクセス トークンを得るための承認を得る必要があります。 効率化された登録と承認のオプションに関する[詳細情報](..\api\use-outlook-rest-api.md#ShortRegAuthWorkflow)を参照してください。
 
 ###サポートされている REST 処理およびエンドポイント
 
@@ -43,31 +43,31 @@ People REST API を操作する場合は、サポートされているエンド�
 
 ###API のバージョン
 
-{version}`{version}` は、指定したルート URL の REST API のバージョンを表します。指定可能なバージョンは The only version that you can specify is `beta`.
+`{version}` は、指定したルート URL の REST API のバージョンを表します。 指定可能なバージョンは、`beta` のみです。
 
-* beta`beta`:このバージョンはプレビューであるため、運用コードでは使用しないでください。URL の例は An example URL is `https://outlook.office.com/api/beta/me/people`. betaこのバージョンはプレビュー状態であるため、運用コードでは使用しないでください。exampleURL は http://outlook.office.com/api/beta/me/events です。このバージョンには、GA 段階の最新の API と、プレビュー段階の追加 API セットが含まれており、最終処理までに変更される場合があります。
+* `beta`:このバージョンはプレビューであるため、運用コードでは使用しないでください。 URL の例は、`https://outlook.office.com/api/beta/me/people` です。 このバージョンには、GA 段階の最新の API と、プレビュー段階の追加 API セットが含まれており、最終処理までに変更される場合があります。
   
-###ターゲット ユーザー
+###対象ユーザー
 
-{user_context}`{user_context}` は、現在サインインしているユーザーです。People API は、すべての要求を現在のユーザーの代理として実行します。 REST _要求_でユーザー コンテキストを指定するには、次の方法を使用します。
+`{user_context}` は、現在サインインしているユーザーです。People API は、すべての要求を現在のユーザーの代理として実行します。 REST _要求_でユーザー コンテキストを指定するには、次の方法を使用します。
 
-- With the `me` shortcut: `/api/{version}/me`. The root URL becomes `https://outlook.office.com/api/{version}/me`.
+- `me` ショートカットを使用する (例: `/api/{version}/me`)。 ルート URL は `https://outlook.office.com/api/{version}/me` になります。
 
-サーバー _responses_ では、ユーザー コンテキストは users/{AAD_userId@AAD_tenandId} 形式で識別されます。
+サーバーの_応答_では、ユーザー コンテキストは `users/{AAD_userId@AAD_tenantId}` の形式で識別されます。
 
 <a name="BrowsePeople"> </a>
 ###人物の参照
 
-[Paging a response](#BrowsePaging) | 
-[Sorting a response](#BrowseSort) | 
-[Setting the number of people in a response](#BrowsePageSize) | 
-[Selecting the fields returned](#BrowseSelecting) |
-[Filtering the response](#BrowseFiltering) |
-[Filtering and selecting the fields returned](#BrowseSelectingAndFiltering)
+[応答のページング](#BrowsePaging) | 
+[応答の並べ替え](#BrowseSort) | 
+[応答に含まれる人物数の設定](#BrowsePageSize) | 
+[返されるフィールドの選択](#BrowseSelecting) |
+[応答のフィルター処理](#BrowseFiltering) |
+[返されるフィールドのフィルター処理と選択](#BrowseSelectingAndFiltering)
 
-__**必要なスコープ**: https://outlook.office.com/people.read__
+_**必要なスコープ**: https://outlook.office.com/people.read_
 
-<a name="DefaultBrowse"> </a>次に示す要求では、コミュニケーション、コラボレーション、およびビジネスのリレーションシップに基づいて、ユーザーに最も関連のある人物を取得します。既定では、応答ごとに 10 件のレコードが返されます。ただし、$top パラメーターを使用することで、これを変更できます。 次に示す要求では、コミュニケーション、コラボレーション、およびビジネスのリレーションシップに基づいて、ユーザーに最も関連のある人物を取得します。既定では、応答ごとに 10 件のレコードが返されます。ただし、_$top_ パラメーターを使用することで、[これを変更](#BrowsePageSize)できます。
+<a name="DefaultBrowse"> </a> 次に示す要求では、コミュニケーション、コラボレーション、およびビジネスのリレーションシップに基づいて、ユーザーに最も関連のある人物を取得します。 既定では、応答ごとに 10 件のレコードが返されます。ただし、_$top_ パラメーターを使用することで、[これを変更](#BrowsePageSize)できます。
 
 ```no-highlight
 https://outlook.office.com/api/beta/me/people/
@@ -289,9 +289,10 @@ https://outlook.office.com/api/beta/me/people/
 
 ****
 
-人物の続きのページの要求
+<a name="BrowsePaging"> </a>
+**人物の続きのページの要求**
 
-最初の応答では関連のある人物の完全なリストが含めきれない場合は、追加の情報ページを要求するために、_$top_ と _$skip_ を使用して 2 番目の要求を行うことができます。前の要求に追加情報が含まれている場合は、次の要求でサーバーから人物についての後続ページを取得します。 If the [previous request](#DefaultBrowse) has additional information, the following request gets the next page of people from the server.
+最初の応答に関連のある人物のリストを完全に含められない場合は、追加の情報ページを要求するために、_$top_ と _$skip_ を使用して 2 番目の要求を行うことができます。 [前の要求](#DefaultBrowse)に追加情報が含まれている場合は、次の要求でサーバーから人物についての後続ページを取得します。
 
 ```no-highlight
 https://outlook.office.com/api/beta/me/people/?$top=10&$skip=10
@@ -510,9 +511,10 @@ https://outlook.office.com/api/beta/me/people/?$top=10&$skip=10
 
 ****
 
-応答の並べ替え
+<a name="BrowseSort"> </a>
+**応答の並べ替え**
 
-By default the people in the response are sorted by their relevance to your query. You can change the order of the people in the response using the _$orderby_ parameter. This query selects the people most relevant to you, sorts them by their display name, and then returns the first 10 people on the sorted list.
+既定では、応答に含まれる人物は、クエリとの関連性で並べ替えられます。 応答に含まれる人物の順序は、_$orderby_ パラメーターを使用することで変更できます。 このクエリでは、自分に最も関連のある人物を選択し、その人物を表示名で並べ替えてから、最初の 10 人の人物を並べ替え済みのリストで返します。
 
 ```no-highlight
 https://outlook.office.com/api/beta/me/people/?$orderby=DisplayName 
@@ -730,11 +732,12 @@ https://outlook.office.com/api/beta/me/people/?$orderby=DisplayName
 
 ****
 
-返される人物の数と返されるフィールドの変更
+<a name="BrowsePageSize"> </a>
+**返される人物の数と返されるフィールドの変更**
 
 応答で返される人物の数は、_$top_ パラメーターを設定することで変更できます。 
 
-The following example requests the 1,000 most relevant people. 次に示す例では、最も関連のある 1,000 人の人物を要求します。また、この要求では、人物の表示名のみを要求することで、サーバーから返されるデータの量も制限しています。
+次に示す例では、最も関連のある 1,000 人の人物を要求します。 また、この要求では、人物の表示名のみを要求することで、サーバーから返されるデータの量も制限しています。
 
 ```no-highlight
 https://outlook.office.com/api/beta/me/people/?$top=1000&$Select=DisplayName
@@ -806,7 +809,8 @@ https://outlook.office.com/api/beta/me/people/?$top=1000&$Select=DisplayName
 
 ****
 
-返されるフィールドの選択
+<a name="BrowseSelecting"> </a>
+**返されるフィールドの選択**
 
 サーバーから返されるデータの量は、1 つ以上のフィールドを選択する _$select_ パラメーターを使用することで制限できます。_@odata.id_ フィールドは常に返されます。
 
@@ -931,7 +935,8 @@ https://outlook.office.com/api/beta/me/people/?$select=DisplayName,EmailAddresse
 
 ****
 
-フィルターを使用した応答の制限
+<a name="BrowseFiltering"> </a>
+**フィルターを使用した応答の制限**
 
 _$filter_ パラメーターを使用すると、指定した条件に等しいレコードを持つ人物のみに応答を制限できます。 
 
@@ -1132,11 +1137,12 @@ https://outlook.office.com/api/beta/me/people/?$Filter=Sources/Any (source: sour
 
 ****
 
-フィルター処理された応答で返されるフィールドを選択する
+<a name="BrowseSelectingAndFiltering"> </a>
+**フィルター処理された応答で返されるフィールドを選択する**
 
 _$select_ パラメーターと _$filter_ パラメーターを組み合わせることで、ユーザーに関連のある人物のカスタム リストを作成し、アプリケーションで必要になるフィールドのみを取得できます。 
 
-次に示す例では、指定した名前と等しい表示名を持つ人物の _DisplayName_ と _EmailAddress_ を取得します。この例では、表示名が "Nestor Kellum" と等しい人物のみが返されます。 次に示す例では、指定した名前と等しい表示名を持つ人物の DisplayName と EmailAddress を取得します。この例では、表示名が "Nestor Kellum" と等しい人物のみが返されます。 
+次に示す例では、指定した名前と等しい表示名を持つ人物の _DisplayName_ と _EmailAddress_ を取得します。 この例では、表示名が "Nestor Kellum" と等しい人物のみが返されます。 
 
 ```no-highlight
 https://outlook.office.com/api/beta/me/people/?$select=DisplayName,EmailAddresses&$Filter=DisplayName eq 'Nestor Kellum' 
@@ -1170,17 +1176,17 @@ https://outlook.office.com/api/beta/me/people/?$select=DisplayName,EmailAddresse
 <a name="SearchPeople"> </a>
 ###人物の検索
 
-トピックの検索 
+[トピックの検索](#SearchTopic) |
 <!-- [Limiting a search response by topic](#SearchFilter) | -->
 [あいまい検索の実行](#FuzzySearch)
 
-__**必要なスコープ**: https://outlook.office.com/people.read__
+_**必要なスコープ**: https://outlook.office.com/people.read_
 
 **検索による人物の選択**
 
 _$search_ パラメーターを使用して、特定の条件セットを満たす人物を選択します。 
 
-The following search query returns relevant people whose _GivenName_ or _Surname_ begins with the letter "j".
+次に示す検索クエリは、先頭の文字が "j" の _GivenName_ または _Surname_ を持つ関連のある人物を返します。
 
 ```no-highlight
 https://outlook.office.com/api/beta/me/people/?$search=j
@@ -1275,7 +1281,8 @@ https://outlook.office.com/api/beta/me/people/?$search=j
 
 ****
 
-検索による関連するトピックの指定
+<a name="SearchTopic"> </a>
+**検索による関連するトピックの指定**
 
 次に示す要求は、名前に "ma" が含まれていて、"Aziz Ansari" というコメディアンに興味を示している関連のある人物を返します。
 
@@ -1475,9 +1482,10 @@ https://outlook.office.com/api/beta/me/people/?$search=j
  
  ****
  
- あいまい検索の実行
+ <a name="FuzzySearch"> </a>
+ **あいまい検索の実行**
  
- 次に示す要求では、"Hermaini Hall" という名前の人物について検索を実行します。"Herminia Hull" という名前の関連のある人物が存在するため Because there is a relevant person named "Herminia Hull," the information for "Herminia Hull" is returned.
+ 次に示す要求では、"Hermaini Hall" という名前の人物について検索を実行します。 "Herminia Hull" という名前の関連のある人物が存在するため、"Hermaini Hall" についての情報が返されます。
  
  ```no-highlight
  https://outlook.office.com/api/beta/me/people/?$search="hermaini hall"

@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Outlook Calendar REST API reference
 title: "Outlook 予定表 REST API リファレンス"
-description: "ms.TocTitle:Outlook 予定表 REST API リファレンスTitle:Outlook 予定表 REST API リファレンスDescription:Exchange Online でイベント、予定表、および予定表グループへのアクセスを提供する予定表 REST API とクライアント ライブラリ API を操作する方法のリファレンス。ms.ContentId:443f1cdf-1adb-46a2-b299-228c6f429954ms.topic: リファレンス (API) ms.date:2016 年 5 月 19 日"
+description: "Exchange Online でイベント、予定表、予定表グループへのアクセスを提供する予定表 REST API とクライアント ライブラリ API を操作する方法のリファレンスです。"
 ms.ContentId: 443f1cdf-1adb-46a2-b299-228c6f429954
 ms.date: July 19, 2016
 
@@ -16,12 +16,12 @@ ms.date: July 19, 2016
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-<p class="previewnote">< p class="previewnote">このドキュメントでは、会議時間の検索、イベントのキャンセル、およびプレビュー段階での添付ファイルの参照を行うための API について説明します。 Preview features are subject to change prior to finalization, and may break code that uses them. プレビュー機能は、最終処理までに変更される場合があります。それらを使用するコードを破棄する場合もあります。このため、一般に、実稼働コードでは実稼働バージョンの API のみを使用してください。可能な場合には、現在バージョン 2.0 が優先バージョンです。</p> If available, v2.0 is currently the preferred version.</p>
+<p class="previewnote">このドキュメントでは、会議時間の検索、イベントのキャンセル、およびプレビュー段階での添付ファイルの参照を行うための API について説明します。 プレビュー機能は、最終版までに変更される場合があり、それらの機能を使用するコードが動作しなくなる場合もあります。 このため、一般に、運用コードでは運用バージョンの API のみを使用してください。 入手可能な場合、現時点ではバージョン 2.0 が優先バージョンです。</p>
 
 [!INCLUDE [END Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
    
- _**Applies to:** Exchange Online | Office 365 | Hotmail.com | Live.com | MSN.com | Outlook.com | Passport.com_
+ _**適用対象:**Exchange Online | Office 365 | Hotmail.com | Live.com | MSN.com | Outlook.com | Passport.com_
 
 予定表 API は、Office 365 の Azure Active Directory によって保護されているイベント、予定表、および予定表グループ データへのアクセス、および特にこれらのドメイン内の Microsoft アカウントの類似したデータへのアクセスを提供します。Hotmail.com、Live.com、MSN.com、Outlook.com、および Passport.com。 
   
@@ -31,17 +31,17 @@ ms.date: July 19, 2016
 You can access the Calendar API by calling the corresponding REST APIs directly in your apps, or by using the Office 365 client libraries and SDKs.
 -->
 
-**注意** 
+**メモ** 
 
-- The exception is the API to [find meeting times](#FindMeetingTimesPreview), which applies to only Office 365 mailboxes (on Azure AD) and not to Microsoft accounts. 
-- **メモ** リファレンスをわかりやすくするため、この記事の残りの部分では "Outlook.com" をこれらの Microsoft アカウントのドメインを含めた語として使用しています。
+- 例外は、[会議の日時を検索する](#FindMeetingTimesPreview) API です。これは Microsoft アカウントではなく、Office 365 のメールボックス (Azure AD 上) にのみ適用されます。 
+- リファレンスをわかりやすくするため、この記事の残りの部分では **"Outlook.com" をこれらの Microsoft アカウントのドメインを含めた語として**使用しています。
 
 
 <!-- ==================================== Start beta content ==================================================== -->
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-**Not interested in the beta version of the API?** API v2.0 が不要な場合右上隅のコントロールを使用して、必要なバージョンを選択します。
+**ベータ版の API が不要な場合** 右上隅のコントロールを使用して、必要なバージョンを選択します。
 
 [!INCLUDE [END Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
@@ -53,7 +53,7 @@ You can access the Calendar API by calling the corresponding REST APIs directly 
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-**Not interested in v2.0 of the API?** API v1.0 に関心がない場合: 右上のコントロールを使用して、必要なバージョンを選択します。
+**API v2.0 が不要な場合** 右上のコントロールを使用して、必要なバージョンを選択します。
 
 [!INCLUDE [END Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
@@ -66,7 +66,7 @@ You can access the Calendar API by calling the corresponding REST APIs directly 
 
 [!INCLUDE [BEGIN Outlook v1 section](../includes/controls/outlookrestapiv1section.xml)]
 
-**Not interested in v1.0 of the API?** API v1.0 に関心がない場合: 右上のコントロールを使用して、必要なバージョンを選択します。
+**API v1.0 が不要な場合** 右上のコントロールを使用して、必要なバージョンを選択します。
 
 [!INCLUDE [END Outlook v1 section](../includes/controls/outlookrestapiv1section.xml)]
 
@@ -76,16 +76,17 @@ You can access the Calendar API by calling the corresponding REST APIs directly 
  
 ## すべての予定表 API 操作
 
-Event エンティティは、ユーザーの予定表にある予定または会議を表します。 イベントはユーザーの予定表にある予定または会議を表します。イベントには、シリーズ マスター (定期的なイベントの場合)、発生、単一インスタンス、または例外を指定できます。
+<a name="EventOperations"> </a>
+**イベント操作** イベントはユーザーの予定表にある予定または会議を表します。 イベントには、シリーズ マスター (定期的なイベントの場合)、発生、単一インスタンス、または例外を指定できます。
 
 <!-- ==================================== Start beta content ==================================================== -->
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-[Get events](#GetEvents) | [Sync events](#SyncCalendarView) | [Find meeting times (preview)](#FindMeetingTimesPreview) | [Create events](#CreateEvents) | 
-[Update events](#UpdateEvents) | [Respond to events](#RespndToEvents) | [Delete events](#DeleteEvents) | [Cancel events (preview)](#CancelEvents) | 
-[Get attachments](#GetAttachments) | [Create attachments](#CreateAttachments) | [Delete attachments](#DeleteAttachments) | 
-[Get reminders](#GetReminders) | [Snooze reminders](#SnoozeReminders)] | [Dismiss reminders](#DismissReminders)
+[イベントを取得する](#GetEvents) | [イベントを同期させる](#SyncCalendarView) | [会議の日時を検索する (プレビュー)](#FindMeetingTimesPreview) | [イベントを作成する](#CreateEvents) | 
+[イベントを更新する](#UpdateEvents) | [イベントに応答する](#RespndToEvents) | [イベントを削除する](#DeleteEvents) | [イベントをキャンセルする (プレビュー)](#CancelEvents) | 
+[添付ファイルを取得する](#GetAttachments) | [添付ファイルを作成する](#CreateAttachments) | [添付ファイルを削除する](#DeleteAttachments) | 
+[アラームを取得する](#GetReminders) | [アラームを再通知する](#SnoozeReminders)] | [アラームを消す](#DismissReminders)
 
 
 [!INCLUDE [END Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
@@ -98,10 +99,10 @@ Event エンティティは、ユーザーの予定表にある予定または�
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-[Get events](#GetEvents) | [Sync events](#SyncCalendarView) | [Create events](#CreateEvents) | 
-[Update events](#UpdateEvents) | [Respond to events](#RespndToEvents) | [Delete events](#DeleteEvents) | 
-[Get attachments](#GetAttachments) | [Create attachments](#CreateAttachments) | [Delete attachments](#DeleteAttachments) | 
-[Get reminders](#GetReminders) | [Snooze reminders](#SnoozeReminders)] | [Dismiss reminders](#DismissReminders)
+[イベントを取得する](#GetEvents) | [イベントを同期させ](#SyncCalendarView) | [イベントを作成する](#CreateEvents) | 
+[イベントを更新する](#UpdateEvents) | [イベントに応答する](#RespndToEvents) | [イベントを削除する](#DeleteEvents) | 
+[添付ファイルを取得する](#GetAttachments) | [添付ファイルを作成する](#CreateAttachments) | [添付ファイルを削除する](#DeleteAttachments) | 
+[アラームを取得する](#GetReminders) | [アラームを再通知する](#SnoozeReminders)] | [アラームを消す](#DismissReminders)
 
 
 [!INCLUDE [END Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
@@ -115,10 +116,10 @@ Event エンティティは、ユーザーの予定表にある予定または�
 
 [!INCLUDE [BEGIN Outlook v1 section](../includes/controls/outlookrestapiv1section.xml)]
 
-[Get events](#GetEvents) | [Sync events](#SyncCalendarView) | [Create events](#CreateEvents) | 
-[Update events](#UpdateEvents) | [Respond to events](#RespndToEvents) | [Delete events](#DeleteEvents) | 
-[Get attachments](#GetAttachments) | [Create attachments](#CreateAttachments) | [Delete attachments](#DeleteAttachments) | 
-[Get reminders](#GetReminders) | [Snooze reminders](#SnoozeReminders)] | [Dismiss reminders](#DismissReminders)
+[イベントを取得する](#GetEvents) | [イベントを同期させ](#SyncCalendarView) | [イベントを作成する](#CreateEvents) | 
+[イベントを更新する](#UpdateEvents) | [イベントに応答する](#RespndToEvents) | [イベントを削除する](#DeleteEvents) | 
+[添付ファイルを取得する](#GetAttachments) | [添付ファイルを作成する](#CreateAttachments) | [添付ファイルを削除する](#DeleteAttachments) | 
+[アラームを取得する](#GetReminders) | [アラームを再通知する](#SnoozeReminders)] | [アラームを消す](#DismissReminders)
 
 [!INCLUDE [END Outlook v1 section](../includes/controls/outlookrestapiv1section.xml)]
 
@@ -128,23 +129,25 @@ Event エンティティは、ユーザーの予定表にある予定または�
 
 
 <a name="CalendarOperations"> </a>
-**Calendar operations** A calendar serves as a container for events. A user can have multiple calendars. 予定表は、イベントのコンテナーの役割をします。ユーザーは複数の予定表を持つことができます。Office 365 では、各予定表は予定表グループに割り当てることができます。
+**予定表の操作** 予定表はイベントのコンテナーとして機能します。 ユーザーは複数の予定表を持つことができます。 Office 365 では、各予定表は予定表グループに割り当てることができます。
 
-[Get calendars](#GetCalendars) | [Create calendars](#CreateCalendars) | [Update calendars](#UpdateCalendars) | [Delete calendars](#DeleteCalendars) 
+[予定表を取得する](#GetCalendars) | [予定表を作成する](#CreateCalendars) | [予定表を更新する](#UpdateCalendars) | [予定表を削除する](#DeleteCalendars) 
 
 <a name="CalendarGroupOperations"> </a>
-**Calendar group operations** Calendar groups are a way to organize multiple calendars. Users can add multiple calendars into a single calendar group in Outlook or Outlook Web App. This makes it easier for users to quickly view all calendars within the group.
+**予定表グループの操作** 予定表グループは、複数の予定表を整理する手段となります。 ユーザーは、複数の予定表を Outlook または Outlook Web App の単一の予定表グループに追加できます。 これにより、グループ内のすべての予定表を簡単に表示することができるようになります。
 
 
-**メモ** Outlook.com によってサポートされるのは、../me/calendars`../me/calendars` ショートカットでアクセス可能な既定の予定表グループのみです。 You cannot delete that calendar group, or create another calendar group.
+**メモ**: Outlook.com によってサポートされるのは、`../me/calendars` ショートカットでアクセス可能な既定の予定表グループのみです。 その予定表グループの削除、または別の予定表グループの作成はできません。
 
 
-[Get calendar groups](#GetCalendarGroups) | [Create calendar groups](#CreateCalendarGroups) | 
-[Update calendar groups](#UpdateCalendarGroups) | [Delete calendar groups](#DeleteCalendarGroups)  
+[予定表グループを取得する](#GetCalendarGroups) | [予定表グループを作成する](#CreateCalendarGroups) | 
+[予定表グループを更新する](#UpdateCalendarGroups) | [予定表グループを削除する](#DeleteCalendarGroups)  
 
 関連項目:
 
-REST API イベント リソース  REST API 予定表リソース  REST API 予定表グループ リソース
+[REST API イベント リソース](..\api\complex-types-for-mail-contacts-calendar.md#EventResource) | 
+[REST API 予定表リソース](..\api\complex-types-for-mail-contacts-calendar.md#CalendarResource) |
+[REST API 予定表グループ リソース](..\api\complex-types-for-mail-contacts-calendar.md#CalendarGroupResource)
 
 
 
@@ -153,7 +156,7 @@ REST API イベント リソース  REST API 予定表リソース  REST API 予
 
 ### 認証
 
-Like other [Outlook REST API](..\api\use-outlook-rest-api.md#DefineOutlookRESTAPI), for every request to the Calendar API, you should include a valid access token. アクセス トークンを取得するには、アプリを登録して識別し、適切な承認を取得する必要があります。効率化された登録と承認のオプションに関する詳細情報を参照してください。要求のバッチ処理についての理解を深める際には、この点に留意してください。 You can [find out more](..\api\use-outlook-rest-api.md#ShortRegAuthWorkflow) about some streamlined registration and authorization options for you. Keep this in mind as you proceed with the specific operations in the Calendar API.
+他の [Outlook REST API](..\api\use-outlook-rest-api.md#DefineOutlookRESTAPI) と同様に、予定表 API へのすべての要求に対して、有効なアクセス トークンを含める必要があります。 アクセス トークンを取得するには、アプリを登録して識別し、適切な承認を取得する必要があります。 効率化された登録と承認のオプションに関する[詳細情報](..\api\use-outlook-rest-api.md#ShortRegAuthWorkflow)を参照してください。 予定表 API で特定の操作を続行する際には、この点に留意してください。
 
 <a name="SupportedVersions"> </a>
 
@@ -165,7 +168,7 @@ Like other [Outlook REST API](..\api\use-outlook-rest-api.md#DefineOutlookRESTAP
 
 予定表 API 要求は、常に現在のユーザーのために実行されます。 
 
-Outlook REST API のすべてのサブセットに共通な情報について詳しくは、「[Outlook REST API の使用](..\api\use-outlook-rest-api.md)」をご覧ください。
+Outlook REST API のすべてのサブセットに共通な情報について詳しくは、「[Outlook REST API の使用](..\api\use-outlook-rest-api.md)」を参照してください。
 
 ****
 
@@ -178,7 +181,7 @@ Outlook REST API のすべてのサブセットに共通な情報について詳
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-予定表イベントを取得するすべての操作では、_Prefer: outlook.timezone_ HTTP ヘッダーを使用して、応答の開始時刻と終了時刻のタイムゾーンを指定できます。たとえば、次の _Prefer: outlook.timezone_ ヘッダーは、東部標準時での応答の開始時刻と終了時刻を設定します。 For example, the following _Prefer: outlook.timezone_ header sets the start and end times in the response to Eastern Standard Time.
+予定表イベントを取得するすべての操作では、_Prefer: outlook.timezone_ HTTP ヘッダーを使用して、応答の開始時刻と終了時刻のタイムゾーンを指定できます。 たとえば、次の _Prefer: outlook.timezone_ ヘッダーは、東部標準時での応答の開始時刻と終了時刻を設定します。
 
 ```
 Prefer: outlook.timezone="Eastern Standard Time"
@@ -195,7 +198,7 @@ _イベント_リソース上で _OriginalStartTimeZone_ プロパティと _Ori
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-予定表イベントを取得するすべての操作では、_Prefer: outlook.timezone_ HTTP ヘッダーを使用して、応答の開始時刻と終了時刻のタイムゾーンを指定できます。たとえば、次の _Prefer: outlook.timezone_ ヘッダーは、東部標準時での応答の開始時刻と終了時刻を設定します。 For example, the following _Prefer: outlook.timezone_ header sets the start and end times in the response to Eastern Standard Time.
+予定表イベントを取得するすべての操作では、_Prefer: outlook.timezone_ HTTP ヘッダーを使用して、応答の開始時刻と終了時刻のタイムゾーンを指定できます。 たとえば、次の _Prefer: outlook.timezone_ ヘッダーは、東部標準時での応答の開始時刻と終了時刻を設定します。
 
 ```
 Prefer: outlook.timezone="Eastern Standard Time"
@@ -210,9 +213,9 @@ _イベント_リソース上で _OriginalStartTimeZone_ プロパティと _Ori
 <!-- ==================================== End v2 content ======================================================== -->
 
 
-予定表ビューを取得する (REST)  
-[Get series master and single events (REST)](#GetEventCollection) |
- [Get event instances (REST)](#GetEventInstances) | [Get an event (REST)](#GetEvent) 
+REST API:[予定表ビューを取得する (REST)](#GetCalendarView) |  
+[シリーズ マスターと単一イベントを取得する (REST)](#GetEventCollection) |
+ [イベント インスタンスを取得する (REST)](#GetEventInstances) | [イベントを取得する (REST)](#GetEvent) 
 
 クライアント ライブラリ:[ユーザーの予定表からイベントを取得する (クライアント)](#GetEventsClient)
 
@@ -221,12 +224,12 @@ _イベント_リソース上で _OriginalStartTimeZone_ プロパティと _Ori
 <a name="GetCalendarView"> </a>
 ###予定表ビューを取得する (REST) 
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.read_
 - _wl.calendars_
 - _wl.contacts\_calendars_
 
-ユーザーの標準として設定されている予定表 (../me/calendarview`../me/calendarview`) または別の予定表から、時間範囲で定義した予定表ビューのイベントの発生、例外、および単一インスタンスを取得します。
+ユーザーの標準として設定されている予定表 (`../me/calendarview`) または別の予定表から、時間範囲で定義した予定表ビューのイベントの発生、例外、および単一インスタンスを取得します。
    
 
 <!-- ==================================== Start beta content ==================================================== -->
@@ -240,22 +243,22 @@ GET https://outlook.office.com/api/beta/me/calendars/{calendar_id}/calendarview?
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|__Header parameters_|
+|_ヘッダー パラメーター_|
 |Prefer: |outlook.timezone|応答に対するイベントの既定のタイム ゾーン。|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_id|string|予定表 ID (特定の予定表から予定表ビューを取得している場合)。|
 |start_datetime|datetimeoffset|イベントが開始する日時。|
 |end_datetime|datetimeoffset|イベントが終了する日時。|
 
-Use the _Prefer: outlook.timezone_ header to specify the time zone to use for the event start and end times in the response.
-If the event was created in a different time zone, the start and end times will be adjusted to the specified time zone.
-See [this list](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone) for the supported time zone names. _Prefer: outlook.timezone_ ヘッダーを指定しない場合は、応答の開始時刻と終了時刻は UTC で返されます。
+_Prefer: outlook.timezone_ ヘッダーを使用して、応答内イベントの開始時刻と終了時刻に使用するタイム ゾーンを指定します。
+イベントが別のタイム ゾーンで作成された場合は、開始時刻と終了時刻は指定したタイム ゾーンに合わせて調整されます。
+サポートされているタイム ゾーン名については、[この一覧](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone)を参照してください。 _Prefer: outlook.timezone_ ヘッダーを指定しない場合は、開始時刻と終了時刻は UTC で返されます。
 
-**メモ**: 既定では、応答内の各イベントにそのプロパティがすべて含まれます。最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、$select を使用します。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**メモ**: 既定では、応答内の各イベントにそのプロパティがすべて含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
-たとえば、各イベントの Subject プロパティのみを返す 10 月の月間予定表ビューを取得します: Assuming that the _Prefer: outlook.timezone_ header is not included in the request, the time zone will be UTC. 
+たとえば、各イベントの Subject プロパティのみを返す 10 月の月間予定表ビューを取得します。 _Prefer: outlook.timezone_ ヘッダーが要求に含まれていないと想定すると、タイム ゾーンは UTC になります。 
 
 ```
 GET https://outlook.office.com/api/beta/me/calendarview?startDateTime=2014-10-01T01:00:00Z&endDateTime=2014-10-31T23:00:00Z&$select=Subject
@@ -282,22 +285,22 @@ GET https://outlook.office.com/api/v2.0/me/calendars/{calendar_id}/calendarview?
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|__Header parameters_|
+|_ヘッダー パラメーター_|
 |Prefer: |outlook.timezone|応答に対するイベントの既定のタイム ゾーン。|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_id|string|予定表 ID (特定の予定表から予定表ビューを取得している場合)。|
 |start_datetime|datetimeoffset|イベントが開始する日時。|
 |end_datetime|datetimeoffset|イベントが終了する日時。|
 
-Use the _Prefer: outlook.timezone_ header to specify the time zone to use for the event start and end times in the response.
-If the event was created in a different time zone, the start and end times will be adjusted to the specified time zone.
-See [this list](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone) for the supported time zone names. _Prefer: outlook.timezone_ ヘッダーを指定しない場合は、応答の開始時刻と終了時刻は UTC で返されます。
+_Prefer: outlook.timezone_ ヘッダーを使用して、応答内イベントの開始時刻と終了時刻に使用するタイム ゾーンを指定します。
+イベントが別のタイム ゾーンで作成された場合は、開始時刻と終了時刻は指定したタイム ゾーンに合わせて調整されます。
+サポートされているタイム ゾーン名については、[この一覧](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone)を参照してください。 _Prefer: outlook.timezone_ ヘッダーを指定しない場合は、開始時刻と終了時刻は UTC で返されます。
 
-**メモ**: 既定では、応答内の各イベントにそのプロパティがすべて含まれます。最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、$select を使用します。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**メモ**: 既定では、応答内の各イベントにそのプロパティがすべて含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
-たとえば、各イベントの Subject プロパティのみを返す 10 月の月間予定表ビューを取得します: Assuming that the _Prefer: outlook.timezone_ header is not included in the request, the time zone will be UTC. 
+たとえば、各イベントの Subject プロパティのみを返す 10 月の月間予定表ビューを取得します。 _Prefer: outlook.timezone_ ヘッダーが要求に含まれていないと想定すると、タイム ゾーンは UTC になります。 
 
 ```
 GET https://outlook.office.com/api/v2.0/me/calendarview?startDateTime=2014-10-01T01:00:00&endDateTime=2014-10-31T23:00:00&$select=Subject
@@ -324,14 +327,14 @@ GET https://outlook.office.com/api/v1.0/me/calendars/{calendar_id}/calendarview?
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_id|string|予定表 ID (特定の予定表から予定表ビューを取得している場合)。|
 |start_datetime|datetimeoffset|イベントが開始する日時。|
 |end_datetime|datetimeoffset|イベントが終了する日時。|
 
-**メモ**: 既定では、応答内の各イベントにそのプロパティがすべて含まれます。最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、$select を使用します。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**メモ**: 既定では、応答内の各イベントにそのプロパティがすべて含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 たとえば、各イベントの Subject プロパティのみを返す 10 月の月間予定表ビューを取得します: 
 
@@ -353,12 +356,12 @@ GET https://outlook.office.com/api/v1.0/me/calendarview?startDateTime=2014-10-01
 <a name="GetEventCollection"> </a>
 ###シリーズ マスターと単一イベントを取得する (REST) 
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.read_
 - _wl.calendars_
 - _wl.contacts\_calendars_
 
-シリーズ マスターと単一インスタンス イベントのコレクションを、ユーザーの標準として設定されている予定表 (../me/events`../me/events`) または別の予定表から取得します。拡張イベントのインスタンスを取得するには、予定表ビューを取得するまたはイベントのインスタンスを取得することができます。 シリーズ マスターと単一インスタンス イベントのコレクションを、ユーザーの標準として設定されている予定表 (../me/events) または別の予定表から取得します。拡張イベントのインスタンスを取得するには、 [予定表ビューを取得する](#GetCalendarView)または[イベントのインスタンスを取得する](#GetEventInstances)ことができます。
+シリーズ マスターと単一インスタンス イベントのコレクションを、ユーザーの標準として設定されている予定表 (`../me/events`) または別の予定表から取得します。 拡張イベントのインスタンスを取得するには、 [予定表ビューを取得する](#GetCalendarView)または[イベントのインスタンスを取得する](#GetEventInstances)ことができます。
 
 
 
@@ -371,23 +374,23 @@ GET https://outlook.office.com/api/beta/me/events
 GET https://outlook.office.com/api/beta/me/calendars/{calendar_id}/events
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |_Header parameters|
 |Prefer:|outlook.timezone|応答に対するイベントの既定のタイム ゾーン。|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_id|string|予定表 ID (特定の予定表からイベントを取得している場合)。|
 
-Use the _Prefer: outlook.timezone_ header to specify the time zone to use for the event start and end times in the response.
-If the event was created in a different time zone, the start and end times will be adjusted to the specified time zone.
-See [this list](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone) for the supported time zone names. _Prefer: outlook.timezone_ ヘッダーを指定しない場合は、応答の開始時刻と終了時刻は UTC で返されます。
+_Prefer: outlook.timezone_ ヘッダーを使用して、応答内イベントの開始時刻と終了時刻に使用するタイム ゾーンを指定します。
+イベントが別のタイム ゾーンで作成された場合は、開始時刻と終了時刻は指定したタイム ゾーンに合わせて調整されます。
+サポートされているタイム ゾーン名については、[この一覧](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone)を参照してください。 _Prefer: outlook.timezone_ ヘッダーを指定しない場合は、開始時刻と終了時刻は UTC で返されます。
 
-**メモ**: 応答内の各イベントにはそのプロパティがすべて含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. See the next example. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**メモ**: 応答内の各イベントにはそのプロパティがすべて含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 次の例を参照してください。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
-次の例は、**$select** を使用して、イベントの **Subject**、**Organizer**、**Start**、および **End** プロパティのみを返すように指定する方法を示しています。 次の例は、**$select** を使用して、応答内の各イベントの Subject、Organizer、Start、および End プロパティのみを返すように指定する方法を示しています。$select を使用しない場合のイベントに返されるプロパティの完全な一覧に関しては、「[イベントを取得する (REST)](#GetEvent)」の最初の応答サンプルをご参照ください。
+次の例は、**$select** を使用して、応答内の各イベントの **Subject**、**Organizer**、**Start**、および **End** プロパティのみを返すように指定する方法を示しています。 **$select** を使用しない場合のイベントに返されるプロパティの完全な一覧に関しては、「[イベントを取得する (REST)](#GetEvent)」の最初の応答サンプルをご参照ください。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/beta/me/events?$select=Subject,Organizer,Start,End
@@ -600,29 +603,29 @@ GET https://outlook.office.com/api/v2.0/me/events
 GET https://outlook.office.com/api/v2.0/me/calendars/{calendar_id}/events
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|__Header parameters_|
+|_ヘッダー パラメーター_|
 |Prefer: |outlook.timezone|応答に対するイベントの既定のタイム ゾーン。|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_id|string|予定表 ID (特定の予定表からイベントを取得している場合)。|
 
-Use the _Prefer: outlook.timezone_ header to specify the time zone to use for the event start and end times in the response.
-If the event was created in a different time zone, the start and end times will be adjusted to the specified time zone.
-See [this list](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone) for the supported time zone names. _Prefer: outlook.timezone_ ヘッダーを指定しない場合は、応答の開始時刻と終了時刻は UTC で返されます。
+_Prefer: outlook.timezone_ ヘッダーを使用して、応答内イベントの開始時刻と終了時刻に使用するタイム ゾーンを指定します。
+イベントが別のタイム ゾーンで作成された場合は、開始時刻と終了時刻は指定したタイム ゾーンに合わせて調整されます。
+サポートされているタイム ゾーン名については、[この一覧](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone)を参照してください。 _Prefer: outlook.timezone_ ヘッダーを指定しない場合は、開始時刻と終了時刻は UTC で返されます。
 
-**メモ**: 応答内の各イベントにはそのプロパティがすべて含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. See the next example. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**メモ**: 応答内の各イベントにはそのプロパティがすべて含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 次の例を参照してください。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
-次の例は、**$select** を使用して、イベントの **Subject**、**Organizer**、**Start**、および **End** プロパティのみを返すように指定する方法を示しています。 次の例は、**$select** を使用して、応答内の各イベントの Subject、Organizer、Start、および End プロパティのみを返すように指定する方法を示しています。$select を使用しない場合のイベントに返されるプロパティの完全な一覧に関しては、「[イベントを取得する (REST)](#GetEvent)」の最初の応答サンプルをご参照ください。
+次の例は、**$select** を使用して、応答内の各イベントの **Subject**、**Organizer**、**Start**、および **End** プロパティのみを返すように指定する方法を示しています。 **$select** を使用しない場合のイベントに返されるプロパティの完全な一覧に関しては、「[イベントを取得する (REST)](#GetEvent)」の最初の応答サンプルをご参照ください。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/v2.0/me/events?$select=Subject,Organizer,Start,End
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 {
@@ -825,14 +828,14 @@ GET https://outlook.office.com/api/v1.0/me/events
 GET https://outlook.office.com/api/v1.0/me/calendars/{calendar_id}/events
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_id|string|予定表 ID (特定の予定表からイベントを取得している場合)。|
 
-**メモ**: 応答内の各イベントにはそのプロパティがすべて含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. See the next example. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**メモ**: 応答内の各イベントにはそのプロパティがすべて含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 次の例を参照してください。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
-次の例は、**$select** を使用して、イベントの **Subject**、**Organizer**、**Start**、および **End** プロパティのみを返すように指定する方法を示しています。 次の例は、**$select** を使用して、応答内の各イベントの Subject、Organizer、Start、および End プロパティのみを返すように指定する方法を示しています。$select を使用しない場合のイベントに返されるプロパティの完全な一覧に関しては、「[イベントを取得する (REST)](#GetEvent)」の最初の応答サンプルをご参照ください。
+次の例は、**$select** を使用して、応答内の各イベントの **Subject**、**Organizer**、**Start**、および **End** プロパティのみを返すように指定する方法を示しています。 **$select** を使用しない場合のイベントに返されるプロパティの完全な一覧に関しては、「[イベントを取得する (REST)](#GetEvent)」の最初の応答サンプルをご参照ください。
 
 
 [!code-REST-i[calendar_api_get_events](./_data/calendar_api_get_events.json)]
@@ -847,7 +850,7 @@ GET https://outlook.office.com/api/v1.0/me/calendars/{calendar_id}/events
 <a name="GetEventInstances"></a>
 ###イベント インスタンスを取得する (REST)
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.read_
 - _wl.calendars_
 - _wl.contacts\_calendars_
@@ -865,24 +868,24 @@ GET https://outlook.office.com/api/beta/me/events/{event_id}/instances?startDate
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|__Header parameters_|
+|_ヘッダー パラメーター_|
 |Prefer: |outlook.timezone|応答に対するイベントの既定のタイムゾーン。|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
 |start_datetime|datetimeoffset|イベントが開始する UTC 日時。|
 |end_datetime|datetimeoffset|イベントが終了する UTC 日時。|
 
-Use the _Prefer: outlook.timezone_ header to specify the time zone to use for the event start and end times in the response.
-If the event was created in a different time zone, the start and end times will be adjusted to the specified time zone.
-See [this list](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone) for the supported time zone names. _Prefer: outlook.timezone_ ヘッダーを指定しない場合は、応答の開始時刻と終了時刻は UTC で返されます。
+_Prefer: outlook.timezone_ ヘッダーを使用して、応答内イベントの開始時刻と終了時刻に使用するタイム ゾーンを指定します。
+イベントが別のタイム ゾーンで作成された場合は、開始時刻と終了時刻は指定したタイム ゾーンに合わせて調整されます。
+サポートされているタイム ゾーン名については、[この一覧](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone)を参照してください。 _Prefer: outlook.timezone_ ヘッダーを指定しない場合は、開始時刻と終了時刻は UTC で返されます。
 
  **応答の種類**
 
 要求された[イベント](..\api\complex-types-for-mail-contacts-calendar.md#EventResource)のコレクション。
 
-**メモ**: 既定では、応答内の各イベントにそのプロパティがすべて含まれます。最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、$select を使用します。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned.  
+**メモ**: 既定では、応答内の各イベントにそのプロパティがすべて含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。  
 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 たとえば、10 月の特定のイベントのインスタンスを取得します。これには、各インスタンスの **Subject**、**Start**、および **End** プロパティのみが含まれます。 
@@ -909,24 +912,24 @@ GET https://outlook.office.com/api/v2.0/me/events/{event_id}/instances?startDate
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|__Header parameters_|
+|_ヘッダー パラメーター_|
 |Prefer: |outlook.timezone|応答に対するイベントの既定のタイム ゾーン。|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
 |start_datetime|datetimeoffset|イベントが開始する UTC 日時。|
 |end_datetime|datetimeoffset|イベントが終了する UTC 日時。|
 
-Use the _Prefer: outlook.timezone_ header to specify the time zone to use for the event start and end times in the response.
-If the event was created in a different time zone, the start and end times will be adjusted to the specified time zone.
-See [this list](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone) for the supported time zone names. _Prefer: outlook.timezone_ ヘッダーを指定しない場合は、応答の開始時刻と終了時刻は UTC で返されます。
+_Prefer: outlook.timezone_ ヘッダーを使用して、応答内イベントの開始時刻と終了時刻に使用するタイム ゾーンを指定します。
+イベントが別のタイム ゾーンで作成された場合は、開始時刻と終了時刻は指定したタイム ゾーンに合わせて調整されます。
+サポートされているタイム ゾーン名については、[この一覧](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone)を参照してください。 _Prefer: outlook.timezone_ ヘッダーを指定しない場合は、開始時刻と終了時刻は UTC で返されます。
 
  **応答の種類**
 
 要求された[イベント](..\api\complex-types-for-mail-contacts-calendar.md#EventResource)のコレクション。
 
-**メモ**: 既定では、応答内の各イベントにそのプロパティがすべて含まれます。最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、$select を使用します。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned.  
+**メモ**: 既定では、応答内の各イベントにそのプロパティがすべて含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。  
 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 たとえば、10 月の特定のイベントのインスタンスを取得します。これには、各インスタンスの **Subject**、**Start**、および **End** プロパティのみが含まれます。 
@@ -952,9 +955,9 @@ GET https://outlook.office.com/api/v1.0/me/events/{event_id}/instances?startDate
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
 |start_datetime|datetimeoffset|イベントが開始する UTC 日時。|
 |end_datetime|datetimeoffset|イベントが終了する UTC 日時。|
@@ -964,7 +967,7 @@ GET https://outlook.office.com/api/v1.0/me/events/{event_id}/instances?startDate
 
 要求された[イベント](..\api\complex-types-for-mail-contacts-calendar.md#EventResource)のコレクション。
 
-**メモ**: 既定では、応答内の各イベントにそのプロパティがすべて含まれます。最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、$select を使用します。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned.  
+**メモ**: 既定では、応答内の各イベントにそのプロパティがすべて含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。  
 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 たとえば、10 月の特定のイベントのインスタンスを取得します。これには、各インスタンスの **Subject**、**Start**、および **End** プロパティのみが含まれます。 
@@ -985,7 +988,7 @@ GET https://outlook.office.com/api/v1.0/me/events/AAMkAGE0MGM1Y2M5LWEAAA=/instan
 <a name="GetEvent"> </a>
 ###イベントを取得する (REST)
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.read_
 - _wl.calendars_
 - _wl.contacts\_calendars_
@@ -1003,24 +1006,24 @@ GET https://outlook.office.com/api/beta/me/events/{event_id}
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|__Header parameters_|
+|_ヘッダー パラメーター_|
 |Prefer: |outlook.timezone|応答に対するイベントの既定のタイムゾーン。|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
 
-Use the _Prefer: outlook.timezone_ header to specify the time zone to use for the event start and end times in the response.
-If the event was created in a different time zone, the start and end times will be adjusted to the specified time zone.
-See [this list](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone) for the supported time zone names.If the _Prefer: outlook.timezone_ header is not specified, the start and end times are returned in UTC.
+_Prefer: outlook.timezone_ ヘッダーを使用して、応答内イベントの開始時刻と終了時刻に使用するタイム ゾーンを指定します。
+イベントが別のタイム ゾーンで作成された場合は、開始時刻と終了時刻は指定したタイム ゾーンに合わせて調整されます。
+サポートされているタイム ゾーン名については、[この一覧](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone)を参照してください。_Prefer: outlook.timezone_ ヘッダーを指定しない場合は、応答の開始時刻と終了時刻は UTC で返されます。
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/beta/me/events/AAMkAGI2TG93AAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
     {
@@ -1123,18 +1126,18 @@ GET https://outlook.office.com/api/beta/me/events/AAMkAGI2TG93AAA=
 
 要求された[イベント](..\api\complex-types-for-mail-contacts-calendar.md#EventResource)。
 
-**メモ**： 既定では、応答に連絡先のすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**メモ**: 既定では、応答に連絡先のすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 次の例は、**$select** を使用して、イベントの **Subject**、**Organizer**、**Start**、および **End** プロパティのみを返すように指定する方法を示しています。 
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/beta/me/events/AAMkAGI2TG93AAA=?$select=Subject,Organizer,Start,End
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
     {
@@ -1175,24 +1178,24 @@ GET https://outlook.office.com/api/v2.0/me/events/{event_id}
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|__Header parameters_|
+|_ヘッダー パラメーター_|
 |Prefer: |outlook.timezone|応答に対するイベントの既定のタイム ゾーン。|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
 
-Use the _Prefer: outlook.timezone_ header to specify the time zone to use for the event start and end times in the response.
-If the event was created in a different time zone, the start and end times will be adjusted to the specified time zone.
-See [this list](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone) for the supported time zone names. _Prefer: outlook.timezone_ ヘッダーを指定しない場合は、応答の開始時刻と終了時刻は UTC で返されます。
+_Prefer: outlook.timezone_ ヘッダーを使用して、応答内イベントの開始時刻と終了時刻に使用するタイム ゾーンを指定します。
+イベントが別のタイム ゾーンで作成された場合は、開始時刻と終了時刻は指定したタイム ゾーンに合わせて調整されます。
+サポートされているタイム ゾーン名については、[この一覧](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone)を参照してください。 _Prefer: outlook.timezone_ ヘッダーを指定しない場合は、開始時刻と終了時刻は UTC で返されます。
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/v2.0/me/events/AAMkAGI2TG93AAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
     {
@@ -1291,17 +1294,17 @@ GET https://outlook.office.com/api/v2.0/me/events/AAMkAGI2TG93AAA=
 
 要求された[イベント](..\api\complex-types-for-mail-contacts-calendar.md#EventResource)。
 
-**メモ**： 既定では、応答に連絡先のすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**メモ**: 既定では、応答に連絡先のすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 次の例は、**$select** を使用して、イベントの **Subject**、**Organizer**、**Start**、および **End** プロパティのみを返すように指定する方法を示しています。 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/v2.0/me/events/AAMkAGI2TG93AAA=?$select=Subject,Organizer,Start,End
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
     {
@@ -1342,9 +1345,9 @@ GET https://outlook.office.com/api/v1.0/me/events/{event_id}
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
 
 [!code-REST-i[calendar_api_get_event_by_id](./_data/calendar_api_get_event_by_id.json)]
@@ -1354,7 +1357,7 @@ GET https://outlook.office.com/api/v1.0/me/events/{event_id}
 
 要求された[イベント](..\api\complex-types-for-mail-contacts-calendar.md#EventResource)。
 
-**メモ**： 既定では、応答に連絡先のすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**メモ**: 既定では、応答に連絡先のすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 次の例は、**$select** を使用して、イベントの **Subject**、**Organizer**、**Start**、および **End** プロパティのみを返すように指定する方法を示しています。 
 
@@ -1370,12 +1373,12 @@ GET https://outlook.office.com/api/v1.0/me/events/{event_id}
 <a name="GetEventsClient"></a>
 ### ユーザーの予定表からイベントを取得する (クライアント)
 
-ユーザーの予定表からイベントを取得する (クライアント) ユーザーの既定の予定表からイベントを取得します。別の予定表からイベントを取得するには、その予定表の **Events** プロパティを呼び出します。
+ユーザーの既定の予定表からイベントを取得します。 別の予定表からイベントを取得するには、その予定表の **Events** プロパティを呼び出します。
 
-例`outlookClient.Me.Calendars[calendarId].Events.ExecuteAsync()`
+例: `outlookClient.Me.Calendars[calendarId].Events.ExecuteAsync()`
 
 
-**注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
+**注意**: Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
 
 
 特定のイベントを取得するには、**Events** コレクションのインデックスとしてイベント ID を指定するか、**GetById** メソッドを使用します。
@@ -1465,29 +1468,29 @@ GET https://outlook.office.com/api/v1.0/me/events/{event_id}/instances?startDate
 <a name="SyncCalendarView"> </a>
 ##同期イベント  
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.read_
 - _wl.calendars_
 - _wl.contacts\_calendars_
 
-Synchronize and get new, updated, or deleted events in a specified time range from the user's primary calendar (`../me/calendarview`) or from a different calendar. Such a set of events in a time range is also known as a calendar view. The returned events may include occurrences and exceptions of a recurring series, and single instances. 
+ユーザーの標準として設定されている予定表 (`../me/calendarview`) または別の予定表から、指定した時間範囲の新規、更新済み、または削除済みのイベントを同期して取得します。 このような一連の時間範囲内のイベントは予定表ビューとも呼ばれます。 返されるイベントには、定期的なアイテムの発生と例外、および単一のインスタンスが含まれている場合があります。 
 
-予定表ビューの同期には、通常、2 つ以上の同期要求のラウンドが必要があり、それぞれが GET 呼び出しです。予定表ビューを同期するには、次の要求ヘッダーを除いて、予定表ビューを取得する方法と同じように GET メソッドを使用します。 To synchronize a calendar view, use the GET method much like the way you [get a calendar view](#GetCalendarView), except that you include certain request headers, and _deltaToken_ or a _skipToken_ when appropriate.  
+予定表ビューの同期には、通常、それぞれが GET 呼び出しである 2 つ以上の同期要求のラウンドが必要です。 予定表ビューを同期するには、[予定表ビューを取得する](#GetCalendarView)場合とほぼ同じ方法で GET メソッドを使用します。ただし、特定の要求ヘッダーおよび必要に応じて _deltaToken_ または _skipToken_ を含める必要があります。  
 
 **要求ヘッダー**
 
-- 以前の同期要求から返される skipToken を含む同期要求を除き、すべての同期要求で "Prefer: odata.track-changes" ヘッダーを指定する必要があります。(skipToken に関する詳細については、以下の 2 番目の応答データのサンプルを参照)。 In the first response, look for the _Preference-Applied: odata.track-changes_ header to confirm that the resource supports synchronizing before proceeding. (More information about a `skipToken` in [sample second response data](#SyncCalendarViewSampleSecondResponse) below.)
-- "Prefer: odata.maxpagesize={x}" ヘッダーを指定して、同期要求が返す完全なイベントの最大数を示すことができます。
+- 以前の同期要求から返される `skipToken` を含む同期要求を除き、すべての同期要求で "Prefer: odata.track-changes" ヘッダーを指定する必要があります。 最初の応答で _Preference-Applied: odata.track-changes_ ヘッダーを探して、リソースが同期をサポートすることを確認してから、先に進みます。 (`skipToken` に関する詳細については、以下の [2 番目の応答データのサンプル](#SyncCalendarViewSampleSecondResponse)を参照)。
+- "Prefer: odata.maxpagesize={x}" ヘッダーを指定して、同期要求が返すイベントの最大数を示すことができます。
 
-Here's a typical round of synchronizing events in a calendar view:
+予定表ビューのイベント同期の一般的なラウンドは次のとおりです。
 
-1. Make the initial GET request with the mandatory _Prefer: odata.track-changes_ header. The initial response to a sync request always returns a _deltaToken_. 2 番目以降の GET 要求は、前の応答で受信した _deltaToken_ または _skipToken_ のいずれかを含むため、最初の GET 要求とは異なります。
+1. 必須の _Prefer: odata.track-changes_ ヘッダーを指定して最初の GET 要求を行います。 同期要求に対する最初の応答では、常に _deltaToken_ が返されます  (2 番目以降の GET 要求は、前の応答で受信した _deltaToken_ または _skipToken_ のいずれかを含むため、最初の GET 要求とは異なります。)
 
-2. If the first response returns the _Preference-Applied: odata.track-changes_ header, you can proceed with synchronizing.
+2. 最初の応答が _Preference-Applied: odata.track-changes_ ヘッダーを返した場合は、同期に進むことができます。
 
-  - Make a second GET request. Specify the _Prefer: odata.track-changes_ header and the _deltaToken_ returned from the first GET to determine if there are any additional events. The second request will return additional events, and either a _skipToken_ if there are more events available, or a _deltaToken_ if the last event has been synchronized, in which case you can stop.
+  - 2 番目 GET 要求を行います。 最初の GET 要求から返された _Prefer: odata.track-changes_ ヘッダーと _deltaToken_ を指定して、追加のイベントがあるかどうかを調べます。 2 番目の要求では、追加のイベントと、_skipToken_ (さらにイベントがある場合) と _deltaToken_ (最後のイベントが同期された場合。この場合は停止できます) のどちらか一方が返されます。
 
-  - Continue synchronizing by sending a GET call and including a _skipToken_ that's returned from the previous call. Stop when you get a final response that contains an _@odata.deltaLink_ header with a _deltaToken_ again, which indicates the sync is complete.
+  - 前の呼び出しから返された _skipToken_ を指定して GET 呼び出しを送信することで、同期を続けます。 _@odata.deltaLink_ ヘッダーと再び _deltaToken_ (同期が完了したことを示します) が含まれる最後の応答を受け取ると、停止します。
 
 同期のラウンドにおける最初とそれ以降の呼び出しの構文を見てみましょう。
 
@@ -1497,7 +1500,7 @@ Here's a typical round of synchronizing events in a calendar view:
 
 **既定の予定表で同期するには**
 
-最初の要求： 
+最初の要求: 
 
 ```no-highlight
 GET https://outlook.office.com/api/beta/{user_context}/calendarview?startDateTime={start_datetime}&endDateTime={end_datetime}
@@ -1517,7 +1520,7 @@ GET https://outlook.office.com/api/beta/{user_context}/calendarview?startDateTim
 
 **特定の予定表で同期するには**
 
-最初の要求：
+最初の要求:
 
 ```no-highlight
 GET https://outlook.office.com/api/beta/{user_context}/calendars('{calendar_id}')/calendarview?startDateTime={start_datetime}&endDateTime={end_datetime}
@@ -1541,28 +1544,28 @@ GET https://outlook.office.com/api/beta/{user_context}/calendars('{calendar_id}'
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|__Header parameters_|
+|_ヘッダー パラメーター_|
 |Prefer: |outlook.timezone|応答に対するイベントの既定のタイムゾーン。|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |user_context|string|ユーザー コンテキスト。現在のユーザーのコンテキストを示すには、値 "me" を使用できます。また、users/{upn} の形式も使用できます。**upn** はユーザー プリンシパル名であり、通常はユーザーの電子メール アドレスです。|
 |calendar_id|string|予定表 ID (特定の予定表から予定表ビューを取得している場合)。|
 |start_datetime|datetimeoffset|イベントが開始する日時。|
 |end_datetime|datetimeoffset|イベントが終了する日時。|
-|delta_token|string|以前の同期の応答で、@odata.deltaLink の値の一部として返される deltaToken`deltaToken` 文字列。|
-|skip_token|string|以前の同期の応答で、@odata.nextLink の値の一部として返される skipToken`skipToken` 文字列。 |
+|delta_token|string|以前の同期の応答で、@odata.deltaLink の値の一部として返される `deltaToken` 文字列。|
+|skip_token|string|以前の同期の応答で、@odata.nextLink の値の一部として返される `skipToken` 文字列。 |
 
-Use the _Prefer: outlook.timezone_ header to specify the time zone to use for the event start and end times in the response.
-If the event was created in a different time zone, the start and end times will be adjusted to the specified time zone.
-See [this list](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone) for the supported time zone names.If the _Prefer: outlook.timezone_ header is not specified, the start and end times are returned in UTC.
+_Prefer: outlook.timezone_ ヘッダーを使用して、応答内イベントの開始時刻と終了時刻に使用するタイム ゾーンを指定します。
+イベントが別のタイム ゾーンで作成された場合は、開始時刻と終了時刻は指定したタイム ゾーンに合わせて調整されます。
+サポートされているタイム ゾーン名については、[この一覧](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone)を参照してください。_Prefer: outlook.timezone_ ヘッダーを指定しない場合は、応答の開始時刻と終了時刻は UTC で返されます。
 
-**注意** 
+**メモ** 
 
 - 最初の要求で "Prefer: odata.track-changes" を指定する際に、応答が同期をサポートしている場合は、応答のヘッダーに "Preference-applied: odata.track-changes" が含まれます。
-- サポートされていないリソースを同期しようとした場合、またはこれが最初の同期要求でない場合は、応答に
+- サポートされていないリソースを同期しようとするか、またはこれが最初の同期要求でない場合は、応答のヘッダーに "Preference-applied" は表示されません。
 - クエリ パラメーター startdatetime と enddatetime を変更することで、変更タイム ウィンドウを変更できます。  
 - 応答内の各イベントにそのプロパティがすべて含まれます。 
 - 定期的なアイテムの場合、同期応答には、定期的なマスターおよび例外イベントのイベント全体が返されます。 
-- 定期的なアイテムのインスタンスは省略されて、Start および End のプロパティのみが含まれます。残りの発生イベント情報は定期的なマスター イベントから取得できます。参照情報については、「イベント リソース」をご覧ください。 定期的なアイテムのインスタンスは省略されて、Start および End のプロパティのみが含まれます。残りの発生イベント情報は定期的なマスター イベントから取得できます。参照情報については、「イベント リソース」をご覧ください。 See [Event resource](..\api\complex-types-for-mail-contacts-calendar.md#EventResource) for reference information.
+- 定期的なアイテムのインスタンスは省略されて、**Start** および **End** のプロパティのみが含まれます。 残りの発生イベント情報は定期的なマスター イベントから取得できます。 参照情報については、「[イベント リソース](..\api\complex-types-for-mail-contacts-calendar.md#EventResource)」をご覧ください。
 - $Filter、$count、$select、$skip、$top、および $search のクエリ パラメーターを使用することはできません。 
 
 **応答の種類**
@@ -1572,12 +1575,12 @@ See [this list](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZ
 **例**
 
 ユーザーの既定の予定表を同期する最初と 2 番目の同期要求の例を次に示します。各要求では、一度に 1 つの完全なイベントのみを返すように指定されています。
-- 最初の応答は、1 つのイベント、deltaLink`deltaLink` および deltaToken`deltaToken` を返します。 
-- The second request uses that `deltatoken`. 最初の応答は、1 つのイベント、deltaLink`nextLink` および deltaToken`skipToken` を返します。 
+- 最初の応答は、1 つのイベント、`deltaLink` および `deltaToken` を返します。 
+- 2 番目の要求はその `deltatoken` を使用します。 2 番目の応答は、1 つのイベント、`nextLink` および `skipToken` を返します。 
 
-To complete the sync, use the `skipToken` returned from the previous sync request until the sync response returns a `deltaLink` and `deltaToken`, in which case this round of sync is complete. このような場合、このラウンドの同期は完了しています。次のラウンドの同期の deltaToken`deltaToken` を保存します。 
+同期を完了するには、同期応答が `deltaLink` と `deltaToken` を返すまで、以前の同期要求から返された `skipToken` を使用します。この場合、このラウンドの同期は完了します。 次のラウンドの同期のために `deltaToken` を保存します。 
 
-詳細については、「[Outlook 予定表ビューでイベントを同期する](..\howto\sync-calendar-view.md)」をご参照ください。
+詳細については、「[Outlook 予定表ビューでイベントを同期する](..\howto\sync-calendar-view.md)」を参照してください。
  
 <a name="SyncCalendarViewSampleInitialRequest"></a>
 
@@ -1770,7 +1773,7 @@ Preference-Applied: odata.track-changes
 
 **既定の予定表で同期するには**
 
-最初の要求： 
+最初の要求: 
 
 ```no-highlight
 GET https://outlook.office.com/api/v2.0/{user_context}/calendarview?startDateTime={start_datetime}&endDateTime={end_datetime}
@@ -1790,7 +1793,7 @@ GET https://outlook.office.com/api/v2.0/{user_context}/calendarview?startDateTim
 
 **特定の予定表で同期するには**
 
-最初の要求：
+最初の要求:
 
 ```no-highlight
 GET https://outlook.office.com/api/v2.0/{user_context}/calendars('{calendar_id}')/calendarview?startDateTime={start_datetime}&endDateTime={end_datetime}
@@ -1814,22 +1817,22 @@ GET https://outlook.office.com/api/v2.0/{user_context}/calendars('{calendar_id}'
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |user_context|string|ユーザー コンテキスト。現在のユーザーのコンテキストを示すには、値 "me" を使用できます。また、users/{upn} の形式も使用できます。**upn** はユーザー プリンシパル名であり、通常はユーザーの電子メール アドレスです。|
 |calendar_id|string|予定表 ID (特定の予定表から予定表ビューを取得している場合)。|
 |start_datetime|datetimeoffset|イベントが開始する日時。|
 |end_datetime|datetimeoffset|イベントが終了する日時。|
-|delta_token|string|以前の同期の応答で、@odata.deltaLink の値の一部として返される deltaToken`deltaToken` 文字列。|
-|skip_token|string|以前の同期の応答で、@odata.nextLink の値の一部として返される skipToken`skipToken` 文字列。 |
+|delta_token|string|以前の同期の応答で、@odata.deltaLink の値の一部として返される `deltaToken` 文字列。|
+|skip_token|string|以前の同期の応答で、@odata.nextLink の値の一部として返される `skipToken` 文字列。 |
 
-**注意** 
+**メモ** 
 
 - 最初の要求で "Prefer: odata.track-changes" を指定する際に、応答が同期をサポートしている場合は、応答のヘッダーに "Preference-applied: odata.track-changes" が含まれます。
-- サポートされていないリソースを同期しようとした場合、またはこれが最初の同期要求でない場合は、応答に
+- サポートされていないリソースを同期しようとするか、またはこれが最初の同期要求でない場合は、応答のヘッダーに "Preference-applied" は表示されません。
 - クエリ パラメーター startdatetime と enddatetime を変更することで、変更タイム ウィンドウを変更できます。  
 - 応答内の各イベントにそのプロパティがすべて含まれます。 
 - 定期的なアイテムの場合、同期応答には、定期的なマスターおよび例外イベントのイベント全体が返されます。 
-- 定期的なアイテムのインスタンスは省略されて、Start および End のプロパティのみが含まれます。残りの発生イベント情報は定期的なマスター イベントから取得できます。参照情報については、「イベント リソース」をご覧ください。 定期的なアイテムのインスタンスは省略されて、Start および End のプロパティのみが含まれます。残りの発生イベント情報は定期的なマスター イベントから取得できます。参照情報については、「イベント リソース」をご覧ください。 See [Event resource](..\api\complex-types-for-mail-contacts-calendar.md#EventResource) for reference information.
+- 定期的なアイテムのインスタンスは省略されて、**Start** および **End** のプロパティのみが含まれます。 残りの発生イベント情報は定期的なマスター イベントから取得できます。 参照情報については、「[イベント リソース](..\api\complex-types-for-mail-contacts-calendar.md#EventResource)」をご覧ください。
 - $Filter、$count、$select、$skip、$top、および $search のクエリ パラメーターを使用することはできません。 
 
 **応答の種類**
@@ -1839,12 +1842,12 @@ GET https://outlook.office.com/api/v2.0/{user_context}/calendars('{calendar_id}'
 **例**
 
 ユーザーの既定の予定表を同期する最初と 2 番目の同期要求の例を次に示します。各要求では、一度に 1 つの完全なイベントのみを返すように指定されています。
-- 最初の応答は、1 つのイベント、deltaLink`deltaLink` および deltaToken`deltaToken` を返します。 
-- The second request uses that `deltatoken`. 最初の応答は、1 つのイベント、deltaLink`nextLink` および deltaToken`skipToken` を返します。 
+- 最初の応答は、1 つのイベント、`deltaLink` および `deltaToken` を返します。 
+- 2 番目の要求はその `deltatoken` を使用します。 2 番目の応答は、1 つのイベント、`nextLink` および `skipToken` を返します。 
 
-To complete the sync, use the `skipToken` returned from the previous sync request until the sync response returns a `deltaLink` and `deltaToken`, in which case this round of sync is complete. このような場合、このラウンドの同期は完了しています。次のラウンドの同期の deltaToken`deltaToken` を保存します。 
+同期を完了するには、同期応答が `deltaLink` と `deltaToken` を返すまで、以前の同期要求から返された `skipToken` を使用します。この場合、このラウンドの同期は完了します。 次のラウンドの同期のために `deltaToken` を保存します。 
 
-詳細については、「[Outlook 予定表ビューでイベントを同期する](..\howto\sync-calendar-view.md)」をご参照ください。
+詳細については、「[Outlook 予定表ビューでイベントを同期する](..\howto\sync-calendar-view.md)」を参照してください。
  
 <a name="SyncCalendarViewSampleInitialRequest"></a>
 
@@ -2022,7 +2025,7 @@ Preference-Applied: odata.track-changes
 
 **既定の予定表で同期するには**
 
-最初の要求： 
+最初の要求: 
 
 ```no-highlight
 GET https://outlook.office.com/api/v1.0/{user_context}/calendarview?startDateTime={start_datetime}&endDateTime={end_datetime}
@@ -2042,7 +2045,7 @@ GET https://outlook.office.com/api/v1.0/{user_context}/calendarview?startDateTim
 
 **特定の予定表で同期するには**
 
-最初の要求：
+最初の要求:
 
 ```no-highlight
 GET https://outlook.office.com/api/v1.0/{user_context}/calendars('{calendar_id}')/calendarview?startDateTime={start_datetime}&endDateTime={end_datetime}
@@ -2066,22 +2069,22 @@ GET https://outlook.office.com/api/v1.0/{user_context}/calendars('{calendar_id}'
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |user_context|string|ユーザー コンテキスト。現在のユーザーのコンテキストを示すには、値 "me" を使用できます。また、users/{upn} の形式も使用できます。**upn** はユーザー プリンシパル名であり、通常はユーザーの電子メール アドレスです。|
 |calendar_id|string|予定表 ID (特定の予定表から予定表ビューを取得している場合)。|
 |start_datetime|datetimeoffset|イベントが開始する日時。|
 |end_datetime|datetimeoffset|イベントが終了する日時。|
-|delta_token|string|以前の同期の応答で、@odata.deltaLink の値の一部として返される deltaToken`deltaToken` 文字列。|
-|skip_token|string|以前の同期の応答で、@odata.nextLink の値の一部として返される skipToken`skipToken` 文字列。 |
+|delta_token|string|以前の同期の応答で、@odata.deltaLink の値の一部として返される `deltaToken` 文字列。|
+|skip_token|string|以前の同期の応答で、@odata.nextLink の値の一部として返される `skipToken` 文字列。 |
 
-**注意** 
+**メモ** 
 
 - 最初の要求で "Prefer: odata.track-changes" を指定する際に、応答が同期をサポートしている場合は、応答のヘッダーに "Preference-applied: odata.track-changes" が含まれます。
-- サポートされていないリソースを同期しようとした場合、またはこれが最初の同期要求でない場合は、応答に
+- サポートされていないリソースを同期しようとするか、またはこれが最初の同期要求でない場合は、応答のヘッダーに "Preference-applied" は表示されません。
 - クエリ パラメーター startdatetime と enddatetime を変更することで、変更タイム ウィンドウを変更できます。  
 - 応答内の各イベントにそのプロパティがすべて含まれます。 
 - 定期的なアイテムの場合、同期応答には、定期的なマスターおよび例外イベントのイベント全体が返されます。 
-- 定期的なアイテムのインスタンスは省略されて、Start および End のプロパティのみが含まれます。残りの発生イベント情報は定期的なマスター イベントから取得できます。参照情報については、「イベント リソース」をご覧ください。 定期的なアイテムのインスタンスは省略されて、Start および End のプロパティのみが含まれます。残りの発生イベント情報は定期的なマスター イベントから取得できます。参照情報については、「イベント リソース」をご覧ください。 See [Event resource](..\api\complex-types-for-mail-contacts-calendar.md#EventResource) for reference information.
+- 定期的なアイテムのインスタンスは省略されて、**Start** および **End** のプロパティのみが含まれます。 残りの発生イベント情報は定期的なマスター イベントから取得できます。 参照情報については、「[イベント リソース](..\api\complex-types-for-mail-contacts-calendar.md#EventResource)」をご覧ください。
 - $Filter、$count、$select、$skip、$top、および $search のクエリ パラメーターを使用することはできません。 
 
 **応答の種類**
@@ -2091,12 +2094,12 @@ GET https://outlook.office.com/api/v1.0/{user_context}/calendars('{calendar_id}'
 **例**
 
 ユーザーの既定の予定表を同期する最初と 2 番目の同期要求の例を次に示します。各要求では、一度に 1 つの完全なイベントのみを返すように指定されています。
-- 最初の応答は、1 つのイベント、deltaLink`deltaLink` および deltaToken`deltaToken` を返します。 
-- The second request uses that `deltatoken`. 最初の応答は、1 つのイベント、deltaLink`nextLink` および deltaToken`skipToken` を返します。 
+- 最初の応答は、1 つのイベント、`deltaLink` および `deltaToken` を返します。 
+- 2 番目の要求はその `deltatoken` を使用します。 2 番目の応答は、1 つのイベント、`nextLink` および `skipToken` を返します。 
 
-To complete the sync, use the `skipToken` returned from the previous sync request until the sync response returns a `deltaLink` and `deltaToken`, in which case this round of sync is complete. このような場合、このラウンドの同期は完了しています。次のラウンドの同期の deltaToken`deltaToken` を保存します。 
+同期を完了するには、同期応答が `deltaLink` と `deltaToken` を返すまで、以前の同期要求から返された `skipToken` を使用します。この場合、このラウンドの同期は完了します。 次のラウンドの同期のために `deltaToken` を保存します。 
 
-詳細については、「[Outlook 予定表ビューでイベントを同期する](..\howto\sync-calendar-view.md)」をご参照ください。
+詳細については、「[Outlook 予定表ビューでイベントを同期する](..\howto\sync-calendar-view.md)」を参照してください。
  
 <a name="SyncCalendarViewSampleInitialRequest"></a>
 
@@ -2262,41 +2265,41 @@ Preference-Applied: odata.track-changes
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-__**Minimum required scope**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.read_
 - _wl.calendars_
 - _wl.contacts\_calendars_
 
 パラメーターとして指定された開催者と出席者の空き時間、および時間または場所の制約に基づいて、会議時間の提案を検索します。 
 
-この操作は、現在プレビュー段階であり、ベータ版のみで利用可能です。 It applies to only Office 365 mailboxes (on Azure AD) and not to Microsoft accounts.
+この操作は、現在プレビュー段階であり、ベータ版のみで利用可能です。 Microsoft アカウントではなく、Office 365 のメールボックス (Azure AD 上) にのみ適用されます。
 
 ```no-highlight
 POST https://outlook.office.com/api/{version}/me/findmeetingtimes
 ```
 
-All the supported parameters are listed below. サポートされているすべてのパラメーターは以下のとおりです。シナリオに応じて、**FindMeetingTimes** アクションの要求本文で必要なパラメーターを指定します。 
+サポートされているすべてのパラメーターは以下のとおりです。 シナリオに応じて、**FindMeetingTimes** アクションの要求本文で必要なパラメーターを指定します。 
 
-|**パラメーター**|**型**|**説明**|**必須**|
+|**パラメーター**|**型**|**説明**|**必須かどうか**|
 |:-----|:-----|:-----|:-----|
-| 出席者 | Collection([AttendeeBase](complex-types-for-mail-contacts-calendar.md#AttendeeBase)) | Attendees or resources for the meeting. 会議の出席者またはリソース。コレクションを空にすると、**FindMeetingTimes** は開催者のみの空き時間帯を検索します。 | 省略可 |
+| Attendees | Collection([AttendeeBase](complex-types-for-mail-contacts-calendar.md#AttendeeBase)) | 会議の出席者またはリソース。 コレクションを空にすると、**FindMeetingTimes** は開催者のみの空き時間帯を検索します。 | 省略可 |
 | LocationConstraint | [LocationConstraint](complex-types-for-mail-contacts-calendar.md#LocationConstraint) | 会議の場所の提案が必要かどうか、または会議のみが開催できる特定の場所があるか、など、会議の場所に関する開催者の要件。 | 省略可 |
 | TimeConstraint | [TimeConstraint](complex-types-for-mail-contacts-calendar.md#TimeConstraint) | 会議を開催する開始時刻と終了時刻の範囲。 | 省略可 |
-| MeetingDuration | Edm.Duration |ISO 8601 形式 (期間) で表された会議の長さ。たとえば、PT1H`PT1H` は 1 時間を表します。会議の期間を指定しない場合、FindMeetingTimes は既定値の 30 分を使用します。 ISO 8601 形式 (期間) で表された会議の長さ。たとえば、PT1H は 1 時間を表します。会議の期間を指定しない場合、**FindMeetingTimes** は既定値の 30 分を使用します。 | 省略可 |
+| MeetingDuration | Edm.Duration |ISO 8601 形式 (期間) で表された会議の長さ。たとえば、`PT1H` は 1 時間を表します。 会議の期間を指定しない場合、**FindMeetingTimes** は既定値の 30 分を使用します。 | 省略可 |
 | MaxCandidates | Edm.Int32 |応答で返す会議提案の最大数です。 | 省略可 |
-| IsOrganizerOptional | Edm.Boolean | 開催者が必ずしも出席する必要がない場合は、true`true` を指定します。既定値は false です。 既定値は、長さ 0 の文字列 ("") です。 | 省略可 |
-| ReturnSuggestionHints | Edm.Boolean | SuggestionHint プロパティで各会議提案の理由を返すには、true を指定します。既定値は false であり、そのプロパティを返しません。 The default is `false` to not return that property. | 省略可 |
+| IsOrganizerOptional | Edm.Boolean | 開催者が必ずしも出席する必要がない場合は、`true` を指定します。 既定値は `false` です。 | 省略可 |
+| ReturnSuggestionHints | Edm.Boolean | **SuggestionHint** プロパティで各会議提案の理由を返すには、`true` を指定します。 既定値は `false` であり、そのプロパティを返しません。 | 省略可 |
 
 指定したパラメーターに基づいて、**FindMeetingTimes** は開催者と出席者の標準予定表で空き時間情報を確認します。アクションは、最も開催可能な会議の日時を計算し、会議の提案を返します。
 
 **応答の種類**
 
-会議提案のコレクションを含む [MeetingTimeCandidatesResult](complex-types-for-mail-contacts-calendar.md#MeetingTimeCandidatesResult)、[MeetingTimeCandidate](#MeetingTimeCandidate) の各種類、および **EmptySuggestionsHint** プロパティ。
+種類が [MeetingTimeCandidate](#MeetingTimeCandidate) である会議提案のコレクションと **EmptySuggestionsHint** プロパティを含む、[MeetingTimeCandidatesResult](complex-types-for-mail-contacts-calendar.md#MeetingTimeCandidatesResult)。
 
 <!-- Location suggestions are based on the organizer's booking history during the past 7 days and next 2 days. If the organizer doesn't have sufficient booking history 
 in the corresponding time window, the request returns HTTP 200 OK, but does not include any meeting suggestions in the response. -->
 
-Each suggestion is defined as a [MeetingTimeCandidate](complex-types-for-mail-contacts-calendar.md#MeetingTimeCandidate), with attendees having [on the average a confidence level of 50% chance or higher to attend](complex-types-for-mail-contacts-calendar.md#ConfidenceScoreDetails). By default, each meeting time suggestion is returned in UTC. Apply the `Prefer: outlook.timezone` request header to have meeting time suggestions retuned in a different time zone, for example:
+各提案は、[出席できる信頼レベルが平均で 50% 以上](complex-types-for-mail-contacts-calendar.md#ConfidenceScoreDetails)の出席者を設定した、[MeetingTimeCandidate](complex-types-for-mail-contacts-calendar.md#MeetingTimeCandidate) として定義されています。 既定では、会議の各提案は UTC で返されます。 `Prefer: outlook.timezone` 要求ヘッダーを適用して、会議の日時を別のタイム ゾーンで返すようにします。例:
 
 ```no-highlight
 Prefer: outlook.timezone="Pacific Standard Time"
@@ -2305,11 +2308,11 @@ Prefer: outlook.timezone="Pacific Standard Time"
 **FindMeetingTimes** が会議提案を返すことができない場合は、応答で、**EmptySuggestionsHint** プロパティに理由が示されます。この値に基づいて、パラメーターをさらに調整して、**FindMeetingTimes** を再度呼び出すことができます。
 
 
-**注意**
+**メモ**
 
 現時点では、**FindMeetingTimes** は以下を前提としています。
 
-- Any [Attendee](..\api\complex-types-for-mail-contacts-calendar.md#Attendee) who is a person (as opposed to a resource) is a required attendee. 人である (リソースとは異なる) 参加者は、必須の出席者です。そのため、**Attendees** コレクション パラメーターの一部として、対応する **Type** プロパティで人に Required`Required` を、リソースに Resource`Resource` を指定します。
+- 人である (リソースとは異なる) [参加者](..\api\complex-types-for-mail-contacts-calendar.md#Attendee)は、必須の出席者です。 そのため、**Attendees** コレクション パラメーターの一部として、対応する **Type** プロパティで人に `Required` を、リソースに `Resource` を指定します。
 - 会議は、開催者または出席者の勤務時間内のみで提案されます。[TimeConstraint](..\api\complex-types-for-mail-contacts-calendar.md#TimeConstraint) の **ActivityDomain** プロパティの指定は無視することができます 
 
 以下のそれぞれの例は、**FindMeetingTimes** を呼び出しますが、下記のように出席者の空き時間、時間と場所の制約によって異なります。
@@ -2326,7 +2329,7 @@ Prefer: outlook.timezone="Pacific Standard Time"
 ### 特定の出席者と会議を開催する時間と場所を検索する (REST)
 
 要求本文で次のパラメーターを指定して、会議の時間と場所を検索します。
-- **出席者**
+- **Attendees**
 - **TimeConstraint**
 - **MeetingDuration**
 
@@ -2464,7 +2467,7 @@ Content-Type: application/json
 ### 既知の場所で会議を開催する時間を検索し、各提案の理由を取得する (REST)
 
 要求本体で次のパラメーターを指定して、あらかじめ決められた会議を開催する時間を検索し、各提案の理由を要求します。
-- **出席者**
+- **Attendees**
 - **LocationConstraint**
 - **TimeConstraint**
 - **MeetingDuration**
@@ -2473,7 +2476,7 @@ Content-Type: application/json
 **FindMeetingTimes** が任意の提案を返す場合は、**ReturnSuggestionHints** パラメーターを設定することで、**SuggestionHint** プロパティの各提案の説明も取得できます。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/beta/me/findmeetingtimes
@@ -2576,17 +2579,17 @@ Content-Type: application/json
 ### 会議を開催する時間を検索したが、出席可能な出席者がいない (REST)
 
 要求本体で次のパラメーターを指定して、あらかじめ決められた会議を開催する時間を検索します。
-- **出席者**
+- **Attendees**
 - **LocationConstraint**
 - **TimeConstraint**
 - **MeetingDuration**
 
-この例では、指定したパラメーターと出席者の空き時間に基づいて、**FindMeetingTimes** は提案を 1 つも返すことができず、代わりに EmptySuggestionsHint プロパティの理由 AttendeesUnavailable を返します。 
+この例では、指定したパラメーターと出席者の空き時間に基づいて、**FindMeetingTimes** は提案を 1 つも返すことができない代わりに **EmptySuggestionsHint** プロパティの理由 `AttendeesUnavailable` を返します。 
 
-「[会議提案が 1 つも返されないことの考えられる他の理由](..\api\complex-types-for-mail-contacts-calendar.md#ReasonsNoMeetingSuggestion)」をご参照ください。
+「[会議提案が 1 つも返されないことの考えられる他の理由](..\api\complex-types-for-mail-contacts-calendar.md#ReasonsNoMeetingSuggestion)」を参照してください。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/beta/me/findmeetingtimes
@@ -2653,21 +2656,21 @@ Content-Type: application/json
 ### 会議を開催する時間を検索したが、一部の出席者のみが出席可能である (REST)
 
 要求本体で次のパラメーターを指定して、あらかじめ決められた会議を開催する時間を検索します。
-- **出席者**
+- **Attendees**
 - **LocationConstraint**
 - **TimeConstraint**
 - **MeetingDuration**
 - **ReturnSuggestionHints**
 
-この例では、2 人の出席者のうち 1 人だけが出席できます。FindMeetingTimes が返すそれぞれの会議提案には、次が含まれています。 Each meeting suggestion that **FindMeetingTimes** returns includes:
+この例では、2 人の出席者のうち 1 人だけが出席できます。 **FindMeetingTimes** が返すそれぞれの会議提案には、次が含まれています。
 - 各出席者の空き時間情報
 - 計算された会議の確度 50%
 - **ReturnSuggestionHints** パラメーターの設定以降の **SuggestionHInt**。 
 
-詳しくは、「[会議の確度](..\api\complex-types-for-mail-contacts-calendar.md#ConfidenceScoreDetails)」をご覧ください。
+詳しくは、「[会議の確度](..\api\complex-types-for-mail-contacts-calendar.md#ConfidenceScoreDetails)」を参照してください。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/beta/me/findmeetingtimes
@@ -2828,7 +2831,7 @@ Content-Type: application/json
 - **TimeConstraint**
 - **MeetingDuration**
 
-**要求のサンプル:**
+**要求のサンプル**
 
 この例では、**TimeConstraint** で指定された期間内のサインインしているユーザーの標準予定表で、**MeetingDuration** で指定されたように、1 時間の空き時間帯を探します。
 
@@ -2980,12 +2983,12 @@ REST API:[予定表イベントを作成する](#CreateAnEvent)
 <a name="CreateAnEvent"></a>
 ###予定表イベントを作成する  (REST)
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.readwrite_
 - _wl.calendars\_update_
 - _wl.events\_create_
 
-予定表の events`events` エンドポイントに投稿することによって、ユーザーの標準として設定されている予定表または特定の予定表にイベントを作成します。イベントが作成されると、サーバーはすべての出席者に招待状を送信します。 When the event is created, the server send invitations to all attendees.
+予定表の `events` エンドポイントに投稿することによって、ユーザーの標準として設定されている予定表または特定の予定表にイベントを作成します。 イベントが作成されると、サーバーはすべての出席者に招待状を送信します。
 
 <!-- ==================================== Start beta content ==================================================== -->
 
@@ -2997,9 +3000,9 @@ POST https://outlook.office.com/api/beta/me/events
 POST https://outlook.office.com/api/beta/me/calendars/{calendar_id}/events
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_id|string|予定表 ID。|
 
 **要求のサンプル**
@@ -3111,7 +3114,7 @@ Content-Type: application/json
 
 新しい[イベント](..\api\complex-types-for-mail-contacts-calendar.md#EventResource)。
 
-メモ： 既定では、応答に連絡先のすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. The following is an example to include only the **Start** and **End** properties of the new event in the response.
+既定では、応答に新しいイベントのすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 以下は、応答内の新しいイベントの **Start** と **End** プロパティのみを含める例です。
 
 ```
 POST https://outlook.office.com/api/beta/me/events?$Select=Start,End
@@ -3131,9 +3134,9 @@ POST https://outlook.office.com/api/v2.0/me/events
 POST https://outlook.office.com/api/v2.0/me/calendars/{calendar_id}/events
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_id|string|予定表 ID。|
 
 **要求のサンプル**
@@ -3241,7 +3244,7 @@ Content-Type: application/json
 
 新しい[イベント](..\api\complex-types-for-mail-contacts-calendar.md#EventResource)。
 
-メモ： 既定では、応答に連絡先のすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. The following is an example to include only the **Start** and **End** properties of the new event in the response.
+既定では、応答に新しいイベントのすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 以下は、応答内の新しいイベントの **Start** と **End** プロパティのみを含める例です。
 
 ```
 POST https://outlook.office.com/api/v2.0/me/events?$Select=Start,End
@@ -3257,7 +3260,7 @@ POST https://outlook.office.com/api/v2.0/me/events?$Select=Start,End
 [!INCLUDE [BEGIN Outlook v1 section](../includes/controls/outlookrestapiv1section.xml)]
 
 
-By default, the **Start** and **End** time values are in UTC. You can specify time zones for **Start** and **End**, express the time in the corresponding time zone, and include a time offset from UTC. The example below shows how to assign time values in Pacific Standard Time. Note that if you specify one time zone, you must specify a value for the other one as well.
+既定では、**Start** と **End** の時刻値は UTC になります。 **Start** と **End** のタイム ゾーンを指定し、対応するタイム ゾーンの時刻を表現して、UTC の時間オフセットを含めることができます。 以下の例は、太平洋標準時の時刻値を割り当てる方法を示します。 1 つのタイム ゾーンを指定する場合は、その他のタイム ゾーンに対しても値を指定する必要があることに注意してください。
 
 
 ```no-highlight
@@ -3265,9 +3268,9 @@ POST https://outlook.office.com/api/v1.0/me/events
 POST https://outlook.office.com/api/v1.0/me/calendars/{calendar_id}/events
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_id|string|予定表 ID。|
 
 [!code-REST-i[calendar_api_create_event_in_calendar](./_data/calendar_api_create_event_in_calendar.json)]
@@ -3277,7 +3280,7 @@ POST https://outlook.office.com/api/v1.0/me/calendars/{calendar_id}/events
 
 新しい[イベント](..\api\complex-types-for-mail-contacts-calendar.md#EventResource)。
 
-メモ： 既定では、応答に連絡先のすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。常に The **Id** property is always returned. The following is an example to include only the **Start** and **End** properties of the new event in the response.
+既定では、応答に新しいイベントのすべてのプロパティが含まれます。 最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。 **Id** プロパティは常に返されます。 以下は、応答内の新しいイベントの **Start** と **End** プロパティのみを含める例です。
 
 ```
 POST https://outlook.office.com/api/v1.0/me/events?$Select=Start,End
@@ -3293,12 +3296,12 @@ POST https://outlook.office.com/api/v1.0/me/events?$Select=Start,End
 <a name="CreateEventsClient"></a>
 ### 予定表イベントを作成する (クライアント)
 
-イベント メッセージの作成 (POST)  イベントを作成します。別の予定表にイベントを追加するには、追加先の予定表の **Events** プロパティを使用します。
+イベントを作成します。 別の予定表にイベントを追加するには、追加先の予定表の **Events** プロパティを使用します。
 
-例`await client.Me.Calendars["AQMkADE3..."].Events.AddEventAsync(newEvent);`
+例: `await client.Me.Calendars["AQMkADE3..."].Events.AddEventAsync(newEvent);`
 
 
-**注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
+**注意**: Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
 
 <!-- ==================================== Start beta content ==================================================== -->
 
@@ -3531,7 +3534,7 @@ REST API:[予定表イベントを更新する](#UpdateAnEvent)
 <a name="UpdateAnEvent"></a>
 ###予定表イベントを更新する (REST)
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.readwrite_
 - _wl.calendars\_update_
 - _wl.events\_create_
@@ -3552,9 +3555,9 @@ __**最低限必要な範囲**: 次のいずれか:__
 PATCH https://outlook.office.com/api/beta/me/events/{event_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
 
 要求本文に任意の書き込み可能な [event](..\api\complex-types-for-mail-contacts-calendar.md#EventResource) プロパティを指定します。
@@ -3563,7 +3566,7 @@ PATCH https://outlook.office.com/api/beta/me/events/{event_id}
 PATCH https://outlook.office.com/api/beta/me/events/AAMkAGE1MFKPQWAAA=?$select=Location
 ```
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 PATCH https://outlook.office.com/api/beta/me/events/AAMkAGE0M4v1OAAA=
@@ -3580,7 +3583,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -3640,7 +3643,7 @@ Status code: 200
 
 **応答の種類**
 
-The updated [event](..\api\complex-types-for-mail-contacts-calendar.md#EventResource). 更新されたイベント。ユーザーが開催者である場合、サーバーはすべての出席者に会議の更新を送信します。
+更新された[イベント](..\api\complex-types-for-mail-contacts-calendar.md#EventResource)。 ユーザーが開催者である場合、サーバーはすべての出席者に会議の更新を送信します。
 
 既定では、応答に更新されたイベントのすべてのプロパティが含まれます。最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。**Id** プロパティは常に返されます。 
 
@@ -3669,14 +3672,14 @@ The updated [event](..\api\complex-types-for-mail-contacts-calendar.md#EventReso
 PATCH https://outlook.office.com/api/v2.0/me/events/{event_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
 
 要求本文に任意の書き込み可能な [event](..\api\complex-types-for-mail-contacts-calendar.md#EventResource) プロパティを指定します。
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 PATCH https://outlook.office.com/api/v2.0/me/events/AAMkAGE0M4v1OAAA=
@@ -3690,7 +3693,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -3746,7 +3749,7 @@ Status code: 200
 
 **応答の種類**
 
-The updated [event](..\api\complex-types-for-mail-contacts-calendar.md#EventResource). 更新されたイベント。ユーザーが開催者である場合、サーバーはすべての出席者に会議の更新を送信します。
+更新された[イベント](..\api\complex-types-for-mail-contacts-calendar.md#EventResource)。 ユーザーが開催者である場合、サーバーはすべての出席者に会議の更新を送信します。
 
 既定では、応答に更新されたイベントのすべてのプロパティが含まれます。最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。**Id** プロパティは常に返されます。 
 
@@ -3779,9 +3782,9 @@ PATCH https://outlook.office.com/api/v2.0/me/events/AAMkAGE1MFKPQWAAA=?$select=L
 PATCH https://outlook.office.com/api/v1.0/me/events/{event_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
 
 要求本文に任意の書き込み可能な [event](..\api\complex-types-for-mail-contacts-calendar.md#EventResource) プロパティを指定します。
@@ -3790,7 +3793,7 @@ PATCH https://outlook.office.com/api/v1.0/me/events/{event_id}
 
 **応答の種類**
 
-The updated [event](..\api\complex-types-for-mail-contacts-calendar.md#EventResource). 更新されたイベント。ユーザーが開催者である場合、サーバーはすべての出席者に会議の更新を送信します。
+更新された[イベント](..\api\complex-types-for-mail-contacts-calendar.md#EventResource)。 ユーザーが開催者である場合、サーバーはすべての出席者に会議の更新を送信します。
 
 既定では、応答に更新されたイベントのすべてのプロパティが含まれます。最適なパフォーマンスを得るために必要なプロパティのみを指定する場合は、**$select** を使用します。**Id** プロパティは常に返されます。 
 
@@ -3819,11 +3822,11 @@ PATCH https://outlook.office.com/api/v1.0/me/events/AAMkAGE1MFKPQWAAA=?$select=L
 イベントを変更します。
 
 次のパターンを使用して、クライアント側で複数の更新を定義し、要求をまとめて (バッチ処理で) 送信できます。
-1. Call `UpdateAsync(true)` for each entity you want to update. 更新するエンティティごとに UpdateAsync(true)`true` を呼び出します。true を指定すると、更新がクライアント上でローカルに登録されますが、サーバーには投稿されません。
-2. outlookClient.Context.SaveChangesAsync()`client.Context.SaveChangesAsync()` を呼び出して、ローカルに登録されているすべての更新を投稿します。
+1. 更新するエンティティごとに `UpdateAsync(true)` を呼び出します。 `true` を指定すると、更新がクライアント上でローカルに登録されますが、サーバーには投稿されません。
+2. `client.Context.SaveChangesAsync()` を呼び出して、ローカルに登録されているすべての更新を投稿します。
 
 
-**注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
+**注意**: Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
 
 
 <!-- ============================================================================================================ -->
@@ -3953,12 +3956,12 @@ string newEventName = eventToUpdate.Subject;
 <a name="RespndToEvents"></a>
 ## イベントに応答する。
 
-REST API:イベントを承諾する (REST)  イベントを仮承諾する (REST)  イベントを辞退する (REST)
+REST API:[イベントを承諾する (REST)](#AcceptEvent) | [イベントを仮承諾する (REST)](#TentAcceptEvent) | [イベントを辞退する (REST)](#DeclineEvent)
 
 <a name="AcceptEvent"></a>
 ###イベントを承諾する (REST)
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.readwrite_
 - _wl.calendars\_update_
 - _wl.events\_create_
@@ -3982,13 +3985,13 @@ POST https://outlook.office.com/api/beta/me/events/{event_id}/accept
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。 必須。|
-|_Body parameters_|
+|_本文パラメーター_|
 |Comment|string|応答に含まれるテキスト。省略可。|
-|SendResponse|ブール値| 応答が開催者に送信される場合は、true`true`。それ以外の場合は、false`false`。省略可。既定値は true です。 省略可能。 Default is `true`.|
+|SendResponse|ブール値| 応答が開催者に送信される場合は、`true`。それ以外の場合は、`false`。 省略可能。 既定値は `true` です。|
  
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/beta/me/events('AAMkAGE1M2IyNGNmLTI5MT_bs88AAAXDJwEAAA=')/accept
@@ -4031,13 +4034,13 @@ POST https://outlook.office.com/api/v2.0/me/events/{event_id}/accept
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。 必須。|
-|_Body parameters_|
+|_本文パラメーター_|
 |Comment|string|応答に含まれるテキスト。省略可。|
-|SendResponse|ブール値| 応答が開催者に送信される場合は、true`true`。それ以外の場合は、false`false`。省略可。既定値は true です。 省略可能。 Default is `true`.|
+|SendResponse|ブール値| 応答が開催者に送信される場合は、`true`。それ以外の場合は、`false`。 省略可能。 既定値は `true` です。|
  
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/v2.0/me/events('AAMkAGE1M2IyNGNmLTI5MT_bs88AAAXDJwEAAA=')/accept
@@ -4080,13 +4083,13 @@ POST https://outlook.office.com/api/v1.0/me/events/{event_id}/accept
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。 必須。|
-|_Body parameters_|
+|_本文パラメーター_|
 |Comment|string|応答に含まれるテキスト。省略可。|
-|SendResponse|ブール値| 応答が開催者に送信される場合は、true`true`。それ以外の場合は、false`false`。省略可。既定値は true です。 省略可能。 Default is `true`.|
+|SendResponse|ブール値| 応答が開催者に送信される場合は、`true`。それ以外の場合は、`false`。 省略可能。 既定値は `true` です。|
  
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/v1.0/me/events('AAMkAGE1M2IyNGNmLTI5MT_bs88AAAXDJwEAAA=')/accept
@@ -4120,7 +4123,7 @@ Content-Type: application/json
 <a name="TentAcceptEvent"></a>
 ###イベントを仮承諾する (REST)
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.readwrite_
 - _wl.calendars\_update_
 - _wl.events\_create_
@@ -4144,13 +4147,13 @@ POST https://outlook.office.com/api/beta/me/events/{event_id}/tentativelyaccept
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。 必須。|
-|_Body parameters_|
+|_本文パラメーター_|
 |Comment|string|応答に含まれるテキスト。省略可。|
-|SendResponse|ブール値| 応答が開催者に送信される場合は、true`true`。それ以外の場合は、false`false`。省略可。既定値は true です。 省略可能。 Default is `true`.|
+|SendResponse|ブール値| 応答が開催者に送信される場合は、`true`。それ以外の場合は、`false`。 省略可能。 既定値は `true` です。|
  
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/beta/me/events('AAMkAGE1M2IyNGNmLTI5MT_bs88AAAXDJwEAAA=')/tentativelyaccept
@@ -4193,13 +4196,13 @@ POST https://outlook.office.com/api/v2.0/me/events/{event_id}/tentativelyaccept
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。 必須。|
-|_Body parameters_|
+|_本文パラメーター_|
 |Comment|string|応答に含まれるテキスト。省略可。|
-|SendResponse|ブール値| 応答が開催者に送信される場合は、true`true`。それ以外の場合は、false`false`。省略可。既定値は true です。 省略可能。 Default is `true`.|
+|SendResponse|ブール値| 応答が開催者に送信される場合は、`true`。それ以外の場合は、`false`。 省略可能。 既定値は `true` です。|
  
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/v2.0/me/events('AAMkAGE1M2IyNGNmLTI5MT_bs88AAAXDJwEAAA=')/tentativelyaccept
@@ -4242,13 +4245,13 @@ POST https://outlook.office.com/api/v1.0/me/events/{event_id}/tentativelyaccept
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。 必須。|
-|_Body parameters_|
+|_本文パラメーター_|
 |Comment|string|応答に含まれるテキスト。省略可。|
-|SendResponse|ブール値| 応答が開催者に送信される場合は、true`true`。それ以外の場合は、false`false`。省略可。既定値は true です。 省略可能。 Default is `true`.|
+|SendResponse|ブール値| 応答が開催者に送信される場合は、`true`。それ以外の場合は、`false`。 省略可能。 既定値は `true` です。|
  
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/v1.0/me/events('AAMkAGE1M2IyNGNmLTI5MT_bs88AAAXDJwEAAA=')/tentativelyaccept
@@ -4279,7 +4282,7 @@ Content-Type: application/json
 <a name="DeclineEvent"></a>
 ###イベントを辞退する (REST)
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.readwrite_
 - _wl.calendars\_update_
 - _wl.events\_create_
@@ -4304,13 +4307,13 @@ POST https://outlook.office.com/api/beta/me/events/{event_id}/decline
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。 必須。|
-|_Body parameters_|
+|_本文パラメーター_|
 |Comment|string|応答に含まれるテキスト。省略可。|
-|SendResponse|ブール値| 応答が開催者に送信される場合は、true`true`。それ以外の場合は、false`false`。省略可。既定値は true です。 省略可能。 Default is `true`.|
+|SendResponse|ブール値| 応答が開催者に送信される場合は、`true`。それ以外の場合は、`false`。 省略可能。 既定値は `true` です。|
  
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/beta/me/events('AAMkAGE1M2IyNGNmLTI5MT_bs88AAAXDJwEAAA=')/decline
@@ -4354,13 +4357,13 @@ POST https://outlook.office.com/api/v2.0/me/events/{event_id}/decline
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。 必須。|
-|_Body parameters_|
+|_本文パラメーター_|
 |Comment|string|応答に含まれるテキスト。省略可。|
-|SendResponse|ブール値| 応答が開催者に送信される場合は、true`true`。それ以外の場合は、false`false`。省略可。既定値は true です。 省略可能。 Default is `true`.|
+|SendResponse|ブール値| 応答が開催者に送信される場合は、`true`。それ以外の場合は、`false`。 省略可能。 既定値は `true` です。|
  
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/v2.0/me/events('AAMkAGE1M2IyNGNmLTI5MT_bs88AAAXDJwEAAA=')/decline
@@ -4404,13 +4407,13 @@ POST https://outlook.office.com/api/v1.0/me/events/{event_id}/decline
 
 |**パラメーター**|**型**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。 必須。|
-|_Body parameters_|
+|_本文パラメーター_|
 |Comment|string|応答に含まれるテキスト。省略可。|
-|SendResponse|ブール値| 応答が開催者に送信される場合は、true`true`。それ以外の場合は、false`false`。省略可。既定値は true です。 省略可能。 Default is `true`.|
+|SendResponse|ブール値| 応答が開催者に送信される場合は、`true`。それ以外の場合は、`false`。 省略可能。 既定値は `true` です。|
  
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 POST https://outlook.office.com/api/v1.0/me/events('AAMkAGE1M2IyNGNmLTI5MT_bs88AAAXDJwEAAA=')/decline
@@ -4449,7 +4452,7 @@ REST API:[予定表イベントを削除する (REST)](#DeleteAnEvent)
 <a name="DeleteAnEvent"></a>
 ###予定表イベントを削除する (REST)
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.readwrite_
 - _wl.calendars\_update_
 - _wl.events\_create_
@@ -4465,15 +4468,15 @@ __**最低限必要な範囲**: 次のいずれか:__
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-このアクションは、会議の開催者と出席者に対して**削除**が使用可能であるという点で、[キャンセル](#CancelEvents)とは異なります。サインインしているユーザーが会議の開催者である場合は、そのユーザーは出席者に対しキャンセルのカスタム メッセージを送信しないで単に会議をキャンセルします。 このアクションは、会議の開催者と出席者に対して削除が使用可能であるという点で、キャンセルとは異なります。サインインしているユーザーが会議の開催者である場合は、そのユーザーは出席者に対しキャンセルのカスタム メッセージを送信しないで単に会議をキャンセルします。
+このアクションは、会議の開催者と出席者に対して**削除**が使用可能であるという点で、[キャンセル](#CancelEvents)とは異なります。 サインインしているユーザーが会議の開催者である場合は、そのユーザーは出席者に対しキャンセルのカスタム メッセージを送信しないで単に会議をキャンセルします。
 
 ```no-highlight
 DELETE https://outlook.office.com/api/beta/me/events/{event_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
 
 
@@ -4509,9 +4512,9 @@ DELETE https://outlook.office.com/api/beta/me/events/AAMkAGE0M4v1OAAA=
 DELETE https://outlook.office.com/api/v2.0/me/events/{event_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
 
 **要求のサンプル**
@@ -4548,9 +4551,9 @@ DELETE https://outlook.office.com/api/v2.0/me/events/AAMkAGE0M4v1OAAA=
 DELETE https://outlook.office.com/api/v1.0/me/events/{event_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
 
 [!code-REST-i[calendar_api_delete_event_by_id](./_data/calendar_api_delete_event_by_id.json)]
@@ -4573,7 +4576,7 @@ DELETE https://outlook.office.com/api/v1.0/me/events/{event_id}
 イベントを削除済みアイテム フォルダーに移動します。
 
 
-**注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
+**注意**: Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
 
 
 この例では、[Outlook サービス クライアント](..\api\use-outlook-rest-api.md#GetClient)と[イベント ID](#GetEvents) が既に取得されていると仮定します。
@@ -4599,16 +4602,16 @@ await eventToDelete.DeleteAsync();
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-__**Minimum required scope**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.readwrite_
 - _wl.calendars\_update_
 - _wl.events\_create_
 
 このアクションでは、会議の開催者はキャンセル メッセージを送信し、イベントをキャンセルできます。 
 
-The action moves the event to the Deleted Items folder. The organizer can also cancel an occurrence of a recurring meeting by providing the occurrence event ID. An attendee calling this action gets an error (HTTP 400 Bad Request), with the following error message:
+アクションは、イベントを削除済みアイテム フォルダーに移動します。 開催者は、発生イベント ID を指定することで、定期的な会議の開催をキャンセルすることもできます。 この操作を呼び出す出席者には、エラー (HTTP 400: 要求が正しくありません) が次のエラー メッセージと共に通知されます。
 
-"Your request can't be completed. "要求を完了できません。会議を取り消すには、開催者である必要があります。"
+"要求を完了できません。 会議を取り消すには、開催者である必要があります。"
 
 このアクションは、開催者に対してのみ**キャンセル**が使用可能であるという点で、[削除](#DeleteEvents)とは異なり、開催者はキャンセルに関するカスタム メッセージを出席者に送信できます。
 
@@ -4616,11 +4619,11 @@ The action moves the event to the Deleted Items folder. The organizer can also c
 POST https://outlook.office.com/api/beta/me/events/{event_id}/Cancel
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
-|_Body parameters_|
+|_本文パラメーター_|
 |Comment|string|すべての出席者に送信されるキャンセルに関してのコメント。|
 
 **要求のサンプル**
@@ -4672,23 +4675,23 @@ Content-Type: application/json
 ****
 
 <a name="GetAttachments"> </a>
-## 添付ファイルの取得
+## 添付ファイルを取得する
 
 添付ファイルのコレクションまたは添付ファイルを取得できます。
 
-REST API:添付ファイルのコレクションを取得する (REST)  添付ファイルを取得する (REST)
+REST API:[添付ファイルのコレクションを取得する (REST)](#GetAttachmentCollection) | [添付ファイルを取得する (REST)](#GetAttachment)
 
 <a name="GetAttachmentCollection"> </a>
 ###添付ファイルのコレクションを取得する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.read_
 - _wl.calendars_
 - _wl.contacts\_calendars_
 
 特定のイベントから添付ファイルを取得します。
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**メモ**: パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 
 <!-- ============================================================================================================ -->
@@ -4705,9 +4708,9 @@ GET https://outlook.office.com/api/beta/me/events/{event_id}/attachments
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
 
 
@@ -4716,13 +4719,13 @@ GET https://outlook.office.com/api/beta/me/events/{event_id}/attachments
 [FileAttachment](..\api\complex-types-for-mail-contacts-calendar.md#FileAttachmentResource)、[ItemAttachment](..\api\complex-types-for-mail-contacts-calendar.md#ItemAttachmentResource)、または [ReferenceAttachment](..\api\complex-types-for-mail-contacts-calendar.md#ReferenceAttachmentResource) の種類を使用できる添付ファイル コレクション。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/beta/me/events/AAMkAGI2NGTG9yAAA=/attachments
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -4770,9 +4773,9 @@ GET https://outlook.office.com/api/v2.0/me/events/{event_id}/attachments
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
 
 
@@ -4781,13 +4784,13 @@ GET https://outlook.office.com/api/v2.0/me/events/{event_id}/attachments
 [FileAttachment](..\api\complex-types-for-mail-contacts-calendar.md#FileAttachmentResource) または [ItemAttachment](..\api\complex-types-for-mail-contacts-calendar.md#ItemAttachmentResource) の種類を使用できる添付ファイル コレクション。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/v2.0/me/events/AAMkAGI2NGTG9yAAA=/attachments
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -4836,9 +4839,9 @@ GET https://outlook.office.com/api/v1.0/me/events/{event_id}/attachments
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
 
 
@@ -4866,7 +4869,7 @@ GET https://outlook.office.com/api/v1.0/me/events/{event_id}/attachments
 <a name="GetAttachment"> </a>
 ###添付ファイルを取得する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.read_
 - _wl.calendars_
 - _wl.contacts\_calendars_
@@ -4886,13 +4889,13 @@ GET https://outlook.office.com/api/beta/me/events/{event_id}/attachments/{attach
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
 |attachment_id|string|添付ファイル ID。|
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**メモ**: パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 
 **応答の種類**
@@ -4929,7 +4932,7 @@ Status code: 200
 }
 ```
 
-**要求のサンプル (参照添付ファイル)**
+**サンプル要求 (参照添付ファイル)**
 
 次の例では、イベントの参照添付ファイルを取得します。
 
@@ -4962,7 +4965,7 @@ Status code: 200
 ```
 
 
-**要求のサンプル (添付ファイルの $expand)**
+**サンプル要求 (添付ファイルの $expand)**
 
 次の例では、イベント プロパティを持つ 2 つの参照添付ファイルのインラインを取得して展開します。
 
@@ -5106,13 +5109,13 @@ GET https://outlook.office.com/api/v2.0/me/events/{event_id}/attachments/{attach
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
 |attachment_id|string|添付ファイル ID。|
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**メモ**: パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 
 **応答の種類**
@@ -5120,13 +5123,13 @@ GET https://outlook.office.com/api/v2.0/me/events/{event_id}/attachments/{attach
 要求された[添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#FileAttachmentResource)または[アイテムの添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ItemAttachmentResource)。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/v2.0/me/events/AAMkAGI2WRAAADTG9yAAA=/attachments/AAMkAGI2TG9yAAABEgAQALxJtn1LwydGuOzcHf1FBlo=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -5171,13 +5174,13 @@ GET https://outlook.office.com/api/v1.0/me/events/{event_id}/attachments/{attach
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
 |attachment_id|string|添付ファイル ID。|
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**メモ**: パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 
 **応答の種類**
@@ -5206,13 +5209,14 @@ GET https://outlook.office.com/api/v1.0/me/events/{event_id}/attachments/{attach
 ## 添付ファイルを作成する
 イベントの添付ファイルまたは[アイテムの添付ファイルを作成](#CreateItemAttachment)できます。
 
-REST API:添付ファイルを作成する (REST)  アイテムの添付ファイルを作成する (REST)  参照添付ファイルを作成する (REST)
+REST API:[添付ファイルを作成する (REST)](#CreateFileAttachment) | [アイテムの添付ファイルを作成する (REST)](#CreateItemAttachment) | 
+[参照添付ファイルを作成する (REST)](#CreateReferenceAttachment)
 
 
 <a name="CreateFileAttachment"></a>
 ###添付ファイルを作成する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.readwrite_
 - _wl.calendars\_update_
 - _wl.events\_create_
@@ -5286,13 +5290,13 @@ POST https://outlook.office.com/api/v1.0/me/events/{event_id}/attachments
 <!-- ============================================================================================================ -->
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
-|_Body parameters_|
+|_本文パラメーター_|
 |@odata.type| string | #Microsoft.OutlookServices.FileAttachment |
-|名前|string|添付ファイルの名前。|
+|Name|string|添付ファイルの名前。|
 |ContentBytes|binary|添付するファイル。|
  
 <!-- Add post GA
@@ -5309,7 +5313,7 @@ POST https://outlook.office.com/api/v1.0/me/events/{event_id}/attachments
 <a name="CreateItemAttachment"></a>
 ###アイテムの添付ファイルを作成する (REST)
 
-__**Minimum required scope**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.readwrite_
 - _wl.calendars\_update_
 - _wl.events\_create_
@@ -5383,13 +5387,13 @@ POST https://outlook.office.com/api/v1.0/me/events/{event_id}/attachments
 <!-- ============================================================================================================ -->
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
-|_Body parameters_|
+|_本文パラメーター_|
 |@odata.type| string | #Microsoft.OutlookServices.ItemAttachment |
-|名前|string|添付ファイルの名前。|
+|Name|string|添付ファイルの名前。|
 |アイテム|[Message](..\api\complex-types-for-mail-contacts-calendar.md#MessageResource)、[Event](..\api\complex-types-for-mail-contacts-calendar.md#EventResource)、または [Contact](..\api\complex-types-for-mail-contacts-calendar.md#ContactResource) エンティティ。|添付するアイテム。|
  
 
@@ -5413,7 +5417,7 @@ POST https://outlook.office.com/api/v1.0/me/events/{event_id}/attachments
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-__**必要な範囲**: https://outlook.office.com/mail.readwrite__
+_**必要な範囲**: https://outlook.office.com/mail.readwrite_
 
 イベントに参照添付ファイルを追加します。
 
@@ -5421,16 +5425,16 @@ __**必要な範囲**: https://outlook.office.com/mail.readwrite__
 POST https://outlook.office.com/api/beta/me/events/{event_id}/attachments
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|String|イベント ID。|
-|_Body parameters_|
+|_本文パラメーター_|
 |@odata.type|String|```#Microsoft.OutlookServices.ReferenceAttachment```|
-|名前|String|添付ファイルの表示名。必須。|
+|Name|String|添付ファイルの表示名。必須。|
 |SourceUrl|String | 添付ファイルの内容を取得するための URL。フォルダーへの URL の場合、Outlook または Outlook on the web 上でフォルダーが正しく表示されるには、**IsFolder** を true に設定します。必須。|
 
-要求本文に、**Name** と**SourceUrl** パラメーターおよび書き込み可能な[参照添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ReferenceAttachmentResource) プロパティを指定します。
+要求本文に、**Name** と **SourceUrl** パラメーターおよび書き込み可能な[参照添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ReferenceAttachmentResource) プロパティを指定します。
 
 
 
@@ -5439,9 +5443,9 @@ POST https://outlook.office.com/api/beta/me/events/{event_id}/attachments
 [参照添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ReferenceAttachmentResource)。
 
 
-**要求のサンプル:**
+**要求のサンプル**
 
-次の例では、既存のイベントに参照添付ファイルを追加します。添付ファイルは、OneDrive for Business 上のファイルへのリンクです。 次の例では、既存メッセージに添付ファイルを追加します。添付ファイルは、OneDrive for Business 上のファイルへのリンクです。
+次の例では、既存のイベントに参照添付ファイルを追加します。 添付ファイルは、OneDrive for Business 上のファイルへのリンクです。
 
 ```
 POST https://outlook.office.com/api/beta/me/events('AAMkAGE1Mbs88AADggYEcAAA=')/attachments
@@ -5458,7 +5462,7 @@ Content-Type: application/json
 ```
 
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201 Created
@@ -5668,7 +5672,7 @@ REST API:[イベントの添付ファイルを削除する (REST)](#DeleteAnEven
 <a name="DeleteAnEventAttachment"></a>
 ###イベントの添付ファイルを削除する (REST)
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.readwrite_
 - _wl.calendars\_update_
 - _wl.events\_create_
@@ -5682,15 +5686,15 @@ __**最低限必要な範囲**: 次のいずれか:__
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-Delete the specified attachment of an event. メッセージの指定した添付ファイルを削除します。添付ファイルは、[添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#FileAttachmentResource)、[アイテムの添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ItemAttachmentResource)、または[参照添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ReferenceAttachmentResource)にすることができます。
+イベントの指定した添付ファイルを削除します。 添付ファイルは、[添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#FileAttachmentResource)、[アイテムの添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ItemAttachmentResource)、または[参照添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ReferenceAttachmentResource)にすることができます。
 
 ```no-highlight
 DELETE https://outlook.office.com/api/beta/me/events/{event_id}/attachments/{attachment_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
 |attachment_id|string|添付ファイル ID。|
 
@@ -5700,7 +5704,7 @@ DELETE https://outlook.office.com/api/beta/me/events/{event_id}/attachments/{att
 DELETE https:/outlook.office.com/api/beta/me/events/AAMkAGE0MG4v1OAAA=/attachments/AAMkAGITG9yAAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 204
@@ -5724,15 +5728,15 @@ Status code: 204
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-Delete the specified attachment of an event. メッセージの指定した添付ファイルを削除します。添付ファイルは、[添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#FileAttachmentResource)または[アイテムの添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ItemAttachmentResource)にすることができます。
+イベントの指定した添付ファイルを削除します。 添付ファイルは、[添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#FileAttachmentResource)または[アイテムの添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ItemAttachmentResource)にすることができます。
 
 ```no-highlight
 DELETE https://outlook.office.com/api/v2.0/me/events/{event_id}/attachments/{attachment_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
 |attachment_id|string|添付ファイル ID。|
 
@@ -5742,7 +5746,7 @@ DELETE https://outlook.office.com/api/v2.0/me/events/{event_id}/attachments/{att
 DELETE https:/outlook.office.com/api/v2.0/me/events/AAMkAGE0MG4v1OAAA=/attachments/AAMkAGITG9yAAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 204
@@ -5767,15 +5771,15 @@ Status code: 204
 
 [!INCLUDE [BEGIN Outlook v1 section](../includes/controls/outlookrestapiv1section.xml)]
 
-Delete the specified attachment of an event. メッセージの指定した添付ファイルを削除します。添付ファイルは、[添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#FileAttachmentResource)または[アイテムの添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ItemAttachmentResource)にすることができます。
+イベントの指定した添付ファイルを削除します。 添付ファイルは、[添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#FileAttachmentResource)または[アイテムの添付ファイル](..\api\complex-types-for-mail-contacts-calendar.md#ItemAttachmentResource)にすることができます。
 
 ```no-highlight
 DELETE https://outlook.office.com/api/v1.0/me/events/{event_id}/attachments/{attachment_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |event_id|string|イベント ID。|
 |attachment_id|string|添付ファイル ID。|
 
@@ -5794,7 +5798,7 @@ DELETE https://outlook.office.com/api/v1.0/me/events/{event_id}/attachments/{att
 
 予定表から 2 つの日付と時刻の間でイベントのアラーム一覧を取得します。
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.read_
 - _wl.calendars_
 - _wl.contacts\_calendars_
@@ -5806,17 +5810,17 @@ __**最低限必要な範囲**: 次のいずれか:__
 ```no-highlight
 GET https://outlook.office.com/api/beta/me/ReminderView(StartDateTime='{DateTime}',EndDateTime='{DateTime}')
 ```
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|__Header parameters_|
+|_ヘッダー パラメーター_|
 |Prefer: |outlook.timezone|応答に対するイベントの既定のタイムゾーン。|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |StartDateTime|string|返されるアラームの開始日と開始時刻。|
 |EndDateTime|string|返されるアラームの終了日と終了時刻。|
 
-Use the _Prefer: outlook.timezone_ header to specify the time zone to use for the event start and end times in the response.
-If the event was created in a different time zone, the start and end times will be adjusted to the specified time zone.
-See [this list](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone) for the supported time zone names. If the _Prefer: outlook.timezone_ header is not specified, the time zone is set to UTC.
+_Prefer: outlook.timezone_ ヘッダーを使用して、応答内イベントの開始時刻と終了時刻に使用するタイム ゾーンを指定します。
+イベントが別のタイム ゾーンで作成された場合は、開始時刻と終了時刻は指定したタイム ゾーンに合わせて調整されます。
+サポートされているタイム ゾーン名については、[この一覧](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone)を参照してください。 _Prefer: outlook.timezone_ ヘッダーが指定されない場合は、タイム ゾーンは UTC に設定されます。
 
 [!INCLUDE [END Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
@@ -5830,17 +5834,17 @@ See [this list](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZ
 ```no-highlight
 GET https://outlook.office.com/api/v2.0/me/ReminderView(StartDateTime='{DateTime}',EndDateTime='{DateTime}')
 ```
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|__Header parameters_|
+|_ヘッダー パラメーター_|
 |Prefer: |outlook.timezone|応答に対するイベントの既定のタイムゾーン。|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |StartDateTime|string|返されるアラームの開始日と開始時刻。|
 |EndDateTime|string|返されるアラームの終了日と終了時刻。|
 
-Use the _Prefer: outlook.timezone_ header to specify the time zone to use for the event start and end times in the response.
-If the event was created in a different time zone, the start and end times will be adjusted to the specified time zone.
-See [this list](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone) for the supported time zone names. If the _Prefer: outlook.timezone_ header is not specified, the time zone is set to UTC.
+_Prefer: outlook.timezone_ ヘッダーを使用して、応答内イベントの開始時刻と終了時刻に使用するタイム ゾーンを指定します。
+イベントが別のタイム ゾーンで作成された場合は、開始時刻と終了時刻は指定したタイム ゾーンに合わせて調整されます。
+サポートされているタイム ゾーン名については、[この一覧](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone)を参照してください。 _Prefer: outlook.timezone_ ヘッダーが指定されない場合は、タイム ゾーンは UTC に設定されます。
 
 [!INCLUDE [END Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
@@ -5860,11 +5864,11 @@ See [this list](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZ
 
 
 <a name="SnoozeReminders"> </a>
-##アラームを再通知する
+## アラームを再通知する
 
 アラームを再通知して、新しい時間までアラームを延期します。
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.readwrite_
 - _wl.calendars\_update_
 - _wl.events\_create_
@@ -5877,11 +5881,11 @@ __**最低限必要な範囲**: 次のいずれか:__
 POST https://outlook.office.com/api/beta/me/Events('{id}')/SnoozeReminder
 ```
 
-|**必要なパラメーター**|**型**|**説明**|
+|**必要なパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |id|string|イベントの ID。|
-|_Body parameters_|
+|_本文パラメーター_|
 |NewReminderTime|[DateTimeTimeZone](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone)|アラームをトリガーする新しい日付と時刻。|
 
 [!INCLUDE [END Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
@@ -5905,11 +5909,11 @@ POST https://outlook.office.com/api/beta/me/Events('{id}')/SnoozeReminder
 POST https://outlook.office.com/api/beta/me/Events('{id}')/SnoozeReminder
 ```
 
-|**必要なパラメーター**|**型**|**説明**|
+|**必要なパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |id|string|イベントの ID。|
-|_Body parameters_|
+|_本文パラメーター_|
 |NewReminderTime|[DateTimeTimeZone](..\api\complex-types-for-mail-contacts-calendar.md#DateTimeTimeZone)|アラームをトリガーする新しい日付と時刻。|
 
 [!INCLUDE [END Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
@@ -5941,11 +5945,11 @@ POST https://outlook.office.com/api/beta/me/Events('{id}')/SnoozeReminder
 <!-- ============================================================================================================ -->
 
 <a name="DismissReminders"> </a>
-##アラームを消す
+## アラームを消す
 
 トリガーされたアラームを消します。
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.readwrite_
 - _wl.calendars\_update_
 - _wl.events\_create_
@@ -5962,9 +5966,9 @@ __**最低限必要な範囲**: 次のいずれか:__
 POST https://outlook.office.com/api/beta/me/Events({id})/DismissReminder
 ```
 
-|**必要なパラメーター**|**型**|**説明**|
+|**必要なパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |id|string|イベントの ID。|
 
 
@@ -5989,9 +5993,9 @@ POST https://outlook.office.com/api/beta/me/Events({id})/DismissReminder
 POST https://outlook.office.com/api/beta/me/Events({id})/DismissReminder
 ```
 
-|**必要なパラメーター**|**型**|**説明**|
+|**必要なパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |id|string|イベントの ID。|
 
 [!INCLUDE [END Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
@@ -6024,23 +6028,23 @@ POST https://outlook.office.com/api/beta/me/Events({id})/DismissReminder
 
 
 <a name="GetCalendars"> </a>
-##予定表を取得する
+## 予定表を取得する
 
 予定表のコレクションまたは予定表を取得できます。
 
-REST API:予定表のコレクションを取得する (REST)  予定表を取得する (REST)
+REST API:[予定表のコレクションを取得する (REST)](#GetCalendarCollection) | [予定表を取得する (REST)](#GetCalendar)
 
 クライアント ライブラリ:[予定表のコレクションまたは予定表を取得する (クライアント)](#GetCalendarsClient)
 
 <a name="GetCalendarCollection"> </a>
 ###予定表のコレクションを取得する (REST)
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.read_
 - _wl.calendars_
 - _wl.contacts\_calendars_
 
-ユーザーのすべての予定表 (calendars`calendars`) を取得するか、または特定の予定表グループの予定表を取得します。
+ユーザーのすべての予定表 (`calendars`) を取得するか、または特定の予定表グループの予定表を取得します。
 
 
 <!-- ============================================================================================================ -->
@@ -6058,12 +6062,12 @@ GET https://outlook.office.com/api/beta/me/calendars
 GET https://outlook.office.com/api/beta/me/calendargroups/{calendar_group_id}/calendars
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#UseOdataQueryParameters)」を参照してください。
+**メモ**: パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#UseOdataQueryParameters)」を参照してください。
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calender_group_id|string|予定表グループ ID。|
 
 
@@ -6073,7 +6077,7 @@ GET https://outlook.office.com/api/beta/me/calendargroups/{calendar_group_id}/ca
 https://outlook.office.com/api/beta/me/calendars
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -6117,12 +6121,12 @@ GET https://outlook.office.com/api/v2.0/me/calendars
 GET https://outlook.office.com/api/v2.0/me/calendargroups/{calendar_group_id}/calendars
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#UseOdataQueryParameters)」を参照してください。
+**メモ**: パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#UseOdataQueryParameters)」を参照してください。
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calender_group_id|string|予定表グループ ID。|
 
 **要求のサンプル**
@@ -6131,7 +6135,7 @@ GET https://outlook.office.com/api/v2.0/me/calendargroups/{calendar_group_id}/ca
 https://outlook.office.com/api/v2.0/me/calendars
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -6175,12 +6179,12 @@ GET https://outlook.office.com/api/v1.0/me/calendars
 GET https://outlook.office.com/api/v1.0/me/calendargroups/{calendar_group_id}/calendars
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#UseOdataQueryParameters)」を参照してください。
+**メモ**: パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#UseOdataQueryParameters)」を参照してください。
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calender_group_id|string|予定表グループ ID。|
 
 
@@ -6205,12 +6209,12 @@ GET https://outlook.office.com/api/v1.0/me/calendargroups/{calendar_group_id}/ca
 <a name="GetCalendar"> </a>
 ###予定表を取得する (REST)
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.read_
 - _wl.calendars_
 - _wl.contacts\_calendars_
 
-ID で予定表グループを取得します。 ID で予定表を取得します。../me/calendar`../me/calendar` エンドポイントを使用して、ユーザーの標準として設定されている予定表を取得できます。
+ID で予定表を取得します。 `../me/calendar` エンドポイントを使用して、ユーザーの標準として設定されている予定表を取得できます。
 
 
 <!-- ============================================================================================================ -->
@@ -6226,12 +6230,12 @@ ID で予定表グループを取得します。 ID で予定表を取得しま�
 GET https://outlook.office.com/api/beta/me/calendars/{calendar_id}
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**メモ**: パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_id|string|予定表 ID。|
 
 
@@ -6241,7 +6245,7 @@ GET https://outlook.office.com/api/beta/me/calendars/{calendar_id}
 GET https://outlook.office.com/api/beta/me/calendars/AAMkAGI2TGuLAAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -6280,12 +6284,12 @@ Status code: 200
 GET https://outlook.office.com/api/v2.0/me/calendars/{calendar_id}
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_id|string|予定表 ID。|
 
 
@@ -6295,7 +6299,7 @@ GET https://outlook.office.com/api/v2.0/me/calendars/{calendar_id}
 GET https://outlook.office.com/api/v2.0/me/calendars/AAMkAGI2TGuLAAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -6333,12 +6337,12 @@ Status code: 200
 GET https://outlook.office.com/api/v1.0/me/calendars/{calendar_id}
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_id|string|予定表 ID。|
 
 
@@ -6361,12 +6365,12 @@ GET https://outlook.office.com/api/v1.0/me/calendars/{calendar_id}
 <a name="GetCalendarsClient"> </a>
 ###予定表のコレクションまたは予定表を取得する (クライアント)
 
-Get the user's calendars. To get the user's default calendar, use the `client.Me.Calendar` shortcut property. ユーザーの予定表グループを取得します。別の予定表グループを取得するには、**CalendarGroups** コレクションのインデックスとして予定表グループ ID を指定するか、**GetById** メソッドを使用します。
+ユーザーの予定表を取得します。 ユーザーの既定の予定表を取得するには、`client.Me.Calendar` ショートカット プロパティを使用します。 別の予定表を取得するには、**Calendars** コレクションのインデックスとして予定表 ID を指定するか、**GetById** メソッドを使用します。
 
-例`client.Me.Calendars[calendarId].ExecuteAsync()`
+例: `client.Me.Calendars[calendarId].ExecuteAsync()`
 
 
-**注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
+**注意**: Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
 
 
 **メモ**: 予定表コレクションでは、**Select**、**OrderBy**、**Take** などのクエリ式がサポートされます。
@@ -6411,12 +6415,12 @@ REST API:[予定表を作成する (REST)](#CreateACalendar)
 <a name="CreateACalendar"></a>
 ###予定表を作成する (REST)
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.readwrite_
 - _wl.calendars\_update_
 - _wl.events\_create_
 
-../me/calendars`../me/calendars` ショートカットを使用して既定の予定表グループに予定表を作成するか、グループの calendars`calendars` エンドポイントに投稿することによって特定の予定表グループに予定表を作成します。
+`../me/calendars` ショートカットを使用して既定の予定表グループに予定表を作成するか、グループの `calendars` エンドポイントに投稿することによって特定の予定表グループに予定表を作成します。
 
 
 <!-- ============================================================================================================ -->
@@ -6433,12 +6437,12 @@ POST https://outlook.office.com/api/beta/me/calendargroups/{calendar_group_id}/c
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calender_group_id|string|予定表グループ ID (特定のグループから予定表を取得している場合)。|
-|_Body parameters_|
-|名前|string|新しい予定表の名前。|
+|_本文パラメーター_|
+|Name|string|新しい予定表の名前。|
  
 
 **要求のサンプル**
@@ -6453,7 +6457,7 @@ Content-Type: application/json
 
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -6495,12 +6499,12 @@ POST https://outlook.office.com/api/v2.0/me/calendargroups/{calendar_group_id}/c
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calender_group_id|string|予定表グループ ID (特定のグループから予定表を取得している場合)。|
-|_Body parameters_|
-|名前|string|新しい予定表の名前。|
+|_本文パラメーター_|
+|Name|string|新しい予定表の名前。|
  
 
 **要求のサンプル**
@@ -6514,7 +6518,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -6554,12 +6558,12 @@ POST https://outlook.office.com/api/v1.0/me/calendargroups/{calendar_group_id}/c
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calender_group_id|string|予定表グループ ID (特定のグループから予定表を取得している場合)。|
-|_Body parameters_|
-|名前|string|新しい予定表の名前。|
+|_本文パラメーター_|
+|Name|string|新しい予定表の名前。|
  
 
 
@@ -6584,10 +6588,10 @@ POST https://outlook.office.com/api/v1.0/me/calendargroups/{calendar_group_id}/c
 <a name="CreateCalendarsClient"> </a>
 ### 予定表を作成する (クライアント)
 
-予定表を作成する (クライアント) 予定表を作成します。イベントの作成方法の例については、「[イベントを作成する](#CreateEventsClient)」を参照してください。
+予定表を作成します。 イベントの作成方法の例については、「[イベントを作成する](#CreateEventsClient)」を参照してください。
 
 
-**注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
+**注意**: Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
 
 
 この例では、既に [Outlook サービス クライアントが取得されている](..\api\use-outlook-rest-api.md#GetClient)と仮定します。
@@ -6622,12 +6626,12 @@ REST API:[予定表を更新する (REST)](#UpdateACalendar)
 <a name="UpdateACalendar"></a>
 ###予定表を更新する (REST)
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.readwrite_
 - _wl.calendars\_update_
 - _wl.events\_create_
 
-Change the name of a calendar. 予定表の名前を変更します。**Name** は、唯一の書き込み可能な[予定表](..\api\complex-types-for-mail-contacts-calendar.md#CalendarResource)のプロパティです。
+予定表の名前を変更します。 **Name** は、唯一の書き込み可能な[予定表](..\api\complex-types-for-mail-contacts-calendar.md#CalendarResource)のプロパティです。
 
 
 <!-- ============================================================================================================ -->
@@ -6642,12 +6646,12 @@ Change the name of a calendar. 予定表の名前を変更します。**Name** �
 PATCH https://outlook.office.com/api/beta/me/calendars/{calendar_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_id|string|予定表 ID。|
-|_Body parameters_|
-|名前|string|予定表の新しい名前。|
+|_本文パラメーター_|
+|Name|string|予定表の新しい名前。|
 
 
 **要求のサンプル**
@@ -6661,7 +6665,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -6700,12 +6704,12 @@ Status code: 200
 PATCH https://outlook.office.com/api/v2.0/me/calendars/{calendar_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_id|string|予定表 ID。|
-|_Body parameters_|
-|名前|string|予定表の新しい名前。|
+|_本文パラメーター_|
+|Name|string|予定表の新しい名前。|
 
 
 **要求のサンプル**
@@ -6719,7 +6723,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -6757,12 +6761,12 @@ Status code: 200
 PATCH https://outlook.office.com/api/v1.0/me/calendars/{calendar_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_id|string|予定表 ID。|
-|_Body parameters_|
-|名前|string|予定表の新しい名前。|
+|_本文パラメーター_|
+|Name|string|予定表の新しい名前。|
 
 [!code-REST-i[calendar_api_update_calendar_by_id](./_data/calendar_api_update_calendar_by_id.json)]
 
@@ -6786,10 +6790,10 @@ PATCH https://outlook.office.com/api/v1.0/me/calendars/{calendar_id}
 <a name="UpdateCalendarsClient"> </a>
 ### 予定表を更新する (クライアント)
 
-Change the name of a calendar. 予定表の名前を変更します。**Name** は、予定表の唯一の書き込み可能なプロパティです。
+予定表の名前を変更します。 **Name** は、予定表の唯一の書き込み可能なプロパティです。
 
 
-**注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
+**注意**: Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
 
 
 この例では、[Outlook サービス クライアント](..\api\use-outlook-rest-api.md#GetClient)と[予定表 ID](#GetCalendars) が既に取得されていると仮定します。
@@ -6812,8 +6816,8 @@ string newCalendarName = calendarToUpdate.Name;
 
 
 次のパターンを使用して、クライアント側で複数の更新を定義し、要求をまとめて (バッチ処理で) 送信できます。
-1. Call `UpdateAsync(true)` for each entity you want to update. 更新するエンティティごとに UpdateAsync(true)`true` を呼び出します。true を指定すると、更新がクライアント上でローカルに登録されますが、サーバーには投稿されません。
-2. outlookClient.Context.SaveChangesAsync()`client.Context.SaveChangesAsync()` を呼び出して、ローカルに登録されているすべての更新を投稿します。
+1. 更新するエンティティごとに `UpdateAsync(true)` を呼び出します。 `true` を指定すると、更新がクライアント上でローカルに登録されますが、サーバーには投稿されません。
+2. `client.Context.SaveChangesAsync()` を呼び出して、ローカルに登録されているすべての更新を投稿します。
 
 ****
 
@@ -6829,7 +6833,7 @@ REST API:[予定表を削除する (REST)](#DeleteACalendar)
 <a name="DeleteACalendar"></a>
 ###予定表を削除する (REST)
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.readwrite_
 - _wl.calendars\_update_
 - _wl.events\_create_
@@ -6849,9 +6853,9 @@ __**最低限必要な範囲**: 次のいずれか:__
 DELETE https://outlook.office.com/api/beta/me/calendars/{calendar_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_id|string|予定表 ID。|
 
 
@@ -6861,7 +6865,7 @@ DELETE https://outlook.office.com/api/beta/me/calendars/{calendar_id}
 DELETE https://outlook.office.com/api/beta/me/calendars/AAMkAGE4xLIAAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 204
@@ -6891,9 +6895,9 @@ Status code: 204
 DELETE https://outlook.office.com/api/v2.0/me/calendars/{calendar_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_id|string|予定表 ID。|
 
 
@@ -6903,7 +6907,7 @@ DELETE https://outlook.office.com/api/v2.0/me/calendars/{calendar_id}
 DELETE https://outlook.office.com/api/v2.0/me/calendars/AAMkAGE4xLIAAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 204
@@ -6933,9 +6937,9 @@ Status code: 204
 DELETE https://outlook.office.com/api/v1.0/me/calendars/{calendar_id}
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_id|string|予定表 ID。|
 
 [!code-REST-i[calendar_api_delete_calendar_by_id](./_data/calendar_api_delete_calendar_by_id.json)]
@@ -6957,7 +6961,7 @@ DELETE https://outlook.office.com/api/v1.0/me/calendars/{calendar_id}
 ### 予定表を削除する (クライアント)
 
 
-**注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
+**注意**: Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
 
 
 この例では、[Outlook サービス クライアント](..\api\use-outlook-rest-api.md#GetClient)と[予定表 ID](#GetCalendars) が既に取得されていると仮定します。
@@ -6982,10 +6986,10 @@ await calendarToDelete.DeleteAsync(false);
 予定表グループのコレクションまたは[予定表グループを取得](#GetCalendarGroup)できます。
 
 
-**メモ** Outlook.com によってサポートされるのは、../me/calendars`../me/calendars` ショートカットでアクセス可能な既定の予定表グループのみです。
+**メモ**: Outlook.com によってサポートされるのは、`../me/calendars` ショートカットでアクセス可能な既定の予定表グループのみです。
 
 
-REST API:予定表グループのコレクションを取得する (REST)  予定表グループを取得する (REST)
+REST API:[予定表グループのコレクションを取得する (REST)](#GetCalendarGroupCollection) | [予定表グループを取得する (REST)](#GetCalendarGroup)
 
 クライアント ライブラリ:[予定表グループを取得する (クライアント)](#GetCalendarGroupsClient)
 
@@ -6996,7 +7000,7 @@ REST API:予定表グループのコレクションを取得する (REST)  予�
 <a name="GetCalendarGroupCollection"> </a>
 ###予定表グループのコレクションを取得する (REST)
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.read_
 - _wl.calendars_
 - _wl.contacts\_calendars_
@@ -7017,15 +7021,15 @@ __**最低限必要な範囲**: 次のいずれか:__
 GET https://outlook.office.com/api/beta/me/calendargroups
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**メモ**: パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/beta/me/calendargroups
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -7073,15 +7077,15 @@ Status code: 200
 GET https://outlook.office.com/api/v2.0/me/calendargroups
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**メモ**: パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
-**要求のサンプル:**
+**要求のサンプル**
 
 ```
 GET https://outlook.office.com/api/v2.0/me/calendargroups
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -7130,7 +7134,7 @@ Status code: 200
 GET https://outlook.office.com/api/v1.0/me/calendargroups
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** パラメーターのフィルタリング、並べ替え、ページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」をご覧ください。
 
 
 [!code-REST-i[calendar_api_get_calendar_groups](./_data/calendar_api_get_calendar_groups.json)]
@@ -7154,7 +7158,7 @@ GET https://outlook.office.com/api/v1.0/me/calendargroups
 <a name="GetCalendarGroup"> </a>
 ###予定表グループを取得する (REST)
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.read_
 - _wl.calendars_
 - _wl.contacts\_calendars_
@@ -7175,12 +7179,12 @@ ID で予定表グループを取得します。
 GET https://outlook.office.com/api/beta/me/calendargroups/{calendar_group_id}
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**メモ**: パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_group_id|string|予定表グループ ID。|
 
 
@@ -7190,7 +7194,7 @@ GET https://outlook.office.com/api/beta/me/calendargroups/{calendar_group_id}
 GET https://outlook.office.com/api/beta/me/calendargroups/AAMkAGI2TGuKAAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -7227,12 +7231,12 @@ Status code: 200
 GET https://outlook.office.com/api/v2.0/me/calendargroups/{calendar_group_id}
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_group_id|string|予定表グループ ID。|
 
 
@@ -7242,7 +7246,7 @@ GET https://outlook.office.com/api/v2.0/me/calendargroups/{calendar_group_id}
 GET https://outlook.office.com/api/v2.0/me/calendargroups/AAMkAGI2TGuKAAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 200
@@ -7280,12 +7284,12 @@ Status code: 200
 GET https://outlook.office.com/api/v1.0/me/calendargroups/{calendar_group_id}
 ```
 
-**メモ**： パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
+**注** パラメーターのフィルタリング、並べ替え、およびページングについては、「[OData クエリ パラメーター](..\api\complex-types-for-mail-contacts-calendar.md#OdataQueryParams)」を参照してください。
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_group_id|string|予定表グループ ID。|
 
 
@@ -7311,10 +7315,10 @@ GET https://outlook.office.com/api/v1.0/me/calendargroups/{calendar_group_id}
 
 ユーザーの予定表グループを取得します。別の予定表グループを取得するには、**CalendarGroups** コレクションのインデックスとして予定表グループ ID を指定するか、**GetById** メソッドを使用します。
 
-例`client.Me.CalendarGroups[calendarGroupId].ExecuteAsync()`
+例: `client.Me.CalendarGroups[calendarGroupId].ExecuteAsync()`
 
 
-**注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
+**注意**: Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
 
 
 **メモ**: 予定表グループコレクションでは、**Select**、**OrderBy**、**Take** などのクエリ式がサポートされます。
@@ -7338,10 +7342,10 @@ string groupId = calendarGroupsResults.CurrentPage[0].Id;
 <a name="CreateCalendarGroups"> </a>
 ## 予定表グループを作成する
 
-予定表グループを作成する (クライアント) 予定表グループを作成します。**Name** は、予定表グループの唯一の書き込み可能なプロパティです。
+予定表グループを作成します。 **Name** は、予定表グループの唯一の書き込み可能なプロパティです。
 
 
-**メモ** Outlook.com によってサポートされるのは、../me/calendars`../me/calendars` ショートカットでアクセス可能な既定の予定表グループのみです。 You cannot create another calendar group in Outlook.com.
+**メモ**: Outlook.com によってサポートされるのは、`../me/calendars` ショートカットでアクセス可能な既定の予定表グループのみです。 Outlook.com で別の予定表グループを作成することはできません。
 
 
 REST API:[予定表グループを作成する (REST)](#CreateACalendarGroup)
@@ -7351,7 +7355,7 @@ REST API:[予定表グループを作成する (REST)](#CreateACalendarGroup)
 <a name="CreateACalendarGroup"></a>
 ###予定表グループを作成する (REST)
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.readwrite_
 - _wl.calendars\_update_
 - _wl.events\_create_
@@ -7371,11 +7375,11 @@ __**最低限必要な範囲**: 次のいずれか:__
 POST https://outlook.office.com/api/beta/me/calendargroups
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL パラメータ_|
-|_Body parameters_|
-|名前|string|予定表グループの名前。|
+|_URL パラメーター_|
+|_本文パラメーター_|
+|Name|string|予定表グループの名前。|
 
 
 **要求のサンプル**
@@ -7389,7 +7393,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -7428,11 +7432,11 @@ Status code: 201
 POST https://outlook.office.com/api/v2.0/me/calendargroups
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL パラメータ_|
-|_Body parameters_|
-|名前|string|予定表グループの名前。|
+|_URL パラメーター_|
+|_本文パラメーター_|
+|Name|string|予定表グループの名前。|
 
 
 **要求のサンプル**
@@ -7446,7 +7450,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 201
@@ -7485,11 +7489,11 @@ Status code: 201
 POST https://outlook.office.com/api/v1.0/me/calendargroups
 ```
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL パラメータ_|
-|_Body parameters_|
-|名前|string|予定表グループの名前。|
+|_URL パラメーター_|
+|_本文パラメーター_|
+|Name|string|予定表グループの名前。|
 
 
 [!code-REST-i[calendar_api_create_calendar_group](./_data/calendar_api_create_calendar_group.json)]
@@ -7514,7 +7518,7 @@ POST https://outlook.office.com/api/v1.0/me/calendargroups
 ### 予定表グループを作成する (クライアント)
 
 
-**注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
+**注意**: Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
 
 
 この例では、既に [Outlook サービス クライアントが取得されている](..\api\use-outlook-rest-api.md#GetClient)と仮定します。
@@ -7550,12 +7554,12 @@ REST API:[予定表グループを更新する (REST)](#UpdateACalendarGroup)
 <a name="UpdateACalendarGroup"></a>
 ### 予定表グループを更新する (REST)
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.readwrite_
 - _wl.calendars\_update_
 - _wl.events\_create_
 
-予定表グループの名前を変更します。Name は、唯一の書き込み可能な予定表グループ のプロパティです。 予定表グループの名前を変更します。**Name** は、唯一の書き込み可能な[予定表グループ](..\api\complex-types-for-mail-contacts-calendar.md#CalendarGroupResource) のプロパティです。
+予定表グループの名前を変更します。 **Name** は、唯一の書き込み可能な[予定表グループ](..\api\complex-types-for-mail-contacts-calendar.md#CalendarGroupResource) のプロパティです。
 
 
 <!-- ============================================================================================================ -->
@@ -7572,12 +7576,12 @@ PATCH https://outlook.office.com/api/beta/me/calendargroups/{calendar_group_id}
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_group_id|string|予定表グループ ID。|
-|_Body parameters_|
-|名前|string|更新された予定表グループの名前。|
+|_本文パラメーター_|
+|Name|string|更新された予定表グループの名前。|
 
 
 **要求のサンプル**
@@ -7591,7 +7595,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 {
@@ -7629,12 +7633,12 @@ PATCH https://outlook.office.com/api/v2.0/me/calendargroups/{calendar_group_id}
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_group_id|string|予定表グループ ID。|
-|_Body parameters_|
-|名前|string|更新された予定表グループの名前。|
+|_本文パラメーター_|
+|Name|string|更新された予定表グループの名前。|
 
 
 **要求のサンプル**
@@ -7648,7 +7652,7 @@ Content-Type: application/json
 }
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 {
@@ -7686,12 +7690,12 @@ PATCH https://outlook.office.com/api/v1.0/me/calendargroups/{calendar_group_id}
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_group_id|string|予定表グループ ID。|
-|_Body parameters_|
-|名前|string|更新された予定表グループの名前。|
+|_本文パラメーター_|
+|Name|string|更新された予定表グループの名前。|
 
 
 [!code-REST-i[calendar_api_update_calendar_group_by_id](./_data/calendar_api_update_calendar_group_by_id.json)]
@@ -7714,10 +7718,10 @@ PATCH https://outlook.office.com/api/v1.0/me/calendargroups/{calendar_group_id}
 <a name="UpdateCalendarGroupsClient"> </a>
 ### 予定表グループを更新する (クライアント)
 
-予定表グループの名前を変更します。Name は、唯一の書き込み可能な予定表グループ のプロパティです。 予定表グループの名前を変更します。**Name** は、予定表グループの唯一の書き込み可能なプロパティです。
+予定表グループの名前を変更します。 **Name** は、予定表グループの唯一の書き込み可能なプロパティです。
 
 
-**注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
+**注意**: Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
 
 
 この例では、[Outlook サービス クライアント](..\api\use-outlook-rest-api.md#GetClient)と[予定表グループ ID](#GetCalendarGroups) が既に取得されていると仮定します。
@@ -7740,8 +7744,8 @@ string newCalendarGroupName = groupToUpdate.Name;
 
 
 次のパターンを使用して、クライアント側で複数の更新を定義し、要求をまとめて (バッチ処理で) 送信できます。
-1. Call `UpdateAsync(true)` for each entity you want to update. 更新するエンティティごとに UpdateAsync(true)`true` を呼び出します。true を指定すると、更新がクライアント上でローカルに登録されますが、サーバーには投稿されません。
-2. outlookClient.Context.SaveChangesAsync()`client.Context.SaveChangesAsync()` を呼び出して、ローカルに登録されているすべての更新を投稿します。
+1. 更新するエンティティごとに `UpdateAsync(true)` を呼び出します。 `true` を指定すると、更新がクライアント上でローカルに登録されますが、サーバーには投稿されません。
+2. `client.Context.SaveChangesAsync()` を呼び出して、ローカルに登録されているすべての更新を投稿します。
 
 
 ****
@@ -7753,7 +7757,7 @@ string newCalendarGroupName = groupToUpdate.Name;
 予定表グループを削除します。
 
 
-**メモ** Outlook.com によってサポートされるのは、../me/calendars`../me/calendars` ショートカットでアクセス可能な既定の予定表グループのみです。 Do not delete this calendar group.
+**メモ**: Outlook.com によってサポートされるのは、`../me/calendars` ショートカットでアクセス可能な既定の予定表グループのみです。 この予定表グループは削除しないでください。
 
 
 REST API:[予定表グループを削除する (REST)](#DeleteACalendarGroup)
@@ -7763,7 +7767,7 @@ REST API:[予定表グループを削除する (REST)](#DeleteACalendarGroup)
 <a name="DeleteACalendarGroup"></a>
 ###予定表グループを削除する (REST)
 
-__**最低限必要な範囲**: 次のいずれか:__
+_**最低限必要な範囲**: 次のいずれか:_
 - _https://outlook.office.com/calendars.readwrite_
 - _wl.calendars\_update_
 - _wl.events\_create_
@@ -7783,9 +7787,9 @@ DELETE https://outlook.office.com/api/beta/me/calendargroups/{calendar_group_id}
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_group_id|string|予定表グループ ID。|
 
 
@@ -7795,7 +7799,7 @@ DELETE https://outlook.office.com/api/beta/me/calendargroups/{calendar_group_id}
 DELETE https://outlook.office.com/api/beta/me/calendargroups/AAMkAGE0MGM4xLGAAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 204
@@ -7825,9 +7829,9 @@ DELETE https://outlook.office.com/api/v2.0/me/calendargroups/{calendar_group_id}
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_group_id|string|予定表グループ ID。|
 
 **要求のサンプル**
@@ -7836,7 +7840,7 @@ DELETE https://outlook.office.com/api/v2.0/me/calendargroups/{calendar_group_id}
 DELETE https://outlook.office.com/api/v2.0/me/calendargroups/AAMkAGE0MGM4xLGAAA=
 ```
 
-**応答のサンプル:**
+**応答のサンプル**
 
 ```
 Status code: 204
@@ -7866,9 +7870,9 @@ DELETE https://outlook.office.com/api/v1.0/me/calendargroups/{calendar_group_id}
 ```
 
 
-|**必須パラメーター**|**種類**|**説明**|
+|**必須のパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|_URL のパラメーター_|
+|_URL パラメーター_|
 |calendar_group_id|string|予定表グループ ID。|
 
 
@@ -7889,7 +7893,7 @@ DELETE https://outlook.office.com/api/v1.0/me/calendargroups/{calendar_group_id}
 ### 予定表グループを削除する (クライアント)
 
 
-**注意** Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
+**注意**: Outlook.com のメールボックス データにアクセスしている場合は、クライアント ライブラリを使用して REST API を直接呼び出さないでください。
 
 
 この例では、[Outlook サービス クライアント](..\api\use-outlook-rest-api.md#GetClient)と[予定表グループ ID](#GetCalendarGroups) が既に取得されていると仮定します。
@@ -7909,16 +7913,16 @@ await groupToDelete.DeleteAsync();
 ****
 
 <a name="NextSteps"> </a>
-## 次のステップ
+## 次の手順
 
 アプリケーション開発を開始する準備ができている方にも、単に詳しい情報を必要としている方にも、最適なコンテンツをご用意しています。
 
 
-- [メール、予定表、および連絡先 REST API 入門](http://dev.outlook.com/RestGettingStarted)。
+- [メール、予定表、および連絡先 REST API の使用を開始します](http://dev.outlook.com/RestGettingStarted)。
   
 - Office REST API を実際に試してみるには、対話形式の [API サンドボックス](http://apisandbox.msdn.microsoft.com/)をお使いください。
     
-- Want samples? サンプルについては、 [こちらをご覧ください](..\howto\starter-projects-and-code-samples.md)。
+- サンプルについては、 [こちらをご覧ください](..\howto\starter-projects-and-code-samples.md)。
     
 
 Office 365 プラットフォームの使い方の詳細については、次のリンク先をご覧ください。
@@ -7927,7 +7931,7 @@ Office 365 プラットフォームの使い方の詳細については、次の
 
 - [Office 365 プラットフォーム上での開発の概要](..\howto\platform-development-overview.md)
     
-- [Office 365 アプリケーションの認証およびリソース承認](..\howto\common-app-authentication-tasks.md)
+- [Office 365 のアプリ認証とリソース承認](..\howto\common-app-authentication-tasks.md)
     
 - [Office 365 API にアクセスできるようにアプリを手動で Azure AD に登録する](..\howto\add-common-consent-manually.md)
   

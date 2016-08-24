@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Quick Start tutorial
 title: "チュートリアル:OneNote アプリを作成する" 
-description: "初めてのアプリを作成"
+description: "最初の OneNote アプリを作成する"
 ms.ContentId: 513111e6-35e9-4d7d-b986-4ca2fa33b6cb
 ms.date: January 12, 2016
 ---
@@ -11,39 +11,39 @@ ms.date: January 12, 2016
 
 # チュートリアル:OneNote アプリを作成する
 
-*__Applies to:__ Consumer notebooks on OneDrive | Enterprise notebooks on Office 365*
+*__適用対象:__OneDrive のコンシューマー ノートブック | Office 365 のエンタープライズ ノートブック*
 
 このチュートリアルでは、OneNote のコンテンツを取得して作成するためにOneNote API を使用する、シンプルなアプリを作成する方法を示します。ここで作成するアプリは、OneNote REST API を使用し、次の 2 つの呼び出しを行います。
 
-<p id="outdent"> 直近に変更された 10 のセクションの名前と ID を取得する </p>
+<p id="outdent">**直近に変更された 10 のセクションの*名前*と *ID* を取得する**</p>
 <p id="indent">`GET ../notes/sections?select=name,id&top=10&orderby=lastModifiedTime%20desc`</p>
 <p id="outdent">**特定のセクションにページを作成する**</p>
 <p id="indent">`POST ../notes/sections/{id}/pages`</p>
 
-Choose your platform:
+プラットフォームを選択する: 
 
 - [iOS 向け OneNote アプリを作成する](#ios)
 
-- [ASP.NET MVC 向けの OneNote アプリを作成する](#aspnet)
+- [ASP.NET 向けの OneNote アプリを作成する](#aspnet)
 
->>このチュートリアルの目的は、OneNote API にアクセスする方法を示すことですが、運用環境向けのコードは含まれていません。アプリを作成するときには、潜在的なセキュリティ、検証、その他コードの品質に関係する問題が生じないかどうか、コードを慎重に確認してください。 >このチュートリアルの目的は、OneNote API にアクセスする方法を示すことですが、運用環境向けのコードは含まれていません。アプリを作成するときには、潜在的なセキュリティ、検証、その他コードの品質に関係する問題が生じないかどうか、コードを慎重に確認してください。
+>このチュートリアルの目的は、OneNote API にアクセスする方法を示すことですが、運用環境向けのコードは含まれていません。 アプリを作成するときには、潜在的なセキュリティ、検証、その他コードの品質に関係する問題が生じないかどうか、コードを慎重に確認してください。
 
 <a name="ios"></a>
 ## iOS 向け OneNote アプリを作成する
 
-The app uses the [OneDrive SDK for iOS](https://github.com/OneDrive/onedrive-sdk-ios) to handle authentication and network calls.<!--This tutorial provides examples for both the [Swift](https://developer.apple.com/swift/) and Objective C programming languages. -->
+アプリは認証とネットワークの呼び出しを処理するために、[OneDrive SDK for iOS](https://github.com/OneDrive/onedrive-sdk-ios) を使用します。<!--This tutorial provides examples for both the [Swift](https://developer.apple.com/swift/) and Objective C programming languages. -->
 
 <a name="prereqs-ios"></a>
 ### 前提条件
 以下に、このチュートリアルを使用するために必要なものを示します。
 
 - Apple から入手した [Xcode 7](https://developer.apple.com/xcode/)。
-- The [CocoaPods](https://cocoapods.org/) dependency manager. CocoaPods 依存管理マネージャー。CocoaPods を使い慣れていない場合は、[CocoaPods ガイド](https://guides.cocoapods.org/)をご覧ください。
+- [CocoaPods](https://cocoapods.org/) 依存管理マネージャー。 CocoaPods を使い慣れていない場合は、[CocoaPods ガイド](https://guides.cocoapods.org/)をご覧ください。
 - [Azure の管理ポータル](http://manage.windowsazure.com/)で登録したネイティブ クライアント アプリ、または [Microsoft アカウント デベロッパー センター](http://go.microsoft.com/fwlink/p/?LinkId=193157)で登録したモバイル クライアント アプリ。(「[アプリを登録する](../howto/onenote-auth.md)」方法をご覧ください。)
 
 <br />
 <p id="top-padding">**iOS 向け OneNote アプリを作成するには、以下を行います。**</p>
-<p id="indent">1. [SimpleMailApp プロジェクトの作成](#create-project-ios)</p>
+<p id="indent">1. [プロジェクトを作成する](#create-project-ios)</p>
 <p id="indent">2. [OneDrive SDK 依存関係を追加する](#add-dependencies-ios)</p>
 <p id="indent">3. [UI を構築する](#build-ui-ios)</p>
 <p id="indent">4. [認証サポートを追加する](#add-auth-ios)</p>
@@ -55,14 +55,14 @@ The app uses the [OneDrive SDK for iOS](https://github.com/OneDrive/onedrive-sdk
 <a name="create-project-ios"></a>
 ### Xcode でプロジェクトを作成する
 
-1. Xcode で、iOS 向けの *OneNote-iOS-App* という名前の [Single View Application] (シングル ビュー アプリケーション) プロジェクトを作成します。 [Objective C] を選択し、[Devices] で [iPhone] を選択します。 Choose <!--Swift or -->Objective C, and choose iPhone devices. 
-2. プロジェクトを作成後、Xcode を閉じます。Podfile を作成した後、ワークスペースを開きます。 プロジェクトを作成後、Xcode を閉じます。Podfile を作成した後、ワークスペースを開きます。
+1. Xcode で、iOS 向けの *OneNote-iOS-App* という名前の **[Single View Application]** (シングル ビュー アプリケーション) プロジェクトを作成します。 <!--Swift or -->[Objective C] を選択し、[Devices] で [iPhone] を選択します。 
+2. プロジェクトを作成後、Xcode を閉じます。 Podfile を作成した後、ワークスペースを開きます。
  
 
 <a name="add-dependencies-ios"></a>
 ### OneDrive SDK 依存関係を追加する
 
-The app in this tutorial uses the OneDrive SDK for both Microsoft account (formerly *Live Connect*) and Azure Active Directory authentication. Microsoft account authentication is used for access to consumer notebooks on OneDrive. Azure AD authentication is used for access to enterprise notebooks on Office 365.
+このチュートリアルのアプリでは、Microsoft アカウント (以前の *Live Connect*) と Azure Active Directory 認証の両方に OneDrive SDK を使用します。 Microsoft アカウント認証は、OneDrive のコンシューマー ノートブックにアクセスするために使用します。 Azure AD 認証は、Office 365 のエンタープライズ ノートブックにアクセスするために使用します。
 
 1.  Podfile を作成し、Xcode でファイルを開くために、ターミナルで以下のコマンドを実行します。
 
@@ -97,18 +97,18 @@ Xcode 7 で iOS 9 アプリを対象とする場合、PFS 例外を有効にす�
 
 1. Xcode で、[Main.storyboard] を開き、[size class control] (キャンバスの下にあります) を *wCompact/hAny* に変更します。 
 
-2. [Object Library] からキャンバスに [Picker View] と[Button] をドラッグします。ボタンのテキストは、Create page にします。 Use *Create page* for the button text. 
+2. [Object Library] からキャンバスに [Picker View] と[Button] をドラッグします。 ボタンのテキストは、*Create page* にします。 
 
-2. Create connections for the picker view:  
-   a.  Control-drag the picker view to the View Controller icon above the canvas. Choose the **dataSource** outlet.  
-   b.  Repeat for the **delegate** outlet.  
-   c.  Choose **View > Assistant Editor > Show Assistant Editor** and open ViewController.h in the second window.  
-   d.  Control-drag the picker view in the canvas into the **@interface** code block. Insert an **Outlet** connection named *sectionPicker*.  
+2. 次の手順で、ピッカー ビューの接続を作成します。  
+   a. Control キーを押しながら、[Picker View] をキャンバスの上にある [View Controller] アイコンにドラッグします。 **[dataSource]** outlet を選択します。  
+   b. **[delegate]** outlet について同様の操作を繰り返します。  
+   c. **[View]、[Assistant Editor]、[Show Assistant Editor]** の順に選択し、2 番目のウィンドウで ViewController.h を開きます。  
+   d. Control キーを押しながら、キャンバス内のピッカー ビューを **[@interface]** コード ブロックにドラッグします。 *sectionPicker* という名前の **Outlet** 接続を挿入します。  
 
-2. Create connections for the button:  
-   a.  Control-drag the button in the canvas into the **@interface** code block. Insert an **Outlet** connection named *createPageButton*.  
-   b.  Open ViewController.m in the assistant editor.  
-   c.  Control-drag the button in the canvas into the **@implementation** code block. Insert an **Action** connection named *createPage* for the **Touch Up Inside** event. 
+2. 次の手順で、ボタンの接続を作成します。  
+   a. Control キーを押しながら、キャンバス内のボタンを **[@interface]** コード ブロックにドラッグします。 *createPageButton* という名前の **Outlet** 接続を挿入します。  
+   b. アシスタント エディターで ViewController.m を開きます。  
+   c. Control キーを押しながら、キャンバス内のボタンを **[@implementation]** コード ブロックにドラッグします。 **Touch Up Inside** イベントにのための、*createPage* という名前の **Action** 接続を挿入します。 
 
 2. **UIPickerViewDelegate** プロトコルと **UIPickerViewDataSource** プロトコルを宣言します。
 
@@ -142,9 +142,9 @@ Xcode 7 で iOS 9 アプリを対象とする場合、PFS 例外を有効にす�
    }
    ```
 
-   sectionNamesForPicker というエラーが表示されますが、気にしないでください。あとで変数を追加します。 sectionNamesForPicker というエラーが表示されますが、気にしないでください。あとで変数を追加します。
+   **sectionNamesForPicker** というエラーが表示されますが、気にしないでください。 あとで変数を追加します。
 
-2. **viewDidLoad** メソッドで、ピッカーに接続するために、[super viewDidLoad]`[super viewDidLoad]` という行のあとに以下のコードを追加します。
+2. **viewDidLoad** メソッドで、ピッカーに接続するために、`[super viewDidLoad]` という行のあとに以下のコードを追加します。
 
    ```objective-c
     self.sectionPicker.delegate = self;
@@ -189,17 +189,17 @@ OneDrive SDK は、認証と承認を処理します。必要なのは、アプ�
     }
    ```
 
-   >>このアプリでは、一度に 1 アカウント (Microsoft アカウント、職場または学校のアカウント) でサインインします。アカウントの種類、および複数アカウントの保存の両方をサポートする方法については、CloudRoll のサンプルをご覧ください。 >このアプリでは、一度に 1 アカウント (Microsoft アカウント、職場または学校のアカウント) でサインインします。アカウントの種類、および複数アカウントの保存の両方をサポートする方法については、[CloudRoll](https://github.com/OfficeDev/O365-iOS-CloudRoll) のサンプルをご覧ください。
+   >このアプリでは、一度に 1 アカウント (Microsoft アカウント、職場または学校のアカウント) でサインインします。 アカウントの種類、および複数アカウントの保存の両方をサポートする方法については、[CloudRoll](https://github.com/OfficeDev/O365-iOS-CloudRoll) のサンプルをご覧ください。
  
 2. ViewController.h で、OneDrive SDK をインポートし、ODClient オブジェクトのプロパティを宣言します。SDK に対するすべての呼び出しは、ODClient オブジェクトを介して行われます。
 
-   a.  a.次のように import ステートメントを追加します。
+   a. 次のように import ステートメントを追加します。
 
    ```objective-c
    #import <OneDriveSDK/OneDriveSDK.h>
    ```
 
-   b.  b.次のように、**[@interface]** コード ブロックに **client** プロパティを追加します。
+   b. 次のように、**[@interface]** コード ブロックに **client** プロパティを追加します。
 
    ```objective-c
    @property (strong, nonatomic) ODClient *client;
@@ -388,7 +388,7 @@ OneDrive SDK は、認証と承認を処理します。必要なのは、アプ�
    }
    ```
 
-2. ボタン アクションを追加したときに作成した **createPage** メソッドを編集します。このコードは、シンプルな HTML ページを作成します。 This code creates a simple HTML page.  
+2. ボタン アクションを追加したときに作成した **createPage** メソッドを編集します。 このコードは、シンプルな HTML ページを作成します。  
 
    ```objective-c
    // Create a simple page.
@@ -446,7 +446,8 @@ OneDrive SDK は、認証と承認を処理します。必要なのは、アプ�
 アプリが開いているときに、ページを作成したいセクションを選択し、**Create page** を選択します。Xcode の出力ウィンドウでログ メッセージを確認します。呼び出しが動作すると、出力ウィンドウには、新しいページのリソースの URI と OneNote でページを開くためのリンクが表示されます。
 
 
-次の手順
+<a name="next-steps"></a>
+**次の手順:**
 
 機能、入力の検証、エラー処理を追加します。
 
@@ -461,7 +462,7 @@ OneDrive SDK は、認証と承認を処理します。必要なのは、アプ�
 }
 ```
 
-OneNote API で実現可能な事柄については、「[OneNote API で開発する](../howto/onenote-create-page.md)」をご覧ください。
+OneNote API で実現可能な事柄については、「[OneNote API で開発する](../howto/onenote-create-page.md)」という記事をご覧ください。
 
 <a name="complete-example-ios"></a>
 ### 完全なコード例
@@ -489,17 +490,18 @@ OneNote API で実現可能な事柄については、「[OneNote API で開発�
 ### 前提条件
 以下に、このチュートリアルを使用するために必要なものを示します。
 
-- Visual Studio 2015。 Visual Studio 2015。無償の Visual Studio Community エディションを使用できます。
+- [Visual Studio 2015](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)。 無償の Visual Studio Community エディションを使用できます。
 - [Azure の管理ポータル](http://manage.windowsazure.com/)に登録されている Web アプリケーションで、デリゲートされた次のアクセス許可があるもの。 
     - Windows Azure Active Directory の**サインインとユーザー プロファイルの読み込み**
     - OneNote の **OneNote ノートブックの表示と変更**  
 
-  <br />アプリ作成時に、Visual Studio はWeb アプリを登録しますが、再度 OneNote のアクセス許可を追加し、アプリ キーを生成する必要があります。(詳細については、「[アプリの登録](../howto/onenote-auth.md#register-aad)」をご覧ください。)
+  <br />
+            アプリ作成時に、Visual Studio はWeb アプリを登録しますが、再度 OneNote のアクセス許可を追加し、アプリ キーを生成する必要があります。(詳細については、「[アプリの登録](../howto/onenote-auth.md#register-aad)」をご覧ください。)
 
 <br />
 <p id="top-padding">**ASP.NET MVC を使用して OneNote アプリを作成するには、以下を行います。**</p>
-<p id="indent">1. [SimpleMailApp プロジェクトの作成](#create-project-aspnet)</p>
-<p id="indent">2. [2..NET ライブラリ用の ADAL を追加する](#add-dependencies-aspnet)</p>
+<p id="indent">1. [プロジェクトを作成する](#create-project-aspnet)</p>
+<p id="indent">2. [.NET ライブラリ用の ADAL を追加する](#add-dependencies-aspnet)</p>
 <p id="indent">3. [UI を構築する](#build-ui-aspnet)</p>
 <p id="indent">4. [認証サポートを追加する](#add-auth-aspnet)</p>
 <p id="indent">5. [OneNote API を呼び出す](#call-api-aspnet)</p>
@@ -510,13 +512,13 @@ OneNote API で実現可能な事柄については、「[OneNote API で開発�
 <a name="create-project-aspnet"></a>
 ### Visual Studio でプロジェクトを作成する
 
-1. Visual Studio で、*OneNote-WebApp* という名前の ASP.NET Web アプリケーション プロジェクトを作成します。  
+1. Visual Studio で、*OneNote-WebApp* という名前の **ASP.NET Web アプリケーション** プロジェクトを作成します。  
 
 2. **[MVC]** テンプレートを選択し、**[以下にフォルダーおよびコア参照を追加]** オプションに、[MVC] が選択されていることを確認します。   
 
 2. **[認証の変更]** を選択し、**[職場および学校のアカウント]** を選択します。  
 
-2. [クラウド - 複数の組織] を選択し、開発者のテナントのドメイン名 (たとえば、*contoso.onmicrosoft.com*) を入力します。 
+2. **[クラウド - 複数の組織]** を選択し、開発者のテナントのドメイン名 (たとえば、*contoso.onmicrosoft.com*) を入力します。 
 
 必要に応じて、Microsoft Azure の **[クラウドにホストする]** の設定を残しても消去しても構いません。この設定は、このチュートリアルでは必須ではありません。それ以外はすべて既定の設定にしてください。
 
@@ -527,17 +529,17 @@ Visual Studio は Web アプリを Azure に登録しますが、[Azure の管�
  
 2. **[キー]** セクションで、新しいキーの継続期間を選択します。
 
-2. **[他のアプリケーションに対するアクセス許可]** セクションで、OneNote アプリケーションを追加し、**[OneNote ノートブックの表示と変更]** 代理アクセス許可を追加します。(*詳細*) 詳細を見る
+2. **[他のアプリケーションに対するアクセス許可]** セクションで、OneNote アプリケーションを追加し、**[OneNote ノートブックの表示と変更]** 代理アクセス許可を追加します  (*[詳細を見る](../howto/onenote-auth.md#onenote-perms-aad)*)。
 
-2. アプリに対する変更を保存し、ポータルを閉じる前に新しいキーのコピーを作成します。あとでそれを使用します。 You'll use it soon.
+2. アプリに対する変更を保存し、ポータルを閉じる前に新しいキーのコピーを作成します。 あとでそれを使用します。
 
 
 <a name="add-dependencies-aspnet"></a>
 ### .NET に ADAL を追加する
 
-このアプリは、Azure AD への認証および承認に [Active Directory Authentication Library](http://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) (ADAL) を使用します。このアプリは、バージョン 2.19.208020213 を使用して作成されました。 The app was created using version 2.19.208020213.
+このアプリは、Azure AD への認証および承認に [Active Directory Authentication Library](http://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) (ADAL) を使用します。 このアプリは、バージョン 2.19.208020213 を使用して作成されました。
 
-1.  Visual Studio で、**[ツール] > [NuGet パッケージ マネージャー] > [パッケージ マネージャー コンソール]** の順に選択し、コンソールで次のコマンドを実行します。 
+1.  Visual Studio で、**[ツール]、[NuGet パッケージ マネージャー]、[パッケージ マネージャー コンソール]** の順に選択し、コンソールで次のコマンドを実行します。 
 
    ```powershell
    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -632,7 +634,7 @@ Visual Studio は Web アプリを Azure に登録しますが、[Azure の管�
    using Microsoft.IdentityModel.Clients.ActiveDirectory;
    ```
 
-2. **Startup** クラスのグローバル変数を次のコードに置き換えます。HomeController の GetAuthorizedClient メソッドは、4 つのパブリック変数も使用します。 **Startup** クラスのグローバル変数を次のコードに置き換えます。HomeController の GetAuthorizedClient メソッドは、4 つのパブリック変数も使用します。
+2. **Startup** クラスのグローバル変数を次のコードに置き換えます。 HomeController の **GetAuthorizedClient** メソッドは、4 つのパブリック変数も使用します。
 
    ```csharp
    public static string ClientId = ConfigurationManager.AppSettings["ida:ClientId"];
@@ -642,7 +644,7 @@ Visual Studio は Web アプリを Azure に登録しますが、[Azure の管�
    private string Authority = AADInstance + "common"; 
    ```
 
-2. In the **ConfigureAuth** method, replace the **app.UseOpenIdConnectAuthentication** method with the following code. ADAL stores tokens and other information in the token cache. (To see what's cached, add this line before returning the task: `var cache = context.TokenCache.ReadItems();`)
+2. **ConfigureAuth** メソッドで、**app.UseOpenIdConnectAuthentication** メソッドを次のコードに置き換えます。 ADAL は、トークンと他の情報をトークン キャッシュに保存します  (キャッシュされる内容を表示するには、タスクを戻す前にこの行を追加します: `var cache = context.TokenCache.ReadItems();`)。
 
    ```csharp
    app.UseOpenIdConnectAuthentication(
@@ -752,7 +754,7 @@ Visual Studio は Web アプリを Azure に登録しますが、[Azure の管�
 
 2. **PathToImageFile** 変数のプレースホルダーのパスとファイル名を、ローカルの PNG イメージを指すように変更します。
 
-2. **didFinishLaunchingWithOptions** メソッドを、次のコードに置き換えます。 **Index** メソッドを次のコードに置き換えます。これで、セクションが取得され、Index ビューのために SectionsViewModel が準備され、ビューが読み込まれます。
+2. **Index** メソッドを次のコードに置き換えます。 これで、セクションが取得され、Index ビューのために **SectionsViewModel** が準備され、ビューが読み込まれます。
 
    ```csharp
    public async Task<ActionResult> Index()
@@ -770,7 +772,7 @@ Visual Studio は Web アプリを Azure に登録しますが、[Azure の管�
    }
    ```
 
-2. *GET sections* 要求を構築し送信し、応答を解析するために、**GetSectionsAsync** メソッドを追加します。
+2. *GET sections* 要求を構築して送信し、応答を解析するために、**GetSectionsAsync** メソッドを追加します。
 
    ```csharp    
    [Authorize]
@@ -952,7 +954,7 @@ Visual Studio は Web アプリを Azure に登録しますが、[Azure の管�
 
 アプリを作成した後、F5 キーを押してデバッグ実行します。
 
-*OwinStartupAttribute を含むアセンブリが見つかりませんでした...* エラーを受け取った場合、ルート ディレクトリの Startup.cs class の **using** ステートメントの後に、次の属性を追加します。(*このエラーについての詳細*) (*[learn more](http://www.asp.net/aspnet/overview/owin-and-katana/owin-startup-class-detection) about this error*)
+*OwinStartupAttribute を含むアセンブリが見つかりませんでした...* エラーを受け取った場合、ルート ディレクトリの Startup.cs class の **using** ステートメントの後に、次の属性を追加します  (*このエラーについての[詳細](http://www.asp.net/aspnet/overview/owin-and-katana/owin-startup-class-detection)*)。
 
 ```
 [assembly: OwinStartup(typeof(OneNote_WebApp.Startup))]
@@ -973,7 +975,8 @@ Visual Studio は Web アプリを Azure に登録しますが、[Azure の管�
 
 [!INCLUDE [aspnet complete example](../includes/onenote/aspnet-tutorial-homecontroller.txt)]
 
-<br />手順には、Index.cshtml、Page.cshtml、Resource.cs 全体が示されています。
+<br />
+手順には、**Index.cshtml**、**Page.cshtml**、**Resource.cs** 全体が示されています。
 
 
 **次の手順:**OneNote API で実現可能な事柄については、「[OneNote API で開発する](../howto/onenote-create-page.md)」という記事をご覧ください。
@@ -1253,11 +1256,11 @@ There's a OneNoteSample project in the SDK that uses Live Connect authentication
 -->
 
 <a name="see-also"></a>
-##その他の技術情報
+## その他の技術情報
 
 - [OneNote ページの作成](../howto/onenote-create-page.md)
 - [画像とファイルを追加する](../howto/onenote-images-files.md)
-- [OneNote 開発](../howto/onenote-landing.md)
+- [OneNote の開発](../howto/onenote-landing.md)
 - [OneNote デベロッパー センター](http://dev.onenote.com/)
 - [OneNote の開発者ブログ](http://go.microsoft.com/fwlink/?LinkID=390183)
 - [スタック オーバーフローに関する OneNote の開発の質問](http://go.microsoft.com/fwlink/?LinkID=390182) 

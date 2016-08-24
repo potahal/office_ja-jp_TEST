@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Error and warning codes
 title: "OneNote API のエラー コードと警告コード"
-description: "onclong API から返されるエラー コードと警告コードについて説明します。"
+description: "OneNote API. によって返されるエラー コードおよび警告コードの説明を参照してください。"
 ms.ContentId: 27d541f5-b4b0-4ca6-9ad4-be3a62baa32e
 ms.date: July 5, 2016
 
@@ -12,7 +12,7 @@ ms.date: July 5, 2016
 
 # OneNote API のエラー コードと警告コード 
 
-*__Applies to:__ Consumer notebooks on OneDrive | Enterprise notebooks on Office 365*
+*__適用対象:__OneDrive のコンシューマー ノートブック | Office 365 のエンタープライズ ノートブック*
 
 この記事では、API を通して送信した要求が失敗した場合に OneNote API から返されるエラー コードと警告コードについて説明します。
 
@@ -109,7 +109,7 @@ ms.date: July 5, 2016
 
 <a name="C10003"></a>
 ### 10003
-現在のユーザーのアカウントで、アクティブな要求の最大数を超えました。アプリは要求を繰り返す必要があります。 Your app will have to repeat the request.
+現在のユーザーのアカウントで、アクティブな要求の最大数を超えました。 アプリは要求を繰り返す必要があります。
 
 <a name="C10004"></a>
 ### 10004
@@ -129,13 +129,13 @@ OneNote API は、指定されたセクション内にページを作成でき�
 
 <a name="C10008"></a>
 ### 10008
-One or more of the document libraries on the user or group's OneDrive contains more than 5000 OneNote items (notebooks, sections, section groups), and cannot be queried using the API. Please make sure that none of the user or group's document libraries contains more than 5000 OneNote items.
+ユーザーまたはグループの OneDrive にある 1 つ以上のドキュメント ライブラリに 5000 を超える OneNote のアイテム (ノートブック、セクション、セクション グループ) が含まれており、API を使用してクエリを実行することができません。 ユーザーまたはグループのどのドキュメント ライブラリについても、その中の OneNote アイテム数が 5000 を超えることがないようにしてください。
 
 <a name="C10012"></a>
 ### 10012
-Unable to create or update the entity because the library that contains the notebook requires items to be checked out before they can be edited. For more information, see https://support.office.com/en-us/article/Configure-a-site-library-to-require-check-out-of-files-f63fcbdc-1db6-4eb7-a3eb-dd815500c9e7.
+エンティティを作成または更新できません。ノートブックが含まれるライブラリの場合、アイテムを編集する前にチェックアウトする必要があるためです。 詳細については、https://support.office.com/ja-jp/article/Configure-a-site-library-to-require-check-out-of-files-f63fcbdc-1db6-4eb7-a3eb-dd815500c9e7 を参照してください。
 
-Either remove the check-out requirement from the library, or move the notebook.
+ライブラリからチェックアウト要件を削除するか、ノートブックを移動します。
 
 <a name="C19999"></a>
 ### 19999
@@ -148,51 +148,51 @@ Either remove the check-out requirement from the library, or move the notebook.
 
 <a name="C20001"></a>
 ### 20001
-必須の "Presentation" パートが要求に含まれていません。このパートは 1 つだけ含まれている必要があります。「OneNote API リファレンス」[ref] を参照してください。 Exactly one is required. See [OneNote API reference][ref].
+要求に必須の "Presentation" パートがありません。 1 つだけ必要です。 「[OneNote API リファレンス]」[ref] を参照してください。
 
 <a name="C20002"></a>
 ### 20002
-要求に "Presentation" パートが 2 つ以上含まれています。このパートは 1 つだけ含まれている必要があります。「OneNote API リファレンス」[ref] を参照してください。 Exactly one is required. See [OneNote API reference][ref].
+要求に "Presentation" パートが 2 つ以上あります。 1 つだけ必要です。 「[OneNote API リファレンス]」[ref] を参照してください。
 
 <a name="C20003"></a>
 ### 20003
-"Presentation" パートのコンテンツ タイプは、text/html または application/xhtml+xml のいずれかでなければなりません。「OneNote API リファレンス」[ref] を参照してください。 See [OneNote API reference][ref].
+"Presentation" パートのコンテンツ タイプは、text/html と application/xhtml+xml のいずれかでなければなりません。 「[OneNote API リファレンス]」[ref] を参照してください。
 
 <a name="C20004"></a>
 ### 20004
-"Presentation" パートの HTML に含まれるイメージ タグに、**src** プロパティと **data-render-src** プロパティの両方が設定されています。API は src プロパティを無視して data-render-src プロパティを使用します。「OneNote API リファレンス」[ref] を参照してください。 The API will ignore the **src** property and use the **data-render-src** property. See [OneNote API reference][ref].
+"Presentation" パートの HTML に、**src** プロパティと **data-render-src** プロパティの両方が設定されている画像タグが含まれています。 API は **src** プロパティを無視し、**data-render-src** プロパティを使用します。 「[OneNote API リファレンス]」[ref] を参照してください。
 
 <a name="C20005"></a>
 ### 20005
-The request URI is too long. 要求 URI が長すぎます。URI の最大サイズ (すべてのパラメーターとデータを含む) は 16 KB (16,384 文字) です。
+要求の URI が長すぎます。 URI の最大サイズ (すべてのパラメーターとデータを含む) は 16 KB (16,384 文字) です。
 
 <a name="C20006"></a>
 ### 20006
-"Presentation" パートの HTML に含まれるイメージ タグに、src プロパティと **data-render-src** プロパティがどちらも設定されていません。API はこの image タグを無視します。「OneNote API リファレンス」[ref]を参照してください。 The API will ignore the **image** tag. See [OneNote API reference][ref].
+"Presentation" パートの HTML に、src プロパティと **data-render-src** プロパティのいずれかが設定されている画像タグが含まれています。 API は **image** タグを無視します。 「[OneNote API リファレンス]」[ref] を参照してください。
 
 <a name="C20007"></a>
 ### 20007
-"Presentation" パートの HTML に含まれる作成日時の文字列が、許可される形式のどれとも一致しません。「OneNote API リファレンス」[ref] をご覧ください。 See [OneNote API reference][ref].
+"Presentation" パートの HTML に含まれる作成日時の文字列が、許可される形式のいずれとも一致しません。 「[OneNote API リファレンス]」[ref] を参照してください。
 
 <a name="C20008"></a>
 ### 20008
-要求のサイズが大きすぎます。[OneNote API リファレンス][ref] を参照してください。 See [OneNote API reference][ref].
+要求のサイズが大きすぎます。 「[OneNote API リファレンス]」[ref] を参照してください。
 
 <a name="C20009"></a>
 ### 20009
-The request contains parts with duplicate names. 参照テーブル名は一意である必要があります。 See [OneNote API reference][ref] for more information on how to construct multipart requests.
+要求のパートに名前が重複しているものがあります。 これは一意にする必要があります。 マルチパート要求の作成方法については、「[OneNote API リファレンス]」[ref] を参照してください。
 
 <a name="C20010"></a>
 ### 20010
-指定されたコンテンツ タイプに対して Content-Disposition ヘッダーが指定されていません。マルチパートの要求を作成する方法の詳細については、「OneNote API リファレンス」[ref] を参照してください。 See [OneNote API reference][ref] for more information on how to construct multipart requests.
+指定のコンテンツ タイプには Content-Disposition ヘッダーが指定されていません。 マルチパート要求の作成方法については、「[OneNote API リファレンス]」[ref] を参照してください。
 
 <a name="C20011"></a>
 ### 20011
-The request contains a malformed multipart payload. Problems could include missing blank lines, a missing last line, incorrectly formatted part separators, and so on. If you're building the multipart message by hand, carefully check the logic, or consider using a third-party library. See [OneNote API reference][ref] for more information on how to construct a multipart payload.
+要求にはマルチパート ペイロードが含まれていますが、その形式が不正です。 空白行がない、最後の行がない、パートの区切りの書式が正しくないなどの問題が考えられます。 マルチパート メッセージを手動で作成する場合、ロジックを注意深く確認するか、サードパーティ ライブラリの使用を検討してください。 マルチパート ペイロードの作成方法については、「[OneNote API リファレンス]」[ref] を参照してください。
 
 <a name="C20012"></a>
 ### 20012
-要求の中で、指定したパートのコンテンツ タイプが指定されていません。パートを作成する方法の詳細については、「OneNote API リファレンス」[ref] を参照してください。 See [OneNote API reference][ref] for more information on how to construct a part.
+この要求は、指定のパートにコンテンツ タイプを指定しません。 パートの作成方法については、「[OneNote API リファレンス]」[ref] を参照してください。
 
 <a name="C20013"></a>
 ### 20013
@@ -200,19 +200,19 @@ The request contains a malformed multipart payload. Problems could include missi
 
 <a name="C20014"></a>
 ### 20014
-マルチパート メッセージのパートの長さが最大サイズである 25 MB を超えています。「OneNote API リファレンス」[ref] を参照してください。 See [OneNote API reference][ref].
+マルチパート メッセージのパートの長さが最大サイズである 25 MB を超えています。 「[OneNote API リファレンス]」[ref] を参照してください。
 
 <a name="C20015"></a>
 ### 20015
-マルチパート メッセージのパートの数が上限の 30 を超えています。「OneNote API リファレンス」[ref] を参照してください。 See [OneNote API reference][ref].
+マルチパート メッセージのパート数が上限の 30 を超えています。 「[OneNote API リファレンス]」[ref] を参照してください。
 
 <a name="C20016"></a>
 ### 20016
-マルチパート メッセージのパートの長さが上限の 70 MB を超えています。「OneNote API リファレンス」[ref] を参照してください。 See [OneNote API reference][ref].
+マルチパート メッセージの長さが上限の 70 MB を超えています。 「[OneNote API リファレンス]」[ref] を参照してください。
 
 <a name="C20100"></a>
 ### 20100
-Something is wrong with the syntax of your request. 要求の構文に間違いがあります。詳細について「 OneNote API リファレンス http://dev.onenote.com/docs 」を参照し、要求が正しく作成されていることを確認してください。
+要求の構文に誤りがあります。 詳細について「[OneNote API リファレンス]」[ref] を参照し、要求が正しく作成されていることを確認してください。
 
 <a name="C20101"></a>
 ### 20101
@@ -224,11 +224,11 @@ Something is wrong with the syntax of your request. 要求の構文に間違い�
 
 <a name="C20103"></a>
 ### 20103
-**expand** クエリはこの要求ではサポートされません。「サポートされる OData のクエリ文字列オプション」を参照してください。 サポートされている OData クエリ文字列オプション
+**expand** クエリはこの要求ではサポートされません。 「[サポートされる OData のクエリ文字列オプション](../howto/onenote-get-content.md#query-options)」を参照してください。
 
 <a name="C20104"></a>
 ### 20104
-**pagelevel** クエリ オプションは、セクションにあるページ コレクションまたは特定のページに対してクエリを行うときだけサポートされます。例: 次に例を示します。  
+**pagelevel** クエリ オプションは、セクションにあるページ コレクションまたは特定のページに対してクエリを行うときだけサポートされます。 たとえば次のようにします。  
 
     GET ../sections/{id}/pages?pagelevel=true
 
@@ -236,7 +236,7 @@ Something is wrong with the syntax of your request. 要求の構文に間違い�
 
 <a name="C20106"></a>
 ### 20106
-要求に、サポートされていないクエリ演算子が含まれています。「OneNote API リファレンス」[ref]を参照してください。 See [OneNote API reference][ref].
+要求に、サポートされていないクエリ演算子が含まれています。 「[OneNote API リファレンス]」[ref] を参照してください。
 
 <a name="C20108"></a>
 ### 20108
@@ -248,7 +248,7 @@ PATCH 要求内のペイロードの構成が正しくありません。
 
 <a name="C20110"></a>
 ### 20110
-データ パートを伴うページ作成要求には、マルチパートにするコンテンツ、すなわち "Presentation" パートが必要です。「OneNote API リファレンス」[ref] を参照してください。 See [OneNote API reference][ref].
+データ パートを伴うページ作成要求には、マルチパートにするコンテンツ、すなわち "Presentation" パートが必要です。 「[OneNote API リファレンス]」[ref] を参照してください。
 
 <a name="C20111"></a>
 ### 20111
@@ -264,7 +264,7 @@ PATCH 要求内のペイロードの構成が正しくありません。
 
 <a name="C20115"></a>
 ### 20115
-The name contains invalid characters. 名前の値に無効な文字が含まれています。ノートブック名には、次の文字を含めることができません: ?*\/:<>|'"
+名前に無効な文字が含まれています。 ノートブック名には次の文字を含めることはできません: `? * \ / : < > | ' "`
 
 <a name="C20117"></a>
 ### 20117
@@ -272,7 +272,7 @@ The name contains invalid characters. 名前の値に無効な文字が含まれ
 
 <a name="C20119"></a>
 ### 20119
-"Presentation" パートの HTML に含まれる <e>data-attachment</e> 属性の形式が無効であるか、またはファイル名には無効な文字 (<c>\ / : * ? < > <l/> "</c>) が 1 つ以上含まれています。要求では、エラー メッセージに示されている値に置き換えられました。 The request substituted the value indicated in the error message.
+"Presentation" パートの HTML に含まれる **data-attachment** 属性の形式が無効であるか、またはファイル名には無効な文字 (`\ / : * ? < > | "`) が 1 つ以上含まれています。 要求では、エラー メッセージに示されている値に置き換えられました。
 
 <a name="C20120"></a>
 ### 20120
@@ -280,11 +280,11 @@ The name contains invalid characters. 名前の値に無効な文字が含まれ
 
 <a name="C20121"></a>
 ### 20121
-要求に含まれている PATCH 引数が無効です。「ページ コンテンツの更新」を参照してください。 See [Update page content](../howto/onenote-update-page.md).
+要求に含まれている PATCH 引数が無効です。 「[ページ コンテンツの更新](../howto/onenote-update-page.md)」を参照してください。
 
 <a name="C20122"></a>
 ### 20122
-要求で指定されている PATCH アクションはサポートされていません。「ページ コンテンツの更新」を参照してください。 See [Update page content](../howto/onenote-update-page.md).
+要求で指定されている PATCH アクションはサポートされていません。 「[ページ コンテンツの更新](../howto/onenote-update-page.md)」を参照してください。
 
 <a name="C20123"></a>
 ### 20123
@@ -292,11 +292,11 @@ PATCH 要求は、指定されたページを変更できません。
 
 <a name="C20124"></a>
 ### 20124
-マルチパートの PATCH 要求に、PATCH アクションの JSON 構造を指定した "commands" パートが含まれていません。「ページ コンテンツの更新」を参照してください。 See [Update page content](../howto/onenote-update-page.md).
+マルチパートの PATCH 要求に、PATCH アクションの JSON 構造を指定した "commands" パートが含まれていません。 「[ページ コンテンツの更新](../howto/onenote-update-page.md)」を参照してください。
 
 <a name="C20125"></a>
 ### 20125
-PATCH 要求にアクションが含まれていません。「ページ コンテンツの更新」を参照してください。 See [Update page content](../howto/onenote-update-page.md).
+PATCH 要求にアクションが含まれていません。 「[ページ コンテンツの更新](../howto/onenote-update-page.md)」を参照してください。
 
 <a name="C20126"></a>
 ### 20126
@@ -320,15 +320,15 @@ PATCH 要求にアクションが含まれていません。「ページ コン�
 
 <a name="C20131"></a>
 ### 20131
-要求に含まれている Content-Type の値が無効です。メッセージに示されている値を使用してください。「OneNote API リファレンス」[ref]を参照してください。 Use the value indicated in the message. See [OneNote API reference][ref].
+要求に Content-Type の無効な値が含まれています。 メッセージに指定されている値を使用します。 「[OneNote API リファレンス]」[ref] を参照してください。
 
 <a name="C20132"></a>
 ### 20132
-要求に含まれている PATCH 引数が無効です。「ページ コンテンツの更新」を参照してください。 要求に含まれているコンテンツが無効です。このエラーのよくある原因は、Content-Type 要求ヘッダーの欠落や、要求の本文にコンテンツが含まれていないことです。「OneNote API リファレンス」[ref] を参照してください。 See [OneNote API reference][ref].
+要求に無効なコンテンツが含まれています。 このエラーのよくある原因は、Content-Type 要求ヘッダーの欠落や、要求の本文にコンテンツが含まれていないことです。 「[OneNote API リファレンス]」[ref] を参照してください。
 
 <a name="C20133"></a>
 ### 20133
-要求にはサポートされていない PATCH ターゲットが指定されています。「ページ コンテンツの更新」を参照してください。 See [Update page content](../howto/onenote-update-page.md).
+要求で指定された PATCH ターゲットはサポートされていません。 「[ページ コンテンツの更新](../howto/onenote-update-page.md)」を参照してください。
 
 <a name="C20134"></a>
 ### 20134
@@ -336,11 +336,11 @@ PATCH 要求にアクションが含まれていません。「ページ コン�
 
 <a name="C20135"></a>
 ### 20135
-要求に指定されたエンティティの種類は、PATCH 操作に対してはサポートされていません。 See [Update page content](../howto/onenote-update-page.md).
+要求に指定されたエンティティの種類は、PATCH 操作に対してはサポートされていません。 「[ページ コンテンツの更新](../howto/onenote-update-page.md)」を参照してください。
 
 <a name="C20136"></a>
 ### 20136
-要求に無効または不足している **data-render-src** または **data-render-method** 属性が含まれます。「キャプチャからのデータの抽出」を参照してください。 キャプチャからデータを抽出する
+要求に無効または不足している **data-render-src** または **data-render-method** 属性が含まれます。 「[キャプチャからのデータの抽出](../howto/onenote-extract-data.md)」を参照してください。
 
 <a name="C20137"></a>
 ### 20137
@@ -348,7 +348,7 @@ PATCH 要求にアクションが含まれていません。「ページ コン�
 
 <a name="C20138"></a>
 ### 20138
-PATCH 要求のターゲット要素の種類では、**append 操作はサポートされていません。「ページ コンテンツの更新**」を参照してください。 See [Update page content](../howto/onenote-update-page.md).
+PATCH 要求のターゲット要素の種類では、**append** 操作はサポートされていません。 「[ページ コンテンツの更新](../howto/onenote-update-page.md)」を参照してください。
 
 <a name="C20139"></a>
 ### 20139
@@ -356,7 +356,7 @@ PATCH 要求のターゲット要素の種類では、**append 操作はサポ�
 
 <a name="C20140"></a>
 ### 20140
-要求に、無効な **data-tag** ステータス値が含まれています。チェックボックスの note タグでは、1 つの completed ステータスが可能です。例: 要求に、無効な **data-tag** ステータス値が含まれています。チェックボックスの note タグでは、1 つの completed ステータスが可能です。例: 例:
+要求に、無効な **data-tag** ステータス値が含まれています。 チェック ボックスのノート シールには、**completed** ステータスを指定できます。 例:
 
     <p data-tag="to-do:completed">To-do note tag in completed state (checked box in the UI)</p>
  
@@ -364,7 +364,7 @@ PATCH 要求のターゲット要素の種類では、**append 操作はサポ�
 
 <a name="C20141"></a>
 ### 20141
-PATCH 要求のターゲット要素の種類では、指定の操作はサポートされていません。「ページ コンテンツの更新」を参照してください。 See [Update page content](../howto/onenote-update-page.md).
+PATCH 要求のターゲット要素の種類では、指定の操作はサポートされていません。 「[ページ コンテンツの更新](../howto/onenote-update-page.md)」を参照してください。
 
 <a name="C20142"></a>
 ### 20142
@@ -376,23 +376,23 @@ OData クエリが無効です。
 
 <a name="C20144"></a>
 ### 20144
-要求に、ナビゲートでないプロパティに対する **expand** 式が含まれています。展開できるのは、ナビゲート プロパティだけです。 Only navigation properties can be expanded.
+要求に、ナビゲートでないプロパティに対する **expand** 式が含まれています。 展開できるのは、ナビゲート プロパティだけです。
 
 <a name="C20145"></a>
 ### 20145
-要求の **select** 式または **expand** 式に、無効な項が含まれています。
+要求の **select** 式または **expand** 式に、無効な用語が含まれています。
 
 <a name="C20146"></a>
 ### 20146
-要素で **style="position:absolute"`style="position:absolute"` 属性が指定されていますが、この body** 要素には位置指定をサポートするために必要な data-absolute-enabled="true"`data-absolute-enabled="true"` が指定されていません。すべての位置設定は無視されます。 All position settings will be ignored. 絶対的な位置要素を作成する
+要素で `style="position:absolute"` 属性が指定されていますが、**body** 要素で `data-absolute-enabled="true"` が指定されていません。この指定は、配置をサポートするためには必須です。 すべての位置設定が無視されます。 「[絶対位置で配置された要素の作成](../howto/onenote-abs-pos.md)」をご覧ください。
 
 <a name="C20147"></a>
 ### 20147
-The `style="position:absolute"` attribute is specified on an element that is not a direct child of the **body** element, which is not supported. 20147**style="position:absolute"** 属性が、**body** 要素の直接の子要素でない要素に指定されています。これはサポートされていません。要素が **div**、img、または object の場合は、本文の直接の子にしてください。そうしないと、位置設定が無視され、絶対位置で配置された div の内側にコンテンツが表示されます。 絶対的な位置要素を作成する
+サポートされていない **body** 要素の直接の子ではない要素で `style="position:absolute"` 属性が指定されています。 要素が **div**、**img**、**object** の場合、それを body の直接の子にします。直接の子にしない場合、位置設定が無視され、絶対位置で配置された div の中でそのコンテンツがレンダリングされます。 「[絶対位置で配置された要素の作成](../howto/onenote-abs-pos.md)」をご覧ください。
 
 <a name="C20148"></a>
 ### 20148
-20148style="position:absolute"`style="position:absolute"` 属性が、サポートしていない要素の型に指定されています。位置指定をサポートしているのは、div、img、および object 要素のみです。 **style="position:absolute"** 属性が、それをサポートしていない要素の種類に対して指定されています。配置がサポートされているのは、ページ本文の直接の子である **div**、**img**、および object 要素のみです。 絶対的な位置要素を作成する
+`style="position:absolute"` 属性がそれをサポートしない種類の要素で指定されています。 ページ本文の直接の子である **div**、**img**、**object** 要素だけが位置設定をサポートします。 「[絶対位置で配置された要素の作成](../howto/onenote-abs-pos.md)」をご覧ください。
 
 <a name="C20149"></a>
 ### 20149
@@ -400,19 +400,19 @@ The `style="position:absolute"` attribute is specified on an element that is not
 
 <a name="C20150"></a>
 ### 20150
-この認証の種類には、この要求は無効です。代わりに、../me/notes/ パスを使用してください。 Use the `../me/notes/` path instead.
+この認証の種類には、この要求は無効です。 代わりに、`../me/notes/` パスを使用してください。
 
 <a name="C20151"></a>
 ### 20151
-この認証の種類には、この要求は無効です。代わりに、../me/notes/ パスを使用してください。 この認証の種類には、この要求は無効です。../me/notes/section/{id}/pages`../me/notes/section/{id}/pages` エンドポイントを使用して、指定のセクションでページを作成してください。
+この認証の種類には、この要求は無効です。 `../me/notes/section/{id}/pages` エンドポイントを使用し、特定のセクションにページを作成します。
 
 <a name="C20152"></a>
 ### 20152
-エンティティに name 値が指定されていません。名前を定義する必要があり、その場合、名前が空白だけであってはなりません。 エンティティに name 値が指定されていません。名前を定義する必要があり、その場合、名前には空白を含めることはできません。
+エンティティに指定されている名前値がありません。 この名前を定義する必要があります。空白のみを含めることはできません。
 
 <a name="C20153"></a>
 ### 20153
-The entity name contains invalid characters. The name cannot contain the following characters: `? * \ / : < > | & # " % ~`
+エンティティ名に使用できない文字が含まれています。 名前には、以下の文字を含めることはできません: `? * \ / : < > | & # " % ~`
 
 <a name="C20154"></a>
 ### 20154
@@ -420,7 +420,7 @@ The entity name contains invalid characters. The name cannot contain the followi
 
 <a name="C20155"></a>
 ### 20155
-名前が長すぎます。 Notebook names have a 128-character limit. Other entity names have a 50-character limit.
+エンティティ名が長すぎます。 ノートブック名には 128 文字の制限があります。 他のエンティティ名には 50 文字の制限があります。
 
 <a name="C20156"></a>
 ### 20156
@@ -432,7 +432,7 @@ The entity name contains invalid characters. The name cannot contain the followi
 
 <a name="C20158"></a>
 ### 20158
-Unable to get metadata for the site URL specified in the request. Check the format of the supplied URL. Supported formats include `https://domain.sharepoint.com/site-a` and `https://domain.com/sites/site-a`.
+要求に指定されているサイト URL のメタデータを取得できません。 指定された URL の形式を確認してください。 サポートされている形式は `https://domain.sharepoint.com/site-a` と `https://domain.com/sites/site-a` です。
 
 <a name="C20160"></a>
 ### 20160
@@ -448,7 +448,7 @@ Unable to get metadata for the site URL specified in the request. Check the form
 
 <a name="C20168"></a>
 ### 20168
-The video source specified in the request is not supported. See [Supported video sites](../howto/onenote-images-files.md#videos) for the current list.
+要求に指定されているビデオ ソースはサポートされていません。 現行の一覧については、「[サポートされているビデオ サイト](../howto/onenote-images-files.md#videos)」を参照してください。
 
 
 <a name="C30001-39999"></a>
@@ -457,7 +457,7 @@ The video source specified in the request is not supported. See [Supported video
 
 <a name="C30101"></a>
 ### 30101
-ユーザー アカウントは、その OneDrive のクォータを超えています。「OneDrive」を参照してください。 See [OneDrive](https://onedrive.live.com/about/en-us/).
+ユーザー アカウントは、その OneDrive のクォータを超えています。 「[OneDrive](https://onedrive.live.com/about/en-us/)」を参照してください。
 
 <a name="C30102"></a>
 ### 30102
@@ -497,7 +497,7 @@ OneDrive for Business は、ユーザーのためにプロビジョニング中�
 
 <a name="C40001"></a>
 ### 40001
-要求に、有効な OAuth トークンが含まれていません。「OneNote の認証およびアクセス許可」を参照してください。 OneNote の認証とアクセス許可
+要求に、有効な OAuth トークンが含まれていません。 「[OneNote の認証およびアクセス許可](../howto/onenote-auth.md)」を参照してください。
 
 <a name="C40002"></a>
 ### 40002
@@ -509,7 +509,7 @@ OneDrive for Business は、ユーザーのためにプロビジョニング中�
 
 <a name="C40004"></a>
 ### 40004
-OAuth トークンには、要求されたアクションを実行するために必要なスコープが含まれていません。「OneNote の認証およびアクセス許可」を参照してください。 OneNote の認証とアクセス許可
+OAuth トークンには、要求されたアクションを実行するために必要なスコープが含まれていません。 「[OneNote の認証およびアクセス許可](../howto/onenote-auth.md)」を参照してください。
 
 <a name="x-correlationid"></a>
 ## X-CorrelationId ヘッダー
@@ -526,13 +526,13 @@ Date: Fri, 06 Mar 2015 15:10:46 GMT
 
 
 <a name="see-also"></a>
-## その他の技術情報
+## その他のリソース
 
-- [OneNote 開発](../howto/onenote-landing.md)
+- [OneNote の開発](../howto/onenote-landing.md)
 - [OneNote デベロッパー センター](http://dev.onenote.com/)
 - [OneNote の開発者ブログ](http://go.microsoft.com/fwlink/?LinkID=390183)
 - [スタック オーバーフローに関する OneNote の開発の質問](http://go.microsoft.com/fwlink/?LinkID=390182) 
 - [OneNote GitHub のリポジトリ](http://go.microsoft.com/fwlink/?LinkID=390178)
 
 
-[#REF!]: http://dev.onenote.com/docs
+[ref]: http://dev.onenote.com/docs

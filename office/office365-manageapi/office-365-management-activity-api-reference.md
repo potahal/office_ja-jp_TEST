@@ -3,10 +3,10 @@
 Office 365 管理アクティビティ API は、Office 365 と Azure AD のアクティビティ ログから、ユーザー、管理者、システム、およびポリシー アクションとポリシー イベントについての情報を取得するために使用します。 
 
  
- _**適用対象:** Office 365_
+ _**適用対象:**Office 365_
 
 
-Office 365 と Microsoft Azure Active Directory の監査ログとアクティビティ ログに記録されたアクションとイベントを使用して、監視、分析、およびデータ可視化を提供するソリューションを作成できます。このソリューションにより、企業はそのコンテンツに対して実行されたアクションの可視性を向上させることができます。これらのアクションとイベントは、Office 365 アクティビティ レポートからも入手できます。詳細については、「Office 365 アクティビティ レポートを実行する」を参照してください。 These solutions give organizations greater visibility into actions taken on their content. These actions and events are also available in the Office 365 Activity Reports. For more information, see [Run the Office 365 activity report](https://technet.microsoft.com/en-US/library/ms.o365.cc.auditreporthelp.aspx).
+Office 365 と Microsoft Azure Active Directory の監査ログとアクティビティ ログに記録されたアクションとイベントを使用して、監視、分析、およびデータ可視化を提供するソリューションを作成できます。 このソリューションにより、企業はそのコンテンツに対して実行されたアクションの可視性を向上させることができます。 これらのアクションとイベントは、Office 365 アクティビティ レポートからも入手できます。 詳細については、「[Office 365 アクティビティ レポートを実行する](https://technet.microsoft.com/en-US/library/ms.o365.cc.auditreporthelp.aspx)」を参照してください。
 
 Office 365 管理アクティビティ API は、REAT Web サービスの 1 つであり、任意の言語と、HTTPS および X.509 証明書をサポートするホスト環境を用いて、ソリューションの開発に使用できます。この API は、認証と承認に Azure AD と OAuth2 プロトコルを使用します。アプリケーションからこの API にアクセスする場合は、まず Azure AD で登録し、適切なアクセス許可で設定する必要があります。これにより、アプリケーションで、API を呼び出すために必要な OAuth2 アクセス トークンを要求できます。詳細については、「[Office 365 管理 API の使用を開始する](get-started-with-office-365-management-apis.md)」を参照してください。。
 
@@ -72,7 +72,7 @@ Authorization: Bearer eyJ0e...Qa6wg
     
 -  **通知のリストを作成**。この通知は Webhook によって送信されます。
 
--  **Retrieve resource friendly names** for  objects in the datafeed identified by guids.
+-  **リソースのフレンドリ名の取得**。GUID で識別されるデータ フィード内のオブジェクトに関して実行します。
     
 
 ### サブスクリプションの開始
@@ -92,7 +92,7 @@ Authorization: Bearer eyJ0e...Qa6wg
 |:-----|:-----|:-----|
 |**パス**| `/subscriptions/start?contentType={ContentType}`||
 |**パラメーター**|contentType|有効なコンテンツ タイプである必要があります。|
-|**本文**|webhook|Optional JSON object with three properties:<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p><b>address</b>: Required HTTPS endpoint that can receive notifications.  A test message will be sent to the webhook to validate the webhook before creating the subscription.</p></li><li><p><b>authId</b>: Optional string that will be included as the WebHook-AuthID header in notifications sent to the webhook as a means of identifying and authorizing the source of the request to the webhook.</p></li><li><p><b>expiration</b>: Optional datetime that indicates a datetime after which notifications should no longer be sent to the webhook.</p></li></ul>|
+|**本文**|webhook|次の 3 つのプロパティが指定された、オプションの JSON オブジェクト:<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p><b>address</b>:通知を受け取ることができる、必須 HTTPS エンドポイントです。  サブスクリプションを作成する前に、Webhook を検証するために、テスト メッセージが Webhook に送信されます。</p></li><li><p><b>authId</b>:Webhook への要求の送信元を識別して承認するための手段として、Webhook に送信される通知の WebHook-AuthID ヘッダーとして組み込まれるオプション文字列。</p></li><li><p><b>expiration</b>:Webhook に送信する通知の締切日時を示す、オプションの日付/時刻。</p></li></ul>|
 |**応答**|contentType|呼び出しで指定するコンテンツ タイプ。|
 ||status|サブスクリプションの状態。サブスクリプションが無効の場合、コンテンツを取得したりそのリストを作成したりすることはできません。|
 ||webhook|Webhook の状態と一緒に、呼び出しに指定される Webhook のプロパティ。Webhook が無効である場合、通知は受け取りませんが、サブスクリプションが有効であれば、コンテンツを取得したりそのリストを作成したりできます。|
@@ -219,7 +219,7 @@ HTTP/1.1 200 OK
 |**パス**| `/subscriptions/list`||
 |**パラメーター**|(なし)||
 |**本文**|(空)||
-|**応答**|JSON 配列|Each subscription will be represented by a JSON object with three properties:<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p><b>contentType</b>:コンテンツ タイプを示します。</p></li><li><p><b>status</b>: Indicates the status of the subscription.</p></li><li><p><b>webhook</b>: Indicates the configured webhook, together with the status (enabled, disabled, expired) of the webhook.  If a subscription does not have a webhook, the webhook property will be present but with null value.</p></li></ul>|
+|**応答**|JSON 配列|各サブスクリプションは、次の 3 つのプロパティが指定された JSON オブジェクトで表されます。<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p><b>contentType</b>:コンテンツ タイプを示します。</p></li><li><p><b>status</b>:サブスクリプションの状態を示します。</p></li><li><p><b>webhook</b>:設定された Webhook と、Webhook の状態 (有効、無効、有効期限切れ) を示します。  サブスクリプションに Webhook がない場合、Webhook プロパティは存在しますが、null 値を持ちます。</p></li></ul>|
 要求の例を次に示します。
 
 
@@ -272,8 +272,8 @@ Content-Type: application/json; charset=utf-8
 |:-----|:-----|:-----|
 |**パス**| `/subscriptions/content?contentType={ContentType}&amp;startTime={0}&amp;endTime={1}`||
 |**パラメーター**|contentType|有効なコンテンツ タイプである必要があります。|
-||startTimeendTime|Optional datetimes (UTC) indicating the time range of content to return, based on when the content became available. The time range is inclusive with respect to startTime (startTime <= contentCreated) and exclusive with respect to endTime (contentCreated < endTime), so that non-overlapping, incrementing time intervals can used to page through available content.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>YYYY-MM-DD</p></li><li><p>YYYY-MM-DDTHH:MM</p></li><li><p>YYYY-MM-DDThh:mm:ss</p></li></ul>開始時刻と終了時刻の両方を指定する (または両方を省略する) 必要があります。その時間差は 24 時間を超えてはならず、開始時刻は過去 7 日以内でなければなりません。 By default, if startTime and endTime are omitted, then the content available in the last 24 hours is returned.|
-|**応答**|JSON 配列|The available content will be represented by JSON objects with the following properties:<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p><b>contentType</b>:コンテンツ タイプを示します。</p></li><li><p><b>contentId</b>:コンテンツを一意に識別する、符号化文字列です。</p></li><li><p><b>contentUri</b>:コンテンツを取得するときに使用する URL です。</p></li><li><p><b>contentCreated</b>:コンテンツが利用可能になった日付/時刻です。</p></li><li><p><b>contentExpiration</b>:コンテンツ取得の締切となる日付/時刻です。</p></li></ul>|
+||startTimeendTime|コンテンツが利用可能になったときを基点として、コンテンツが返される時間の範囲を示す、オプションの日付/時刻 (UTC)。 この時刻範囲には、startTime (startTime <= contentCreated) は含まれ、endTime (contentCreated < endTime) は除外されます。これにより、利用可能なコンテンツのページングに、重なりがない増分の時間間隔を使用できます。<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>YYYY-MM-DD</p></li><li><p>YYYY-MM-DDTHH:MM</p></li><li><p>YYYY-MM-DDTHH:MM:SS</p></li></ul>両方を指定するか、両方を省略する必要があります。その時間差は 24 時間を超えてはならず、開始時刻は過去 7 日以内でなければなりません。 既定では、startTime と endTime を省略した場合、過去 24 時間以内に利用可能であったコンテンツが返されます。|
+|**応答**|JSON 配列|利用可能なコンテンツは、次のプロパティが指定された JSON オブジェクトで表されます。<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p><b>contentType</b>:コンテンツ タイプを示します。</p></li><li><p><b>contentId</b>:コンテンツを一意に識別する、符号化文字列です。</p></li><li><p><b>contentUri</b>:コンテンツを取得するときに使用する URL です。</p></li><li><p><b>contentCreated</b>:コンテンツが利用可能になった日付/時刻です。</p></li><li><p><b>contentExpiration</b>:コンテンツ取得の締切となる日付/時刻です。</p></li></ul>|
 要求の例を次に示します。
 
 
@@ -499,8 +499,8 @@ Content-Type: application/json; charset=utf-8
 |:-----|:-----|:-----|
 |**パス**| `/subscriptions/notifications?contentType={ContentType}&amp;startTime={0}&amp;endTime={1}`||
 |**パラメーター**|contentType|有効なコンテンツ タイプである必要があります。|
-||startTimeendTime|Optional datetimes (UTC) that indicate the time range of content to return, based on when the content became available. The time range is inclusive with respect to  _startTime_ ( _startTime_ <= contentCreated) and exclusive with respect to _endTime_ ( _contentCreated_ < endTime), so that non-overlapping, incrementing time intervals can used to page through available content.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>YYYY-MM-DD</p></li><li><p>YYYY-MM-DDTHH:MM</p></li><li><p>YYYY-MM-DDThh:mm:ss</p></li></ul>開始時刻と終了時刻の両方を指定する (または両方を省略する) 必要があります。その時間差は 24 時間を超えてはならず、開始時刻は過去 7 日以内でなければなりません。 By default, if  _startTime_ and _endTime_ are omitted, the content available in the last 24 hours is returned.|
-|**応答**|JSON 配列|The notifications will be represented by JSON objects with the following properties: **contentType**: indicates the content type. **contentId**:コンテンツを一意に識別する、符号化文字列です。 **contentUri**:コンテンツを取得するときに使用する URL です。 **contentCreated**:コンテンツが利用可能になった日付/時刻です。 **contentExpiration**:コンテンツ取得の締切となる日付/時刻です。 **notificationSent**: the datetime when the notification was sent. **notificationStatus**: indicates the success or failure of the notification attempt.|
+||startTimeendTime|コンテンツが利用可能になったときを基点として、コンテンツが返される時間の範囲を示す、オプションの日付/時刻 (UTC)。 この時刻範囲には、_startTime_ ( _startTime_ <= contentCreated) は含まれ、_endTime_ ( _contentCreated_ < endTime) は除外されます。これにより、利用可能なコンテンツのページングに、重なりがない増分の時間間隔を使用できます。<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>YYYY-MM-DD</p></li><li><p>YYYY-MM-DDTHH:MM</p></li><li><p>YYYY-MM-DDTHH:MM:SS</p></li></ul>両方を指定するか、両方を省略する必要があります。その時間差は 24 時間を超えてはならず、開始時刻は過去 7 日以内でなければなりません。 既定では、_startTime_ と _endTime_ を省略した場合、過去 24 時間以内に利用可能であったコンテンツが返されます。|
+|**応答**|JSON 配列|通知は、次のプロパティが指定された JSON オブジェクトで表されます。**contentType**: コンテンツ タイプを示します。 **contentId**: コンテンツを一意に識別する、符号化文字列です。 **contentUri**: コンテンツを取得するときに使用する URL です。 **contentCreated**: コンテンツが利用可能になった日付/時刻です。 **contentExpiration**: コンテンツ取得の締切となる日付/時刻です。 **notificationSent**: 通知が送信された日付/時刻です。 **notificationStatus**: 通知の試行の成功または失敗を示します。|
 要求の例を次に示します。
 
 
@@ -552,17 +552,17 @@ NextPageUrl: https://manage.office.com/api/v1/{tenant_id}/activity/feed/subscrip
 
 指定の時間範囲にある利用可能なすべてのコンテンツのリストを作成するために、**NextPageUrl** ヘッダーがない応答を受信するまで、複数のページを取得することが必要な場合があります。
 
-### Retrieve resource friendly names
-This operation retrieves friendly names for objects in the datafeed identified by guids. Currently, "DlpSensitiveType" is the only supported object. 
+### リソースのフレンドリ名を取得します。
+この操作は、GUID で識別されるデータ フィード内のオブジェクトのフレンドリ名を取得します。 現時点でサポートされているオブジェクトは "DlpSensitiveType" のみです。 
 
 
 ||**サブスクリプション**|**説明**|
 |:-----|:-----|:-----|
 |**パス**| `/resources/dlpSensitiveTypes`||
 |**パラメーター**|なし||
-|**Headers**|Accept-Language|Header to specify the desired language for localized names. For example, use "en-US" for English or "es" for Spanish. The default language (en-US) will be returned if this header is not present.|
+|**ヘッダー**|Accept-Language|ローカライズされた名前の表示言語を指定するためのヘッダー。 たとえば、英語には "en-US" を使用し、スペイン語には "es" を使用します。 ヘッダーがない場合は、既定の言語 (en-US) が返されます。|
 |**本文**|(空)||
-|**応答**|JSON 配列|The available content will be represented by JSON objects with the following properties:<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p><b>id</b>: Indicates the guid of the sensitive information type.</p></li><li><p><b>name</b>: The friendly name of the sensitive information type.</p></li></ul>|
+|**応答**|JSON 配列|利用可能なコンテンツは、次のプロパティが指定された JSON オブジェクトで表されます。<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p><b>id</b>:機密情報の種類の GUID を示します。</p></li><li><p><b>name</b>:機密情報の種類のフレンドリ名です。</p></li></ul>|
 
 要求の例を次に示します。
 
@@ -622,23 +622,23 @@ HTTP/1.1 200 OK
 |||
 |:-----|:-----|
 |**コード**|**メッセージ**|
-|AF10001|要求で送信されたアクセス許可セット ({0}) に、必要なアクセス許可 **ActivityFeed.Read が含まれていませんでした。{0} = アクセス トークン内のアクセス許可セット。**<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = the permission set in the access token.</p></li></ul>|
-|AF20001|Missing parameter: {0}. <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>パラメーターがありません: {0}。{0} = 存在していないパラメーターの名前。</p></li></ul>|
-|AF20002|省略可能なパラメーターの型が無効です Expected type: {1}<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = the name of the invalid parameter.</p></li><li><p>{1} = the expected type (int, datetime, guid).</p></li></ul>|
-|AF20003|指定した有効期限 {0} は、過去の日付と時刻に設定されています。{0} = API 呼び出しに渡される有効期限。<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>指定した有効期限 {0} は、過去の日付と時刻に設定されています。{0} = API 呼び出しに渡される有効期限。</p></li></ul>|
-|AF20010|URL ({0}) で渡されたテナント ID が、アクセス トークン ({1}) で渡されたテナント ID と一致しません。{0} = URL で渡されたテナント ID。{1} = アクセス トークンで渡されたテナント ID。<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = tenant ID passed in the URL</p></li><li><p>{1} = tenant ID passed in the access token</p></li></ul>|
-|AF20011|指定したテナント ID ({0}) は、システムに存在しないか、削除されています。	{0} = URL で渡されたテナント ID。 <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>   {0} = tenant ID passed in the URL</p></li></ul>|
-|AF20012|指定したテナント ID ({0}) が、システムで正しく構成されていません。	{0} = URL で渡されたテナント ID。 <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>    {0} = tenant ID passed in the URL</p></li></ul>|
-|AF20013|URL ({0}) で渡されたテナント ID は、有効な GUID ではありません。	{0} = URL で渡されたテナント ID。<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p> {0} = tenant ID passed in the URL</p></li></ul>|
+|AF10001|要求で送信されたアクセス許可セット ({0}) に、必要なアクセス許可 **ActivityFeed.Read** が含まれていませんでした。<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = アクセス トークン内のアクセス許可セット。</p></li></ul>|
+|AF20001|パラメーターがありません: {0}。 <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = 不足しているパラメーターの名前。</p></li></ul>|
+|AF20002|無効なパラメーターの種類です: {0}。 予期される種類: {1}<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = 無効なパラメーターの名前。</p></li><li><p>{1} = 予期される種類 (int、datetime、guid)。</p></li></ul>|
+|AF20003|指定した有効期限 {0} は、過去の日付と時刻に設定されています。<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = API 呼び出しに渡される有効期限。</p></li></ul>|
+|AF20010|URL ({0}) で渡されたテナント ID が、アクセス トークン ({1}) で渡されたテナント ID と一致しません。<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = URL で渡されたテナント ID</p></li><li><p>{1} = アクセス トークン で渡されたテナント ID。</p></li></ul>|
+|AF20011|指定したテナント ID ({0}) は、システムに存在しないか、削除されています。 <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>   {0} = URL で渡されたテナント ID</p></li></ul>|
+|AF20012|指定したテナント ID ({0}) が、システムで正しく構成されていません。 <ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>    {0} = URL で渡されたテナント ID</p></li></ul>|
+|AF20013|URL ({0}) で渡されたテナント ID は、有効な GUID ではありません。<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p> {0} = URL で渡されたテナント ID</p></li></ul>|
 |AF20020|指定したコンテンツ タイプが無効です。|
-|AF20021|The webhook endpoint {{0}) could not be validated. {1}<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = webhook address.</p></li><li><p>{1} = "The endpoint did not return HTTP 200." or "The address must begin with HTTPS."</p></li></ul>|
+|AF20021|Webhook エンドポイント {{0}) を検証できませんでした。 {1}<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = Webhook アドレス。</p></li><li><p>{1} = "エンドポイントは HTTP 200 を返しませんでした。" または "アドレスの先頭は HTTPS である必要があります。"</p></li></ul>|
 |AF20022|指定したコンテンツ タイプのサブスクリプションがありません。|
-|AF20023|The subscription was disabled by {0}.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>サブスクリプションが {0} によって無効にされました。{0} = "テナント管理" または "サービス管理"。</p></li></ul>|
+|AF20023|サブスクリプションが {0} によって無効にされました。<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = "テナント管理" または "サービス管理"</p></li></ul>|
 |AF20030|開始時刻と終了時刻の両方を指定する (または両方を省略する) 必要があります。その時間差は 24 時間を超えてはならず、開始時刻は過去 7 日以内でなければなりません。|
-|AF20031|Invalid nextPage Input: {0}.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>nextPage の入力が無効です: {0}。{0} = URL に渡された次ページ インジケーター。</p></li></ul>|
-|AF20050|指定された ID が存在しません。<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>指定したコンテンツ ({0}) は存在しません。{0} = リソース ID またはリソース URL。</p></li></ul>|
-|AF20051|Content requested with the key {0} has already expired. Content older than 7 days cannot be retrieved.<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>•    {0} = resource id or resource URL</p></li></ul>|
-|AF20052|URL 内のコンテンツの ID {0} は無効です。{0} = リソース ID またはリソース URL。<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>指定したコンテンツ ({0}) は存在しません。{0} = リソース ID またはリソース URL。</p></li></ul>|
-|AF20053|Only one language may be present in the Accept-Language header.|
-|AF20054|Invalid syntax in Accept-Language header.|
+|AF20031|nextPage の入力が無効です: {0}。<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = URL に渡された次ページ インジケーター</p></li></ul>|
+|AF20050|指定したコンテンツ ({0}) は存在しません。<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = リソース ID またはリソース URL。</p></li></ul>|
+|AF20051|キー {0} で要求されたコンテンツは、既に有効期限切れです。 7 日を超過したコンテンツは取得できません。<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>•    {0} = リソース ID またはリソース URL</p></li></ul>|
+|AF20052|URL 内のコンテンツの ID {0} は無効です。<ul xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><li><p>{0} = リソース ID またはリソース URL。</p></li></ul>|
+|AF20053|Accept-Language ヘッダーには、1 つの言語のみ表示可能です。|
+|AF20054|Accept-Language ヘッダーに無効な構文があります。|
 |AF50000|内部エラーが発生しました。要求を再試行してください。|

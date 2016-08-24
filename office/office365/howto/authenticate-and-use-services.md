@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Integrate Office 365 APIs into Visual Studio
 title: ".NET Visual Studio プロジェクトへの Office 365 API の統合"
-description: "ms.TocTitle: Visual Studio への Office 365 API の統合Title: .NET Visual Studio プロジェクトへの Office 365 API の統合Description: ADAL を使用して Azure Active Directory で認証してから、Office 365 探索サービスを使用してリソース エンドポイントを特定し、Office 365 ユーザー データにアクセスします。ms.ContentId: 8c30ca03-6433-4fcf-a01d-fd142620d12f ms.topic: 記事 (方法)"
+description: "ADAL を使用して Azure Active Directory で認証してから、Office 365 探索サービスを使用してリソース エンドポイントを特定し、Office 365 ユーザー データにアクセスします。"
 ms.ContentId: 8c30ca03-6433-4fcf-a01d-fd142620d12f
 ms.date: June 2, 2015
 
@@ -12,7 +12,7 @@ ms.date: June 2, 2015
 
 # .NET Visual Studio プロジェクトへの Office 365 API の統合
 
-_**適用対象:** Office 365_
+_**適用対象:**Office 365_
 
 
 [Office 365 サービスをプロジェクトに追加](..\howto\adding-service-to-your-Visual-Studio-project.md)したら、アプリ ユーザーを認証して、彼らの Office 365 データにアクセスするコードを記述する必要があります。 
@@ -31,7 +31,7 @@ MVC などの Web アプリケーションを構築するのか、Windows スト
 
 これから構築する例は、Azure AD シングル サインオンを使用して認証し、Office 365 からユーザーの連絡先情報を 読み取るシングルテナント MVC です。GitHub 上の [Office 365 シングルテナント MVC プロジェクト](https://github.com/OfficeDev/O365-WebApp-SingleTenant)をモデルとして使用します。 
 
-アプリケーションは、データベースをキャッシュに使用する永続的な Active Directory 認証ライブラリ (ADAL) トークン キャッシュを採用することになります。ADAL を使用すれば、Active Directory (AD) (この場合は Azure AD) に対してユーザーを認証してから、API 呼び出しを保護するためのアクセス トークンを取得できます。 アプリケーションは、データベースをキャッシュに使用する永続的な Active Directory 認証ライブラリ (ADAL) トークン キャッシュを採用することになります。ADAL を使用すれば、Active Directory (AD) (この場合は Azure AD) に対してユーザーを認証してから、API 呼び出しを保護するためのアクセス トークンを取得できます。 
+アプリケーションでは、キャッシュにデータベースを使用する永続的な [Active Directory 認証ライブラリ](https://msdn.microsoft.com/en-us/library/azure/jj573266.aspx) (ADAL) トークン キャッシュを採用します。 ADAL により、Active Directory (AD) (この例では Azure AD) に対してユーザーを認証し、API 呼び出しをセキュリティ保護するためのアクセス トークンを取得できます。 
 
 この例の構築を成功させるためには、Office 365 API に対する次のアクセス許可を設定しておく必要があります。 
 
@@ -39,7 +39,7 @@ MVC などの Web アプリケーションを構築するのか、Windows スト
 
 - **連絡先** API の場合は、**ユーザーの連絡先を読み取る**ためのアクセス許可を設定します。
 
-Office 365 ツールを開いて上記のアクセス許可が設定されているかどうかを確認するには、ソリューション エクスプ ローラーで、プロジェクトを右クリックして、[追加] > [接続済みサービス] の順に選択します。
+Office 365 ツールを開いて上記のアクセス許可が設定されているかどうかを確認するには、**ソリューション エクスプローラー**で、プロジェクトを右クリックして、**[追加]** > **[接続済みサービス]** の順に選択します。
 
 ここから、例の構築は次の 3 つの主要なステップで構成されます。
 
@@ -53,7 +53,7 @@ Office 365 ツールを開いて上記のアクセス許可が設定されてい
 <a name="bk_AuthenticateAzure"> </a>
 ###Azure Active Directory を使用した認証用にプロジェクトを構成する
 
-構築中の例では Office 365 資格情報認証しか必要ないため、OWIN Katana と Active Directory 認証ライブラリ (ADAL) を使用することになります。
+構築中の例では Office 365 資格情報認証のみが必要になるため、[OWIN](http://owin.org/) [Katana](http://katanaproject.codeplex.com/documentation) と [Active Directory 認証ライブラリ](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) (ADAL) を使用します。
 
 ただし、まずは、Secure Socket Layer (SSL) を使用するようにプロジェクトを構成します。
 
@@ -63,24 +63,24 @@ Visual Studio では、既定で、プロジェクトが SSL 用に構成され�
 
 SSL を有効にするには:
 
-1. **ソリューション エクスプ ローラー**で、プロジェクトをクリックします。
-2. [**プロパティ**] で、[**SSL 有効**] を [**True**] に設定します。
+1. **ソリューション エクスプローラー**で、プロジェクトをクリックします。
+2. **[プロパティ]** で、**[SSL 有効]** を **[True]** に設定します。
     
-    Visual Studio specifies a value for the **SSL URL**.
+    Visual Studio により、**[SSL URL]** の値が指定されます。
 
 次に、ホーム ページとして HTTPS エンドポイントを使用するようにアプリケーションを更新します。
 
-1.  **ソリューション エクスプ ローラー**で、プロジェクトを右クリックして、[**プロパティ**] を選択します。
-2.  Select the **Web** tab. [**Web**] タブを選択します。[**サーバー**] で、[**プロジェクトの URL**] を Visual Studio が SSL URL 用に作成した HTTPS エンドポイントに設定します。
+1.  **ソリューション エクスプローラー**で、プロジェクトを右クリックして **[プロパティ]** を選択します。
+2.  **[Web]** タブを選択します。 **[サーバー]** で、**[プロジェクトの URL]** を Visual Studio が **SSL URL** 用に作成した HTTPS エンドポイントに設定します。
 
 最後に、Office 365 サービスを更新します。
 
-3. In **Solution Explorer**, right-click the project, and select **Add** > **Connected Service**. Sign in if necessary.
+3. **ソリューション エクスプローラー**でプロジェクトを右クリックして、**[追加]** > **[接続済みサービス]** の順に選択します。 必要に応じてサインインします。
 
-    Visual Studio prompts you that one or more Redirect URLs in your project do not exist in your application entry in Azure AD.
+    Visual Studio から、プロジェクト内の 1 つ以上のリダイレクト URL が Azure AD 内のアプリケーション エントリに存在しないことが通知されます。
 
-4. [**はい**] をクリックして、セキュリティで保護されたリダイレクト URL を Azure AD 内のアプリケーション エントリに追加します。
-5. [**OK**] をクリックして、**サービス マネージャー**を終了します。
+4. **[はい]** をクリックして、セキュリティで保護されたリダイレクト URL を Azure AD 内のアプリケーション エントリに追加します。
+5. **[OK]** をクリックして、**サービス マネージャー**を終了します。
 
 
 <a name="bk_AuthenticateDownloadNuGets"> </a>
@@ -98,12 +98,12 @@ SSL を有効にするには:
 
 NuGet パッケージをダウンロードしてインストールするには:
 
-1. **ソリューション エクスプ ローラー**で、プロジェクトを右クリックします。
-2. [**NuGet パッケージの管理...**] を選択します。 
-3. [**NuGet パッケージの管理**] で、[**オンライン**] をクリックします。
+1. **ソリューション エクスプローラー**でプロジェクトを右クリックします。
+2. **[NuGet パッケージの管理...]** を選択します。 
+3. **[NuGet パッケージの管理]** で、[**オンライン**] をクリックします。
 4. 検索ボックスを使用して必要なパッケージを探します。
-5. パッケージを選択して、[**インストール**] をクリックします。
-6. [**プロジェクトの選択**] で、[**OK**] をクリックします。
+5. パッケージを選択して、**[インストール]** をクリックします。
+6. **[プロジェクトの選択]** で、**[OK]** をクリックします。
 7. 画面の指示に従って、すべてのライセンスを受け入れます。
 
 ####認証を有効にするように web.config ファイルを更新します。
@@ -154,13 +154,13 @@ ADAL トークン キャッシュの詳細については、「[ADAL v2 の新�
 
 ADAL トークン キャッシュとして機能するデータベースを追加するには、次のようにします。
 
-1. In **Solution Explorer**, right-click the **App_Data** folder and select **Add** > **New Item...**
-2. [**データ**] が選択されていることを確認してから、[**SQL Server データベース**] を選択します。データベースに ADALTokenCacheDb という名前を付け、[追加] ををクリックします。 Name the database **ADALTokenCacheDb**, and click **Add**.
+1. **ソリューション エクスプローラー**で、**App_Data** フォルダーを右クリックして、**[追加]** > **[新しいアイテム...]** の順に選択します。
+2. **[データ]** が選択されていることを確認してから、**[SQL Server データベース]** を選択します。 データベースに「**ADALTokenCacheDb**」という名前を付け、**[追加]** をクリックします。
 
 データベース接続がプロジェクト web.config に追加されていることを確認します。
 
 1. **ソリューション エクスプローラー**で、**web.config** をダブルクリックします。
-2. 次のセクションが web.config ファイルの **appSettings** セクションの後ろに追加されていることを確認します。存在しなかった場合は、そのセクションを追加します。 If it's not there, add it:
+2. 次のセクションが web.config ファイルの **appSettings** セクションの後ろに追加されていることを確認します。 存在しなかった場合は、そのセクションを追加します。
 
 <connectionStrings>
   <add name="DefaultConnection"
@@ -185,10 +185,10 @@ ADAL トークン キャッシュとして機能するデータベースを追�
 
 GitHub プロジェクトからファイルをコピーするには、次のようにします。
 
-1. ブラウザーで、コピーするファイルに移動します (ファイルが下に一覧表示されます)。 (The files are listed below).
-2. [**RAW**] ボタンを右クリックして、[**対象をファイルに保存...**] を選択します。
+1. ブラウザーで、コピーするファイルに移動します  (ファイルが下に一覧表示されます)。
+2. **[RAW]** ボタンを右クリックして、**[対象をファイルに保存...]** を選択します。
 3. ファイルをコンピューターに保存します。
-4. Visual Studio のソリューション エクスプ ローラーのプロジェクト ノードで、後述するように、指定したフォルダを右クリックして、[追加] > [既存の項目...] の順に選択します。
+4. Visual Studio の**ソリューション エクスプローラー**のプロジェクト ノードで、後述するように、指定したフォルダーを右クリックして、**[追加]** > **[既存の項目...]** の順に選択します。
 5. コンピューター上の保存場所からファイルを選択します。 
 
 次のファイルをプロジェクト内の **Models** フォルダーにコピーします。これらのクラスは、永続的な ADAL トークン キャッシュをどのように構築してトークンを保存するために、使用できるかを示しています。
@@ -198,15 +198,15 @@ GitHub プロジェクトからファイルをコピーするには、次のよ�
 
 新しいフォルダー **Utils** を作成します。
 
-1. In **Solution Explorer**, right-click your project and select **Add** > **New Folder**.
-2. フォルダーに **Utils** という名前を付けます。 
+1. **ソリューション エクスプローラー**で、プロジェクトを右クリックして、**[追加]** > **[新しいフォルダー]** の順に選択します。
+2. フォルダーに「**Utils**」という名前を付けます。 
 
 次のファイルをそのフォルダーにコピーします。このヘルパー クラスには、起動中に ADAL 認証オブジェクトを作成する必要があるプロジェクトの web.config ファイルから値を読み取るメンバー変数が含まれています。 
 
 - [SettingsHelper.cs](https://github.com/OfficeDev/O365-WebApp-SingleTenant/blob/master/O365-WebApp-SingleTenant/Utils/SettingsHelper.cs)
 
 
-最後に、_LoginPartial.cshtml ファイルをプロジェクトの Views > Shared フォルダーにコピーします 。
+最後に、[_LoginPartial.cshtml](https://github.com/OfficeDev/O365-WebApp-SingleTenant/blob/master/O365-WebApp-SingleTenant/Views/Shared/_LoginPartial.cshtml) ファイルをプロジェクトの **Views** > **Shared** フォルダーにコピーします。
 
 
 <a name="bk_AuthenticateAzureAD"> </a>
@@ -216,11 +216,11 @@ GitHub プロジェクトからファイルをコピーするには、次のよ�
 
 ####Azure AD シングル サインオンを構成する
 
-次に、実際に認証を処理するために、OWIN スタートアップ クラスをプロジェクトに追加する必要があります。OWIN スタートアップ クラスを追加するには: To add the OWIN startup class:
+次に、実際に認証を処理するために、OWIN スタートアップ クラスをプロジェクトに追加する必要があります。 OWIN スタートアップ クラスを追加するには、次のようにします。
 
-1. ソリューション エクスプローラーで、プロジェクト名を右クリックして、[追加] > [新しいアイテム...] の順に選択します。
-2. [**新しいアイテムの追加**] の [**Web**] で、[**全般**] を選択してから、[**OWIN スタートアップ クラス**] を選択します。
-3. [**名前**] に、「**Startup**」と入力します。
+1. ソリューション エクスプローラーで、プロジェクト名を右クリックして、**[追加]** > **[新しいアイテム...]**の順に選択します。
+2. **[新しいアイテムの追加]** の **[Web]** で **[全般]** を選択し、**[OWIN スタートアップ クラス]** を選択します。
+3. **[名前]** に「**Startup**」と入力します。
 3. **[追加]** をクリックします。
 
 新しいスタートアップ クラスがプロジェクトに追加されます。 
@@ -311,8 +311,8 @@ GitHub プロジェクトからファイルをコピーするには、次のよ�
 
 サインインとサインアウトを処理するためのアカウント コントローラーを追加します。
 
-1. In **Solution Explorer**, right-click the **Controllers** folder and select **Add** > **Controller...**
-2. [**MVC 5 コントローラー - 空**] を選択して、[**追加**] をクリックします。
+1. **ソリューション エクスプローラー**で、**Controllers** フォルダーを右クリックして、**[追加]** > **[コントローラー]** の順に選択します。
+2. **[MVC 5 コントローラー - 空]** を選択して、**[追加]** をクリックします。
 3. コントローラー名として「**AccountController**」と入力し、[**追加**] をクリックします。
 4. コントローラー ファイル内の名前空間参照を次のように置き換えます。
 
@@ -369,8 +369,8 @@ GitHub プロジェクトからファイルをコピーするには、次のよ�
 
 まず、連絡先ビューの基になるクラスを作成する必要があります。
 
-1. In **Solution Explorer**, right-click the **Models** folder and select **Add** > **Class...**
-2. [**クラス**] を選択 して、名前として「**MyContact**」と入力し、[**追加**] をクリックします。
+1. **ソリューション エクスプローラー**で、**Models** フォルダーを右クリックして、**[追加]** > **[クラス...]** の順に選択します。
+2. **[クラス]** を選択して、名前として「**MyContact**」と入力し、**[追加]** をクリックします。
 3. クラスで、次のコード行を追加します。
 
 
@@ -389,11 +389,11 @@ GitHub プロジェクトからファイルをコピーするには、次のよ�
 
 次に、ユーザーの連絡先情報用のコントローラーを追加します。
 
-1. In **Solution Explorer**, right-click the **Controllers** folder and select **Add** > **Controller...**
-2. [**MVC 5 コントローラー - 空**] を選択して、[**追加**] をクリックします。
-3. コントローラー名として「**ContactsController**」と入力して、[**追加**] をクリックします。
+1. **ソリューション エクスプローラー**で、**Controllers** フォルダーを右クリックして、**[追加]** > **[コントローラー]** の順に選択します。
+2. **[MVC 5 コントローラー - 空]** を選択して、**[追加]** をクリックします。
+3. コントローラー名として「**ContactsController**」と入力して、**[追加]** をクリックします。
 
-    Visual Studio adds a new empty controller to the project.
+    Visual Studio が新しい空のコントローラーをプロジェクトに追加します。
 
 4. コントローラー ファイル内の名前空間参照を次のように置き換えます。
 
@@ -408,7 +408,7 @@ GitHub プロジェクトからファイルをコピーするには、次のよ�
         using System.Web.Mvc;
 
 
-    Be sure to add a namespace reference for the Models namespace of your project:
+    必ず、プロジェクトの Models 名前空間に対する名前空間参照を追加します。
 
 
             using [projectname].Models;
@@ -431,7 +431,7 @@ GitHub プロジェクトからファイルをコピーするには、次のよ�
         public async Task<ActionResult> Index()
 
 <ol start="7">
-<li>次のコードを Index() メソッドに追加します。</li>
+<li>Index() メソッドに次のコードを追加します。</li>
 </ol>   
 
 このコードは、サインインしている Office 365 ユーザー Id と Office 365 テナントに対する権限を使用して、認証コンテキストを作成します。
@@ -585,18 +585,18 @@ GitHub プロジェクトからファイルをコピーするには、次のよ�
 
 次に、ユーザーの連絡先情報用のビューを作成します。以前作成した **MyContact** クラスに基づいてビューを作成することによって、これを実現します。
 
-1. In **Solution Explorer**, right-click the **Contacts** folder and select **Add** > **View**.
-2. [**ビューの追加**] ダイアログ ボックスで、新しいビューを定義します。
-    - [**ビュー名**] に対して、「**Index**」と入力します。 
-    - [**テンプレート**] で、[**一覧**] を選択します。 
-    - [**モデル クラス**] で、[**MyContact**] を選択します。
+1. **ソリューション エクスプローラー**で、**Contacts** フォルダーを右クリックして、**[追加]** > **[ビュー]** の順に選択します。
+2. **[ビューの追加]** ダイアログ ボックスで、新しいビューを定義します。
+    - **[ビュー名]** に「**Index**」と入力します。 
+    - **[テンプレート]** で **[一覧]** を選択します。 
+    - **[モデル クラス]** で **[MyContact]** を選択します。
     - **[追加]** をクリックします。
 
 
 
 ####ナビゲーション バーに [個人用の連絡先] リンクを追加する
 
-1. **ソリューション エクスプ ローラー**の **Shared** フォルダーで、_Layout.cshtml ファイルをダブルクリックします 。
+1. **ソリューション エクスプローラー**の **Shared** フォルダーで、_Layout.cshtml ファイルをダブルクリックします。
 
 2. [個人用の連絡先] ページ用のアクション リンクを追加して、ユーザー ログイン用の部分クラスを挿入します。ナビゲーション バーの HTML を自動生成されたものから更新します。 
 
@@ -628,27 +628,27 @@ GitHub プロジェクトからファイルをコピーするには、次のよ�
 ###アプリケーションをデバッグする
 
 
-これで、ソリューションを実行する準備ができました。F5 キーを押して Web アプリケーションをデバッグします。 これで、ソリューションを実行する準備ができました。F5 キーを押して Web アプリケーションをデバッグします。
+これで、ソリューションを実行する準備ができました。 F5 キーを押して Web アプリケーションをデバッグします。
 
-これが新しい開発環境の場合は、Visual Studio から IIS SSL 証明書を構成するように要求されます。[はい] を 2 回クリックして先に進みます。 Click **Yes** twice to continue.
+これが新しい開発環境の場合は、Visual Studio から IIS SSL 証明書を構成するように要求されます。 **[はい]** を 2 回クリックして先に進みます。
 
 1. Visual Studio が、選択されたブラウザーで Web アプリケーションを起動します。
 
 2. ページの右上隅にある [**サインイン**] をクリックして、Web アプリケーションを登録した Office 365 テナントにサインインします。
 
-    Since only your organization users are allowed to sign-in to a single tenant application, there is no need to consent. If your application was multi-tenant, Azure AD would display a consent page listing the permissions the app was requested, so you could consent to giving the app those permissions.
+    組織のユーザーのみがシングルテナント アプリケーションへのサインインを許可されるため、同意する必要はありません。 アプリケーションがマルチ テナントの場合は、Azure AD にアプリが要求されたアクセス許可が一覧表示される同意ページが表示されるため、アプリにそれらのアクセス許可を付与することに同意できます。
 
 
 5. サインインすると、ホーム ページの最上部のナビゲーション バーに自分の電子メール アドレスと [**サインアウト**] が表示されるはずです。
 
-6. [**個人用の連絡先**] をクリックします。
+6. **[個人用の連絡先]** をクリックします。
 
-    The **My Contacts** page will retrieve and display the names of any Exchange contacts from your tenant.
+    **[個人用の連絡先]** ページで、テナントから Exchange 連絡先の名前が取得され、表示されます。
 
 
 これで、Office 365 API をカスタマイズして統合するための Web アプリケーション プロジェクトが完成しました。
 
-[次の手順](#bk_nextsteps)
+[次のステップ](#bk_nextsteps)
 
 
 <a name="bk_IntegrateWindowsStore"> </a>
@@ -670,7 +670,7 @@ Windows ストアや Phone アプリなどのネイティブなクライアン�
 
 
 <a name="bk_nextsteps"> </a>
-## 次の手順
+## 次のステップ
 
 Office 365 API にアクセスしたら、API 経由で利用可能なユーザー リソースを操作できます。Visual Studio から提供されるクライアント ライブラリを使用して共通タスクを実行する方法とそのコード スニペットについては、以下を参照してください。
 
@@ -680,11 +680,11 @@ Office 365 API にアクセスしたら、API 経由で利用可能なユーザ�
 - [ファイル API リファレンス](..\api\files-rest-operations.md)
 
 <a name="bk_addresources"> </a>
-## その他の技術情報
+## その他のリソース
 
 **コード サンプル**
 
--  [Office 365 API スタート プロジェクトおよびサンプル コード](..\howto\Starter-projects-and-code-samples.md) 
+-  [Office 365 API スタート プロジェクトとコード サンプル](..\howto\Starter-projects-and-code-samples.md) 
 -  [GitHub 上の Office 開発者](https://github.com/OfficeDev)
 
 
@@ -693,7 +693,7 @@ Office 365 API にアクセスしたら、API 経由で利用可能なユーザ�
 -  [Office 365 開発環境のセットアップ](..\howto\setup-development-environment.md)
 
 
--  [Office 365 API 入門 (トレーニングビデオ)](http://www.microsoftvirtualacademy.com/training-courses/introduction-to-office-365-development?m=10072&ct=31602) 
+-  [Office 365 API 入門](http://www.microsoftvirtualacademy.com/training-courses/introduction-to-office-365-development?m=10072&ct=31602) (トレーニングビデオ) 
 
 
 **リファレンス**

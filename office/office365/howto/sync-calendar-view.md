@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Sync events in calendar view
 title: "Outlook カレンダー ビューでイベントを同期する"
-description: "See a step-by-step example to synchronize events in a specific time range in the user's calendar."
+description: "ユーザーの予定表で特定の時間範囲のイベントを同期化する手順を、段階を追って説明します。"
 ms.ContentId: afcf00f0-9222-470c-bb2b-a0f5e1a63a30
 ms.date: May 19, 2015
 
@@ -10,39 +10,39 @@ ms.date: May 19, 2015
 
 #Outlook カレンダー ビューでイベントを同期する
 
-_**適用対象:** SharePoint Online | Office 365_
+_**適用対象:**Exchange Online | Office 365_
 
 
-Outlook 予定表 REST API を使用すると、ユーザーの予定表にある特定の時間範囲の新しいイベント、変更されたイベント、削除されたイベントを同期して取得できます。カレンダー ビューを同期するための API は、次のことを指定する、カレンダー ビューに対する GET 操作です。 The API to [sync a calendar view](..\api\calendar-rest-operations.md#SyncCalendarView) is a GET operation on a calendar view which specifies:
+Outlook 予定表 REST API を使用すると、ユーザーの予定表にある特定の時間範囲の新しいイベント、変更されたイベント、削除されたイベントを同期して取得できます。 [カレンダー ビューを同期する](..\api\calendar-rest-operations.md#SyncCalendarView)ための API は、次のことを指定する、カレンダー ビューに対する GET 操作です。
 - 同期対象の予定表
 - イベントを同期する時間範囲の開始日と終了日
 - この GET 操作を、[カレンダー ビューの GET](..\api\calendar-rest-operations.md#GetCalendarView) 操作とは区別する特殊な要求ヘッダー
-  - "Prefer: odata.track-changes" - すべての要求にこのヘッダーを含める必要があります。ただし、  
+  - "Prefer: odata.track-changes" - すべての要求にこのヘッダーを含める必要があります。ただし、`skipToken` が含まれる場合には例外です (詳細は、ステップ 2 で説明します)。  
   - "Prefer: odata.maxpagesize={x}" - 同期要求が一度に返すことができるイベントの最大数を指定するために、このヘッダーを含めることができます。
 
-Synchronizing a calendar view can involve one or more sync requests; each sync request is a GET call.
-The number of GET calls you need to sync a calendar view depends on the "delta" (how many new, updated or deleted events) in the specified time range, and the `maxpagesize` you specify for each GET call. After you have synchronized a calendar view with a round of GET calls, further attempts to sync will return no more delta's, until events in that calendar view are added, modified or deleted again.
+カレンダー ビューの同期操作には 1 つ以上の要求を含めることができます。各要求が 1 つの GET 呼び出しになります。
+カレンダー ビューを同期するために必要な GET 呼び出しの数は、指定した時間範囲の「差分」(新規イベント、更新イベント、削除イベントの数)、および各 GET 呼び出しに指定した `maxpagesize` によって異なります。 一連の GET 呼び出しによってカレンダー ビューを同期したのちにさらに同期を試行しても、対象のカレンダー ビューで再びイベントが追加されたり、変更されたり、削除されたりしていない限りは、差分は返されません。
 
 <a name="SyncCalendarViewWorkflow"> </a>
 ## カレンダー ビューを同期するためのワークフロー
 
 複数の GET 呼び出しを標準的な一連の同期でチェーン化する方法について、次に説明します。
 
-![Initial synchronization requests returns a deltalink. Use the deltaToken and any subsequent skipToken to make the next request. If a deltalink is returned again, the client is synchronized with the service.](images\O365API_SyncCalView_Process.png) 
+![初期同期要求は deltalink を返します。 deltaToken および後続の skipToken を使用して、次の要求を行います。 deltalink が再び返された場合、クライアントはサービスと同期されています。](images\O365API_SyncCalView_Process.png) 
 
 1. [最初の同期要求](#SampleInitialSyncReq):最初の同期要求は、同期状態を設定します。  
 2. [最初の同期応答](#SampleInitialSyncResponse): 
   - 応答ヘッダーの "Preference-Applied: odata.track-changes" を調べて、同期が正常に行われたことと、リソースが同期をサポートしていることを確認します。
-  - 同期が正常に実行された場合、初期の応答には @odata.deltaLink`@odata.deltaLink` が deltaToken`deltaToken` 値とともに必ず含まれます。応答に何らかのデータが含まれる場合、2 番目の要求のために deltaToken 値を保存します。 
-  If the response contains any data, save the `deltaToken` value for the second request.
-  - 初期応答が正常に行われなかった場合、またはデータが何も返らない場合、指定したカレンダー ビューにイベントがないことを示します。  
-3. 以降の同期要求:前の要求の deltaToken`deltaToken` 値または skipToken`skipToken` 値を使用して、次の要求を発行します。例として、2 番目と 3 番目の同期要求をご覧ください。 See the [second](#SampleSecondSyncReq) and [third](#SampleThirdSyncReq) sync requests as examples.
-4. [以降の同期応答](#SampleSecondSyncResponse):
-  - 応答によって何らかのデータが返り、対象の時間範囲に同期するデータがさらにある場合、応答には @odata.nextLink`@odata.nextLink` 値と skipToken`skipToken` 値が含まれます。次の同期要求のために skipToken を保存します。 Save the `skipToken` for the next sync request.
-  - ステップ 3 に戻り、nextLink`nextLink` に従い (あれば)、次の同期要求で対応する skipToken`skipToken` 値を適用します。その後、後続の nextLink`nextLink` に従い、それを対象予定表の時間範囲内にあるすべてのデータを同期するまで繰り返します。
-5. [最後の同期応答](#SampleThirdSyncResponse):カレンダー ビューのすべてのイベントを同期すると、この一連の動作の最後の応答には、@odata.deltaLink`@odata.deltaLink` と deltaToken`deltaToken` が再び入ります。次の一連の同期のために、deltaToken 値を保存します。 Save the `deltaToken` value for the next round of synchronization.
+  - 同期が正常に実行された場合、初期の応答には、必ず `@odata.deltaLink` が `deltaToken` 値とともに含まれます。 
+  応答に何らかのデータが含まれる場合、2 番目の要求のために `deltaToken` 値を保存します。
+  - 初期応答が正常に行われなかった場合や、データが何も返されない場合は、指定したカレンダー ビューにイベントがなく、このラウンドの同期は終了します。  
+3. 以降の同期要求:前の要求の `deltaToken` 値または `skipToken` 値を使用して、次の要求を発行します。 例として、[2 番目](#SampleSecondSyncReq)と [3 番目](#SampleThirdSyncReq)の同期要求を参照してください。
+4. [以降の同期応答](#SampleSecondSyncResponse)
+  - 応答によって何らかのデータが返り、対象の時間範囲に同期するデータがさらにある場合、応答には `@odata.nextLink` 値と `skipToken` 値が含まれます。 次の同期要求のために `skipToken` を保存します。
+  - ステップ 3 に戻り、`nextLink` に従って (存在する場合)、次の同期要求で対応する `skipToken` 値を適用します。その後、後続の `nextLink` に従い、それを対象予定表の時間範囲内にあるすべてのデータを同期するまで繰り返します。
+5. [最後の同期応答](#SampleThirdSyncResponse):カレンダー ビューのすべてのイベントを同期すると、この一連の動作の最後の応答には、`@odata.deltaLink` と `deltaToken` が再び入ります。 次の一連の同期のために、`deltaToken` 値を保存します。
 
-一連の同期要求では、指定の時間範囲と予定表内のすべてのイベントを取得します。次の一連の同期では、以前の一連の同期要求の deltaToken 値を使用して、最後の一連の同期以降の差異 (新しい追加イベント、変更イベント、削除イベント) のみが返ります。 Using the `deltaToken` value from the previous round, the next round of sync will return only the differences (newly added, modified or deleted events) since the last round. 
+一連の同期要求では、指定の時間範囲と予定表内のすべてのイベントを取得します。 次の一連の同期では、以前の一連の同期要求の `deltaToken` 値を使用して、最後の一連の同期以降の差異 (新しい追加イベント、変更イベント、削除イベント) のみが返ります。 
  
 
 <a name="SyncCalendarViewRecurrence"> </a>
@@ -62,7 +62,7 @@ The number of GET calls you need to sync a calendar view depends on the "delta" 
 
 
 <a name="NextSteps"> </a>
-## 次のステップ
+## 次の手順
 
 アプリケーション開発を開始する準備ができている方にも、単に詳しい情報を必要としている方にも、最適なコンテンツをご用意しています。
 
@@ -78,7 +78,7 @@ Office 365 プラットフォームの使い方の詳細については、次の
 
 - [Office 365 プラットフォーム上での開発の概要](..\howto\platform-development-overview.md)
     
-- [Office 365 アプリケーションの認証およびリソース承認](..\howto\common-app-authentication-tasks.md)
+- [Office 365 のアプリ認証とリソース承認](..\howto\common-app-authentication-tasks.md)
     
 - [Office 365 API にアクセスできるようにアプリを手動で Azure AD に登録する](..\howto\add-common-consent-manually.md)
   
@@ -118,7 +118,7 @@ HTTP/1.1 200 OK
 Preference-Applied: odata.track-changes
 ```
 
-応答本体には、反復しない 3 つの単一イベントが含まれています。また、deltaToken`@odata.deltaLink` が入っている @odata.deltaLink`deltaToken` も含まれています。 
+応答本体には、反復しない 3 つの単一イベントが含まれています。また、`deltaToken` 値が入っている `@odata.deltaLink` も含まれています。 
 ```
 {
     "@odata.context": "https://contoso.com/api/v1.0/$metadata#Me/CalendarView",
@@ -328,7 +328,7 @@ Preference-Applied: odata.track-changes
 
 ### 2 番目の同期要求
 
-2 番目の同期要求は、最初の応答の deltaToken`deltaToken` 値を使用します。
+2 番目の同期要求は、最初の応答の `deltaToken` 値を使用します。
 
 ```
 GET https://contoso.com/api/v1.0/me/calendarview?startDateTime=2015-04-25T00:00:00Z&endDateTime=2015-05-30T00:00:00Z&$deltatoken=d17ffb043b724d3c9521e8464ed318d6 HTTP/1.1
@@ -350,7 +350,7 @@ Prefer: odata.maxpagesize=3
 HTTP/1.1 200 OK
 ```
 
-2 番目の応答本体には、一連のマスター イベント、2 つの単一インスタンス、および一連のマスター イベントに関連付けられている 5 回のイベントが含まれています。また応答本体には、skipToken 値が含まれている @odata.nextLink も入っています。 The response body also includes an `@odata.nextLink` with a `skipToken` value.
+2 番目の応答本体には、一連のマスター イベント、2 つの単一インスタンス、および一連のマスター イベントに関連付けられている 5 回のイベントが含まれています。 また応答本体には、`skipToken` 値が含まれている `@odata.nextLink` も入っています。
 ```
 {
     "@odata.context": "https://contoso.com/api/v1.0/$metadata#Me/CalendarView/$delta",
@@ -636,7 +636,7 @@ HTTP/1.1 200 OK
 
 ### 最後の同期要求
 
-3 番目の同期要求は、2 番目の応答の skipToken`skipToken` 値を使用します。
+3 番目の同期要求は、2 番目の応答の `skipToken` 値を使用します。
 
 ```
 GET https://contoso.com/api/v1.0/me/calendarview?startDateTime=2015-04-25T00:00:00Z&endDateTime=2015-05-30T00:00:00Z&$skiptoken=a1e5b10261804221aceb856143b8af19 HTTP/1.1
@@ -657,7 +657,7 @@ Prefer: odata.maxpagesize=3
 HTTP/1.1 200 OK
 ```
 
-最後の応答本体には、1 つの一連のマスター イベント、およびその一連のマスター イベントに関連付けられている 4 つのイベントが含まれています。またこの応答本体には、deltaToken が入っている @odata.deltaLink も含まれ、これは対象のカレンダー ビューの同期が完了したことを示します。 最後の応答本体には、1 つの一連のマスター イベント、およびその一連のマスター イベントに関連付けられている 4 つのイベントが含まれています。またこの応答本体には、deltaToken`@odata.deltaLink` が入っている @odata.deltaLink`deltaToken` も含まれ、これは対象のカレンダー ビューの同期が完了したことを示します。
+最後の応答本体には、1 つの一連のマスター イベント、およびその一連のマスター イベントに関連付けられている 4 つのイベントが含まれています。 またこの応答本体には、`deltaToken` 値が入っている `@odata.deltaLink` も含まれ、これは対象のカレンダー ビューの同期が完了したことを示します。
 
 ```
 

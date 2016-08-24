@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Create pages
 title: "OneNote ページの作成"
-description: "ms.TocTitle:ページの作成Title:OneNote ページの作成Description:任意のセクションに OneNote ページを作成して、イメージやファイルなどのコンテンツを含めます。ms.ContentId:0de322cc-570f-4afb-a313-b1d9c3d916f2ms.topic: 記事 (方法) ms.date:2016 年 5 月 17 日"
+description: "任意のセクションに OneNote ページを作成して、イメージやファイルなどのコンテンツを含めます。"
 ms.ContentId: 0de322cc-570f-4afb-a313-b1d9c3d916f2
 ms.date: May 17, 2016
 
@@ -11,15 +11,15 @@ ms.date: May 17, 2016
 
 # OneNote ページの作成
 
-*__Applies to:__ Consumer notebooks on OneDrive | Enterprise notebooks on Office 365*
+*__適用対象:__OneDrive のコンシューマー ノートブック | Office 365 のエンタープライズ ノートブック*
 
-OneNote ページを作成する場合は、POST 要求を *pages* エンドポイントに送信します。次に例を示します。 次に例を示します。
+OneNote ページを作成する場合は、POST 要求を *pages* エンドポイントに送信します。 たとえば次のようにします。
 
 <p id="indent">`POST ../notes/sections/{id}/pages`</p>
 
 メッセージ本文でページ定義する HTML を送信します。要求が成功すると、OneNote API は 201 HTTP 状態コードを返します。
 
->>POST 要求についての理解を深めるために、[対話型 REST リファレンス](http://dev.onenote.com/docs)を参照して、セクションの作成、セクション グループの作成、およびノートブックの作成を送信してください。
+>セクション、セクション グループ、ノートブックを作成するために送信できる POST 要求について調べるために、[対話型 REST リファレンス](http://dev.onenote.com/docs)をご覧ください。
 
 
 <a name="request-uri"></a>
@@ -39,12 +39,12 @@ OneDrive または OneDrive for Business のユーザーの個人用ノートブ
 <p id="outdent1">**既定のノートブックの既定のセクションにページを作成する**</p>
 <p id="indent1">`../me/notes/pages`</p>
 
-<p id="outdent1"> 既定のノートブックのセクション (名前で指定) にページを作成する (*ルールを参照*)</p>
+<p id="outdent1">**既定のノートブックのセクション (名前で指定) にページを作成する** (*[ルールを参照](#post-pages-section-name)*)</p>
 <p id="indent1">`../me/notes/pages?sectionName=Some%20section%20name`</p>
 
 
 <br />
-完全な要求 URI は、次のいずれかのようになります。
+完全な要求 URI は、次に示す例のいずれかのようになります。
 <p id="indent">`https://www.onenote.com/api/v1.0/me/notes/sections/{id}/pages?sectionName=Homework`</p>
 <p id="indent">`https://www.onenote.com/api/v1.0/myorganization/sitecollections/{id}/sites/{id}/notes/sections/{id}/pages`</p>
 <p id="indent">`https://www.onenote.com/api/v1.0/myorganization/groups/{id}/notes/sections/{id}/pages`</p>
@@ -58,13 +58,13 @@ OneDrive または OneDrive for Business のユーザーの個人用ノートブ
 
 - 最上位のセクションのみを参照できます (セクション グループ内のセクションは参照できません)。
 
-- 指定した名前のセクションが既定のノートブックに存在しない場合、そのセクションは API によって作成されます。セクション名に使用できない文字は、「? * \ / : < >  & # " % ~」です。 These characters are not allowed for section names: ? * \ / : &lt; &gt; | &amp; # " % ~
+- 指定した名前のセクションが既定のノートブックに存在しない場合、そのセクションは API によって作成されます。 セクション名に使用できない文字は、「 * \ / : &lt; &gt; | &amp; # " % ~」です。
 
 - セクション名の照合では、大文字と小文字が区別されませんが、セクションが作成されるときには大文字と小文字が維持されます。そのため、"My New Section" はこのとおりに表示されますが、これ以降の POST では "my new section" も一致します。
 
-- Section names must be URL-encoded. 新しいセクション名は、URL としてエンコードする必要があります。たとえば、スペースは *%20* とエンコードします。
+- セクション名は URL エンコードを適用する必要があります。 たとえば、スペースは *%20* としてエンコードする必要があります。
 
-- *sectionName* パラメーターは、../notes/pages`../notes/pages` のルートでのみ有効になります (../notes/sections/{id}/pages`../notes/sections/{id}/pages` では無効です)。
+- *sectionName* パラメーターは、`../notes/pages` のルートでのみ有効になります (`../notes/sections/{id}/pages` では無効です)。
 
 セクションは存在しない場合に作成されるため、この呼び出しはアプリで作成するすべてのページに使用しても問題ありません。セクションの名前はユーザーが変更する可能性もありますが、API は指定されたセクション名で新しいセクションを作成します。API から返された、名前を変更したセクションを含むページへのリンクは、引き続き該当する古いページに到達する点に注意してください。 
 
@@ -72,9 +72,9 @@ OneDrive または OneDrive for Business のユーザーの個人用ノートブ
 <a name="message-body"></a>
 ## メッセージ本文の構築
 
-The HTML that defines page content is called *input HTML*. Input HTML supports a [subset of standard HTML and CSS](#supported-html), with the addition of custom attributes. (Custom attributes, like **data-id** and **data-render-src**, are described in [Input and output HTML](..\howto\onenote-input-output-html.md).) 
+ページのコンテンツを定義する HTML は、*入力 HTML* と呼ばれます。 入力 HTML は、[標準の HTML および CSS のサブセット](#supported-html)と、追加のカスタム 属性をサポートしています  (**data-id** や **data-render-src** のようなカスタム属性は[入力および出力 HTML](..\howto\onenote-input-output-html.md) で記述されます)。 
 
-Send the input HTML in the message body of the POST request. 入力 HTML は、POST 要求のメッセージ本文で送信します。入力 HTML は、application/xhtml+xml`application/xhtml+xml` または text/html`text/html` コンテンツ タイプを使用して、メッセージ本文に直接含めて送信することも、マルチパート要求の "Presentation" 部分に含めて送信することもできます。 
+入力 HTML は、POST 要求のメッセージ本文で送信します。 入力 HTML は、`application/xhtml+xml` または `text/html` コンテンツ タイプを使用して、メッセージ本文に直接含めて送信することも、マルチパート要求の "Presentation" 部分に含めて送信することもできます。 
 
 次に示す例では、入力 HTML をメッセージ本文に直接含めて送信しています。
 
@@ -98,7 +98,7 @@ Content-Type: application/xhtml+xml
 
 バイナリ データを送信する場合は、[マルチパート要求](#example)を使用する必要があります。 
 
->To simplify programming and consistency in your app, you can use multipart requests to create all pages. It's a good idea to use a library to construct multipart messages. This reduces the risk of creating malformed payloads.
+>プログラミングを簡単にして、アプリでの一貫性を保つために、すべてのページの作成にマルチパート要求を使用できます。 マルチパート メッセージを作成するライブラリの使用をお勧めします。 これにより、無効な形式のペイロードを作成してしまう危険性が少なくなります。
 
 
 <a name="input-html-rules"></a>
@@ -106,7 +106,7 @@ Content-Type: application/xhtml+xml
 
 入力 HTML を送信するときには、次に示す一般的な要件と制限事項に注意してください。  
 
-- Input HTML should be UTF-8 encoded and well-formed XHTML. All container start tags require matching closing tags. すべての属性値は、上記の img タグのように、二重引用符または単一引用符で囲む必要があります。  <!--docs say MUST be encoded-->
+- 入力 HTML は、UTF-8 でエンコードされた整形式の XHTML である必要があります。 すべてのコンテナーの開始タグは、終了タグと一致する必要があります。 すべての属性値は、二重引用符または一重引用符で囲む必要があります。  <!--docs say MUST be encoded-->
 
 - JavaScript コード (ファイルを含む) および CSS は削除されます。 
 
@@ -127,13 +127,13 @@ Content-Type: application/xhtml+xml
 次に、OneNote API でサポートされる基本的な要素の一覧を示します。
 
 <p id="indent">`<head>` and `<body>`</p>
-<p id="indent">ページ タイトルと作成日を設定する <title> および <meta></p>
-<p id="indent">`<h1>` through `<h6>` for section headings</p>
-<p id="indent">`<p>` for paragraphs</p>
-<p id="indent">`<ul>`, `<ol>`, and `<li>` for lists and list items</p>
-<p id="indent">`<table>`, `<tr>` and `<td>`, including nested tables</p>
-<p id="indent">`<pre><p id="indent"><c><pre></c>: 書式設定済みのテキスト用です (空白と改行が維持されます)</p></p>
-<p id="indent">太字と斜体の文字スタイル用の <b> および <i></p>
+<p id="indent">`<title>` and `<meta>` (ページのタイトルと作成日を設定する)</p>
+<p id="indent">`<h1>` through `<h6>` (セクションの見出し用)</p>
+<p id="indent">`<p>` (段落用)</p>
+<p id="indent">`<ul>`, `<ol>`, and `<li>` (リストおよびリスト アイテム用)</p>
+<p id="indent">`<table>`, `<tr>` and `<td>` (入れ子の表を含む)</p>
+<p id="indent">`<pre>` (書式設定済みのテキスト用であり、空白と改行が維持される)</p>
+<p id="indent">`<b>` and `<i>` (太字および斜体用)</p>
 
 OneNote API は、ページの作成時に 入力 HTML の意味的な内容と基本的構造を維持しますが、サポートされている HTML および CSS のセットを使用するように入力 HTML を変換します。OneNote に存在しない機能は変換されないため、ソース HTML では認識されない可能性があります。 
 
@@ -185,7 +185,7 @@ Content-Type:application/pdf
 
 複数イメージやその他のファイルを含むページを作成する方法示す例については、「[画像とファイルを追加する](..\howto\onenote-images-files.md)」、および[チュートリアル](../howto/onenote-tutorial.md)と[サンプル](https://github.com/onenotedev)を参照してください。また、[絶対配置要素の作成](../howto/onenote-abs-pos.md)方法、[ノート シールの使用](../howto/onenote-note-tags.md)方法と、名刺キャプチャ、オンラインのレシピ一覧およびオンラインの製品一覧の[データ抽出](../howto/onenote-extract-data.md)方法について調べてください。
 
-The OneNote API is strict about some formats, such as CRLF newlines in a multipart message body. To reduce the risk of creating malformed payloads, you should use a library to construct multipart messages. If you do receive a 400 status for a malformed payload, check the formatting of newlines and whitespaces, and check for encoding issues. For example, try using `charset=utf-8` (example: `Content-Type: text/html; charset=utf-8`).
+OneNote API は、マルチパート メッセージ本文の CRLF 改行など、一部の形式については厳密です。 無効な形式のペイロードを作成してしまう危険性を少なくするために、マルチパート メッセージはライブラリを使用して作成してください。 無効な形式のペイロードに関する 400 状態を受信した場合は、改行と空白の書式を確認し、エンコーディングの問題について調べます。 たとえば、`charset=utf-8` を使用してみてください (例: `Content-Type: text/html; charset=utf-8`)。
 
 [入力 HTML に対する要件と制限事項](#input-html-rules) および [POST 要求のサイズ制限](..\howto\onenote-images-files.md#size-limits)を参照してください。
 
@@ -196,10 +196,9 @@ The OneNote API is strict about some formats, such as CRLF newlines in a multipa
 | 要求データ | 説明 |  
 |------|------|  
 | プロトコル | すべての要求は SSL/TLS HTTPS プロトコルを使用します。 |  
-| 承認ヘッダー | <p>`Bearer {token}`。ここで *{token}* は、登録済みのアプリの有効な OAuth 2.0 アクセス トークンです。</p><p>欠落している、または無効な場合は、401 ステータス コードで要求は失敗します。Azure AD を使用した認証 (エンタープライズ アプリ)を参照してください。 認証とアクセス許可</p> |  
-| Content-Type ヘッダー | <p>`text/html` or `application/xhtml+xml` for the HTML content, whether it's sent directly in the message body or in the required "Presentation" part of multipart requests.</p><p>
-           HTML コンテンツの text/html`multipart/form-data; boundary=part-boundary` または application/xhtml+xml。直接メッセージ本文で送信するか、マルチパート要求の必須の "Presentation" 部分で送信するかです。マルチパート要求は、バイナリ データを送信するときに必要になり、multipart/form-data; boundary=part-boundary コンテンツ タイプを使用します。この *{part-boundary}* は、各データ部分の開始と終了を知らせる文字列です。</p> |  
-| 承諾ヘッダー | `application/json` | 
+| 承認ヘッダー | <p>`Bearer {token}`。*{token}* は、登録済みアプリの有効な OAuth 2.0 アクセス トークンになります。</p><p>これがないか、無効の場合、要求は失敗し、401 ステータス コードが表示されます。 「[認証とアクセス許可](..\howto\onenote-auth.md)」を参照してください。</p> |  
+| Content-Type ヘッダー | <p>HTML コンテンツの `text/html` または `application/xhtml+xml`。メッセージ本文またはマルチパート要求の必須の "Presentation" パートで直接送信します。</p><p>マルチパート要求はバイナリ データを送信するときに必須であり、コンテンツ タイプとして `multipart/form-data; boundary=part-boundary` を使用します。*{part-boundary}* は、各データ パートの開始と終了を伝える文字列です。</p> |  
+| Accept ヘッダー | `application/json` | 
 
 | 応答データ | 説明 |  
 |------|------|  
@@ -207,7 +206,7 @@ The OneNote API is strict about some formats, such as CRLF newlines in a multipa
 | 応答本文 | JSON 形式での新しいページの OData 表現。 |  
 | エラー | 要求が失敗すると、API は応答本文の **@api.diagnostics** オブジェクトでエラーを返します。 |  
 | Location ヘッダー | 新しいページのリソース URL。 |  
-| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行うときに、この値を Date ヘッダーの値とともに使用できます。 |  
+| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行う際に、この値を Date ヘッダーの値とともに使用できます。 |  
 
 
 <a name="root-url"></a>
@@ -226,13 +225,13 @@ OneNote ページを作成するには、適切なアクセス許可を要求す
 アクセス許可のスコープと動作のしくみの詳細については、「[OneNote のアクセス許可のスコープ](../howto/onenote-auth.md)」を参照してください。
 
 <a name="see-also"></a>
-## その他の技術情報
+## その他のリソース
 
 - [画像とファイルを追加する](../howto/onenote-images-files.md)
-- [絶対的な位置要素を作成する](../howto/onenote-abs-pos.md)  
+- [絶対配置要素を作成する](../howto/onenote-abs-pos.md)  
 - [データを抽出する](../howto/onenote-extract-data.md)
 - [ノート シールを使用する](../howto/onenote-note-tags.md)
-- [OneNote 開発](../howto/onenote-landing.md)
+- [OneNote の開発](../howto/onenote-landing.md)
 - [OneNote デベロッパー センター](http://dev.onenote.com/)
 - [OneNote の開発者ブログ](http://go.microsoft.com/fwlink/?LinkID=390183)
 - [スタック オーバーフローに関する OneNote の開発の質問](http://go.microsoft.com/fwlink/?LinkID=390182) 

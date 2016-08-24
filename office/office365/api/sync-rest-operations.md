@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Moved content - Outlook Calendar Sync REST API reference
 title: "移動されたコンテンツ - Outlook の予定表同期 REST API リファレンス"
-description: "ms.TocTitle:移動されたコンテンツ - Outlook の予定表同期 REST API リファレンスTitle:移動されたコンテンツ - Outlook の予定表同期 REST API リファレンスDescription:予定表同期 REST API への関心を、2 つの記事「Outlook 予定表 REST API リファレンス」と「予定表ビューの同期イベント」に向け直してください。ms.ContentId: f9b4c82c-4a5d-496f-8f5a-a1db0569a7eams.topic: リファレンス (API) Robots: noindex, nofollow"
+description: "予定表同期 REST API に向けられた関心を 2 つの記事「Outlook 予定表 REST API リファレンス」と「予定表ビューのイベントを同期する」に向け直します。"
 ms.ContentId: f9b4c82c-4a5d-496f-8f5a-a1db0569a7ea
 Robots: noindex, nofollow
 
@@ -12,7 +12,7 @@ Robots: noindex, nofollow
 
 # 移動されたコンテンツ - Outlook の予定表同期 REST API リファレンス
     
- _**適用対象:** SharePoint Online | Office 365_
+ _**適用対象:**Exchange Online | Office 365_
 
 **ブックマークを更新してください。**
 

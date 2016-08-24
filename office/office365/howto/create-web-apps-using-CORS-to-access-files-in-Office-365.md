@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Create JavaScript web apps using CORS to access files
 title: "CORS を使用して Office 365 API にアクセスする JavaScript Web アプリを作成する" 
-description: "ms.TocTitle:CORS を使用してファイルにアクセスする JavaScript Web アプリを作成するTitle:CORS を使用して Office 365 API にアクセスする JavaScript Web アプリを作成するDescription:Office 365 API に対してクロスオリジン リソース共有 (CORS) の要求を行うように JavaScript Web アプリを構成します。この例の完全なソース コードを取得します。ms.ContentId: e3c6a490-be58-4967-8be6-29e8b4f4bf8cms.topic: 記事 (方法) ms.date:2015 年 8 月 13 日"
+description: "Office 365 API に対してクロスオリジン リソース共有 (CORS) の要求を行うように JavaScript Web アプリを構成します。この例の完全なソース コードを取得します。"
 ms.ContentId: e3c6a490-be58-4967-8be6-29e8b4f4bf8c
 ms.date: August 13, 2015
 
@@ -10,7 +10,7 @@ ms.date: August 13, 2015
 
 # CORS を使用して Office 365 API にアクセスする JavaScript Web アプリを作成する
 
-_**適用対象:** Office 365_
+_**適用対象:**Office 365_
 
 Office 365 API は、Exchange Online からメール、予定表、連絡先、SharePoint Online および OneDrive for Business からファイルやフォルダー、Azure AD からユーザーやグループにアクセスできるようにします。
 
@@ -18,7 +18,7 @@ Office 365 API は、Exchange Online からメール、予定表、連絡先、S
 
 CORS 要求を使用して Office 365 API へのアクセスを開始する前に、[Office 365 開発環境のセットアップ](https://msdn.microsoft.com/en-us/office/office365/howto/setup-development-environment)を行う必要があります。その後、ここの手順に従って、Azure Active Directory でアプリを登録し、リソース エンドポイントを決定し、アクセス トークンを取得し、Office 365 API への認証済み要求を行うことにより、JavaScript アプリケーションが Office 365 API に対して CORS 要求を行えるようにします。 
 
-**メモ:** このサンプルを実行する Internet Explorer には、[MS15-032:Internet Explorer 用の累積的なセキュリティ更新プログラム (KB3038314)](https://www.microsoft.com/en-us/download/details.aspx?id=46655) がインストールされている Internet Explorer 11 を使用する必要があります。 
+**注**: このサンプルを実行するには、Internet Explorer は [MS15-032:Internet Explorer 用の累積的なセキュリティ更新プログラム (KB3038314)](https://www.microsoft.com/en-us/download/details.aspx?id=46655) がインストールされている Internet Explorer 11 を使用する必要があります。 
 
 ## Azure AD にアプリを登録する
 
@@ -30,19 +30,19 @@ CORS 要求を使用して Office 365 API へのアクセスを開始する前�
 
 3. ポップアップ ウィンドウで、**[所属組織が開発しているアプリケーションの追加]** を選択します。 
 
-4. *o365-cors-sample* などのアプリケーションの名前を選択し、種類として [Web アプリケーションや Web API] を選択します。矢印をクリックして続行します。 Then click the arrow to continue. 
+4. *o365-cors-sample* などのアプリケーションの名前を選択し、種類として **[Web アプリケーションや Web API]** を選択します。 矢印をクリックして続行します。 
 
 5. **[サインオン URL]** の値は、アプリケーションをホストする場所の URL です。 
 
-6. App ID URI は、アプリケーションを識別する Azure AD の一意の識別子です。これは、組織の Azure AD の一意の値である必要があります。 You can use *http://{your_subdomain}/o365-cors-sample*, where *{your_subdomain}* is the subdomain of **.onmicrosoft** you specified while signing up for your Office 365 Developer Site. Then click the check mark to provision your application. 
+6. **[アプリケーション ID/URI]** の値は、アプリケーションを識別する Azure AD の一意の識別子です。 *http://{your_subdomain}/o365-cors-sample* を使用できます。*{your_subdomain}* は、Office 365 開発者向けサイトでサインアップするときに指定した **.onmicrosoft** のサブドメインです。 次に、チェック マークをクリックしてアプリケーションをプロビジョニングします。 
 
 7. アプリケーションがプロビジョニングされたら、**[構成]** タブを選択します。 
 
-8. **[他のアプリケーションへのアクセス許可]** セクションにスクロールダウンして、**[アプリケーションの追加]** ボタンをクリックします。 
+8. **[他のアプリケーションへのアクセス許可]** セクションにスクロール ダウンして、**[アプリケーションの追加]** ボタンをクリックします。 
 
 9. このサンプルでは、ユーザーのファイルを取得して、**Office 365 SharePoint Online** アプリケーションを追加する方法について説明します。アプリケーションの行にあるプラス記号をクリックし、右上にあるチェック マークをクリックしてそれを追加します。次に、右下にあるチェック マークをクリックして続行します。
 
-10. **Office 365 SharePoint Online** の行で、**[デリゲートされたアクセス許可]** を選択し、選択の一覧の **[ユーザーのファイルを読み取る]** を選択します。 
+10. **Office 365 SharePoint Online** の行で、**[デリゲートされたアクセス許可]** を選択し、選択一覧の **[ユーザーのファイルを読み取る]** を選択します。 
 
 11. **[保存]** をクリックして、アプリケーションの構成を保存します。 
 
@@ -50,13 +50,13 @@ CORS 要求を使用して Office 365 API へのアクセスを開始する前�
 
 Office 365 API 要求のアクセス トークンを取得するために、アプリケーションは OAuth の暗黙的な付与フローを使用します。既定では OAuth の暗黙的な付与フローは許可されていないため、これを許可するようにアプリケーションのマニフェストを更新する必要があります。 
 
-1. Azure 管理ポータルで、アプリケーションのエントリの **[構成]** タブを選択します。 
+1. Azure の管理ポータルで、アプリケーションのエントリの **[構成]** タブを選択します。 
 
 2. ドロワーの **[マニフェストの管理]** ボタンを使用して、アプリケーションのマニフェスト ファイルをダウンロードし、コンピューターに保存します。
 
-3. Open the manifest file with a text editor. Search for the *oauth2AllowImplicitFlow* property. By default it is set to *false*; change it to *true* and save the file.
+3. テキスト エディターでマニフェスト ファイルを開きます。 *oauth2AllowImplicitFlow* プロパティを検索します。 既定では *false* に設定されています。*true* に変更してファイルを保存します。
 
-4. **[マニフェストの管理]** ボタンを使用して、更新されたマニフェスト ファイルをアップロードします。
+4. **[マニフェストの管理]** ボタンを使用して、更新したマニフェスト ファイルをアップロードします。
 
 アプリケーションが Azure AD に正常に登録されました。 
 
@@ -72,9 +72,9 @@ Office 365 API 要求のアクセス トークンを取得するために、ア�
 
 * [Files API リファレンス](https://msdn.microsoft.com/office/office365/APi/files-rest-operations)
 
->We recommend that you take advantage of the Microsoft Graph when possible to access all of the APIs from a single endpoint, ```https://graph.microsoft.com```. Refer to the [Microsoft Graph documentation](https://graph.microsoft.io/) to browse all of the supported endpoints. 
+>単一のエンドポイントからすべての API にアクセスする場合、可能であれば Microsoft Graph を利用することをお勧めします (```https://graph.microsoft.com```)。 サポートされているすべてのエンドポイントを参照するには、「[Microsoft Graph ドキュメント](https://graph.microsoft.io/)」を参照してください。 
 
-For this sample, we will use the Files API to get a user's files. このサンプルでは、ファイル API を使用してユーザーのファイルを取得します。この操作のエンドポイントは ```https://{your_subdomain}-my.sharepoint.com/_api/v1.0/me/files```https://{your_subdomain}-my.sharepoint.com/_api/v1.0/me/files```{your_subdomain}``` です。{your_subdomain} は、Office 365 開発者向けサイトでサインアップするときに指定した **.onmicrosoft** のサブドメインです。 
+このサンプルでは、ファイル API を使用してユーザーのファイルを取得します。 この操作のエンドポイントは ```https://{your_subdomain}-my.sharepoint.com/_api/v1.0/me/files``` です。```{your_subdomain}``` は、Office 365 開発者向けサイトでサインアップするときに指定した **.onmicrosoft** のサブドメインです。 
 
 **メモ:** マルチテナント アプリケーションを開発している場合は、[探索サービス](https://msdn.microsoft.com/en-us/office/office365/howto/discover-service-endpoints)を使用して、必要なエンドポイントを決定することができます。ただし、これはクライアント側の JavaScript アプリケーションでは実行できず、サーバー側のコードが必要になります。 
 
@@ -145,9 +145,9 @@ var token = urlParameterExtraction.queryStringParameters['access_token'];
 
 ## Office 365 API への認証済み要求を実行する
 
-At this point, you've registered your app with Azure AD, determined the correct endpoint for the resource you want access to, and have been granted an access token from Azure AD. All that's left to do is to use these pieces to make an HTTP request to the API. You'll do this by sending off an ```XMLHttpRequest``` to the Files API endpoint with the OAuth access token attached to the Authorization header of the request. 
+この時点で、Azure AD へのアプリの登録、アクセス権が必要なリソースの正しいエンドポイントの決定、Azure AD からアクセス トークンの付与が完了しています。 あとは、これらの要素を使用して、API に対して HTTP 要求を行うだけです。 これを行うには、この要求の承認ヘッダーに OAuth アクセス トークンを付加して、ファイル API エンドポイントに ```XMLHttpRequest``` を送信します。 
 
-次の関数は、要求を行い、*結果* と同じ ID を持つ DOM 要素に応答の内容を配置します。 
+次の関数は、要求を行い、*結果*と同じ ID を持つ DOM 要素に応答の内容を配置します。 
 
 ```javascript
 function getFilesFromO365() { 
@@ -180,15 +180,15 @@ function getFilesFromO365() {
 }  
 ```
 
-The response object of the ```XMLHttpRequest``` contains the Office 365 data. XMLHttpRequest の応答オブジェクトには、Office 365 のデータが含まれています。この例では、これはサインインしているユーザーのファイルか、要求を完了できなかった理由を示すエラーです。 
+```XMLHttpRequest``` の応答オブジェクトには、Office 365 のデータが含まれています。 この例では、これはサインインしているユーザーのファイルか、要求を完了できなかった理由を示すエラーです。 
 
-## 次の手順
+## 次のステップ
 
 ここまでで、JavaScript クライアント アプリケーションから、CORS を使用して Office 365 API に対して要求を行えるようにする方法について説明しました。これは、クライアント側の JavaScript アプリケーションで CORS を使用する方法の簡単な例です。大規模な実稼働アプリケーションを作成する場合は、[JavaScript 版 Azure Active Directory Library (ADAL JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) および「[Office 365 APIでAngular アプリを作成する](..\howto\getting-started-Office-365-APIs.md)」を詳しく調べる必要があります。このライブラリは、単一ページのアプリケーションの Azure AD 認証を処理します。  
 
 以下は、この例のソース コードの全体であり、これを見るとそれぞれがどのように連携するかをより明確に理解することができます。 
 
-**メモ:** この例のコードを任意の場所でホストする場合は、**getToken** 関数の ```clientId```clientId```replyUrl``````{your-subdomain}``` と ```resource```replyUrl の値に Azure 管理ポータルで確認できるアプリケーションの値を設定し、resource 変数の {your-subdomain} の部分を使用するサブドメインに変更してください。 
+**メモ:** この例のコードを任意の場所でホストする場合は、**getToken** 関数の ```clientId``` と ```replyUrl``` の値に、Azure 管理ポータルで確認できるアプリケーションの値を設定し、```resource``` 変数の ```{your-subdomain}``` の部分を目的のサブドメインに変更してください。 
 
 ```javascript
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
@@ -365,15 +365,15 @@ The response object of the ```XMLHttpRequest``` contains the Office 365 data. XM
 </html>
 ```
 
-## その他の技術情報
+## その他のリソース
 
 **コード サンプル**
 
--  [Office 365 API スタート プロジェクトおよびサンプル コード](..\howto\Starter-projects-and-code-samples.md) 
+-  [Office 365 API スタート プロジェクトとコード サンプル](..\howto\Starter-projects-and-code-samples.md) 
 -  [GitHub 上の Office 開発者](https://github.com/OfficeDev)
 
 **リファレンス**
 
 -  [Office 365 API で Angular アプリを作成する](..\howto\getting-started-Office-365-APIs.md)
 -  [Office 365 REST API リファレンス](..\api\API-Catalog.md)
--  [JavaScript 版 Active Directory Authentication Library (ADAL)](https://github.com/AzureAD/azure-activedirectory-library-for-js)
+-  [JavaScript 版 Active Directory 認証ライブラリ (ADAL)](https://github.com/AzureAD/azure-activedirectory-library-for-js)

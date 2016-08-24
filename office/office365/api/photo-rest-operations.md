@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Outlook User Photo REST API reference
 title: "Outlook ユーザー写真 REST API リファレンス" 
-description: "ms.TocTitle: Outlook ユーザー写真 REST API リファレンス (プレビュー)Title: Outlook ユーザー写真 REST API リファレンス (プレビュー)Description: Office 365 のユーザー写真 REST API を使用して組織内のユーザーの写真を取得する方法や写真のメタデータ (サイズと種類など) を取得する方法のリファレンスです。ms.ContentId: 1bc24940-25ef-43fa-8602-be6df30439f7 ms.topic: リファレンス (API)"  
+description: "Office 365 のユーザー写真 REST API を使用して組織内のユーザーの写真を取得する方法や写真のメタデータ (サイズと種類など) を取得する方法のリファレンスです。"  
 ms.ContentId: 1bc24940-25ef-43fa-8602-be6df30439f7
 ms.date: July 12, 2016
 
@@ -17,7 +17,7 @@ ms.date: July 12, 2016
 [!INCLUDE [Add the Outlook REST API filters--v2 default v1 disabled](../includes/controls/addOutlookversion_v2default_v1disabled.xml)]
 
 
- _**Applies to:** Exchange Online | Office 365 | Hotmail.com | Live.com | MSN.com | Outlook.com | Passport.com_
+ _**適用対象:**Exchange Online | Office 365 | Hotmail.com | Live.com | MSN.com | Outlook.com | Passport.com_
 
 
 <!-- ============================================================================================================ -->
@@ -27,13 +27,13 @@ ms.date: July 12, 2016
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-<p class="previewnote"><p class="previewnote">このドキュメントは、プレビュー版に含まれるユーザー写真 API のベータ バージョンについて説明します Preview features are subject to change prior to finalization, and may break code that uses them. プレビュー機能は、最終処理までに変更される場合があります。それらを使用するコードを破棄する場合もあります。このため、一般に、実稼働コードでは実稼働バージョンの API のみを使用してください。可能な場合には、現在バージョン 2.0 が優先バージョンです。</p> If available, v2.0 is currently the preferred version.</p>
+<p class="previewnote">このドキュメントは、プレビュー版に含まれるユーザー写真 API のベータ版について説明します プレビュー機能は、最終版までに変更される場合があり、それらの機能を使用するコードが動作しなくなる場合もあります。 このため、一般に、運用コードでは運用バージョンの API のみを使用してください。 入手可能な場合、現時点ではバージョン 2.0 が優先バージョンです。</p>
 
 ユーザー写真 API を使用すると、Azure ActiveDirectory によってセキュリティ保護されているメールボックスを所有する Office 365 のユーザー、または Microsoft アカウント (具体的には、Hotmail.com、Live.com、MSN.com、Outlook.com、および Passport.com のいずれかのドメイン) のユーザーの写真をダウンロードまたは設定できます。
 
-**メモ** リファレンスをわかりやすくするため、この記事の残りの部分では **"Outlook.com" をこれらの Microsoft アカウントのドメインを含めた語として**使用しています。
+**注** リファレンスをわかりやすくするため、この記事の残りの部分では **"Outlook.com" をこれらの Microsoft アカウントのドメインを含めた語として**使用しています。
 
-**Not interested in the beta version of the API?** API v2.0 が不要な場合右上隅のコントロールを使用して、必要なバージョンを選択します。
+**ベータ版の API が不要な場合** 右上隅のコントロールを使用して、必要なバージョンを選択します。
 
 [!INCLUDE [END Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
@@ -48,10 +48,10 @@ ms.date: July 12, 2016
 
 ユーザー写真 API を使用すると、Azure ActiveDirectory によってセキュリティ保護されているメールボックスを所有する Office 365 のユーザー、または Microsoft アカウント (具体的には、Hotmail.com、Live.com、MSN.com、Outlook.com、および Passport.com のいずれかのドメイン) のユーザーの写真をダウンロードまたは設定できます。
 
-**メモ** リファレンスをわかりやすくするため、この記事の残りの部分では **"Outlook.com" をこれらの Microsoft アカウントのドメインを含めた語として**使用しています。
+**注** リファレンスをわかりやすくするため、この記事の残りの部分では **"Outlook.com" をこれらの Microsoft アカウントのドメインを含めた語として**使用しています。
 
 
-**Not interested in v2.0 of the API?** API v2.0 が不要な場合右上隅のコントロールを使用して、必要なバージョンを選択します。
+**API v2.0 が不要な場合** 右上隅のコントロールを使用して、必要なバージョンを選択します。
 
 [!INCLUDE [END Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
@@ -62,8 +62,8 @@ ms.date: July 12, 2016
 
 ### 認証
 
-Like other [Outlook REST API](..\api\use-outlook-rest-api.md#DefineOutlookRESTAPI), for every request to the Outlook User Photo API, you should include a valid access token. アクセス トークンを取得するには、アプリを登録して識別し、適切な承認を取得する必要があります。効率化された登録と承認のオプションに関する詳細情報を参照してください。要求のバッチ処理についての理解を深める際には、この点に留意してください。 You can [find out more](..\api\use-outlook-rest-api.md#ShortRegAuthWorkflow) about some streamlined registration and authorization options for you.
-Keep this in mind as you proceed with the specific operations in the User Photo API.
+その他の [Outlook REST API](..\api\use-outlook-rest-api.md#DefineOutlookRESTAPI) と同様に、Outlook ユーザー写真 API へのすべての要求には、有効なアクセス トークンを含める必要があります。 アクセス トークンを取得するには、アプリを登録して識別し、適切な承認を取得する必要があります。 効率化された登録と承認のオプションに関する[詳細情報](..\api\use-outlook-rest-api.md#ShortRegAuthWorkflow)を参照してください。
+ユーザー写真 API で特定の操作を続行する際には、この点に留意してください。
 
 ###API のバージョン
 
@@ -87,7 +87,7 @@ Keep this in mind as you proceed with the specific operations in the User Photo 
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-ユーザー写真 API には、**photo** エンティティに加えて、ベータ バージョンでのみ使用可能なプレビュー版の **photos** コレクションもあります。photos コレクションを使用すると、関心のあるユーザー写真について具体的なサイズを指示できます。 The **photos** collection lets you indicate specific sizes of the user photo that you're interested in.
+ユーザー写真 API には、**photo** エンティティに加えて、ベータ版でのみ使用可能なプレビューの **photos** コレクションもあります。 **photos** コレクションを使用すると、関心のあるユーザー写真について具体的なサイズを指示できます。
 
 [!INCLUDE [END Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
@@ -95,11 +95,11 @@ Keep this in mind as you proceed with the specific operations in the User Photo 
 
 
 <a name="GetPhotoMetadataOperations"> </a>
-###写真のメタデータを取得する
+### 写真のメタデータを取得する
 
 要求したユーザー写真に関する情報 (コンテンツ タイプ、eTag、ピクセル単位の幅と高さなど) を取得します。
 
-指定したユーザー (サインインしているユーザーであってもかまいません) の写真のメタデータを取得するには、次のいずれかのスコープを使用します。
+**必要な範囲** 指定したユーザー (サインインしているユーザーであってもかまいません) の写真のメタデータを取得するには、次のいずれかのスコープを使用します。
 - _user.readbasic.all_
 - _user.read.all_
 - _user.readwrite.all_
@@ -131,13 +131,13 @@ GET https://outlook.office.com/api/beta/me/photos('{size}')
 GET https://outlook.office.com/api/beta/Users('{user_id}')/photos('{size}')
 ```
 
-|**省略可能なパラメーター**|**型**|**説明**|
+|**省略可能なパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |_URL のパラメーター_|
 |user_id|string|ユーザーの電子メール アドレスです。|
-|size|string| A photo size. The value of '1x1' is autogenerated in the case a photo is not present in both Active Directory and the mailbox. <br/> If the photo is stored in the mailbox, then the predefined sizes are: '48x48', '64x64', '96x96', '120x120', '240x240', '360x360','432x432', '504x504', and '648x648'. If the user doesn't upload a large enough photo, then only the sizes that can be represented by the smaller predefined sizes are available. For example, if the user uploads a photo that is 504x504 pixels, then all but the 648x648 size of photo will be available for download. <br/> Photos can by any dimension if they are stored in Active Directory.  
+|size|string| 写真のサイズ。 値 '1 x 1' は、Active Directory とメールボックスのどちらにも写真が存在しない場合に自動的に生成されます。 <br/> 写真がメールボックスに格納されている場合の事前定義済みサイズは、'48x48'、'64x64'、'96x96'、'120x120'、'240x240'、'360x360'、'432x432'、'504x504'、'648x648' です。 ユーザーがアップロードした写真が大きくない場合は、それよりも小さい事前定義済みサイズで表現できるサイズのみがダウンロード可能になります。 たとえば、アップロードした写真が 504x504 ピクセルの場合は、648×648 を除くすべてのサイズの写真がダウンロード可能になります。 <br/> 写真が Active Directory に格納されている場合は、サイズに関する制限はありません。  
 
-この要求は、サインインしているユーザーの 240x240 ピクセル画像のメタデータを取得します。
+**要求のサンプル** この要求は、サインインしているユーザーの 240x240 ピクセル画像のメタデータを取得します。
 
 ```
 GET https://outlook.office.com/api/beta/me/photos('240x240')
@@ -145,7 +145,7 @@ GET https://outlook.office.com/api/beta/me/photos('240x240')
 
 **応答データのサンプル**
 
-次の応答データは、写真のメタデータを示しています。HTTP 応答コードは 200 です。 次の応答データは、写真のメタデータを示しています。HTTP 応答コードは 200 です。
+次の応答データは、写真のメタデータを示しています。 HTTP 応答コードは 200 です。
 ```
 {
     "@odata.context": "https://outlook.office.com/api/beta/$metadata#Me/photo/$entity",
@@ -190,13 +190,13 @@ GET https://outlook.office.com/api/v2.0/Users('{user_id}')/photo
 ```
 
 
-|**省略可能なパラメーター**|**型**|**説明**|
+|**省略可能なパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |_URL のパラメーター_|
 |user_id|string|ユーザーの電子メール アドレスです。|
  
 
-この要求は、サインインしているユーザーのユーザー写真のメタデータを取得します。
+**要求のサンプル** この要求は、サインインしているユーザーのユーザー写真のメタデータを取得します。
 
 ```
 GET https://outlook.office.com/api/v2.0/me/photo
@@ -204,7 +204,7 @@ GET https://outlook.office.com/api/v2.0/me/photo
 
 **応答データのサンプル**
 
-次の応答データは、写真のメタデータを示しています。HTTP 応答コードは 200 です。 次の応答データは、写真のメタデータを示しています。HTTP 応答コードは 200 です。
+次の応答データは、写真のメタデータを示しています。 HTTP 応答コードは 200 です。
 ```
 {
     "@odata.context": "https://outlook.office.com/api/v2.0/$metadata#Me/photo/$entity",
@@ -244,9 +244,9 @@ GET https://outlook.office.com/api/v2.0/me/photo
 
 指定したユーザーのユーザー写真を取得します。
 
-This operation allows a tenant administrator to let an app get the user photo of any user in the tenant.
+この操作でテナント管理者は、テナントのユーザーのユーザー写真をアプリに取得させることができます。
 
-指定したユーザー (サインインしているユーザーであってもかまいません) の写真を取得するには、次のいずれかのスコープを使用します。
+**必要な範囲** 指定したユーザー (サインインしているユーザーであってもかまいません) の写真を取得するには、次のいずれかのスコープを使用します。
 - _user.readbasic.all_
 - _user.read.all_
 - _user.readwrite.all_
@@ -275,11 +275,11 @@ GET https://outlook.office.com/api/beta/me/photos('{size}')/$value
 GET https://outlook.office.com/api/beta/Users('{user_id}')/photos('{size}')/$value
 ```
 
-|**省略可能なパラメーター**|**型**|**説明**|
+|**省略可能なパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |_URL のパラメーター_|
 |user_id|string|ユーザーの電子メール アドレスです。|
-|size|string| A photo size. The value of '1x1' is autogenerated in the case a photo is not present in both Active Directory and the mailbox. <br/> If the photo is stored in the mailbox, then the predefined sizes are: '48x48', '64x64', '96x96', '120x120', '240x240', '360x360','432x432', '504x504', and '648x648'. If the user doesn't upload a large enough photo, then only the sizes that can be represented by the smaller predefined sizes are available. For example, if the user uploads a photo that is 504x504 pixels, then all but the 648x648 size of photo will be available for download. <br/> Photos can by any dimension if they are stored in Active Directory.  
+|size|string| 写真のサイズ。 値 '1 x 1' は、Active Directory とメールボックスのどちらにも写真が存在しない場合に自動的に生成されます。 <br/> 写真がメールボックスに格納されている場合の事前定義済みサイズは、'48x48'、'64x64'、'96x96'、'120x120'、'240x240'、'360x360'、'432x432'、'504x504'、'648x648' です。 ユーザーがアップロードした写真が大きくない場合は、それよりも小さい事前定義済みサイズで表現できるサイズのみがダウンロード可能になります。 たとえば、アップロードした写真が 504x504 ピクセルの場合は、648×648 を除くすべてのサイズの写真がダウンロード可能になります。 <br/> 写真が Active Directory に格納されている場合は、サイズに関する制限はありません。  
 
 
 **要求のサンプル**
@@ -311,7 +311,7 @@ GET https://outlook.office.com/api/v2.0/Users('{user_id}')/photo/$value
 ```
 
 
-|**省略可能なパラメーター**|**型**|**説明**|
+|**省略可能なパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |_URL のパラメーター_|
 |user_id|string|ユーザーの電子メール アドレスです。|
@@ -334,7 +334,7 @@ Content-Type: image/jpg
 
 **応答データ**
 
-要求した写真のバイナリ データが含まれています。HTTP 応答コードは 200 です。 要求した写真のバイナリ データが含まれています。HTTP 応答コードは 200 です。
+要求した写真のバイナリ データが含まれています。 HTTP 応答コードは 200 です。
 
 ****
 
@@ -346,18 +346,18 @@ Content-Type: image/jpg
 
 [!INCLUDE [BEGIN Outlook beta section](../includes/controls/outlookrestapibetasection.xml)]
 
-Assign a photo to the specified user. The photo should be in binary. It replaces any existing photo for that user.
+指定されたユーザーに写真を割り当てます。 写真はバイナリ形式にする必要があります。 該当するユーザーの既存の写真と置き換えられます。
 
-This operation allows a tenant administrator to let an app set the user photo of any user in the tenant. Use only PUT for this operation in the beta version.
+この操作でテナント管理者は、テナントのユーザーのユーザー写真をアプリに設定させることができます。 ベータ版では、この操作に PUT のみを使用します。
 
 
 **必須スコープ** 
 
-Use the following scope to set the photo of the specified user, who can be any user in the tenant or the signed-in user:
+指定したユーザー (テナントのユーザーまたはサインインしているユーザーであってもかまいません) の写真を設定するには、次のスコープを使用します。
 - _user.readwrite.all_ 
 
 
-サインインしていることが明確なユーザーの写真を取得する場合は、次のスコープを使用することもできます。
+サインインしていることが明確なユーザーの写真を設定する場合は、次のスコープを使用することもできます。
 - _user.readwrite_
 
 ```no-highlight
@@ -365,7 +365,7 @@ PUT https://outlook.office.com/api/beta/me/photo/$value
 PUT https://outlook.office.com/api/beta/users('{user_id}')/photo/$value
 ```
 
-|**省略可能なパラメーター**|**型**|**説明**|
+|**省略可能なパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |_URL のパラメーター_|
 |user_id|string|ユーザーの電子メール アドレスです。|
@@ -391,12 +391,12 @@ Content-Type: image/jpeg
 
 [!INCLUDE [BEGIN Outlook v2 section](../includes/controls/outlookrestapiv2section.xml)]
 
-Assign a photo to the signed-in user. The photo should be in binary. It replaces any existing photo for that user. 
+サインインしているユーザーに写真を割り当てます。 写真はバイナリ形式にする必要があります。 該当するユーザーの既存の写真と置き換えられます。 
 
-You can use either PATCH or PUT for this operation in version 2.0.
+バージョン 2.0 では、この操作に PATCH と PUT のいずれかを使用できます。
 
 
-サインインしているユーザーの写真を設定する場合は、次のスコープを使用します。
+**必要な範囲** サインインしているユーザーの写真を設定する場合は、次のスコープを使用します。
 - _user.readwrite_ 
 
 ```no-highlight
@@ -407,7 +407,7 @@ PUT https://outlook.office.com/api/v2.0/me/photo/$value
 PUT https://outlook.office.com/api/v2.0/users('{user_id}')/photo/$value
 ```
 
-|**省略可能なパラメーター**|**型**|**説明**|
+|**省略可能なパラメーター**|**種類**|**説明**|
 |:-----|:-----|:-----|
 |_URL のパラメーター_|
 |user_id|string|ユーザーの電子メール アドレスです。|
@@ -436,12 +436,12 @@ Content-Type: image/jpeg
 
 
 <a name="NextSteps"> </a>
-## 次のステップ
+## 次の手順
 
 アプリケーション開発を開始する準備ができている方にも、単に詳しい情報を必要としている方にも、最適なコンテンツをご用意しています。
 
 
-- [メール、予定表、および連絡先 REST API 入門](http://dev.outlook.com/RestGettingStarted)。
+- [メール、予定表、および連絡先 REST API の使用を開始します](http://dev.outlook.com/RestGettingStarted)。
 
 - Office 365 の API を実際に試してみるには、対話形式の [API サンドボックス](http://apisandbox.msdn.microsoft.com/)をお使いください。
 
@@ -454,7 +454,7 @@ Office 365 プラットフォームの使い方の詳細については、次の
 
 - [Office 365 プラットフォーム上での開発の概要](..\howto\platform-development-overview.md)
 
-- [Office 365 アプリケーションの認証およびリソース承認](..\howto\common-app-authentication-tasks.md)
+- [Office 365 のアプリ認証とリソース承認](..\howto\common-app-authentication-tasks.md)
 
 - [Office 365 API にアクセスできるようにアプリを手動で Azure AD に登録する](..\howto\add-common-consent-manually.md)
 

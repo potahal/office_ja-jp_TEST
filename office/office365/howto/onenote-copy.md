@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Copy notebooks, sections, and pages
-title: "ノートブック、セクション、ページをコピーする" 
-description: "Use the OneNote API to copy notebooks, sections, and pages."
+title: "ノートブック、セクション、ページのコピー" 
+description: "OneNote API を使用して、ノートブック、セクション、ページをコピーします。"
 ms.ContentId: b21fe8c7-dab8-4efd-a3ac-b07c4c39f60d
 ms.date: January 26, 2016
 ---
@@ -9,25 +9,25 @@ ms.date: January 26, 2016
 [!INCLUDE [Add the O365API repo styles](../includes/controls/addo365apistyles.xml)]
 [!INCLUDE [Add the ONAPI repo styles](../includes/controls/addonapistyles.xml)]
 
-<style>##simpletable {margin:-5px 0px 0px 0px; border:none;} #simplecell {border:none; padding:15px 20px; background-color:white;}</style>
+<style>#simpletable {margin:-5px 0px 0px 0px; border:none;} #simplecell {border:none; padding:15px 20px; background-color:white;}</style>
 
 
-# ノートブック、セクション、ページをコピーする
+# ノートブック、セクション、およびページのコピー
 
-**__適用対象:__Office 365 のエンタープライズ ノートブックのみ**
+*__適用対象:__Office 365 のエンタープライズ ノートブックのみ*
 
-OneNote ノートブック、セクション、またはページをコピーする場合は、それぞれに対応する *copy* アクション エンドポイントに POST 要求を送信します。次に例を示します。 次に例を示します。
+OneNote ノートブック、セクション、またはページをコピーする場合は、それぞれに対応する *copy* アクション エンドポイントに POST 要求を送信します。 たとえば次のようにします。
 
 <p id="indent">`POST ../notes/sections/{id}/copyToNotebook`</p>
 
 メッセージの本文で JSON のコピー オブジェクトを送信します。要求が成功すると、OneNote API は 202 HTTP 状態コードと **Operation-Location** ヘッダーを返します。その後、結果について、操作エンドポイントをポーリングできます。
 
->>現時点では、コピー機能は Office 365 の個人、サイト、および統合グループのノートブックでサポートされていますが、OneDrive のコンシューマー ノートブックではサポートされていません。
+>現時点では、コピー機能は Office 365 の個人、サイト、統合グループのノートブックでサポートされていますが、OneDrive のコンシューマー ノートブックではサポートされていません。
 
 <a name="request-uri"></a>
 ## 要求 URI の構築
 
-要求 URI を構築するには、お使いのプラットフォーム用のサービス ルート URL から開始します。
+要求 URI を構築するには、プラットフォームのサービス ルート URL から開始します。
 
 [!INCLUDE [service root url enterprise only](../includes/onenote/service-root-url-ent.xml)]
 
@@ -44,10 +44,10 @@ OneNote ノートブック、セクション、またはページをコピーす
 
 <p id="outdent1"><b>ノートブックをコピーする</b></p>
 <p id="indent1">`../notebooks/{id}/copyNotebook`</p> 
-<p id="indent1">ノートブックは、コピー先ドキュメント ライブラリの [ノートブック] フォルダーにコピーされます。[ノートブック] フォルダーが存在しない場合は、そのフォルダーが作成されます。 The Notebooks folder is created if it doesn't exist.</p>
+<p id="indent1">ノートブックは、コピー先ドキュメント ライブラリの [ノートブック] フォルダーにコピーされます。 [ノートブック] フォルダーが存在しない場合は、そのフォルダーが作成されます。</p>
 
 <br />
-完全な要求 URI は、次のいずれかのようになります。
+完全な要求 URI は、次に示す例のいずれかのようになります。
 
 <p id="indent">`https://www.onenote.com/api/v1.0/me/notes/sections/{id}/copyToNotebook`</p>
 <p id="indent">`https://www.onenote.com/api/v1.0/users/{id}/notes/sections/{id}/copytosectiongroup`</p>
@@ -64,11 +64,11 @@ OneNote ノートブック、セクション、またはページをコピーす
 
 | パラメーター | 説明 |  
 |:------|:------|  
-| id | コピー先のノートブックまたはセクション グループの ID (セクションの場合)、またはコピー先のセクションの ID (ページの場合)。copyToNotebook、copyToSectionGroup、copyToSection でのみ使用します。<br /><br />Used with **copyToNotebook**, **copyToSectionGroup**, and **copyToSection** only. |  
-| siteCollectionId | アイテムのコピー先のサイトが含まれている SharePoint サイト コレクションの ID。siteId で使用し、SharePoint サイトにコピーする場合にのみ使用します。<br /><br />アイテムのコピー先のサイトが含まれている SharePoint サイト コレクションの ID。**siteId** で使用し、SharePoint サイトにコピーする場合にのみ使用します。 |   
-| siteId | アイテムのコピー先の SharePoint サイト。siteCollectionIdで使用し、SharePoint サイトにコピーする場合にのみ使用します。<br /><br />アイテムのコピー先の SharePoint サイト。**siteCollectionId**で使用し、SharePoint サイトにコピーする場合にのみ使用します。 |  
-| groupId | アイテムのコピー先のグループの ID。統合グループにコピーする場合にのみ使用します。<br /><br />アイテムのコピー先のグループの ID。統合グループにコピーする場合にのみ使用します。 |  
-| renameAs | コピーするフィルターの名前を指定します。<br /><br />Used with **copyNotebook**, **copyToNotebook**, and **copyToSectionGroup** only. Defaults to the name of the existing item. |  
+| id | コピー先のノートブックまたはセクション グループの ID (セクションの場合)、またはコピー先のセクションの ID (ページの場合)。<br /><br />**copyToNotebook**、**copyToSectionGroup**、**copyToSection** でのみ使用します。 |  
+| siteCollectionId | アイテムのコピー先サイトを格納する SharePoint サイト コレクションの ID。<br /><br />SharePoint サイトにコピーする場合にのみ、**siteId** と共に使用します。 |   
+| siteId | アイテムのコピー先 SharePoint サイトの ID。<br /><br />SharePoint サイトにコピーする場合にのみ、**siteCollectionId** と共に使用します。 |  
+| groupId | アイテムのコピー先グループの ID。<br /><br />統合グループにコピーする場合にのみ使用します。 |  
+| renameAs | コピーの名前。<br /><br />**copyNotebook**、**copyToNotebook**、および **copyToSectionGroup** でのみ使用します。 既定値は、既存のアイテムの名前になります。 |  
 
 [ノートブック、セクション グループ、およびセクションの ID を取得する](../howto/onenote-get-content.md)方法と、[サイト コレクションおよびサイトの ID を取得する](#get-site-id)方法について学習してください。グループ ID の取得方法の詳細については、[Azure AD Graph API のドキュメント](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)を参照してください。
 
@@ -91,9 +91,9 @@ Content-Type: application/json
 }
 ```
 
->>コピー操作では、コピー元ノートブックのアクセス許可が優先されるため、ノートブックをコピーするには、認証されたユーザーがコピー元ノートブックにアクセスできる必要があります。ただし、コピー元のアクセス許可がコピーに維持されることはありません。コピーには、そのコピーをユーザーが作成したものとしてのアクセス許可が付与されます。 However, copies don't retain the permissions of the source. The copy has permissions as though the user just created it. 
+>コピー操作では、コピー元ノートブックのアクセス許可が優先されるため、ノートブックをコピーするには、認証されたユーザーがコピー元ノートブックにアクセスできる必要があります。 ただし、コピー元のアクセス許可がコピーに維持されることはありません。 コピーには、そのコピーをユーザーが作成したものとしてのアクセス許可が付与されます。 
 
-呼び出しが成功すると、OneNote API は 202 状態コードと **Operation-Location** ヘッダーを返します。次に、応答からの抜粋を示します。 Here's an excerpt of the response: 
+呼び出しが成功すると、OneNote API は 202 状態コードと **Operation-Location** ヘッダーを返します。 次に、応答からの抜粋を示します。 
 
 ```
 HTTP/1.1 202 Accepted
@@ -111,7 +111,7 @@ Authorization: Bearer {token}
 Accept: application/json
 ```
   
-OneNote API は、現在の状態を示す **OperationModel** オブジェクトを返します。次に示す応答例は、状態が完了 (completed) のときに返されます。 OneNote API は、現在の状態を示す OperationModel オブジェクトを返します。次に示す応答例は、状態が完了 (completed) のときに返されます。 
+OneNote API は、現在の状態を示す **OperationModel** オブジェクトを返します。 次に示す応答例は、状態が完了 (completed) のときに返されます。 
 
 ```json
 {
@@ -141,15 +141,15 @@ OneNote API は、現在の状態を示す **OperationModel** オブジェクト
 | 要求データ | 説明 |  
 |------|------|  
 | プロトコル | すべての要求は SSL/TLS HTTPS プロトコルを使用します。 |  
-| 承認ヘッダー | `Bearer {token}`。ここで *{token}* は、登録済みのアプリの有効な OAuth 2.0 アクセス トークンです。<br /><br />欠落している、または無効な場合は、401 ステータス コードで要求は失敗します。Azure AD を使用した認証 (エンタープライズ アプリ)を参照してください。 認証とアクセス許可 |  
+| 承認ヘッダー | `Bearer {token}`。*{token}* は、登録済みアプリの有効な OAuth 2.0 アクセス トークンになります。<br /><br />これがないか、無効の場合、要求は失敗し、401 ステータス コードが表示されます。 「[認証とアクセス許可](..\howto\onenote-auth.md)」を参照してください。 |  
 | Content-Type ヘッダー | `application/json` |  
-| 承諾ヘッダー | `application/json` | 
+| Accept ヘッダー | `application/json` | 
 
 | 応答データ | 説明 |  
 |------|------|  
 | 成功コード | 202 状態の HTTP 状態コード。 |   
-| Operation-Location ヘッダー | The URL to poll for the status of the operation.<br /><br />操作の状態についてポーリングする URL。操作エンドポイントをポーリングすると、操作の状態などの情報を格納している **OperationModel** オブジェクトが返されます。 | 
-| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行うときに、この値を Date ヘッダーの値とともに使用できます。 |
+| Operation-Location ヘッダー | 操作の状態についてポーリングする URL。<br /><br />操作エンドポイントをポーリングすると、操作の状態などの情報を格納している **OperationModel** オブジェクトが返されます。 | 
+| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行う際に、この値を Date ヘッダーの値とともに使用できます。 |
 
 
 <a name="root-url"></a>
@@ -169,11 +169,11 @@ OneNote のノートブック、セクション、およびページをコピー
 
 
 <a name="see-also"></a>
-## その他の技術情報
+## その他のリソース
 
 - [OneNote コンテンツと構造を取得する](../howto/onenote-get-content.md)
 - [OneNote ページの作成](../howto/onenote-create-page.md)
-- [OneNote 開発](../howto/onenote-landing.md)
+- [OneNote の開発](../howto/onenote-landing.md)
 - [OneNote デベロッパー センター](http://dev.onenote.com/)
 - [OneNote の開発者ブログ](http://go.microsoft.com/fwlink/?LinkID=390183)
 - [スタック オーバーフローに関する OneNote の開発の質問](http://go.microsoft.com/fwlink/?LinkID=390182)

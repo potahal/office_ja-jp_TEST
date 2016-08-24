@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: File handlers overview
 title: "Office 365 ファイル ハンドラーの概要"
-description: "ms.TocTitle:ファイル ハンドラーの概要 Title:Office 365 ファイル ハンドラーの概要 Description:ファイル ハンドラーを使用すると、マイクロソフト以外のファイルの種類を Office 365 に統合し、アイコンを表示したり、新しいファイルを作成したり、プレビューしたり、マイクロソフト以外のエディターで開いたりできます。ms.ContentId:78826f1a-6aa2-46ca-b2b4-a6caf5ee9040ms.topic: 記事 (方法) ms.date:2015 年 12 月 10 日"
+description: "ファイル ハンドラーを使用すると、マイクロソフト以外のファイルの種類を Office 365 に統合し、アイコンを表示したり、新しいファイルを作成したり、プレビューしたり、マイクロソフト以外のエディターで開いたりできます。"
 ms.ContentId: 78826f1a-6aa2-46ca-b2b4-a6caf5ee9040
 ms.date: December 10, 2015
 
@@ -15,7 +15,7 @@ ms.date: December 10, 2015
 
 <!-- Get an overview of Office 365 file handler add-in for Office 365. -->
 
-_**適用対象:** Office 365_
+_**適用対象:**Office 365_
 
   
 ファイル ハンドラーは、マイクロソフト以外のファイルの種類を Office のファイルの種類と同じ方法で Office 365 に統合できる新しい種類の Office のアドインです。
@@ -37,28 +37,28 @@ _**適用対象:** Office 365_
 <a name="sectionSection1"> </a>
 ### ファイル ハンドラー アプリケーション
 
-The file handler application is a cloud-hosted application that contains the functional logic for creating, previewing, opening, and saving files of the type that it handles. It can be hosted on any stack, including non-Microsoft stacks. File handlers uses Azure AD to gain authorized access to Office 365 resources, so the application needs to be registered with Azure AD. For more information about registering an application with Azure AD, see: [Using Visual Studio to register your app and add Office 365 APIs](https://msdn.microsoft.com/office/office365/HowTo/adding-service-to-your-Visual-Studio-project) and [Manually register your app with Azure AD so it can access Office 365 APIs](https://msdn.microsoft.com/en-us/office/office365/howto/add-common-consent-manually).
+ファイル ハンドラー アプリケーションはクラウドでホストされるアプリケーションであり、そのアプリケーションが処理する種類のファイルを作成したり、プレビューしたり、開いたり、保存したりするための機能ロジックが含まれます。 Microsoft 以外のスタックなど、任意のスタックでホストできます。 ファイル ハンドラーは Azure AD を使用して Office 365 リソースへのアクセスの承認を得るので、アプリケーションを Azure AD に登録する必要があります。 Azure AD へのアプリケーションの登録の詳細については、以下を参照してください。「[Visual Studio を使用してアプリを登録し、Office 365 API を追加する](https://msdn.microsoft.com/office/office365/HowTo/adding-service-to-your-Visual-Studio-project)」および「[Office 365 API にアクセスできるようにアプリを手動で Azure AD に登録する](https://msdn.microsoft.com/en-us/office/office365/howto/add-common-consent-manually)」。
 
 Visual Studio を使用して基本的なファイル ハンドラーを作成、展開、および登録する手順については、「[Office 365 でのファイル ハンドラーの作成](..\howto\create-file-handler-extensions.md)」を参照してください。
 
-さらに複雑なファイル ハンドラーの例については、GitHub で「[GPX-FileHandler](https://github.com/OfficeDev/GPX-FileHandler)」を参照してください、
+さらに複雑なファイル ハンドラーの例については、GitHub の「[GPX-FileHandler](https://github.com/OfficeDev/GPX-FileHandler)」を参照してください、
 
 
 <a name="sectionSection2"> </a>
 #### 実行時のファイル ハンドラー
 
- The file handler is invoked with the **newFileUrl**, **openUrl** or **previewUrl** URL specified in the addIns property of the Azure AD app manifest. To understand what happens, let's take a look at the scenario where a user clicks on the ellipses (**...**) to open the file callout. If there is a registered file handler for that file type, Office 365 invokes the file handler app by making a **POST** request to the URL specified in the **previewUrl** for the app manifest, passing the file location, along with other details in the request. The **previewUrl** points to a method in the file handler application that will retrieve a file stream for the file, and then uses this stream to provide a preview of the file in the browser.
+ ファイル ハンドラーは、Azure AD アプリ マニフェストの addIns プロパティで指定されている **newFileUrl**、**openUrl** または **previewUrl** URL で呼び出されます。 動作を理解するために、ユーザーが省略記号 (**...**) をクリックしてファイル コールアウトを開く場合のシナリオについて調べてみましょう。 そのファイルの種類に対応する登録済みのファイル ハンドラーがある場合、Office 365 はアプリ マニフェストの **previewUrl** で指定されている URL に **POST** 要求を行うことでファイル ハンドラー アプリを呼び出します。この要求では、ファイルの場所とその他の詳細を渡します。 **previewUrl** は、ファイルのファイル ストリームを取得するファイル ハンドラー アプリケーション内のメソッドを指し示しています。その後、メソッドは、このストリームを使用してブラウザーでのファイルのプレビューを可能にします。
  
  これは開く機能と同じアプローチです。ユーザーが **[ブラウザーで編集]** をクリックした場合、またはライブラリでドキュメントのタイトルを直接クリックした場合、Office 365 は **openUrl** の URL に対して **POST** 要求を行います。このエンドポイントは、適切なエディターにファイル ストリームを読み込み、ユーザーがファイルを編集できるようにします。また、アプリケーションでは、更新されたファイル ストリームをユーザーがファイルの場所に戻してファイルを保存できるようにする必要もあります。ファイルの場所は、**filePut** アクティブ化パラメーターで指定されています。
 
-When a user clicks on **New file**, Office 365 makes a **POST** request to the **newFileUrl**. This endpoint opens the appropriate editor so that the user can add content to the new file. The application should enable the user to save the file back to the file location specified in the **filePut** activation parameter.
+ユーザーが **[新しいファイル]** をクリックすると、Office 365 は **newFileUrl** に **POST** 要求を送信します。 このエンドポイントにより、適切なエディターが開かれるため、ユーザーは新しいファイルにコンテンツを追加できるようになります。 アプリケーションでは、**filePut** アクティブ化パラメーターで指定されたファイルの場所に、ユーザーがファイルを保存できるようにする必要があります。
 
 <a name="sectionSection3"> </a>
 #### アクティブ化パラメーター
 
 新しいファイルの作成、ファイルを開くおよびファイルのプレビューのシナリオでは、ファイルを操作するために、アクティブ化パラメーターと呼ばれる詳細 (ファイル、テナント、Office 365 クライアントなどに関する詳細) を必要とします。Office 365 は、ファイルを開くメソッドまたはファイルをプレビューするメソッドへの最初の **POST** 要求で送信するフォーム データとして、これらの詳細を含めます。
 
-**表 1.  表 1. ファイル ハンドラーが起動されたときに Office 365 が送信するアクティブ化パラメーターについての説明。**
+**表 1. ファイル ハンドラーが起動されたときに Office 365 が送信するアクティブ化パラメーターについての説明。**
 
 |**パラメーター**|**説明**|
 |:-----|:-----|:-----|
@@ -70,7 +70,7 @@ When a user clicks on **New file**, Office 365 makes a **POST** request to the *
 | **FileId**|特定のドキュメントのドキュメント ID。アプリケーションは同時に複数のドキュメントを開くことができます。| 
 
 
-Request.Form コレクションを使用して、要求本文からこれらの値にアクセスします。次に例を示します。 次に例を示します。
+Request.Form コレクションを使用して、要求本文からこれらの値にアクセスします。 たとえば次のようにします。
 
 ```cs
 Request.Form["FileId"];
@@ -123,7 +123,7 @@ Request.Form["FileId"];
 
 
 <a name="sectionSection101"> </a>
-## ファイル ハンドラーの可用性
+## ファイル ハンドラーの使用可能性
 
 次の表は、ファイル ハンドラーをサポートする Office 365 サービスの一覧です。
 

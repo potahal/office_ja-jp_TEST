@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Manage permissions
 title: "OneNote エンティティのアクセス許可を管理する"
-description: "ms.TocTitle:アクセス許可の管理Title:OneNote エンティティのアクセス許可を管理するDescription:ノートブック、セクション グループおよびセクションの読み取りアクセス許可と書き込みアクセス許可を作成して管理する方法について説明します。ms.ContentId:9dd85ba3-d01d-4148-b643-47b0f55cd99ams.topic: 記事 (方法) ms.date:2016 年 5 月 24 日"
+description: "ノートブック、セクション グループおよびセクションの読み取りアクセス許可と書き込みアクセス許可を作成して管理する方法について説明します。"
 ms.ContentId: 9dd85ba3-d01d-4148-b643-47b0f55cd99a
 ms.date: May 24, 2016
 
@@ -14,16 +14,16 @@ ms.date: May 24, 2016
 
 # OneNote エンティティのアクセス許可を管理する
 
-*__適用対象:__Office 365 のEnterprise ノートブック*
+*__適用対象:__Office 365 のエンタープライズ ノートブック*
 
-*permissions* エンドポイントを使用すると、ノートブック、セクション グループ、およびセクションに対する読み取りアクセス許可と書き込みアクセス許可管理できます。
+*permissions* エンドポイントを使用すると、ノートブック、セクション グループ、セクションに対する読み取りアクセス許可と書き込みアクセス許可管理できます。
 
 <p id="indent1">`POST ../permissions`</p>
 <p id="indent1">`GET ../permissions`</p>
 <p id="indent1">`GET ../permissions/{permission-id}`</p>
 <p id="indent1">`DELETE ../permissions/{permission-id}`</p>
 
->>アクセス許可の管理は Office 365 の個人、サイト、および統合グループのノートブックでサポートされていますが、OneDrive のコンシューマー ノートブックではサポートされていません。
+>アクセス許可の管理は Office 365 の個人、サイト、統合グループのノートブックでサポートされていますが、OneDrive のコンシューマー ノートブックではサポートされていません。
 
 <a name="request-uri"></a>
 ## 要求 URI の構築
@@ -73,8 +73,8 @@ ms.date: May 24, 2016
 
 | パラメーター | 説明 |  
 |:------|:------|  
-| userRole | アクセス許可の種類: Owner、Contributor、または Reader。 |  
-| userId | The login of the user or group to assign the permission to. The API accepts the claims format which includes the membership provider name (*i:0#.f&#124;membership&#124;username@domainname.com*), or the user principal login name only (*username@domainname.com*). |  
+| userRole | [アクセス許可](#permission-inheritance-and-precedence)の種類: `Owner`、`Contributor`、または `Reader`。 |  
+| userId | アクセス許可を割り当てるユーザーまたはグループのログイン。 API は、メンバーシップ プロバイダー名 (*i:0#.f&#124;membership&#124;username@domainname.com*)、またはユーザー プリンシパル ログイン名のみ (*username@domainname.com*) を含むクレーム形式を受け入れます。 |  
 
 ### 例
 
@@ -116,15 +116,15 @@ HTTP/1.1 201 Created
 | 要求データ | 説明 |  
 |------|------|  
 | プロトコル | すべての要求は SSL/TLS HTTPS プロトコルを使用します。 |  
-| 承認ヘッダー | <p>`Bearer {token}`。ここで *{token}* は、登録済みのアプリの有効な OAuth 2.0 アクセス トークンです。</p><p>欠落している、または無効な場合は、401 ステータス コードで要求は失敗します。Azure AD を使用した認証 (エンタープライズ アプリ)を参照してください。 Azure AD を使用して認証する (エンタープライズ アプリ)</p> |  
-| [アクセス許可の適用範囲](../howto/onenote-auth.md#onenote-perms-aad) | Notes.ReadWrite.CreatedByApp、Notes.ReadWrite、Notes.ReadWrite.All |    
+| 承認ヘッダー | <p>`Bearer {token}`。*{token}* は、登録済みアプリの有効な OAuth 2.0 アクセス トークンになります。</p><p>これがないか、無効の場合、要求は失敗し、401 ステータス コードが表示されます。 「[Azure AD を使用した認証 (エンタープライズ アプリ)](..\howto\onenote-auth.md#aad-auth)」を参照してください。</p> |  
+| [アクセス許可のスコープ](../howto/onenote-auth.md#onenote-perms-aad) | Notes.ReadWrite.CreatedByApp、Notes.ReadWrite、Notes.ReadWrite.All |    
 
 | 応答データ | 説明 |  
 |------|------|  
 | 成功コード | 201 HTTP ステータス コード。 |   
-| 応答本文 | JSON 形式でのアクセス許可の OData 表現。 JSON 形式でのアクセス許可の OData 表現。Permission オブジェクトの説明については、「[アクセス許可の取得](#get-permissions)」を参照してください。 |
+| 応答本文 | JSON 形式でのアクセス許可の OData 表現。 Permission オブジェクトの説明については、「[アクセス許可の取得](#get-permissions)」を参照してください。 |
 | エラー | 要求が失敗すると、API は応答本文に[エラー](../howto/onenote-error-codes.md)を返します。 |   
-| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行うときに、この値を Date ヘッダーの値とともに使用できます。 |  
+| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行う際に、この値を Date ヘッダーの値とともに使用できます。 |  
 
 
 <a name="get"></a>
@@ -151,14 +151,14 @@ HTTP/1.1 201 Created
 <p id="indent">`GET ../sections/{section-id}/permissions/{permission-id}`</p>
 
 <br />
-GET 要求は、ターゲット エンティティのユーザー ロールで最高のアクセス許可を返します。詳細については、「アクセス許可、継承、および優先順位」を参照してください。 For more information, see [Permission inheritance and precedence](#permission-inheritance-and-precedence).
+GET 要求は、ターゲット エンティティのユーザー ロールで最高のアクセス許可を返します。 詳細については、「[アクセス許可、継承、および優先順位](#permission-inheritance-and-precedence)」を参照してください。
 
-GET /permissions`GET /permissions` 要求は、次に示すように OData クエリのオプションをサポートします。
+`GET /permissions` 要求は、次に示すように OData クエリのオプションをサポートします。
 
 <p id="indent">`GET ../permissions[?filter,orderby,select,top,skip,count]`</p>
 <p id="indent">`GET ../permissions/{permission-id}[?select]`</p>
 
->>*permissions* エンドポイントは、expand`expand` クエリ オプションをサポートしていません。
+>*permissions* エンドポイントは、`expand` クエリ オプションをサポートしていません。
 
 サポートされているクエリ文字列オプションや例などを含む OneNote エンティティの取得の詳細については、「[OneNote コンテンツと構造を取得する](../howto/onenote-get-content.md)」を参照してください。
 
@@ -168,11 +168,11 @@ GET /permissions`GET /permissions` 要求は、次に示すように OData ク�
 
 | プロパティ | 説明 | 
 |:------|:------| 
-| name | ユーザーまたはグループ プリンシパルの表示名。例: "name":"Everyone" 例`"name":"Everyone"` | 
-| id | アクセス許可の一意の識別子 (1-{principal-member-id}`1-{principal-member-id}` の形式)。例: "id":"1-4" 例`"id":"1-4"` | 
+| name | ユーザーまたはグループ プリンシパルの表示名。 例: `"name":"Everyone"` | 
+| id | アクセス許可の一意の識別子 (`1-{principal-member-id}` の形式)。 例: `"id":"1-4"` | 
 | self | Permission オブジェクトの URL。 | 
-| userId | アクセス許可の割り当て先ユーザーまたはグループのログイン。この値は、常にクレーム形式で返されます。例： *i:0#.f|membership|username@domainname.com* This value is always returned in the claims format, for example: *i:0#.f&#124;membership&#124;username@domainname.com*. | 
-| userRole | アクセス許可の種類: Owner、Contributor、または Reader。 | 
+| userId | アクセス許可の割り当て先ユーザーまたはグループのログイン。 この値は、常にクレーム形式で返されます。例： *i:0#.f&#124;membership&#124;username@domainname.com*。 | 
+| userRole | [アクセス許可](#permission-inheritance-and-precedence)の種類: `Owner`、`Contributor`、または `Reader`。 | 
 
 ### 例
 
@@ -225,15 +225,15 @@ HTTP/1.1 200
 | 要求データ | 説明 |  
 |------|------|  
 | プロトコル | すべての要求は SSL/TLS HTTPS プロトコルを使用します。 |  
-| 承認ヘッダー | <p>`Bearer {token}`。ここで *{token}* は、登録済みのアプリの有効な OAuth 2.0 アクセス トークンです。</p><p>欠落している、または無効な場合は、401 ステータス コードで要求は失敗します。Azure AD を使用した認証 (エンタープライズ アプリ)を参照してください。 Azure AD を使用して認証する (エンタープライズ アプリ)</p> |  
-| [アクセス許可の適用範囲](../howto/onenote-auth.md#onenote-perms-aad) | Notes.Read、Notes.ReadWrite.CreatedByApp、Notes.ReadWrite、または Notes.ReadWrite.All |    
+| 承認ヘッダー | <p>`Bearer {token}`。*{token}* は、登録済みアプリの有効な OAuth 2.0 アクセス トークンになります。</p><p>これがないか、無効の場合、要求は失敗し、401 ステータス コードが表示されます。 「[Azure AD を使用した認証 (エンタープライズ アプリ)](..\howto\onenote-auth.md#aad-auth)」を参照してください。</p> |  
+| [アクセス許可のスコープ](../howto/onenote-auth.md#onenote-perms-aad) | Notes.Read、Notes.ReadWrite.CreatedByApp、Notes.ReadWrite、または Notes.ReadWrite.All |    
 
 | 応答データ | 説明 |  
 |------|------|  
 | 成功コード | 200 HTTP ステータス コードおよび要求されたアクセス許可。 |   
 | 応答本文 | JSON 形式でのアクセス許可の OData 表現。 | 
 | エラー | 要求が失敗すると、API は応答本文に[エラー](../howto/onenote-error-codes.md)を返します。 |   
-| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行うときに、この値を Date ヘッダーの値とともに使用できます。 |  
+| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行う際に、この値を Date ヘッダーの値とともに使用できます。 |  
 
 
 <a name="delete"></a>
@@ -243,7 +243,7 @@ HTTP/1.1 200
 
 アクセス許可を削除すると、そのアクセス許可は[継承チェーン](#permission-inheritance-and-precedence)を下って、すべての OneNote エンティティから削除されます。
 
-<p id="outdent">**ノートブックからアクセス許可を削除する**</p>
+<p id="outdent">**ノートブックのアクセス許可を削除する**</p>
 <p id="indent">`DELETE ../notebooks/{notebook-id}/permissions/{permission-id}`</p>
 
 <p id="outdent">**セクション グループのアクセス許可を削除する**</p>
@@ -270,14 +270,14 @@ Accept: application/json
 | 要求データ | 説明 |  
 |------|------|  
 | プロトコル | すべての要求は SSL/TLS HTTPS プロトコルを使用します。 |  
-| 承認ヘッダー | <p>`Bearer {token}`。ここで *{token}* は、登録済みのアプリの有効な OAuth 2.0 アクセス トークンです。</p><p>欠落している、または無効な場合は、401 ステータス コードで要求は失敗します。Azure AD を使用した認証 (エンタープライズ アプリ)を参照してください。 Azure AD を使用して認証する (エンタープライズ アプリ)</p> |  
-| [アクセス許可の適用範囲](../howto/onenote-auth.md#onenote-perms-aad) | Notes.ReadWrite.CreatedByApp、Notes.ReadWrite、Notes.ReadWrite.All |    
+| 承認ヘッダー | <p>`Bearer {token}`。*{token}* は、登録済みアプリの有効な OAuth 2.0 アクセス トークンになります。</p><p>これがないか、無効の場合、要求は失敗し、401 ステータス コードが表示されます。 「[Azure AD を使用した認証 (エンタープライズ アプリ)](..\howto\onenote-auth.md#aad-auth)」を参照してください。</p> |  
+| [アクセス許可のスコープ](../howto/onenote-auth.md#onenote-perms-aad) | Notes.ReadWrite.CreatedByApp、Notes.ReadWrite、Notes.ReadWrite.All |    
 
 | 応答データ | 説明 |  
 |------|------|  
 | 成功コード | 204 HTTP ステータス コード。 |   
 | エラー | 要求が失敗すると、API は応答本文に[エラー](../howto/onenote-error-codes.md)を返します。 |   
-| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行うときに、この値を Date ヘッダーの値とともに使用できます。 |  
+| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行う際に、この値を Date ヘッダーの値とともに使用できます。 |  
 
 
 <a name="permission-inheritance-and-precedence"></a>
@@ -297,7 +297,7 @@ OneNote エンティティのアクセス許可を管理する場合は、アク
 
 - **優先順位**。OneNote エンティティに競合するアクセス許可が設定されると、最高の (最も許容度の高い) アクセス権が優先されます。1 つのエンティティに明示または継承によって複数のアクセス許可が適用される場合や、ユーザーまたはグループが複数のロールに属している場合には、競合するアクセス権のレベルがユーザーやグループに付与される可能性があります。 
 
-こうした原則が、OneNote によるアクセス許可の管理方法を決定します。次に例を示します。 次に例を示します。
+こうした原則が、OneNote によるアクセス許可の管理方法を決定します。 次に例を示します。
 
 - ノートブックまたはセクション グループのアクセス許可を作成すると、そのアクセス許可はすべての子に適用されます。
 
@@ -305,8 +305,8 @@ OneNote エンティティのアクセス許可を管理する場合は、アク
 
 - アクセス許可を取得すると、OneNote API は競合しているアクセス許可を持つロールの最高のアクセス許可のみを返します。
 
-- You can update permissions to grant more permissive access to a user or group. But if you want to restrict access, you must first delete the more permissive permission and then create a new permission with the restrictive access. 
- This is because a `POST /permissions` request actually appends a user role to the permissions collection for the entity, and the most permissive access is honored. So in other words, you can update a Reader permission to have Contributor or Owner access, but you can't update a Contributor permission to allow only Reader access.
+- より許容度の高いアクセス権をユーザーまたはグループに付与する場合は、アクセス許可を更新できます。 ただしアクセス権を制限する場合は、まず、より許容度の高いアクセス許可を削除してから、限定的なアクセス権で新しいアクセス許可を作成する必要があります。 
+ これは、実際には `POST /permissions` 要求がエンティティのアクセス許可コレクションにユーザー ロールを追加していて、最も許容度の高いアクセス権が優先されるためです。 つまり、Reader アクセス許可は Contributor または Owner のアクセス権を含むように更新することはできますが、Contributor アクセス許可を Reader アクセス権のみが許可されるアクセス許可に更新することはできないということです。
 
 
 <a name="root-url"></a>
@@ -316,9 +316,9 @@ OneNote エンティティのアクセス許可を管理する場合は、アク
 
 
 <a name="see-also"></a>
-## その他の技術情報
+## その他のリソース
 
-- [OneNote 開発](../howto/onenote-landing.md)
+- [OneNote の開発](../howto/onenote-landing.md)
 - [OneNote デベロッパー センター](http://dev.onenote.com/)
 - [OneNote の開発者ブログ](http://go.microsoft.com/fwlink/?LinkID=390183)
 - [スタック オーバーフローに関する OneNote の開発の質問](http://stackoverflow.com/questions/tagged/onenote-api+onenote) 

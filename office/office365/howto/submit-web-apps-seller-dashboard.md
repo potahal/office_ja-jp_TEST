@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Submit Web apps for Office 365 to the Seller Dashboard
 title: "販売者ダッシュボードに Office 365 用 Web アプリを提出する"
-description: "Use the Seller Dashboard to submit Web apps for Office 365 to the Office 365 Store."
+description: "販売者ダッシュボードを使用して Office 365 用 Web アプリを Office 365 ストアに提出します。"
 ms.ContentId: 5c104267-15a8-4f49-9438-2f4c2ff9359e
 ms.topic: reference (API)
 ms.date: June 9, 2015

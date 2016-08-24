@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Build service and daemon apps in Office 365
 title: "Office 365 でサービス アプリおよびデーモン アプリを構築する"
-description: "ms.TocTitle:Office 365 でサービス アプリおよびデーモン アプリを構築する Title:Office 365 でサービス アプリおよびデーモン アプリを構築する Description:Office 365 は、OAuth2 クライアント資格情報の付与フローの使用をサポートしています。そのため、デーモン アプリまたはサービス Web アプリはユーザーのサインインを必要とせずにアプリ専用トークンを要求できます。ms.ContentId:14967061-1dfb-4d4b-9668-a7ac60343a55ms.topic: 記事 (方法) ms.date:2015 年 5 月 19 日"
+description: "Office 365 では、OAuth2 クライアント資格情報の付与フローの使用をサポートしています。そのため、デーモン アプリまたはサービス Web アプリはユーザーのサインインを必要とせずにアプリ専用トークンを要求できます。"
 ms.ContentId: 14967061-1dfb-4d4b-9668-a7ac60343a55
 ms.date: May 19, 2015
 
@@ -12,11 +12,11 @@ ms.date: May 19, 2015
 
 # Office 365 でサービス アプリおよびデーモン アプリを構築する
 
-_**適用対象:** Office 365_
+_**適用対象:**Office 365_
 
-Device and web server applications usually require a user to sign-in and consent to allow the application to access and work with their information in Office 365. The underlying protocol to gain access is based on the [OAuth2 authorization code grant flow](https://msdn.microsoft.com/en-us/library/azure/dn645542.aspx). As part of this OAuth2 flow, the application gets an access token/refresh token pair that represents a delegation given to the application by an individual user for a set of permissions. Essentially before the application can access data for a user, it has to get an access token/refresh token for each user, and to get those, the user has to sign-on to the application at least once.
+デバイス アプリケーションや Web サーバー アプリケーションでは、通常、ユーザーはサインインして、それらのアプリケーションが Office 365 の情報にアクセスしたり、使用したりすることに同意する必要があります。 アクセス権を得るための下層プロトコルは、[OAuth2 認証コードの付与フロー](https://msdn.microsoft.com/en-us/library/azure/dn645542.aspx)に基づきます。 この OAuth2 フローの一部として、アプリケーションはアクセス トークンと更新トークンのペアを取得します。これは、一連のアクセス許可について個々のユーザーがアプリケーションに委任を付与したことを表します。 原則的に、アプリケーションはユーザーのデータにアクセスする前に、各ユーザーのアクセス トークンと更新トークンを取得する必要があります。それらを取得するには、ユーザーはアプリケーションに少なくとも 1 回はサインオンする必要があります。
 
-This is not possible for applications that run in the background, such as a daemon or service app. These apps need access without a user having to sign-in. OAuth2 provides the [client credentials grant flow](https://msdn.microsoft.com/en-us/library/azure/dn645543.aspx) for these types of applications, and Office 365 supports using this flow.
+デーモン アプリやサービス アプリなど、バック グラウンドで実行されるアプリケーションで、これを実行するこはできません。 これらのアプリは、ユーザーのサインインなしにアクセスできる必要があります。 OAuth2 では、こうした種類のアプリケーションに対して[クライアント資格情報の付与フロー](https://msdn.microsoft.com/en-us/library/azure/dn645543.aspx)を提供します。Office 365 は、このフローの使用をサポートしています。
 
 このフローを使用する場合、アプリはクライアントの資格情報を OAuth2 トークン発行エンドポイントに提示し、代わりに、ユーザー情報なしにアプリケーション自体を表すアクセス トークンを取得します。このシナリオのトークンは、アプリ専用のアクセス トークンとして知られています。
 
@@ -26,8 +26,8 @@ This is not possible for applications that run in the background, such as a daem
 ## アクセス許可の定義
 アプリ専用トークンに対してアプリを構成するには、まずアプリに必要なアクセス許可を指定する必要があります。Microsoft Azure Active Directory (Azure AD) の Azure 管理ポータルでのアプリのアプリケーション登録で、これらのアクセス許可を指定します。アプリケーションのアクセス許可の種類を選択します。これらはアプリケーションに直接割り当てられます。Azure AD のアプリケーション登録のアクセス許可セクションのスクリーン ショットについては、図 1 を参照してください。
 
-**Figure 1. Configuring application permissions in Azure AD**
-![A screenshot that shows the application permissions in the Azure management console.](images\O365_BuildingSvcApps_AppPerms.png)
+**図 1. Azure AD でのアプリケーション アクセス許可の構成**
+![Azure 管理コンソールでのアプリケーションのアクセス許可を示すスクリーン ショット。](images\O365_BuildingSvcApps_AppPerms.png)
 
 **注:** Azure AD でアプリを登録するときに、**[Web アプリケーション] または [Web API]** タイプを選択する必要があります。アプリ専用アクセス許可は、ネイティブ クライアント アプリケーションでは使用できません。
 
@@ -38,9 +38,9 @@ This is not possible for applications that run in the background, such as a daem
 
 OAuth2 承認エンドポイントに要求を送信することで、認証コードの付与フローと類似した方法で同意フローを実装します。ただし、承認エンドポイントが認証コードを使用してアプリへリダイレクトを戻すと、残りのコードは無視されます。トークンの取得には、クライアントの資格情報のみが必要になります。初回 1 回限りの同意を実現するために、アプリで "所属組織へのサインアップ" のようなエクスペリエンスを構築できます。ここで重要なのは、デーモン アプリまたはサービス アプリの構成で 1 回限りの同意部分を作成する必要があるということです。同意が与えられると、アプリはアクセス トークンを取得して Office 365 API の呼び出しを開始できます。
 ### 同意の取り消し
-You can revoke consent to service apps just like any other apps installed by an Office 365 tenant administrator. Office 365 テナント管理者によってインストールされたその他のアプリケーションと同じように、サービス アプリケーションに対する同意を取り消すことができます。管理者は、Azure 管理ポータルに移動して [アプリケーション] ビューでアプリケーションを見つけ、そのアプリケーションを選択して削除するか、Windows PowerShell の Azure AD モジュールから Remove-MSOLServicePrincipal コマンドレットを使用できます。
+Office 365 テナント管理者によってインストールされたその他のアプリケーションと同じように、サービス アプリケーションに対する同意を取り消すことができます。 管理者は、[Azure 管理ポータル](https://manage.windowsazure.com/)に移動して [アプリケーション] ビューでアプリケーションを見つけ、そのアプリケーションを選択して削除するか、Windows PowerShell の Azure AD モジュールから [Remove-MSOLServicePrincipal コマンドレット](https://msdn.microsoft.com/en-us/library/azure/dn194113.aspx)を使用できます。
 ## クライアント資格情報フローを使用してアクセス トークンを取得する
-アプリ専用トークンの要求時に、テナント固有のトークン発行エンドポイントを使用する必要があります。共通の (テナントに依存しない) エンドポイントを使用すると、エラーが返されます。 アプリ専用トークンの要求時に、テナント固有のトークン発行エンドポイントを使用する必要があります。共通の (テナントに依存しない) エンドポイントを使用すると、エラーが返されます。
+アプリ専用トークンの要求時に、テナント固有のトークン発行エンドポイントを使用する必要があります。 共通の (テナントに依存しない) エンドポイントを使用すると、エラーが返されます。
 
 同意プロセス中に、承認エンドポイントがヒットし、コードがアプリへのリダイレクトで配信される場合、アプリは ID トークンをコードと一緒に要求できます。このトークンは **tid** クレーム タイプ (要求の種類) のテナント ID を含む JSON Web トークンであるため、このトークンを解析するだけでテナント固有のエンドポイントの ID を取得できます。
 ### 同意による最初の ID トークンの取得
@@ -80,7 +80,8 @@ return authenticationResult.AccessToken;
 - Windows PowerShell を使用して .cer x509 公開証明書ファイルから、base64 でエンコードされた証明書の値と拇印を取得します。
 
 - アプリ マニフェスト ファイルで証明書をアップロードします。
-    You can use the [makecert.exe tool](https://msdn.microsoft.com/en-us/library/bfsktky3.aspx), included with the [.NET Framework tools](https://msdn.microsoft.com/en-us/library/d9kh6s92.aspx), to generate a self-issued certificate.
+    
+  [.NET Framework ツール](https://msdn.microsoft.com/en-us/library/d9kh6s92.aspx)に含まれている [makecert.exe ツール](https://msdn.microsoft.com/en-us/library/bfsktky3.aspx)を使用すると、自己発行の証明書を生成できます。
 
 ###makecert.exe ツールを使用して自己発行の証明書を生成するには
 
@@ -92,9 +93,9 @@ return authenticationResult.AccessToken;
 
 3. **[個人用]** フォルダーで新しい証明書を見つけ、その証明書を base64 でエンコードされた CER ファイルにエクスポートします。
 
-    **Note** Make sure the key length is at least 2048 when generating the X.509 certificate. Shorter key length are not accepted as valid keys.
+    **注**: X.509 証明書を生成する際、キーの長さが 2048 以上になっていることを確認します。 キーの長さがそれより短い場合は、有効なキーとして受け入れられません。
 
-###.cer X509 公開証明書ファイルから、base64 でエンコードされた証明書の値と拇印を取得するには
+###.cer x509 公開証明書ファイルから、base64 でエンコードされた証明書の値と拇印を取得するには
 
 1. Windows PowerShell プロンプトから次のコマンドレットを入力して実行します。
 
@@ -108,7 +109,7 @@ $base64Thumbprint = [System.Convert]::ToBase64String($bin)
 $keyid = [System.Guid]::NewGuid().ToString()
 ```
 
-    **Note** This step shows using Windows PowerShell to get the properties of a x.509 certificate. Other platforms provide similar tools to retrieve properties of certificates.
+    **注**: この手順では、Windows PowerShell を使用して x.509 証明書のプロパティを取得する方法を示しています。 その他のプラットフォームには、証明書のプロパティを取得する同様のツールがあります。
 
 2. **$base64Thumbprint**、**$base64Value**、および **$keyid** の値を保存します。これらの値は、次の一連の手順で証明書をアップロードするときに必要になります。
 
@@ -150,7 +151,8 @@ $keyid = [System.Guid]::NewGuid().ToString()
   ],
 ```
 
-  KeyCredentials プロパティは、ロール オーバー シナリオでは複数の X.509 証明書のアップロードを可能にする、または漏えいシナリオでは証明書を削除することを可能にするコレクションです。
+  
+  [KeyCredentials](http://msdn.microsoft.com/en-us/library/azure/dn151681.aspx) プロパティは、ロール オーバー シナリオでは複数の X.509 証明書のアップロードを可能にする、または漏えいシナリオでは証明書を削除することを可能にするコレクションです。
 
 6.  変更内容を保存します。コマンド バーの **[マニフェストの管理]** をクリックして **[マニフェストのアップロード]** を選択し、更新したマニフェスト ファイルを参照してそのファイルを選択することで、更新済みアプリのマニフェスト ファイルをアップロードします。
 

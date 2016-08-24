@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Teachers REST API reference
 title: "教師 REST API リファレンス"
-description: "ms.TocTitle:教師 REST API リファレンスTitle:教師 REST API リファレンスDescription:Office 365 Education 内の教師へのアクセスを提供する教師 REST API と対話する方法に関するリファレンスms.ContentId:80124eb7-1af4-44d3-94d4-ec60afe0f254 ms.topic: リファレンス (API)"
+description: "Office 365 Education テナント内の教師へのアクセスを提供する教師 REST API と対話する方法に関するリファレンスです。"
 ms.ContentId: 80124eb7-1af4-44d3-94d4-ec60afe0f254
 
 ---
@@ -11,11 +11,11 @@ ms.ContentId: 80124eb7-1af4-44d3-94d4-ec60afe0f254
 
 # 教師 REST API リファレンス
     
- __**適用対象:**Office 365 Education__
-<p class="previewnote">This documentation covers features that are currently in preview.</p>
+ _**適用対象:**Office 365 Education_
+<p class="previewnote">このドキュメントで取り上げる機能は、現時点ではプレビュー段階にあります。</p>
 
 
-<a name="Overview"> </a>Office 365 Education API は、Microsoft School Data Sync でクラウドに同期されている Office 365 テナントから、データを抽出する際に役立ちます。その結果により、教育機関、セクション、教職員、学生および名簿に関する情報が得られます。 These results provide information about schools, sections, teachers, students and roster information. The Teachers REST API provides access to teacher entities in Office 365 Education.
+<a name="Overview"> </a> Office 365 Education API は、Microsoft School Data Sync でクラウドに同期されている Office 365 テナントから、データを抽出する際に役立ちます。 その結果により、教育機関、セクション、教師、学生および名簿に関する情報が得られます。 教師 REST API は、Office 365 Education の教師エンティティへのアクセスを提供します。
 
 API は Microsoft Azure Active Directory と OAuth を使用して、[アプリケーション要求を認証します](..\howto\common-app-authentication-tasks.md)。
  
@@ -25,10 +25,10 @@ API は Microsoft Azure Active Directory と OAuth を使用して、[アプリ�
 
 ## すべての教師 REST API 操作
 
-<a name="TeacherOperations"> </a> Teachers are represented as Users in Azure Active Directory. Azure Active Directory では、教師はユーザーとして表されます。ログオンしている現在の教師の属性、およびその教師がメンバーである学校とセクションの属性を取得できます。
+<a name="TeacherOperations"> </a> Azure Active Directory では、教師がユーザーとして表されます。 ログインしている現在の教師の情報を取得できます。また、教師が属している教育機関とセクションも取得できます。
 
 
-現在のユーザーの取得  教師の学校の取得  教師のセクションの取得 
+[現在のユーザーの取得](#GetCurrentUser) | [教師の学校の取得](#GetTeacherSchool) | [教師のセクションの取得](#GetTeacherSections) 
 
 
 ## 教師 REST API の使用
@@ -39,14 +39,14 @@ API は Microsoft Azure Active Directory と OAuth を使用して、[アプリ�
 
 `https://graph.windows.net/me`
 
-Teachers are represented in Azure Active Directory as Users. Extension attributes on the users add teacher-specific information.  
-For example, the `extension_fe2174665583431c953114ff7268b7b3_Education_TeacherNumber` attribute contains the Teacher Number of the teacher.
+Azure Active Directory では、教師はユーザーとして表されます。 ユーザーについての拡張属性により、教師固有の属性が追加されます。  
+たとえば、`extension_fe2174665583431c953114ff7268b7b3_Education_TeacherNumber` 属性には教師の教師番号が格納されます。
 
-**注** すべての要求について、URL クエリ文字列では api-version`api-version` を指定する必要があります。教育機関 REST API には、バージョン beta が必要です。例: https://graph.windows.net/{tenant_id}/administrativeUnits?api-version=beta。 The Teachers REST API requires version 1.5 or greater. 例: `https://graph.windows.net/me?api-version=1.5`   
+**注**: すべての要求について、URL クエリ文字列では `api-version` を指定する必要があります。 教師 REST API では、バージョン 1.5 以上が必要です。 例: `https://graph.windows.net/me?api-version=1.5`。   
 
-## 教育機関のオブジェクトの種類は 'Student' です
+## 教師の属性
 
-教師に関する情報を特定する際に役立つ属性の説明については、「[教師属性](education-rest-attributes.md#TeacherAttributes)」を参照してください。
+教師に関する情報を特定する際に役立つ属性の説明については、「[教師の属性](education-rest-attributes.md#TeacherAttributes)」を参照してください。
 
 ****
 
@@ -68,7 +68,7 @@ GET https://graph.windows.net/me?api-version=1.5
 
 ###教師かどうかを確認する
 
-現在ログインしているユーザーは、学生、教師、または教育に関わらない (管理スタッフなどの) ユーザーである可能性があります。ユーザーが教師であるかどうかは、アプリケーションで確認できます。Teacher と等しくなる Education_ObjectType 拡張属性を検索します。 You can check if the user is a teacher within your application. Look for the `Education_ObjectType` extension attribute to equal `Teacher`.
+現在ログインしているユーザーは、学生、教師、または教育に関わらない (管理スタッフなどの) ユーザーである可能性があります。 ユーザーが教師であるかどうかは、アプリケーションで確認できます。 `Teacher` と等しくなる `Education_ObjectType` 拡張属性を検索します。
 
 ```no-highlight
 extension_fe2174665583431c953114ff7268b7b3_Education_ObjectType == 'Teacher'
@@ -79,9 +79,9 @@ extension_fe2174665583431c953114ff7268b7b3_Education_ObjectType == 'Teacher'
 <a name="GetTeacherSchool"> </a>
 ##教師の教育機関の取得
 
-Schools are represented in Azure Active Directory as [Administrative Units](https://msdn.microsoft.com/en-us/library/azure/dn832057.aspx). Extension attributes on these administrative units add school-specific information. For example, the `extension_fe2174665583431c953114ff7268b7b3_Education_HighestGrade` attribute contains the highest grade for that school.
+Azure Active Directory では、教育機関が[管理単位](https://msdn.microsoft.com/en-us/library/azure/dn832057.aspx)として表されます。 これに該当する管理単位の拡張属性により、教育機関固有の情報が追加されます。 たとえば、`extension_fe2174665583431c953114ff7268b7b3_Education_HighestGrade` 属性には、その教育機関の最高学年が格納されています。
 
-その教師のメンバーシップを取得して、extension_fe2174665583431c953114ff7268b7b3_Education_ObjectType == 'School'`extension_fe2174665583431c953114ff7268b7b3_Education_ObjectType == 'School'` と objectType == 'AdministrativeUnit'`objectType == 'AdministrativeUnit'` に対するフィルターを適用することで、ログインしている教師の教育機関を取得できます。
+その教師のメンバーシップを取得して、`extension_fe2174665583431c953114ff7268b7b3_Education_ObjectType == 'School'` と `objectType == 'AdministrativeUnit'` に対するフィルターを適用することで、ログインしている教師の教育機関を取得できます。
 
 ###教師のメンバーシップの取得
 
@@ -99,7 +99,7 @@ GET https://graph.windows.net/me/memberOf?api-version=1.5
 
 ###教育機関のフィルター
 
-教師の教育機関は、extension_fe2174665583431c953114ff7268b7b3_Education_ObjectType == 'School'`extension_fe2174665583431c953114ff7268b7b3_Education_ObjectType == 'School'` と objectType == 'AdministrativeUnit'`objectType == 'AdministrativeUnit'` に関するフィルター処理によって取得できます。
+教師の教育機関は、`extension_fe2174665583431c953114ff7268b7b3_Education_ObjectType == 'School'` と `objectType == 'AdministrativeUnit'` に関するフィルター処理によって取得できます。
 
 
 **** 
@@ -107,7 +107,7 @@ GET https://graph.windows.net/me/memberOf?api-version=1.5
 <a name="GetTeacherSection"> </a>
 ##教師のセクションの取得
 
-Sections are represented in Azure Active Directory as [Unified Groups](https://msdn.microsoft.com/en-us/office/office365/howto/groups-rest-operations). Extension attributes on the unified groups add section-specific information. For example, the `extension_fe2174665583431c953114ff7268b7b3_Education_CourseName` attribute contains the course name for the section.
+Azure Active Directory では、セクションが[統合グループ](https://msdn.microsoft.com/en-us/office/office365/howto/groups-rest-operations)として表されます。 統合グループについての拡張属性により、セクション固有の情報が追加されます。 たとえば、`extension_fe2174665583431c953114ff7268b7b3_Education_CourseName` 属性には、セクションの講座名が格納されます。
 
 ###教師のメンバーシップの取得
 
@@ -124,22 +124,22 @@ GET https://graph.windows.net/me/memberOf?api-version=1.5
 
 ###セクションのフィルター
 
-教師のセクションは、extension_fe2174665583431c953114ff7268b7b3_Education_ObjectType == 'Section'`extension_fe2174665583431c953114ff7268b7b3_Education_ObjectType == 'Section'` と objectType == 'Group'`objectType == 'Group'` に関するフィルター処理によって取得できます。
+教師のセクションは、`extension_fe2174665583431c953114ff7268b7b3_Education_ObjectType == 'Section'` と `objectType == 'Group'` に関するフィルター処理によって取得できます。
 
 **** 
 
 <a name="NextSteps"> </a>
-## 次のステップ
+## 次の手順
 
-次に、興味の対象になると考えられる、その他の Education に関連するリソースを示します。
+関心がおありかもしれないその他の教育に関連するリソース
 
 - [教育機関 REST 操作](..\api\school-rest-operations.md)を使用した、教育機関情報へのアクセス
 
 - [セクション REST 操作](..\api\section-rest-operations.md)を使用した、セクション情報へのアクセス
 
-- [学生 Rest 操作](..\api\student-rest-operations.md)を使用した、学生情報へのアクセス
+- [学生 REST 操作](..\api\student-rest-operations.md)を使用した、学生情報へのアクセス
 
-- [教育属性](..\api\education-rest-attributes.md)で使用可能な属性の説明
+- 属性の説明については、「[Education の属性](..\api\education-rest-attributes.md)」にあります
 
 
 アプリケーション開発を開始する準備ができている方にも、単に詳しい情報を必要としている方にも、最適なコンテンツをご用意しています。
@@ -156,13 +156,13 @@ Office 365 プラットフォームの使い方の詳細については、次の
 
 - [Office 365 プラットフォーム上での開発の概要](..\howto\platform-development-overview.md)
     
-- [Office 365 アプリケーションの認証およびリソース承認](..\howto\common-app-authentication-tasks.md)
+- [Office 365 のアプリ認証とリソース承認](..\howto\common-app-authentication-tasks.md)
     
 - [Office 365 API にアクセスできるようにアプリを手動で Azure AD に登録する](..\howto\add-common-consent-manually.md)
   
-- [メール API リファレンス](..\api\mail-rest-operations.md)
+- [Mail API リファレンス](..\api\mail-rest-operations.md)
   
-- [予定表 API リファレンス](..\api\calendar-rest-operations.md)
+- [Calendar API リファレンス](..\api\calendar-rest-operations.md)
 
 - [Files API リファレンス](..\api\files-rest-operations.md)
 

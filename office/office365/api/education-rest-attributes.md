@@ -1,171 +1,172 @@
 ---
 ms.Toctitle: Education Attributes
-title: "O365API リポジトリ スタイルの追加"
-description: "ms.TocTitle:Education の属性Title:Education の属性Description:Office 365 Education テナント内の教育機関、セクション、学生、および教職員へのアクセスを提供する Education REST API に求められる属性についてのリファレンスです。ms.ContentId:1f51d3a9-0ab7-4654-a15d-689e0880ebfb ms.topic: リファレンス (API)"
+title: "Education の属性"
+description: "Office 365 Education テナント内の教育機関、セクション、学生、および教師へのアクセスを提供する Education REST API に求められる属性についてのリファレンスです。"
 ms.ContentId: 1f51d3a9-0ab7-4654-a15d-689e0880ebfb
 
 ---
 [!INCLUDE [Add the O365API repo styles](../includes/controls/addo365apistyles.xml)]
 
-# O365API リポジトリ スタイルの追加
+# Education の属性
     
- __**適用対象:**Office 365 Education__
-<p class="previewnote">This documentation covers features that are currently in preview.</p>
+ _**適用対象:**Office 365 Education_
+<p class="previewnote">このドキュメントで取り上げる機能は、現時点ではプレビュー段階にあります。</p>
 
 
-<a name="Overview"> </a>Office 365 Education API は、Microsoft School Data Sync でクラウドに同期されている Office 365 テナントから、データを抽出する際に役立ちます。その結果により、教育機関、セクション、教職員、学生および名簿に関する情報が得られます。 These results provide information about schools, sections, teachers, students and rosters.
+<a name="Overview"> </a> Office 365 Education API は、Microsoft School Data Sync でクラウドに同期されている Office 365 テナントから、データを抽出する際に役立ちます。 その結果により、教育機関、セクション、教師、学生および名簿に関する情報が得られます。
 
-[School Attributes](#SchoolAttributes) | [Section Attributes](#SectionAttributes) | [Student Attributes](#StudentAttributes) | [Teacher Attributes](#TeacherAttributes)
+[教育機関の属性](#SchoolAttributes) | [セクションの属性](#SectionAttributes) | [学生の属性](#StudentAttributes) | [教師の属性](#TeacherAttributes)
 
 ## 教育機関の属性
 
-<a name="SchoolAttributes"> </a> Schools are represented as [Administrative Units](https://msdn.microsoft.com/en-us/library/azure/dn832057.aspx) in Azure Active Directory. Azure Active Directory では、教育機関が管理単位として表されます。テナントで使用可能な教育機関を取得できます。また、教育機関エンティティに含まれるセクション、学生、および教職員も取得できます。
-The native attributes along with the extension attributes on the administrative unit provide all the necessary information about the school. 
+
+  <a name="SchoolAttributes"> </a> Azure Active Directory では、教育機関が[管理単位](https://msdn.microsoft.com/en-us/library/azure/dn832057.aspx)として表されます。 テナントで使用可能な教育機関を取得できます。また、教育機関エンティティに含まれるセクション、学生、および教師も取得できます。
+管理単位のネイティブ属性と拡張属性によって、教育機関について必要な情報がすべて得られます。 
 
 ```no-highlight
 {prefix} is 'extension_fe2174665583431c953114ff7268b7b3_Education'
 ```
 
-|**属性**|**型**|**説明**|
+|**属性**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|`displayName`|必須|必須|
-|`{prefix}_SyncSource_SchoolId`|教育機関の名前|必須|
-|`{prefix}_SchoolNumber`|教育機関の一意の ID (SIS によって割り当てられる)|省略可能|
-|`{prefix}_SchoolNationalCenterFor EducationStatisticsId`|通常、レポートで示される ID|省略可能|
-|`{prefix}_StateId`|NCES によって割り当てられる ID|省略可能|
-|`{prefix}_LowestGrade`|教育機関の ID (都道府県によって割り当てられる)|省略可能|
-|`{prefix}_HighestGrade`|教育機関の最低学年 {1 ～ 12、Pre-K (保育園)、K (幼稚園)、Other (その他)}|省略可能|
-|`{prefix}_SchoolPrincipalSyncSourceId`|教育機関の最高学年 {1 ～ 12、Pre-K (保育園)、K (幼稚園)、Other (その他)}|省略可能|
-|`{prefix}_SchoolPrincipalName`|校長の SIS ID|省略可能|
-|`{prefix}_SchoolPrincipalEmail`|校長の名前|省略可能|
-|`{prefix}_Address`|校長の電子メール|省略可能|
-|`{prefix}_City`|教育機関の番地|省略可能|
-|`{prefix}_State`|教育機関の市区町村|省略可能|
-|`{prefix}_Country`|教育機関の都道府県|省略可能|
-|`{prefix}_Zip`|教育機関の国|省略可能|
-|`{prefix}_Phone`|教育機関の郵便番号|省略可能|
-|`{prefix}_SchoolZone`|教育機関の連絡先電話番号|省略可能|
-|`{prefix}_AnchorId`|教育機関の地域/地区|内部|
-|`{prefix}_ObjectType`|アンカー ID。各教育機関を一意に特定するために内部的に使用される|内部|
-|`{prefix}_SyncSource`|教育機関のオブジェクトの種類は 'School' です|内部|
+|`displayName`|必須|教育機関の名前|
+|`{prefix}_SyncSource_SchoolId`|必須|教育機関の一意の ID (SIS によって割り当てられる)|
+|`{prefix}_SchoolNumber`|省略可|通常、レポートで示される ID|
+|`{prefix}_SchoolNationalCenterFor EducationStatisticsId`|省略可|NCES によって割り当てられる ID|
+|`{prefix}_StateId`|省略可|教育機関の ID (都道府県によって割り当てられる)|
+|`{prefix}_LowestGrade`|省略可能|教育機関の最低学年 {1 ～ 12、Pre-K (保育園)、K (幼稚園)、Other (その他)}|
+|`{prefix}_HighestGrade`|省略可|教育機関の最高学年 {1 ～ 12、Pre-K (保育園)、K (幼稚園)、Other (その他)}|
+|`{prefix}_SchoolPrincipalSyncSourceId`|省略可能|校長の SIS ID|
+|`{prefix}_SchoolPrincipalName`|省略可|校長の名前|
+|`{prefix}_SchoolPrincipalEmail`|省略可|校長の電子メール|
+|`{prefix}_Address`|省略可|教育機関の番地|
+|`{prefix}_City`|省略可|教育機関の市区町村|
+|`{prefix}_State`|省略可|教育機関の都道府県|
+|`{prefix}_Country`|省略可|教育機関の国|
+|`{prefix}_Zip`|省略可|教育機関の郵便番号|
+|`{prefix}_Phone`|省略可能|教育機関の連絡先電話番号|
+|`{prefix}_SchoolZone`|省略可|教育機関の地域/地区|
+|`{prefix}_AnchorId`|内部|アンカー ID。各教育機関を一意に特定するために内部的に使用される|
+|`{prefix}_ObjectType`|内部|教育機関のオブジェクトの種類は 'School' です|
+|`{prefix}_SyncSource`|内部|この教育機関についての情報のソース|
 
 
 **** 
 
 
-## この教育機関についての情報のソース
+## セクションの属性
 
-<a name="SectionAttributes"> </a> Sections are represented as [Unified Groups](https://msdn.microsoft.com/en-us/office/office365/howto/groups-rest-operations) in Azure Active Directory. Azure Active Directory では、セクションが統合グループとして表されます。テナントで使用可能なセクションを取得できます。また、各セクションに含まれる学生と教職員、およびセクションが属する教育機関の詳細も取得できます。 The native attributes along with the extension attributes on the unified groups provide all the necessary information about the section. 
+<a name="SectionAttributes"> </a> Azure Active Directory では、セクションが[統合グループ](https://msdn.microsoft.com/en-us/office/office365/howto/groups-rest-operations)として表されます。 テナントで使用可能なセクションを取得できます。また、各セクションに含まれる学生と教師、およびセクションが属する教育機関の詳細も取得できます。 統合グループのネイティブ属性と拡張属性によって、セクションについて必要な情報がすべて得られます。 
 
 ```no-highlight
 {prefix} is 'extension_fe2174665583431c953114ff7268b7b3_Education'
 ```
 
-|**属性**|**型**|**説明**|
+|**属性**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|`displayName`|必須|必須|
-|`{prefix}_SectionId`|わかりやすいセクションの名前|必須|
-|`{prefix}_SectionNumber`|このセクションの一意の ID (SIS によって割り当てられる)|省略可能|
-|`{prefix}_SectionName`|このセクションの番号 (地方自治体/教育機関によって割り当てられる)|必須|
-|`{prefix}_TermId`|セクションの名前|省略可能|
-|`{prefix}_TermName`|セクションの学期 SIS ID|省略可能|
-|`{prefix}_TermStartDate`|このセクションに関連付けられた学期名 (秋期、冬期、春期、夏期など)|省略可能|
-|`{prefix}_TermEndDate`|セクションの学期の開始日|省略可能|
-|`{prefix}_SchoolId`|セクションの学期の終了日|必須|
-|`{prefix}_CourseId`|セクションの教育機関 SIS ID|省略可能|
-|`{prefix}_CourseName`|この講座の ID (SIS によって割り当てられる)|省略可能|
-|`{prefix}_CourseDescription`|講座の名前|省略可能|
-|`{prefix}_CourseNumber`|この講座の説明|省略可能|
-|`{prefix}_CourseSubject`|講座の番号 (地方自治体/教育機関によって割り当てられる)|省略可能|
-|`{prefix}_Period`|このセクションの科目|省略可能|
-|`{prefix}_AnchorId`|セクションのすべての期間を結合した文字列|内部|
-|`{prefix}_ObjectType`|アンカー ID。各セクションを一意に特定するために内部的に使用される|内部|
-|`{prefix}_SyncSource`|教育機関のオブジェクトの種類は 'Section' です|内部|
+|`displayName`|必須|わかりやすいセクションの名前|
+|`{prefix}_SectionId`|必須|このセクションの一意の ID (SIS によって割り当てられる)|
+|`{prefix}_SectionNumber`|省略可|このセクションの番号 (地方自治体/教育機関によって割り当てられる)|
+|`{prefix}_SectionName`|必須|セクションの名前|
+|`{prefix}_TermId`|省略可|セクションの学期 SIS ID|
+|`{prefix}_TermName`|省略可|このセクションに関連付けられた学期名 (秋期、冬期、春期、夏期など)|
+|`{prefix}_TermStartDate`|省略可能|セクションの学期の開始日|
+|`{prefix}_TermEndDate`|省略可|セクションの学期の終了日|
+|`{prefix}_SchoolId`|必須|セクションの教育機関 SIS ID|
+|`{prefix}_CourseId`|省略可|この講座の ID (SIS によって割り当てられる)|
+|`{prefix}_CourseName`|省略可能|講座の名前|
+|`{prefix}_CourseDescription`|省略可|この講座の説明|
+|`{prefix}_CourseNumber`|省略可|講座の番号 (地方自治体/教育機関によって割り当てられる)|
+|`{prefix}_CourseSubject`|省略可|このセクションの科目|
+|`{prefix}_Period`|省略可|セクションのすべての期間を結合した文字列|
+|`{prefix}_AnchorId`|内部|アンカー ID。各セクションを一意に特定するために内部的に使用される|
+|`{prefix}_ObjectType`|内部|教育機関のオブジェクトの種類は 'Section' です|
+|`{prefix}_SyncSource`|内部|このセクションについての情報のソース|
 
 
 **** 
 
 
-## このセクションについての情報のソース
+## 学生の属性
 
-<a name="StudentAttributes"> </a> Students are represented as Users in Azure Active Directory. Azure Active Directory では、学生はユーザーとして表されます。現在ログインしている学生についての情報を取得できます。また、その学生を含む教育機関とセクションも取得できます。 The native attributes along with the extension attributes on the user provide all the necessary information about the student. 
+<a name="StudentAttributes"> </a> Azure Active Directory では、学生がユーザーとして表されます。 ログインしている現在の学生の情報を取得できます。また、学生が属している教育機関とセクションも取得できます。 ユーザーのネイティブ属性と拡張属性によって、学生について必要な情報がすべて得られます。 
 
 ```no-highlight
 {prefix} is 'extension_fe2174665583431c953114ff7268b7b3_Education'
 ```
 
-|**属性**|**型**|**説明**|
+|**属性**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|`mailNickname`|必須|必須|
-|`userPrincipalName`|名簿に記載された学生の一意の別名|必須|
-|`givenName`|学生の正式な電子メール アドレス|必須|
-|`surName`|学生の名前 (名)|必須|
-|`{prefix}_MiddleName`|学生の名前 (姓)|省略可能|
-|`{prefix}_SyncSource_StudentId`|学生のミドル ネーム|必須|
-|`{prefix}_SyncSource_SchoolId`|学生の一意の ID (SIS によって割り当てられる)|必須|
-|`{prefix}_Email`|学生の教育機関の ID|省略可能|
-|`{prefix}_StateId`|学生の個人用電子メール アドレス|省略可能|
-|`{prefix}_StudentNumber`|学生の番号 (都道府県によって割り当てられる)|省略可能|
-|`{prefix}_MailingAddress`|学生の番号 (地方自治体/教育機関によって割り当てられる)|省略可能|
-|`{prefix}_MailingCity`|学生の郵送先住所|省略可能|
-|`{prefix}_MailingState`|学生の郵送先市区町村|省略可能|
-|`{prefix}_MailingZip`|学生の郵送先都道府県|省略可能|
-|`{prefix}_MailingLatitude`|学生の郵便番号|省略可能|
-|`{prefix}_MailingLongitude`|郵送先住所の緯度|省略可能|
-|`{prefix}_MailingCountry`|郵送先住所の経度|省略可能|
-|`{prefix}_ResidenceAddress`|学生の郵送先の国|省略可能|
-|`{prefix}_ResidenceCity`|学生の現住所|省略可能|
-|`{prefix}_ResidenceState`|学生の現住所の市区町村|省略可能|
-|`{prefix}_ResidenceZip`|学生の現住所の都道府県|省略可能|
-|`{prefix}_ResidenceLatitude`|学生の現住所の郵便番号|省略可能|
-|`{prefix}_ResidenceLongitude`|現住所の緯度|省略可能|
-|`{prefix}_ResidenceCountry`|現住所の経度|省略可能|
-|`{prefix}_Gender`|学生の現住所の国|省略可能|
-|`{prefix}_DateOfBirth`|学生の性別|省略可能|
-|`{prefix}_Grade`|学生の生年月日|省略可能|
-|`{prefix}_EnglishLanguageLearnersStatus`|学生の学年|省略可能|
-|`{prefix}_FederalRace`|英語学習者の状態|省略可能|
-|`{prefix}_GraduationYear`|学生の全米学力基準|省略可能|
-|`{prefix}_StudentStatus`|学生の卒業年|省略可能|
-|`{prefix}_AnchorId`|学生の状態 {Pre-Registered (事前登録済み)、Active (アクティブ)、Transferred-Out (転校済み)、休学 (Suspended)、Graduated (卒業済み)、Historical (過去に在席)、Inactive (非アクティブ) など}|内部|
-|`{prefix}_ObjectType`|アンカー ID。各学生を一意に特定するために内部的に使用される|内部|
+|`mailNickname`|必須|名簿に記載された学生の一意の別名|
+|`userPrincipalName`|必須|学生の正式な電子メール アドレス|
+|`givenName`|必須|学生の名前 (名)|
+|`surName`|必須|学生の名前 (姓)|
+|`{prefix}_MiddleName`|省略可|学生のミドル ネーム|
+|`{prefix}_SyncSource_StudentId`|必須|学生の一意の ID (SIS によって割り当てられる)|
+|`{prefix}_SyncSource_SchoolId`|必須|学生の教育機関の ID|
+|`{prefix}_Email`|省略可|学生の個人用電子メール アドレス|
+|`{prefix}_StateId`|省略可能|学生の番号 (都道府県によって割り当てられる)|
+|`{prefix}_StudentNumber`|省略可|学生の番号 (地方自治体/教育機関によって割り当てられる)|
+|`{prefix}_MailingAddress`|省略可能|学生の郵送先住所|
+|`{prefix}_MailingCity`|省略可|学生の郵送先市区町村|
+|`{prefix}_MailingState`|省略可|学生の郵送先都道府県|
+|`{prefix}_MailingZip`|省略可|学生の郵便番号|
+|`{prefix}_MailingLatitude`|省略可能|郵送先住所の緯度|
+|`{prefix}_MailingLongitude`|省略可|郵送先住所の経度|
+|`{prefix}_MailingCountry`|省略可能|学生の郵送先の国|
+|`{prefix}_ResidenceAddress`|省略可|学生の現住所|
+|`{prefix}_ResidenceCity`|省略可能|学生の現住所の市区町村|
+|`{prefix}_ResidenceState`|省略可能|学生の現住所の都道府県|
+|`{prefix}_ResidenceZip`|省略可|学生の現住所の郵便番号|
+|`{prefix}_ResidenceLatitude`|省略可|現住所の緯度|
+|`{prefix}_ResidenceLongitude`|省略可|現住所の経度|
+|`{prefix}_ResidenceCountry`|省略可|学生の現住所の国|
+|`{prefix}_Gender`|省略可|学生の性別|
+|`{prefix}_DateOfBirth`|省略可|学生の生年月日|
+|`{prefix}_Grade`|省略可能|学生の学年|
+|`{prefix}_EnglishLanguageLearnersStatus`|省略可能|英語学習者の状態|
+|`{prefix}_FederalRace`|省略可能|学生の全米学力基準|
+|`{prefix}_GraduationYear`|省略可|学生の卒業年|
+|`{prefix}_StudentStatus`|省略可|学生の状態 {Pre-Registered (事前登録済み)、Active (アクティブ)、Transferred-Out (転校済み)、休学 (Suspended)、Graduated (卒業済み)、Historical (過去に在席)、Inactive (非アクティブ) など}|
+|`{prefix}_AnchorId`|内部|アンカー ID。各学生を一意に特定するために内部的に使用される|
+|`{prefix}_ObjectType`|内部|教育機関のオブジェクトの種類は 'Student' です|
 
 
 **** 
 
 
-## 教育機関のオブジェクトの種類は 'Student' です
+## 教師の属性
 
-<a name="TeacherAttributes"> </a> Teachers are represented as Users in Azure Active Directory. Azure Active Directory では、教師はユーザーとして表されます。ログオンしている現在の教師の属性、およびその教師がメンバーである学校とセクションの属性を取得できます。 The native attributes along with the extension attributes on the user provide all the necessary information about the teacher. 
+<a name="TeacherAttributes"> </a> Azure Active Directory では、教師がユーザーとして表されます。 ログインしている現在の教師の情報を取得できます。また、教師が属している教育機関とセクションも取得できます。 ユーザーのネイティブ属性と拡張属性によって、教師について必要な情報がすべて得られます。 
 
 ```no-highlight
 {prefix} is 'extension_fe2174665583431c953114ff7268b7b3_Education'
 ```
 
-|**属性**|**型**|**説明**|
+|**属性**|**種類**|**説明**|
 |:-----|:-----|:-----|
-|`mailNickname`|必須|必須|
-|`userPrincipalName`|名簿に記載された教職員の一意の別名|必須|
-|`givenName`|教職員の正式な電子メール アドレス|必須|
-|`surName`|教職員の名前 (名)|必須|
-|`{prefix}_MiddleName`|教職員の名前 (姓)|省略可能|
-|`{prefix}_SyncSource_TeacherId`|教職員のミドル ネーム|必須|
-|`{prefix}_SyncSource_SchoolId`|教職員の一意の ID (SIS によって割り当てられる)|必須|
-|`{prefix}_StateId`|教職員の教育機関の ID|省略可能|
-|`{prefix}_TeacherNumber`|教職員の身分証明書番号/認定番号|省略可能|
-|`{prefix}_TeacherStatus`|教職員の番号 (地方自治体/教育機関によって割り当てられる)|省略可能|
-|`{prefix}_Email`|教職員の状態 {Active (アクティブ)、On Leave (休暇中)、No Longer Here (退職) など}|省略可能|
-|`{prefix}_Title`|教職員の個人用電子メール|省略可能|
-|`{prefix}_TeacherQualification`|教職員の役職|省略可能|
-|`{prefix}_AnchorId`|教職員の資格|内部|
-|`{prefix}_ObjectType`|アンカー ID。各教職員を一意に特定するために内部的に使用される|内部|
+|`mailNickname`|必須|名簿に記載された教職員の一意の別名|
+|`userPrincipalName`|必須|教職員の正式な電子メール アドレス|
+|`givenName`|必須|教職員の名前 (名)|
+|`surName`|必須|教職員の名前 (姓)|
+|`{prefix}_MiddleName`|省略可|教職員のミドル ネーム|
+|`{prefix}_SyncSource_TeacherId`|必須|教職員の一意の ID (SIS によって割り当てられる)|
+|`{prefix}_SyncSource_SchoolId`|必須|教職員の教育機関の ID|
+|`{prefix}_StateId`|省略可能|教職員の身分証明書番号/認定番号|
+|`{prefix}_TeacherNumber`|省略可|教職員の番号 (地方自治体/教育機関によって割り当てられる)|
+|`{prefix}_TeacherStatus`|省略可能|教職員の状態 {Active (アクティブ)、On Leave (休暇中)、No Longer Here (退職) など}|
+|`{prefix}_Email`|省略可|教職員の個人用電子メール|
+|`{prefix}_Title`|省略可能|教職員の役職|
+|`{prefix}_TeacherQualification`|省略可|教職員の資格|
+|`{prefix}_AnchorId`|内部|アンカー ID。各教職員を一意に特定するために内部的に使用される|
+|`{prefix}_ObjectType`|内部|教育機関のオブジェクトの種類は 'Teacher' です|
 
 
 **** 
 <a name="NextSteps"> </a>
-## 次のステップ
+## 次の手順
 
-次に、興味の対象になると考えられる、その他の Education に関連するリソースを示します。
+関心がおありかもしれないその他の教育に関連するリソース
 
 - [教育機関 REST 操作](..\api\school-rest-operations.md)を使用した、教育機関情報へのアクセス
 
@@ -190,13 +191,13 @@ Office 365 プラットフォームの使い方の詳細については、次の
 
 - [Office 365 プラットフォーム上での開発の概要](..\howto\platform-development-overview.md)
     
-- [Office 365 アプリケーションの認証およびリソース承認](..\howto\common-app-authentication-tasks.md)
+- [Office 365 のアプリ認証とリソース承認](..\howto\common-app-authentication-tasks.md)
     
 - [Office 365 API にアクセスできるようにアプリを手動で Azure AD に登録する](..\howto\add-common-consent-manually.md)
   
-- [メール API リファレンス](..\api\mail-rest-operations.md)
+- [Mail API リファレンス](..\api\mail-rest-operations.md)
   
-- [予定表 API リファレンス](..\api\calendar-rest-operations.md)
+- [Calendar API リファレンス](..\api\calendar-rest-operations.md)
 
 - [Files API リファレンス](..\api\files-rest-operations.md)
 

@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Files REST API reference
 title: "ファイル REST API リファレンス"
-description: "ms.TocTitle:ファイル REST API リファレンスTitle:ファイル REST API リファレンスDescription:Office 365 および OneDrive for Business のフォルダーやドキュメントの内容にアクセスするために、ファイル API と対話する方法に関するリファレンスms.ContentId:86815fba-da70-4604-aaa4-4246c49bf3d3ms.topic: リファレンス (API) ms.date:2015 年 11 月 18 日"
+description: "Office 365 および OneDrive for Business のフォルダーやドキュメントの内容にアクセスするために、ファイル API と対話する方法に関するリファレンス"
 ms.ContentId: 86815fba-da70-4604-aaa4-4246c49bf3d3
 ms.date: November 18, 2015
 

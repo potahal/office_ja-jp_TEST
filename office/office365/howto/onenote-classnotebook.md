@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Work with class notebooks
-title: "クラス ノートブックの操作:"
-description: "Learn how to create and manage class notebooks."
+title: "クラス ノートブックの操作"
+description: "クラス ノートブックの作成方法と管理方法について説明します。"
 ms.ContentId: b3eca630-4f08-4157-b01b-c38df7782648
 ms.date: May 24, 2016
 ---
@@ -10,13 +10,13 @@ ms.date: May 24, 2016
 [!INCLUDE [Add the ONAPI repo styles](../includes/controls/addonapistyles.xml)]
 
 
-# クラス ノートブックの操作:
+# クラス ノートブックの操作
 
 *__適用対象:__Office 365 のEnterprise ノートブック*
 
 世界中の学校や大学で[クラス ノートブック](https://www.onenote.com/classnotebook)を使用して、生産性の向上、関心度の向上、共同作業の促進に役立てています。すべてのクラス、プロジェクト、学期、課題でもクラス ノートブックを活用できます。
 
-*classNotebooks* エンドポイントを使用して、クラスノートブックの作成や、生徒の追加および削除などのクラス ノートブックの一般的なタスクを実行できます。
+*classNotebooks* エンドポイントを使用して、クラス ノートブックの作成や、生徒の追加および削除などのクラス ノートブックの一般的なタスクを実行できます。
 
 >OneNote API には、クラス ノートブックに固有の操作のための *classNotebooks* エンドポイントが含まれています。
 
@@ -107,12 +107,12 @@ ms.date: May 24, 2016
 
 | パラメーター | 説明 |  
 |:------|:------|  
-| 名前 | ノートブックの名前。 |  
+| name | ノートブックの名前。 |  
 | studentSections | 1 つまたは複数のセクション名を含む配列。これらのセクションは、各生徒のセクション グループに作成されます。 |  
 | 教師 | 1 つまたは複数のプリンシパル オブジェクトを含む配列。 |
 | 生徒 | 1 つまたは複数のプリンシパル オブジェクトを含む配列。セクション グループは、生徒ごとに作成されます。 |    
 | hasTeacherOnlySectionGroup | 教師のみに表示される*教師のみ* セクション グループを作成する場合は `true`。 | 
-| omkt | クラス ノートブックの[言語](#supported-langs)を指定する URL クエリ パラメーター。既定値は  です。 Default is `en-us`. 例`?omkt=es-es` | 
+| omkt | ノートブックの[言語](#supported-langs)を指定する URL クエリ パラメーター。 既定値は `en-us` です。 例: `?omkt=es-es` | 
 | sendemail | ノートブックに割り当てられている教師および生徒にノートブックが作成されるときに、電子メール通知を送信するかどうかを指定する URL クエリ パラメーター。既定値は `false` です。 |
 
 <br />
@@ -133,7 +133,7 @@ ms.date: May 24, 2016
 
 以下の言語コードがサポートされています。既定値は `en-us` です。
 
-| コード | 言語 | 
+| Code | 言語 | 
 |:------|:------| 
 | bg-bg | Български (България) | 
 | cs-cz | Čeština (Česká republika) | 
@@ -233,15 +233,15 @@ Accept: application/json
 | プロトコル | すべての要求は SSL/TLS HTTPS プロトコルを使用します。 |  
 | 承認ヘッダー | <p>`Bearer {token}`。ここで *{token}* は、登録済みのアプリの有効な OAuth 2.0 アクセス トークンです。</p><p>欠落している、または無効な場合は、401 ステータス コードで要求は失敗します。[Azure AD を使用した認証 (エンタープライズ アプリ)](..\howto\onenote-auth.md#aad-auth)を参照してください。</p> |  
 | Content-Type ヘッダー | `application/json` |  
-| 承諾ヘッダー | `application/json` |  
+| Accept ヘッダー | `application/json` |  
 | [アクセス許可の適用範囲](../howto/onenote-auth.md#onenote-perms-aad) | Notes.ReadWrite.CreatedByApp、Notes.ReadWrite、Notes.ReadWrite.All | 
 
 | 応答データ | 説明 |  
 |------|------|  
 | 成功コード | 201 HTTP ステータス コード。 |  
-| 応答本文 | JSON 形式の新しいノートブックの OData 表記。<br /><br />[通常のノートブックのプロパティ](http://dev.onenote.com/docs#/reference/get-notebooks)に加え、クラス ノートブックには、次のプロパティが含まれます:<ul><li>**studentSections**。ノートブックの生徒セクション。</li><li>教師 teachers。ノートブックにアクセスできる教師。</li><li>生徒 student。ノートブックにアクセスできる生徒。</li><li>**hasTeacherOnlySectionGroup**. hasTeacherOnlySectionGroup。ノートブックに*教師のみ* セクション グループが含まれる場合は `true`、それ以外の場合は `false`。</li></ul> |  
+| 応答本文 | JSON 形式の新しいノートブックの OData 表記。<br /><br />[通常のノートブックのプロパティ](http://dev.onenote.com/docs#/reference/get-notebooks)に加え、クラス ノートブックには、次のプロパティが含まれます:<ul><li>**studentSections**。ノートブックの生徒セクション。</li><li>**teachers** ノートブックにアクセスできる教師。</li><li>**students** ノートブックにアクセスできる生徒。</li><li>**hasTeacherOnlySectionGroup**. ノートブックに *教師のみ*セクション グループが含まれている場合は `true`、含まれていない場合は `false`。</li></ul> |  
 | エラー | 要求が失敗すると、API は応答本文の [@api.diagnostics](../howto/onenote-error-codes.md) オブジェクトに**エラー**を返します。 |    
-| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行うときに、この値を Date ヘッダーの値とともに使用できます。 |  
+| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行う際に、この値を Date ヘッダーの値とともに使用できます。 |  
 
 
 <a name="update"></a>
@@ -263,13 +263,13 @@ Accept: application/json
 
 | パラメーター | 説明 |  
 |:------|:------|  
-| hasTeacherOnlySectionGroup | 教師のみに表示される*教師のみ*セクション グループを追加する場合は `true`。 はサポートされていません。 `false` is not supported. | 
+| hasTeacherOnlySectionGroup | 教師のみに表示される*教師のみ* セクション グループを追加する場合は `true`。 `false` はサポートされていません。 | 
 
-クラス ノートブックを変更する他の方法について、次の方法を参照してください。[生徒または教師の追加](#add-people)、[生徒または教師の削除](#remove-people)、[セクションの挿入](#insert-sections)。
+クラス ノートブックを変更する他の方法について、次の方法をご覧ください。「[生徒または教師の追加](#add-people)」、「[生徒または教師の削除](#remove-people)」、「[セクションの挿入](#insert-sections)」。
 
 ### 例
 
-次の要求は、スペイン語の*教師のみ*セクション グループを、指定したクラス ノートブックに追加します。(サポートされている言語を参照してください)
+次の要求によって、*教師のみ*セクション グループを指定のクラス ノートブックに追加します。
 
 ```
 PATCH ../v1.0/users/{teacher-id}/notes/classNotebooks/{notebook-id}
@@ -294,14 +294,14 @@ Accept: application/json
 | プロトコル | すべての要求は SSL/TLS HTTPS プロトコルを使用します。 |  
 | 承認ヘッダー | <p>`Bearer {token}`。ここで *{token}* は、登録済みのアプリの有効な OAuth 2.0 アクセス トークンです。</p><p>欠落している、または無効な場合は、401 ステータス コードで要求は失敗します。[Azure AD を使用した認証 (エンタープライズ アプリ)](..\howto\onenote-auth.md#aad-auth)を参照してください。</p> |  
 | Content-Type ヘッダー | `application/json` |  
-| 承諾ヘッダー | `application/json` |  
+| Accept ヘッダー | `application/json` |  
 | [アクセス許可の適用範囲](../howto/onenote-auth.md#onenote-perms-aad) | Notes.ReadWrite.CreatedByApp、Notes.ReadWrite、Notes.ReadWrite.All | 
 
 | 応答データ | 説明 |  
 |------|------|  
 | 成功コード | 204 HTTP ステータス コード。 |  
 | エラー | 要求が失敗すると、API は応答本文に[エラー](../howto/onenote-error-codes.md)を返します。 |  
-| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行うときに、この値を Date ヘッダーの値とともに使用できます。 |  
+| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行う際に、この値を Date ヘッダーの値とともに使用できます。 |  
 
 
 <a name="get"></a>
@@ -340,7 +340,7 @@ Accept: application/json
 |------|------|  
 | プロトコル | すべての要求は SSL/TLS HTTPS プロトコルを使用します。 |  
 | 承認ヘッダー | <p>`Bearer {token}`。ここで *{token}* は、登録済みのアプリの有効な OAuth 2.0 アクセス トークンです。</p><p>欠落している、または無効な場合は、401 ステータス コードで要求は失敗します。[Azure AD を使用した認証 (エンタープライズ アプリ)](..\howto\onenote-auth.md#aad-auth)を参照してください。</p> |  
-| 承諾ヘッダー | `application/json` | 
+| Accept ヘッダー | `application/json` | 
 | [アクセス許可の適用範囲](../howto/onenote-auth.md#onenote-perms-aad) | Notes.Read、Notes.ReadWrite.CreatedByApp、Notes.ReadWrite、または Notes.ReadWrite.All | 
 
 | 応答データ | 説明 |  
@@ -348,7 +348,7 @@ Accept: application/json
 | 成功コード | 200 HTTP ステータス コード。 |  
 | 応答本文 | JSON 形式のクラス ノートブックの OData 表記。<br /><br />[通常のノートブック プロパティ](http://dev.onenote.com/docs#/reference/get-notebooks)に加え、クラス ノートブックには次のプロパティが含まれます:<ul><li>**studentSections**。ノートブックの生徒セクション。</li><li>**teachers**。ノートブックにアクセスできる教師。</li><li>**student**。ノートブックにアクセスできる生徒。</li><li>**hasTeacherOnlySectionGroup**。ノートブックに*教師のみ* セクション グループが含まれる場合は `true`、それ以外の場合は `false`。</li></ul> |  
 | エラー | 要求が失敗すると、API は応答本文の [@api.diagnostics](../howto/onenote-error-codes.md) オブジェクトに**エラー**を返します。 |   
-| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行うときに、この値を Date ヘッダーの値とともに使用できます。 |   
+| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行う際に、この値を Date ヘッダーの値とともに使用できます。 |   
 
 
 <a name="delete"></a>
@@ -376,14 +376,14 @@ Accept: application/json
 |------|------|  
 | プロトコル | すべての要求は SSL/TLS HTTPS プロトコルを使用します。 |  
 | 承認ヘッダー | <p>`Bearer {token}`。ここで *{token}* は、登録済みのアプリの有効な OAuth 2.0 アクセス トークンです。</p><p>欠落している、または無効な場合は、401 ステータス コードで要求は失敗します。[Azure AD を使用した認証 (エンタープライズ アプリ)](..\howto\onenote-auth.md#aad-auth)を参照してください。</p> |   
-| 承諾ヘッダー | `application/json` |  
+| Accept ヘッダー | `application/json` |  
 | [アクセス許可の適用範囲](../howto/onenote-auth.md#onenote-perms-aad) | Notes.ReadWrite.CreatedByApp、Notes.ReadWrite、Notes.ReadWrite.All | 
 
 | 応答データ | 説明 |  
 |------|------|  
 | 成功コード | 204 HTTP ステータス コード。 |  
 | エラー | 要求が失敗すると、API は応答本文に[エラー](../howto/onenote-error-codes.md)を返します。 |  
-| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行うときに、この値を Date ヘッダーの値とともに使用できます。 |   
+| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行う際に、この値を Date ヘッダーの値とともに使用できます。 |   
 
 
 <a name="add-people"></a>
@@ -441,7 +441,7 @@ Accept: application/json
 | プロトコル | すべての要求は SSL/TLS HTTPS プロトコルを使用します。 |  
 | 承認ヘッダー | <p>`Bearer {token}`。ここで *{token}* は、登録済みのアプリの有効な OAuth 2.0 アクセス トークンです。</p><p>欠落している、または無効な場合は、401 ステータス コードで要求は失敗します。[Azure AD を使用した認証 (エンタープライズ アプリ)](..\howto\onenote-auth.md#aad-auth)を参照してください。</p> |  
 | Content-Type ヘッダー | `application/json` |    
-| 承諾ヘッダー | `application/json` |  
+| Accept ヘッダー | `application/json` |  
 | [アクセス許可の適用範囲](../howto/onenote-auth.md#onenote-perms-aad) | Notes.ReadWrite.CreatedByApp、Notes.ReadWrite、Notes.ReadWrite.All |  
 
 | 応答データ | 説明 |  
@@ -449,7 +449,7 @@ Accept: application/json
 | 成功コード | 201 HTTP ステータス コード。 |  
 | 応答本文 | 生徒または教師が追加されました。 |
 | エラー | 要求が失敗すると、API は応答本文の [@api.diagnostics](../howto/onenote-error-codes.md) オブジェクトに**エラー**を返します。 |  
-| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行うときに、この値を Date ヘッダーの値とともに使用できます。 |
+| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行う際に、この値を Date ヘッダーの値とともに使用できます。 |
 
 
 <a name="remove-people"></a>
@@ -487,14 +487,14 @@ Accept: application/json
 |------|------|  
 | プロトコル | すべての要求は SSL/TLS HTTPS プロトコルを使用します。 |  
 | 承認ヘッダー | <p>`Bearer {token}`。ここで *{token}* は、登録済みのアプリの有効な OAuth 2.0 アクセス トークンです。</p><p>欠落している、または無効な場合は、401 ステータス コードで要求は失敗します。[Azure AD を使用した認証 (エンタープライズ アプリ)](..\howto\onenote-auth.md#aad-auth)を参照してください。</p> |   
-| 承諾ヘッダー | `application/json` |  
+| Accept ヘッダー | `application/json` |  
 | [アクセス許可の適用範囲](../howto/onenote-auth.md#onenote-perms-aad) | Notes.ReadWrite.CreatedByApp、Notes.ReadWrite、Notes.ReadWrite.All |    
 
 | 応答データ | 説明 |  
 |------|------|  
 | 成功コード | 204 HTTP ステータス コード。 |   
 | エラー | 要求が失敗すると、API は応答本文の [@api.diagnostics](../howto/onenote-error-codes.md) オブジェクトに**エラー**を返します。 |   
-| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行うときに、この値を Date ヘッダーの値とともに使用できます。 |  
+| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行う際に、この値を Date ヘッダーの値とともに使用できます。 |  
 
 
 <a name="insert-sections"></a>
@@ -551,14 +551,14 @@ Accept: application/json
 | プロトコル | すべての要求は SSL/TLS HTTPS プロトコルを使用します。 |  
 | 承認ヘッダー | <p>`Bearer {token}`。ここで *{token}* は、登録済みのアプリの有効な OAuth 2.0 アクセス トークンです。</p><p>欠落している、または無効な場合は、401 ステータス コードで要求は失敗します。[Azure AD を使用した認証 (エンタープライズ アプリ)](..\howto\onenote-auth.md#aad-auth)を参照してください。</p> |  
 | Content-Type ヘッダー | `application/json` |  
-| 承諾ヘッダー | `application/json` |  
+| Accept ヘッダー | `application/json` |  
 | [アクセス許可の適用範囲](../howto/onenote-auth.md#onenote-perms-aad) | Notes.ReadWrite.CreatedByApp、Notes.ReadWrite、Notes.ReadWrite.All | 
 
 | 応答データ | 説明 |  
 |------|------|  
 | 成功コード | 201 HTTP ステータス コード。 |  
 | エラー | 作成要求が失敗すると、API は応答本文に[エラー](../howto/onenote-error-codes.md)を返します。 |  
-| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行うときに、この値を Date ヘッダーの値とともに使用できます。 |  
+| X-CorrelationId ヘッダー | 要求を一意に識別する GUID。Microsoft サポートと問題のトラブルシューティングを行う際に、この値を Date ヘッダーの値とともに使用できます。 |  
 
 
 <a name="root-url"></a>
@@ -568,11 +568,11 @@ Accept: application/json
 
 
 <a name="see-also"></a>
-## その他の技術情報
+## その他のリソース
 
 - [OneNote ノートブック クラス](https://www.onenote.com/classnotebook) (概要および機能)
-- [クラス ノートブックの操作:](../howto/onenote-staffnotebook.md)
-- [OneNote 開発](../howto/onenote-landing.md)
+- [スタッフ ノートブックの操作](../howto/onenote-staffnotebook.md)
+- [OneNote の開発](../howto/onenote-landing.md)
 - [OneNote コンテンツと構造を取得する](../howto/onenote-get-content.md)
 - [OneNote デベロッパー センター](http://dev.onenote.com/)
 - [OneNote の開発者ブログ](http://go.microsoft.com/fwlink/?LinkID=390183)

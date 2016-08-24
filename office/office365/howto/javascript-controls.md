@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: JavaScript UI controls
-title: "Office 365 の JavaScript コントロール"
-description: "Find information about user-interface controls that you can use with Office 365."
+title: "Office 365 JavaScript UI コントロール"
+description: "Office 365 で使用できるユーザー インターフェイス コントロールについての情報を紹介します。"
 ms.ContentId: 088d5611-85ac-4e10-b36a-3a29a1827e68
 ms.date: December 2, 2015
 
@@ -10,7 +10,7 @@ ms.date: December 2, 2015
 
 # Office 365 の JavaScript コントロール
 
-_**適用対象:** Office 365_
+_**適用対象:**Office 365_
 
 Office 365 の JavaScript UI コントロールを使用すると、自分のアプリに Office 365 スタイルのナビゲーション バーを追加できます。また、ユーザーは Azure Active Directory (AAD) の人物に関するデータにアクセスできるようにもなります。このような JavaScript UI コントロールは、サーバー側のコードを必要としません。わずか数行のコードでシングルページ アプリケーション (SPA) に組み込むことができます。 
 
@@ -21,38 +21,38 @@ Office 365 の JavaScript UI コントロールを使用すると、自分のア
 これらの UI コントロールは、個別に動作させることも、組み合わせて動作させることもできます。その内容は、次のとおりです。 
 * AppChrome - AppChrome コントロールを使用すると、自分のアプリで Office 365 スタイルのナビゲーション バーとカスタマイズしたリンクを表示できます。これにより、ユーザーは自分の Office 365 アカウントにサインインおよびサインアウトできるようになります。また、注目のサイトやページにユーザーを導くこともできます。
   
-  __ユーザーがサインインする前の AppChrome コントロール__
+  _ユーザーがサインインする前の AppChrome コントロール_
   
- ![AppChrome control with user not signed in](images/Office365_JavaScriptControl_AppChrome_1.png)
+ ![ユーザーがサインインしていない AppChrome コントロール](images/Office365_JavaScriptControl_AppChrome_1.png)
 
-  __ユーザーがサインインした後の AppChrome コントロール__
+  _ユーザーがサインインした後の AppChrome コントロール_
  
- ![AppChrome control with user signed in](images/Office365_JavaScriptControl_AppChrome_2.png)
+ ![ユーザーがサインインしている AppChrome コントロール](images/Office365_JavaScriptControl_AppChrome_2.png)
 
-  __カスタマイズしたリンクを含む AppChrome コントロール__
+  _カスタマイズしたリンクを含む AppChrome コントロール_
   
- ![AppChrome control with dropdown list](images/Office365_JavaScriptControl_AppChrome_3.png)
+ ![ドロップダウン リストを含む AppChrome コントロール](images/Office365_JavaScriptControl_AppChrome_3.png)
  
  
  * People Picker - People Picker コントロールを使用すると、ユーザーはキーワードを入力することで、自分の組織内の人物を検索できます。ディレクトリ内で検索結果に一致した人物が表示されます。  
 
-  _ユーザー選択ウィンドウ_
+  _People Picker_
 
-  ![A screenshot that shows the People Picker](images/Office365_JavaScriptControl_PeoplePicker.png)
+  ![People Picker を示すスクリーンショット](images/Office365_JavaScriptControl_PeoplePicker.png)
 
 * Persona Card - インライン表示の Persona Card と詳細表示の Persona Card を使用すると、ユーザーは自分の組織内の個人に関する情報を確認できます。Persona Card には、People Picker コントロールなどを情報源にしたデータが表示されます。ユーザーがインライン表示の Persona Card をクリックすると、選択したユーザーに関する詳しい情報が詳細表示の Persona Card で確認できます。 
 
-  __インライン表示の Persona Card__
+  _インライン表示の Persona Card_
   
-  ![_インライン表示の Persona Card_](images/Office365_JavaScriptControl_InlinePersonaBasic.png) 
+  ![インライン表示の Persona Card](images/Office365_JavaScriptControl_InlinePersonaBasic.png) 
   
-  __詳細表示の Persona Card__
+  _詳細表示の Persona Card_
   
-  ![_詳細表示の Persona Card_](images/Office365_JavaScriptControl_DetailedPresonaCard.png) 
+  ![詳細表示の Persona Card](images/Office365_JavaScriptControl_DetailedPresonaCard.png) 
 
-  __クリック後のインライン表示の Persona Card__
+  _クリック後のインライン表示の Persona Card_
   
-  ![_クリック後のインライン表示の Persona Card_](images/Office365_JavaScriptControl_InlinePersonaCard.png)
+  ![クリック後のインライン表示の Persona Card](images/Office365_JavaScriptControl_InlinePersonaCard.png)
 
 ## Office 365 コントロールのコードの追加
 * AppChrome コントロールのコードの追加
@@ -89,9 +89,9 @@ new Office.Controls.AppChrome(appTitle, container, loginProvider, options)
 |パラメーター | 型 | 説明 
 |:-----|:-----|:-----|
 |appTitle | String | AppChrome コントロールのナビゲーション バーに表示されるアプリ名。既定値は、"3rd Party App" です。 |
-|container | Object | AppChrome コントロールを格納する HTML 要素。 |
+|コンテナー | Object | AppChrome コントロールを格納する HTML 要素。 |
 |loginProvider | Object | AppChrome コントロールが必要とするサインイン ロジックを処理するオブジェクト。 |
-|options | Object | 省略可能。 省略可能。AppChrome コントロールがサポートする、各種オプションを格納するオブジェクト。|
+|options | Object | 省略可能。 AppChrome コントロールがサポートする、各種オプションを格納するオブジェクト。|
 
   **戻り値**
   
@@ -124,8 +124,8 @@ AAD での構成に必要とされるアクセス許可
     } 
 }
 ```
-* #### loginProvider object
- #### loginProvider オブジェクト  このオブジェクトでは、次に示す関数を公開する必要があります。これらの関数は AppChrome から呼び出されます。 
+* #### loginProvider オブジェクト
+ このオブジェクトでは、次に示す各関数を公開する必要があります。これらの関数は AppChrome から呼び出されます。 
 ```javascript
 {
     function login() {} // required. The function to call to sign in. When this function is called, the client app redirects the user to the Azure AD authorization endpoint. After authenticating, the user should be redirected back to the client application. 
@@ -143,7 +143,7 @@ AAD での構成に必要とされるアクセス許可
 }
 ```
 注: Implicit Grant Type を使用すると、ImplicitGrant loginProvider が使用できるようになります。詳細については、「ImplicitGrant loginProvider の作成方法」および Office.Controls.Login.js ("https://controls.office.com/appChrome/1.0/Office.Controls.Login.js") を参照してください。認証コードの付与フローを使用すると、サード パーティの開発者により loginProvider オブジェクトが提供されます。 
-* ### ### ImplicitGrant loginProvider の作成方法
+* ### ImplicitGrant loginProvider の作成方法
 * ImplicitGrant loginProvider のコードの追加
 ```html
 <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/adal.min.js"></script>
@@ -182,7 +182,7 @@ Office.Controls.PeoplePicker.create(container, authContext, options);
 |:-----|:-----|:-----|
 |コンテナー | Object | People Picker コントロールを格納する HTML 要素。 |
 |authContext | Object | ADAL によって作成される Office 365 データにアクセスするためのオブジェクト。 |
-|options | Object | 省略可能。 省略可能。People Picker コントロールがサポートする、各種オプションを格納するオブジェクト。|
+|options | Object | 省略可能。 People Picker コントロールがサポートする、各種オプションを格納するオブジェクト。|
 
   **戻り値**
   
@@ -211,7 +211,8 @@ AAD での構成に必要とされるアクセス許可
 |People コントロール|Azure Active Directory||サインインおよびユーザー プロファイルの読み取り|すべての People コントロールは、このアクセス許可を必要とします|
 |ユーザー選択ウィンドウ|Azure Active Directory||すべてのユーザーの基本的なプロファイルの読み取り|| 
 |Persona Card|Azure Active Directory||すべてのユーザーの基本的なプロファイルの読み取り||  
-|Persona Card|Azure Active Directory||すべてのユーザーの完全なプロファイルの読み取り|ユーザーの電話番号をアプリで取得する必要がある場合、AAD は、より高いアクセス許可を要求します。認証コードの付与フローで、パラメーター "prompt" に "admin_consent" を設定する必要があります。 ユーザーの電話番号をアプリで取得する必要がある場合、AAD は、より高いアクセス許可を要求します。認証コードの付与フローで、パラメーター "prompt" に "admin_consent" を設定する必要があります。|
+|Persona Card|Azure Active Directory||すべてのユーザーの完全なプロファイルの読み取り|ユーザーの電話番号をアプリで取得する必要がある場合、AAD は、より高いアクセス許可を要求します。 
+  [認証コードの付与フロー](https://msdn.microsoft.com/en-us/library/azure/dn645542.aspx)で、パラメーター "prompt" に "admin_consent" を設定する必要があります。|
 
   |
 
@@ -245,7 +246,7 @@ Office.Controls.Persona.PersonaHelper.createInlinePersona(container, personObjec
 |:-----|:-----|:-----|
 | コンテナー     | Object | インライン表示の Persona Card を格納する HTML 要素。|
 | personObject| Object | 個人データ オブジェクト。|
-| event         | String | 省略可能。 省略可能。詳細表示の Persona Card を表示または非表示にするイベント。サポートされる値は、click のみです。 The only supported value is **click**.|
+| event         | String | 省略可能。 詳細表示の Persona Card を表示または非表示にするイベント。 サポートされる値は、**click** のみです。|
 
 ### 詳細表示の Personal Card の作成
 
@@ -264,7 +265,7 @@ Office.Controls.Persona.PersonaHelper.createPersonaCard(container, personObject)
 
 ### リファレンス
 
-* #### #### 個人オブジェクト
+* #### person オブジェクト
 ```javascript
     {
        "displayName": "", // type: String. description: display name 
@@ -286,7 +287,7 @@ Office.Controls.Persona.PersonaHelper.createPersonaCard(container, personObject)
 
 この手順では、すべてのコントロールを含むシングルページ アプリケーションをセットアップします。AppChrome を使用して、ログイン プロセスを処理します。サインインしたユーザーは、People Picker と Persona Card を使用してデータを取得できます。
 
-**Note** You should replace the '********-****-****-****-************' with a valid client ID for your application. See [Create an app with Office 365 APIs](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs?o365apifilter=javascript) for detailed instructions on getting set up. 注 OAuth 2.0 の暗黙的な付与フローを許可するようにアプリケーションを構成してください。
+**注** '********-****-****-****-************' は、自分のアプリの有効なクライアント ID に置き換える必要があります。 詳しいセットアップ手順については、「[Office 365 API でアプリを作成する](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs?o365apifilter=javascript)」をご覧ください。 OAuth 2.0 の暗黙的な付与フローを許可するようにアプリケーションを構成してください。
 
 * 空の HTML ファイルを作成し、次に示すコードをコピーしてからファイルを保存します。サポート対象ブラウザーで、HTML ファイルを開きます。Office 365 資格情報を使用して AppChrome でサインインし、People Picker を使用して個人を選択します。その個人の情報は、Persona Card 内と JSON 形式で表示されます。 
 ```html

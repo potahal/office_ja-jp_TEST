@@ -1,7 +1,7 @@
 ---
 ms.Toctitle: Subscribe for webhooks
-title: "Webhook をサブスクライブして変更の通知を取得する"
-description: "Webhook サービスをサブスクライブすることにより、自分のユーザーが OneNote で行う変更を見逃さないようにします。"
+title: "Webhook を購読して変更の通知を取得する"
+description: "Webhook を購読することで、ユーザーが OneNote で行う変更を見逃さないようにします。"
 ms.ContentId: 0793a8f9-4805-4666-9d45-3b79c278d765
 ms.date: February 2, 2016
 ---
@@ -10,11 +10,11 @@ ms.date: February 2, 2016
 [!INCLUDE [Add the ONAPI repo styles](../includes/controls/addonapistyles.xml)]
 
 
-# Webhook をサブスクライブして変更の通知を取得する
+# Webhook を購読して変更の通知を取得する
 
-**__適用対象:__OneDrive のコンシューマー ノートブック**
+*__適用対象:__OneDrive のコンシューマー ノートブック*
 
-Webhook サービスをサブスクライブすることにより、自分のユーザーが OneNote で行う変更を見逃さないようにします。
+Webhook サービスを購読することで、ユーザーが OneNote で行う変更を見逃さないようにします。
 
 パブリック エンドポイントを公開する Web アプリケーションまたは Web サービスを持っている場合に、自分の OneDrive ユーザーの、個人の OneNote ノートブックに変更が行われると、ほとんどリアルタイムで通知を受信できます。  
 
@@ -41,7 +41,7 @@ Webhook サービスをサブスクライブすることにより、自分のユ
 - 202 Accepted
 - 204 No Content
 
-応答を受信しない場合は指数関数的にバックオフを 2 ～ 3 回再実行して、最終的にメッセージを破棄します。
+応答を受信しない場合は指数関数的にバックオフを 2 から 3 回再実行して、最終的にメッセージを破棄します。
 
 <br />
 通知の詳細を次に示します。
@@ -73,28 +73,28 @@ Webhook サービスをサブスクライブすることにより、自分のユ
 GET ../me/notes/pages?filter=lastModifiedTime%20ge%20{stored-iso-8601-timestamp}
 ```
 
-変更のクエリを実行した後、最新の **lastModifiedTime** で保存したタイムスタンプを更新します。
+変更についてのクエリを実行した後、最新の **lastModifiedTime** で保存したタイムスタンプを更新します。
 
->The Webhooks service is not intended to be used as a sync mechanism. >Webhook サービスは、同期メカニズムとして使用することを目的としていません。通知の送信や受信ができない場合には、変更のクエリを定期的に実行する必要があります。  
+>Webhook サービスは、同期メカニズムとして使用することを目的としていません。 通知の送信や受信ができない場合には、変更についてのクエリを定期的に実行する必要があります。  
 
 
 <a name="subscribe"></a>
-## Webhook サービスにサブスクライブする方法
-OneNote の Webhook サービスにサブスクライブするには、次の操作を実行する必要があります。
+## Webhook サービスに登録する方法
+OneNote の Webhook サービスに登録するには、次の操作を実行する必要があります。
 
-- OneNote の Webhook サービスから HTTP POST 要求を受信するパブリック エンドポイントであるコールバック URL (HTTP または HTTPS) を登録します。Webhook サービスは HTTP リダイレクトに従いません。 The Webhooks service will not follow HTTP redirects.
+- OneNote の Webhook サービスから HTTP POST 要求を受信するパブリック エンドポイントのコールバック URL (HTTP または HTTPS)<!-- hosted on the same domain as your app--> を登録します。 Webhook サービスは HTTP リダイレクトに従いません。
 
 - 次に示すアプリケーションのアクセス許可を要求します。 
-   - wl.offline_access`wl.offline_access` (Microsoft アカウントのアクセス許可)
-   - office.onenote、office.onenote_create、office.onenote_update_by_app、または office.onenote_update (OneNote API 用。アプリの実行内容によって異なる)
+   - `wl.offline_access` (Microsoft アカウントのアクセス許可)
+   - `office.onenote`、`office.onenote_create`、`office.onenote_update_by_app`、または `office.onenote_update` (OneNote API の場合。アプリの実行内容によって異なります)
  
 <br />
-When you're ready to subscribe, contact us at [@onenotedev](http://twitter.com/onenotedev). サブスクライブする用意ができたら、@onenotedev から連絡してください。チームのメンバーがセットアップに協力します。 
+登録の用意ができたら、[@onenotedev](http://twitter.com/onenotedev) 宛てにお問い合わせください。 チームのメンバーがセットアップに協力します。 
 
-自分のアプリケーションを使用してユーザーが登録を行うときには、ユーザーの代わりに OneNote API の呼び出しを行う必要があります (たとえば、*GET ../me/notes/notebooks*)。この呼び出しの結果は次のようになります。 This call will:
+自分のアプリケーションを使用してユーザーが登録を行うときには、ユーザーの代わりに OneNote API の呼び出しを行う必要があります (例: *GET ../me/notes/notebooks*)。 この呼び出しの結果は次のようになります。
 
 - OneNote はコールバック通知のためにユーザーを登録します。
-- **X-AuthenticatedUserId** 応答ヘッダーで返されるユーザーの ID を取得して保存できるようにします。
+- **X-AuthenticatedUserId** 応答ヘッダーで返されるユーザーの ID を取得して保存できるようになります。
 
 
 ### モデルの有効期限
@@ -104,9 +104,9 @@ Webhook 通知では、ユーザーの ID を登録します。特定のユー�
 
 
 <a name="see-also"></a>
-## その他の技術情報
+## その他のリソース
 
-- [OneNote 開発](../howto/onenote-landing.md)
+- [OneNote の開発](../howto/onenote-landing.md)
 - [OneNote コンテンツと構造を取得する](../howto/onenote-get-content.md)
 - [OneNote デベロッパー センター](http://dev.onenote.com/)
 - [OneNote の開発者ブログ](http://go.microsoft.com/fwlink/?LinkID=390183)
