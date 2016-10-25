@@ -1,0 +1,24 @@
+
+# Section.Index Property (Word)
+
+Returns a  **Long** that represents the position of an item in a collection. Read-only.
+
+
+## Syntax
+
+ _表达式_. **Index**
+
+ _表达式_ Required. A variable that represents a **[Section](3fe563d8-fc05-c17a-e67b-c50eea7e7f13.md)** object.
+
+
+## 另请参阅
+
+
+#### 概念
+
+
+[Section Object](3fe563d8-fc05-c17a-e67b-c50eea7e7f13.md)
+#### 其他资源
+
+
+[Section Object Members](http://msdn.microsoft.com/library/bcfdb17e-6f7b-2b21-9f63-7aaca69bd727%28Office.15%29.aspx)

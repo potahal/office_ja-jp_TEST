@@ -1,0 +1,37 @@
+
+# OLEDBError.Number Property (Excel)
+
+Returns a numeric value that specifies an error. The error number corresponds to a unique trap number corresponding to an error condition that resulted after the most recent OLE DB query. Read-only  **Long**.
+
+
+## Syntax
+
+ _表达式_. **Number**
+
+ _表达式_ A variable that represents an **OLEDBError** object.
+
+
+## Example
+
+This example displays the error number and other error information returned by the most recent OLE DB query.
+
+
+```
+Set objEr = Application.OLEDBErrors(1) 
+MsgBox "The following error occurred:" &amp; _ 
+ objEr.Number &amp; ", " &amp; objEr.Native &amp; ", " &amp; _ 
+ objEr.ErrorString &amp; " : " &amp; objEr.SqlState
+```
+
+
+## 另请参阅
+
+
+#### 概念
+
+
+[OLEDBError Object](6bcbf721-f2c8-f784-361b-e1a298bb2ecb.md)
+#### 其他资源
+
+
+[OLEDBError Object Members](http://msdn.microsoft.com/library/52181252-dd6f-b267-fa21-4ad8175b7346%28Office.15%29.aspx)

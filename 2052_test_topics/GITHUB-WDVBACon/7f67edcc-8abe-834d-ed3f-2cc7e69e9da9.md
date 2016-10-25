@@ -1,0 +1,31 @@
+
+# Broadcast.SessionID Property (Word)
+
+If a broadcast is in progress, returns a  **String** that specifies the ID of the session. Read-only.
+
+
+## Syntax
+
+ _表达式_. **SessionID**
+
+ _表达式_ A variable that represents a **Broadcast** object.
+
+
+## Remarks
+
+If a broadcast is not in progress,  **SessionID** returns an empty string.
+
+
+## Property value
+
+ **STRING**
+
+
+## 另请参阅
+
+
+#### 其他资源
+
+
+[Broadcast Object](47a77749-ef18-d38a-af24-03f32c9e1151.md)
+[Broadcast Members](http://msdn.microsoft.com/library/936c0328-6b7d-b886-c9c8-e942455c5081%28Office.15%29.aspx)

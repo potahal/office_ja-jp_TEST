@@ -1,0 +1,55 @@
+
+# WorksheetFunction.BesselY Method (Excel)
+
+Returns the Bessel function, which is also called the Weber function or the Neumann function.
+
+
+## Syntax
+
+ _表达式_. **BesselY**( ** _Arg1_**, ** _Arg2_** )
+
+ _表达式_ A variable that represents a **WorksheetFunction** object.
+
+
+### Parameters
+
+
+
+|**Name**|**Required/Optional**|**Data Type**|**Description**|
+|:-----|:-----|:-----|:-----|
+| _Arg1_|必需|**Variant**|The value at which to evaluate the function.|
+| _Arg2_|必需|**Variant**|The order of the function. If n is not an integer, it is truncated.|
+
+### Return Value
+
+Double
+
+
+## Remarks
+
+
+
+
+- If x is nonnumeric, BesselY generates an error value.
+    
+- If n is nonnumeric, BesselY generates an error value.
+    
+- If n < 0, BesselY generates an error value.
+    
+- The n-th order Bessel function of the variable x is:
+![](images/awfbsly1_ZA06051118.gif)
+
+
+    
+
+## 另请参阅
+
+
+#### 概念
+
+
+[WorksheetFunction Object](7b1d5639-363d-632c-2cf0-2232562646b6.md)
+#### 其他资源
+
+
+[WorksheetFunction Object Members](http://msdn.microsoft.com/library/6811ca87-4b53-0bff-88c9-30bf7497879a%28Office.15%29.aspx)

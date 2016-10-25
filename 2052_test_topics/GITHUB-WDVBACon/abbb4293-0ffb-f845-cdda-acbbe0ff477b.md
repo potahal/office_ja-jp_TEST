@@ -1,0 +1,38 @@
+
+# Words.Count Property (Word)
+
+Returns a  **Long** that represents the number of words in the collection. Read-only.
+
+
+## Syntax
+
+ _表达式_. **Count**
+
+ _表达式_ Required. A variable that represents a **[Words](a718f69f-1db1-231a-9d65-bf20b48778ed.md)** collection.
+
+
+## Example
+
+This example displays the number of words in the selection.
+
+
+```
+If Selection.Words.Count >= 1 And _ 
+ Selection.Type <> wdSelectionIP Then 
+ MsgBox "The selection contains " &amp; Selection.Words.Count _ 
+ &amp; " words." 
+End If
+```
+
+
+## 另请参阅
+
+
+#### 概念
+
+
+[Words Collection Object](a718f69f-1db1-231a-9d65-bf20b48778ed.md)
+#### 其他资源
+
+
+[Words Object Members](http://msdn.microsoft.com/library/92281dcf-075c-ce1d-8342-cf1749ebb8ab%28Office.15%29.aspx)

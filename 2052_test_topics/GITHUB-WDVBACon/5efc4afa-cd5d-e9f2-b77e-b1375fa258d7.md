@@ -1,0 +1,34 @@
+
+# Row.IsFirst Property (Word)
+
+ **True** if the specified row is the first one in the table. Read-only **Boolean**.
+
+
+## Syntax
+
+ _表达式_. **IsFirst**
+
+ _表达式_ Required. A variable that represents a **[Row](38a05858-829a-ea5c-ce63-7f7343bf7b88.md)** object.
+
+
+## Example
+
+This example determines whether the first row in the selection is the first row in the table.
+
+
+```
+MsgBox Selection.Rows(1).IsFirst
+```
+
+
+## 另请参阅
+
+
+#### 概念
+
+
+[Row Object](38a05858-829a-ea5c-ce63-7f7343bf7b88.md)
+#### 其他资源
+
+
+[Row Object Members](http://msdn.microsoft.com/library/3ac6ec58-8e33-7e98-33b6-861a7aa7e80f%28Office.15%29.aspx)

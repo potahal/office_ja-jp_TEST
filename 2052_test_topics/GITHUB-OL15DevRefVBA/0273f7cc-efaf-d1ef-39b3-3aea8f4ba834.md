@@ -1,0 +1,24 @@
+
+# NoteItem.Left 属性 (Outlook)
+
+返回或设置便笺窗口左侧垂直边距离屏幕边缘的位置（以像素为单位）。 **Long** 类型，可读写。
+
+
+## 语法
+
+ _表达式_. **Left**
+
+ _表达式_ 一个表示 **NoteItem** 对象的变量。
+
+
+## 另请参阅
+
+
+#### 概念
+
+
+[NoteItem 对象](ddf5baaa-6e13-a6fb-96e8-311e7761fa98.md)
+#### 其他资源
+
+
+[NoteItem 对象成员](e468d6a5-5dac-9ec2-779d-e20a2ba9e4d0.md)

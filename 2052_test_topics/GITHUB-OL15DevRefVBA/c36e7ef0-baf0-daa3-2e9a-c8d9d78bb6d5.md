@@ -1,0 +1,39 @@
+
+# DistListItem.Session 属性 (Outlook)
+
+返回当前会话的 **[命名空间](f0dcaa19-07f5-5d42-a3bf-2e42b7885644.md)** 的对象。只读的。
+
+
+## 语法
+
+ _表达式_. **Session**
+
+ _表达式_ 一个代表 **DistListItem** 对象的变量。
+
+
+## 注解
+
+ **会话** 属性和 **[GetNamespace](6175d0d9-5a61-ce45-35c0-b70895d757b3.md)** 方法可互换为当前会话获取 **命名空间** 的对象。这两个成员可以实现同一目的。例如，下列语句执行相同功能:
+
+
+```
+Set objNamespace = Application.GetNamespace("MAPI") 
+```
+
+
+```
+Set objSession = Application.Session
+```
+
+
+## 另请参阅
+
+
+#### 概念
+
+
+[DistListItem 对象](027c3986-abff-d9b1-ecc2-26d60805e952.md)
+#### 其他资源
+
+
+[DistListItem 对象成员](3ba4af84-ce84-61d9-1bc9-fab41bf6f125.md)
